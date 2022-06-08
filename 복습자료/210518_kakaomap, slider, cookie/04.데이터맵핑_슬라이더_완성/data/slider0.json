@@ -1,0 +1,46 @@
+{
+	"data": [
+		{
+			"bgColor": "pink",
+			"text": "Strawberry",
+			"custom": {
+				"opacity": 0.4,
+				"fontSize": 300
+			}
+		},
+		{
+			"bgColor": "lightgreen",
+			"text": "Melon",
+			"custom": {
+				"opacity": 0.4,
+				"fontSize": 300,
+				"justifyContent": "left",
+				"paddingLeft": 150
+			}
+		},
+		{
+			"bgColor": "orange",
+			"text": "Orange",
+			"custom": {
+				"opacity": 0.2,
+				"fontSize": 300
+			}
+		},
+		{
+			"bgColor": "violet",
+			"text": "Grapes",
+			"custom": {
+				"opacity": 0.4,
+				"fontSize": 300
+			}
+		},
+		{
+			"bgColor": "aqua",
+			"text": "Blueberry",
+			"custom": {
+				"opacity": 0.4,
+				"fontSize": 300
+			}
+		}
+	]
+}

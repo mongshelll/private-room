@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+body { margin: 0; padding: 0; }
+ol, ul, li { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, h4, p { margin: 0; padding: 0; }
+.hidden { position: absolute; top: 0; left: 0; width: 1px; height: 1px; clip: rect(1px, 1px, 1px, 1px); text-indent: -9999px; }
+.haeder { padding: 30px 20px 30px 20px; box-sizing: border-box; width: 100%; text-align: center; }
+.content { padding: 0 30px 0 30px; box-sizing: border-box; }
+.content_inner .gugudan_set { display: flex; justify-content: space-evenly; gap: 20px; padding-bottom: 15px; }
+.content_title { padding: 20px 0; border: 4px solid rgb(158, 193, 197); border-bottom: none; text-align: center; }
+.content_wrap { border: 4px solid rgb(158, 193, 197); border-top: none; }
+.gugudan .input_wrap { padding: 15px; box-sizing: border-box; }
+.gugudan .input_wrap input.input_submit { margin-bottom: 10px; padding: 10px; box-sizing: border-box; }
+.gugudan .input_wrap .btn_gugudan { padding: 10px; box-sizing: border-box; }
+.gugudan .input_wrap .btn_gugudan_reset { padding: 10px; box-sizing: border-box; }
+.gugudan .result_wrap ul { padding: 30px; box-sizing: border-box; }
+.gugudan .result_wrap ul li { margin-bottom: 10px; }
+.log{ opacity: 0; transition: opacity 1s; padding: 15px 15px 50px 15px; box-sizing: border-box; text-align: center; }
+.log .tbl_title { display: inline-block; margin-bottom: 10px; text-align: center; }
+.log .btn_search_log { padding: 10px; box-sizing: border-box; }
+.log .btn_reset_log { padding: 10px; box-sizing: border-box; }
+.log .tbl { table-layout: fixed; margin: 0 auto; width: 800px; }
+.log .tbl thead tr th { text-align: left; padding: 5px; }
+.log .tbl tbody tr td { text-align: left; padding: 5px; white-space: normal; overflow: hidden; text-overflow: ellipsis; }
+.log .tbl tbody tr { background: rgba(255, 255, 255, 0.5); }
+.log .tbl tbody tr:hover { background: rgba(255, 255, 255, 1); }
+.log .tbl tbody tr:nth-of-type(odd) { background: rgba(225, 245, 254, 0.5) }
+.log .tbl tbody tr:hover:nth-of-type(odd) { background: rgba(225, 245, 254, 1); }
+.log ul.search_log li { margin-bottom: 5px; }
+

@@ -1,0 +1,24 @@
+{
+	"data": [
+		{
+			"bgColor": "pink",
+			"text": "Strawberry"
+		},
+		{
+			"bgColor": "lightgreen",
+			"text": "Melon"
+		},
+		{
+			"bgColor": "orange",
+			"text": "Orange"
+		},
+		{
+			"bgColor": "violet",
+			"text": "Grapes"
+		},
+		{
+			"bgColor": "aqua",
+			"text": "Blueberry"
+		}
+	]
+}

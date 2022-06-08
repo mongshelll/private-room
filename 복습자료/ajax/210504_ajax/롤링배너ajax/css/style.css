@@ -1,0 +1,41 @@
+* { margin: 0px; padding: 0px; }
+
+ol, ul { list-style: none; }
+
+a { text-decoration: none; }
+
+table, td, th { border-collapse: collapse; }
+
+fieldset { border: none; }
+
+input, a, button { outline: 1; }
+
+.hidden { position: absolute; top: -9999px; opacity: 0; }
+
+main { width: 100%; height: 100vh; position: relative; overflow: hidden; background: url("../img/bg1.jpg") no-repeat center/cover; }
+
+main .typo { width: 800px; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -70%) scale(0.7); transform: translate(-50%, -70%) scale(0.7); }
+
+main .listBox { width: 100%; height: 100px; position: absolute; left: 0; bottom: 100px; background: rgba(0, 0, 0, 0.7); }
+
+main .listBox .list { height: 100%; position: absolute; left: 0; top: 0; }
+
+main .listBox .list li { width: 240px; height: 100%; float: left; opacity: 0.3; -webkit-transition: 0.5s; transition: 0.5s; }
+
+main .listBox .list li:hover { opacity: 1; -webkit-transform: scale(1.1); transform: scale(1.1); }
+
+main .listBox .list li a img { width: 100%; }
+
+.pop { width: 800px; height: 450px; background-color: rgba(0, 0, 0, 0.9); position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); -webkit-box-sizing: border-box; box-sizing: border-box; padding: 50px; display: none; }
+
+.pop .con { width: 100%; height: 100%; }
+
+.pop .con img { width: 100%; }
+
+.pop .con h2 { font: bold 14px/1 'arial'; color: #aaa; margin-top: 10px; margin-bottom: 5px; }
+
+.pop .con p { font: 12px/1.2 'arial'; color: #888; }
+
+.pop .con .loading { width: 100px; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+
+.pop .btnClose { position: absolute; top: 20px; right: 30px; font: bold 12px/1 'arila'; color: #fff; cursor: pointer; }

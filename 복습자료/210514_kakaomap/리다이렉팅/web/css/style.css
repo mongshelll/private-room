@@ -1,0 +1,23 @@
+* { margin: 0px; padding: 0px; }
+
+ol, ul { list-style: none; }
+
+a { text-decoration: none; }
+
+table, td, th { border-collapse: collapse; }
+
+fieldset { border: none; }
+
+input, a, button { outline: 1; }
+
+.hidden { position: absolute; top: -9999px; opacity: 0; }
+
+#web { width: 800px; height: 300px; background: aqua; font: bold 100px/300px 'arial'; color: #fff; text-align: center; margin: 100px auto; }
+
+.mask { position: fixed; width: 100%; height: 100vh; background: #fff; top: 0; left: 0; display: none; }
+
+.mask img { position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+
+body.mo #web { display: none; }
+
+body.mo .mask { display: block; }

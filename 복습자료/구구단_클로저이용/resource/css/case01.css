@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+body { margin: 0; padding: 0; }
+ol, ul, li { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, h4, p { margin: 0; padding: 0; }
+.haeder { padding: 30px 20px 30px 20px; box-sizing: border-box; width: 100%; text-align: center; }
+.content { padding: 0 30px 0 30px; margin: 0 auto; box-sizing: border-box; width: 350px; }
+.content_title { padding: 20px 0; border: 4px solid rgb(158, 193, 197); border-bottom: none; text-align: center; }
+.content_wrap { }
+.content_wrap .input_wrap { padding: 15px; box-sizing: border-box; }
+.content_wrap .input_wrap input { padding: 10px; box-sizing: border-box; }
+.content_wrap .btn { padding: 10px; box-sizing: border-box; }
+.content_wrap ul { padding: 30px; box-sizing: border-box; }
+.content_wrap ul li { margin-bottom: 10px; }
+.gugudan { border: 4px solid rgb(158, 193, 197); border-top: none; }

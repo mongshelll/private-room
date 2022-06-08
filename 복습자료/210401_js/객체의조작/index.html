@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>객체의 조작</title>
+</head>
+<body>
+	<!--
+		객체의 특정 정보값을 뽑아내는 방법
+		1. 객체명.프로퍼티명;
+		2. 객페명["프로퍼티명"];
+
+		객체의 특정정보값을 변경하는 방법
+		1. 객체명.프로퍼티명 = "변경할 값";
+		2. 객체명[프로퍼티명] = "변경할 값";
+
+		객체에는 함수를 등록할 수도 있음
+		- 객체명.프로퍼티();
+
+		객체안의 this
+		: this를 품고있는 객체 그 자신을 지칭
+	-->
+	<script>
+		var student1 = {
+			name:"홍길동",
+			age:20,
+			address:"서울",
+			action: function(){
+				console.log("해당학생의 이름은" + this.name + "입니다.");
+			}
+		}
+
+		console.log(student1["name"]);
+		console.log(student1.age);
+		student1.action(); //student1객체 안에 action프로퍼티 안에 등록되어있는 함수를 호출
+
+		student1.age = 30;  //변경
+		console.log(student1.age);
+		student1.hobby = "readding";  //추가
+		console.log(student1.hobby);
+
+		//해당 학생의 이름은 홍길동이고, 나이는 20살, 사는 곳은 서울입니다.
+		student1.age = 20;
+		console.log("해당 학생의 이름은 " + student1.name + "이고, 나이는 " + student1.age + "살, " + "사는 곳은 " + student1.address + "입니다.");
+	</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
+* {
+  margin: 0px;
+  padding: 0px; }
+
+ol, ul {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+table, td, th {
+  border-collapse: collapse; }
+
+fieldset {
+  border: none; }
+
+input, a, button {
+  outline: 1; }
+
+.hidden {
+  position: absolute;
+  top: -9999px;
+  opacity: 0; }
+
+/*
+font-family: 'Orbitron', sans-serif;
+*/
+body > a {
+  margin-right: 20px; }
+
+#popup {
+  width: 500px;
+  background: lightblue;
+  padding: 40px;
+  box-sizing: border-box;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  #popup .content {
+    width: 100%;
+    min-height: 150px; }
+  #popup::after {
+    content: '';
+    display: block;
+    clear: both; }
+  #popup .wrap {
+    float: left; }
+    #popup .wrap label {
+      font: bold 12px/1 '맑은 고딕';
+      color: #fff;
+      margin-left: 4px; }
+  #popup .close {
+    float: right;
+    font: 14px/1 'arial'; }
+
+/*# sourceMappingURL=style.css.map */

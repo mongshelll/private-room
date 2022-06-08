@@ -1,0 +1,36 @@
+@charset 'utf-8';
+@import 'reset';
+
+#vidGallery {
+	width: 100%;
+	padding: 100px;
+	box-sizing: border-box;
+
+	article {
+		width: 100%;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+		margin-bottom: 30px;
+		padding: 30px;
+		&::after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.pic {
+			display: block;
+			width: 30%;
+			height: 150px;
+			float: left;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+		}
+		.con {
+			width: 70%;
+			float: right;
+			box-sizing: border-box;
+			padding-left: 20px;
+		}
+	}
+}

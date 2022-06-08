@@ -1,0 +1,61 @@
+* { margin: 0px; padding: 0px; }
+
+ol, ul { list-style: none; }
+
+a { text-decoration: none; }
+
+table, td, th { border-collapse: collapse; }
+
+fieldset { border: none; }
+
+input, a, button { outline: 1; }
+
+.hidden { position: absolute; top: -9999px; opacity: 0; }
+
+main { width: 100%; height: 100vh; position: fixed; }
+
+main section { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+main section article { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; /* upper */ /* lower */ }
+
+main section article.upper { z-index: 3; }
+
+main section article.lower { z-index: 2; }
+
+main section article .inner { position: absolute; top: 0; left: 0; width: 100%; height: 100%; -webkit-transition: 0.5s; transition: 0.5s; }
+
+main section article:nth-of-type(1) .inner { -webkit-clip-path: circle(1% at 70% 80%); clip-path: circle(1% at 70% 80%); background: orange; }
+
+main section article:nth-of-type(2) .inner { -webkit-clip-path: circle(1% at 74% 80%); clip-path: circle(1% at 74% 80%); background: lightgreen; }
+
+main section article:nth-of-type(3) .inner { -webkit-clip-path: circle(1% at 78% 80%); clip-path: circle(1% at 78% 80%); background: violet; }
+
+main section article:nth-of-type(4) .inner { -webkit-clip-path: circle(1% at 82% 80%); clip-path: circle(1% at 82% 80%); background: aqua; }
+
+main section article.upper:nth-of-type(1) .inner { -webkit-clip-path: circle(130% at 70% 80%); clip-path: circle(130% at 70% 80%); background: orange; }
+
+main section article.upper:nth-of-type(2) .inner { -webkit-clip-path: circle(130% at 74% 80%); clip-path: circle(130% at 74% 80%); background: lightgreen; }
+
+main section article.upper:nth-of-type(3) .inner { -webkit-clip-path: circle(130% at 78% 80%); clip-path: circle(130% at 78% 80%); background: violet; }
+
+main section article.upper:nth-of-type(4) .inner { -webkit-clip-path: circle(130% at 82% 80%); clip-path: circle(130% at 82% 80%); background: aqua; }
+
+main section article.lower:nth-of-type(1) .inner { -webkit-clip-path: circle(130% at 70% 80%); clip-path: circle(130% at 70% 80%); background: orange; }
+
+main section article.lower:nth-of-type(2) .inner { -webkit-clip-path: circle(130% at 74% 80%); clip-path: circle(130% at 74% 80%); background: lightgreen; }
+
+main section article.lower:nth-of-type(3) .inner { -webkit-clip-path: circle(130% at 78% 80%); clip-path: circle(130% at 78% 80%); background: violet; }
+
+main section article.lower:nth-of-type(4) .inner { -webkit-clip-path: circle(130% at 82% 80%); clip-path: circle(130% at 82% 80%); background: aqua; }
+
+ul li { position: fixed; cursor: pointer; top: 80%; width: 20px; height: 20px; border-radius: 50%; background: #666; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+
+ul li.on { background: #000; }
+
+ul li:nth-of-type(1) { left: 70%; }
+
+ul li:nth-of-type(2) { left: 74%; }
+
+ul li:nth-of-type(3) { left: 78%; }
+
+ul li:nth-of-type(4) { left: 82%; }

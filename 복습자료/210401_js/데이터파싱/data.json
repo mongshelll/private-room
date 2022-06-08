@@ -1,0 +1,27 @@
+{
+	"data" : [
+		{
+			"name" : "naver",
+			"href" : "https://www.naver.com",
+			"img" : "../img/naver.png"
+		},
+		{
+			"name" : "daum",
+			"href" : "https://www.daum.net"
+		},
+		{
+			"name" : "nate",
+			"href" : "https://www.nate.com"
+		}
+	],
+	"data2" : [
+		{
+			"name" : "test",
+			"href" : "https://www.instagram.com"
+		},
+		{
+			"name" : "test2",
+			"href" : "https://www.instagram.com"
+		}
+	]
+}

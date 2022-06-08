@@ -1,0 +1,24 @@
+@charset 'utf-8';
+@import 'reset';
+
+
+#wrap {
+	width: 1000px;
+	height: 600px;
+	border: 1px solid #aaa;
+	margin: 100px auto;
+	padding: 50px;
+	box-sizing: border-box;
+
+	p {
+		display: inline-block;
+		position: relative;
+		overflow: hidden;
+
+		span {
+			font: bold 80px/1 'arial';
+			color: #111;
+			opacity: 0;
+		}
+	}
+}

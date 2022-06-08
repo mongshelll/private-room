@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>평균점수 구하기</title>
+</head>
+
+<body>
+	<script>
+		//평균점수 구하기
+
+		function tester(num1, num2) {
+			var total = parseInt((num1 + num2) / 2);
+
+			console.log(total);
+
+			if (total >= 70) {
+				console.log("합격하셨습니다.");
+			} else {
+				console.log("불합격하셨습니다.");
+			}
+
+			(total >= 70) ? console.log("합격하셨습니다."): console.log("불합격하셨습니다.");
+		}
+
+		tester(70, 60);
+		tester(70.5, 60.5);
+
+		//만약 70점 이상이면 콘솔창에 합격하셨습니다.
+		//70점 이하라면 불합격 하셨습니다.
+
+
+
+
+
+
+
+		// 세 과목의 총점이 60 이상이면 pass, 넘지 않으면 fail
+		// parseInt(); 소수점 버림
+		var a = parseInt(prompt("첫번째 과목 점수는?"));
+		var b = parseInt(prompt("두번째 과목 점수는?"));
+		var c = parseInt(prompt("세번째 과목 점수는?"));
+
+		tester(a, b, c);
+
+		function tester(num1, num2, num3) {
+			var total = parseInt((num1 + num2 + num3) / 3);
+
+			console.log(total);
+			//만약 70점 이상이면 콘솔창에 합격하셨습니다
+			//70점 이하라면 불합격하셨습니다.
+			if (total >= 60) {
+				console.log("합격하셨습니다");
+			} else {
+				console.log("불합격하셨습니다");
+			}
+			(total >= 60) ? console.log("Passed!!!") : console.log("Failed!!");
+		}
+	</script>
+</body>
+
+</html>

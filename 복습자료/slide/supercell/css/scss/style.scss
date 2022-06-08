@@ -1,0 +1,160 @@
+@charset 'utf-8';
+@import 'reset';
+
+main {
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	#header {
+		position: absolute;
+		top: 5%;
+		left: 50px;
+		width: 200px;
+		height: 90%;
+		z-index: 2;
+	}
+
+	.sns {
+		position: absolute;
+		right: 50px;
+		top: 60px;
+		z-index: 2;
+
+		li {
+			float: left;
+			margin-left: 20px;
+
+			a {
+				display: block;
+				width: 30px;
+				height: 30px;
+				border: 1px dotted #fff;
+				color: #fff;
+				font-size: 18px;
+				text-align: center;
+				line-height: 30px;
+			}
+		}
+	}
+
+	.slider {
+		// width: 300%;
+		height: 100%;
+		// margin-left: -100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		li {
+			// width: calc(100% / 3);
+			height: 100%;
+			float: left;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+
+			&.s1 {
+				background-image: url(../img/pic11.jpg);
+			}
+			&.s2 {
+				background-image: url(../img/pic22.jpg);
+			}
+			&.s3 {
+				background-image: url(../img/pic33.jpg);
+			}
+		}
+	}
+
+	.content {
+		position: relative;
+		width: 1400px;
+		height: 800px;
+		margin: 20px auto;
+		.phone {
+			width: 450px;
+			height: 787px;
+			background: url(../img/bgPhone.png) no-repeat center/contain;
+			position: absolute;
+			top: 0;
+			left: 225px;
+
+			.inner {
+				width: 250px;
+				height: 443px;
+				position: absolute;
+				top: 174px;
+				left: 98px;
+				background: #000;
+				overflow: hidden;
+
+				.slider2 {
+					// width: 300%;
+					height: 100%;
+					// margin-left: -100%;
+
+					li {
+						// width: calc(100% /3);
+						height: 100%;
+						float: left;
+						background-repeat: no-repeat;
+						background-position: center;
+						background-size: contain;
+
+						&[data-index="1"]{
+							background-image: url(../img/pic111.jpg);
+						}
+						&[data-index="2"]{
+							background-image: url(../img/pic222.jpg);
+						}
+						&[data-index="3"]{
+							background-image: url(../img/pic333.jpg);
+						}
+					}
+				}
+			}
+			.btnPrev {
+				display: block;
+				width: 50px;
+				height: 100px;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				margin-top: -50px;
+			}
+			.btnNext {
+				display: block;
+				width: 50px;
+				height: 100px;
+				position: absolute;
+				top: 50%;
+				right: 10px;
+				margin-top: -50px;
+			}
+		}
+
+		.txtCon {
+			width: 500px;
+			height: 400px;
+			position: absolute;
+			top: 200px;
+			right: 0;
+			overflow: hidden;
+
+			.txtSlide {
+				// width: 300%;
+				height: 100%;
+				// margin-left: -100px;
+
+				li {
+					// width: calc(100% /3);
+					height: 100%;
+					float: left;
+				}
+			}
+		}
+	}
+}

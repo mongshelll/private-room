@@ -1,0 +1,29 @@
+@charset "utf-8";
+@import "reset";
+
+.box1 {
+	width: 270px;
+	height: 270px;
+	border: 1px solid #333;
+	margin: 200px auto;
+	padding: 15px;
+	overflow: auto;
+	background: #eee;
+
+	p {
+		margin-bottom: 30px;
+		padding: 10px;
+		box-sizing: border-box;
+		border-radius: 10px;
+
+		&:nth-of-type(1){
+			background: rgba(68, 68, 68, 0.103);
+		}
+		&:nth-of-type(2){
+			background: #eee;
+		}
+		&:nth-of-type(3){
+			background: rgba(68, 68, 68, 0.5);
+		}
+	}
+}

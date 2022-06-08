@@ -1,0 +1,30 @@
+@charset 'utf-8';
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/* .box1 {
+	width: 200px;
+	height: 200px;
+	background-color: aqua;
+	margin: 100px;
+	padding: 20px;
+	border: 1px solid #000;
+} */
+
+.box1 {
+	width: 1180px;
+	padding: 100px 0;
+	margin: 0 auto;
+}
+.box1 h1 {
+	font: bold 40px/1 'arial';
+	color: #000;
+	margin-bottom: 30px;
+}
+.box p {
+	font: 15px/1.4 'arial';
+	color: #777;
+}

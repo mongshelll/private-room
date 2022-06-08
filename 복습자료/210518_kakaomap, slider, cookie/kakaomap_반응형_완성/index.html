@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카카오맵 </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f7655d5e0f0045705209a223b2789127"></script>
+  <script defer src="map.js"></script>
+</head>
+<body>
+  <div id="map"></div>
+  <ul class="traffic">
+    <li><a href="#">교통정보 보기</a></li>
+    <li class="on"><a href="#">교통정보 끄기</a></li>
+  </ul>
+  <ul class="branch">
+    <li data-index="0" class="on"><a href="#">본점</a></li>
+    <li data-index="1"><a href="#">지점1</a></li>
+    <li data-index="2"><a href="#">지점2</a></li>
+  </ul>
+</body>
+</html>

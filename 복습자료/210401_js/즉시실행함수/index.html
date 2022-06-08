@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>즉시실행함수</title>
+</head>
+<body>
+	<!--
+		즉시실행함수
+		- 자기가 스스로를 정의함과 동시에 바로 호출
+		(함수정의부)(함수호출부);
+
+		즉시실행함수를 쓰는 이유
+		1. 특정값을 한번에 초기화 하기 위해
+		2. 호이스팅(지역변수가 전역변수화 되는 현상)을 방지하기 위해서 (캡슐화)
+	-->
+	<script>
+		(function(num1, num2){
+			console.log(num1 + num2);
+		})(2,3);
+
+	</script>
+</body>
+</html>

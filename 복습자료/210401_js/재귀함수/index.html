@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>재귀함수</title>
+</head>
+<body>
+
+	<!--
+		재귀함수
+		함수 안에서 자기 자신을 호출해서 반복하는 함수
+
+		재귀함수는 기본적으로 무한반복
+		한상 함수를 종료시키는 조건문 구문을 삽입해야 한다.
+	-->
+	<script>
+		var i = 0;
+		/*
+		function increase(){
+
+			if(i<100){
+				i++;
+				console.log(i);
+				increase();
+			}
+		}
+		*/
+
+		function increase(){
+			if(i>=100) return;
+			i++;
+			console.log(i);
+			increase();
+		}
+
+		increase();
+
+
+
+		// function increase(){
+		//   i++;
+		//   if(i>50) return;
+		//   console.log(i);
+		//   increase();
+		// }
+
+		// increase(); //
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

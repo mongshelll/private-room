@@ -1,0 +1,23 @@
+* { margin: 0px; padding: 0px; }
+
+ol, ul { list-style: none; }
+
+a { text-decoration: none; }
+
+table, td, th { border-collapse: collapse; }
+
+fieldset { border: none; }
+
+input, a, button { outline: 1; }
+
+.hidden { position: absolute; top: -9999px; opacity: 0; }
+
+.box1 { width: 270px; height: 270px; border: 1px solid #333; margin: 200px auto; padding: 15px; overflow: auto; background: #eee; }
+
+.box1 p { margin-bottom: 30px; padding: 10px; -webkit-box-sizing: border-box; box-sizing: border-box; border-radius: 10px; }
+
+.box1 p:nth-of-type(1) { background: rgba(68, 68, 68, 0.103); }
+
+.box1 p:nth-of-type(2) { background: #eee; }
+
+.box1 p:nth-of-type(3) { background: rgba(68, 68, 68, 0.5); }

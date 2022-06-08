@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>태그선택</title>
+	<style>
+
+	</style>
+</head>
+
+<body>
+	<section id="wrap">
+	</section>
+
+	<script>
+		var wrap = document.getElementById("wrap");
+		var new_a = document.createElement("a");
+		var new_href = document.createAttribute("href");
+
+		new_href.value = "https://www.naver.com"; //href속성 노드에 네이버링크 주소값을 value로 할당
+		new_a.setAttributeNode(new_href); //a태그 노드에 href속성노드 결합
+		new_a.innerText = "네이버로 이동"; //a태그 노드에 text노드 연결
+		wrap.appendChild(new_a); //wrap요소에 자식요소로 넣어줌
+
+//article.item > div > <a href="http://www.nate.com" target="_blank">네이트로 이동</a>
+
+		var arti = document.createElement("article");
+		var new_class = document.createAttribute("class");
+		var div =  document.createElement("div");
+		var new_a2 = document.createElement("a");
+		var new_href2 = document.createAttribute("href");
+		var new_target = document.createAttribute("target");
+
+		wrap.appendChild(arti);
+		arti.appendChild(div);
+		new_class.value = "item";
+		arti.setAttributeNode(new_class);
+		div.appendChild(new_a2);
+		new_a2.setAttributeNode(new_href2);
+		new_href2.value = "https://www.nate.com";
+		new_a2.setAttributeNode(new_target);
+		new_target.value = "_blank";
+		new_a2.innerText = "네이트로 이동";
+
+		///
+
+		var new_article = document.createElement("article");
+		var new_div =  document.createElement("div");
+		var new_a2 = document.createElement("a");
+
+		var new_href2 = document.createAttribute("href");
+		var new_target = document.createAttribute("target");
+
+		new_target.value = "_blank";
+		new_href2.value = "https://www.nate.com";
+		new_article.classList.add("item");
+
+		new_a2.setAttributeNode(new_href2);
+		new_a2.setAttributeNode(new_target);
+		new_a2.innerText = "네이트로 이동";
+
+		new_div.appendChild(new_a2);
+		new_article.appendChild(new_div);
+		wrap.appendChild(new_article);
+
+
+
+
+
+
+
+		/*
+		document.getElementById("wrap");
+		document.getElementsByTagName("section");
+		document.getElementsByClassName("item");
+		document.getElementsByName();
+		document.querySeletor("li"); //첫번째 li만
+		document.querySelectorAll("li"); //li 전부
+		*/
+	</script>
+</body>
+
+</html>

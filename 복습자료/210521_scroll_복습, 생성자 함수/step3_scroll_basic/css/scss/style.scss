@@ -1,0 +1,160 @@
+@charset 'utf-8';
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+#header {
+	width: 100%;
+	background: #fff;
+
+	.inner {
+		width: 1180px;
+		height: 100px;
+		margin: 0 auto;
+		position: relative;
+
+		h1 {
+			position: absolute;
+			left: 0;
+			bottom: 20px;
+			font: bold 18px/1 'arial';
+			color: #555;
+		}
+	}
+}
+
+#visual {
+	width: 100%;
+	background: hotpink;
+
+	.inner {
+		width: 1180px;
+		height: 100vh;
+		margin: 0 auto;
+	}
+}
+
+section {
+	width: 100%;
+	padding: 200px 0;
+
+	.inner {
+		width: 1180px;
+		margin: 0 auto;
+		min-height: 300px;
+
+		h1 {
+			font: bold 15px/1 'arial';
+			color: #666;
+			text-align: center;
+			margin-bottom: 100px;
+		}
+	}
+}
+
+#brand {
+	background: #eee;
+
+	.inner {
+		.wrap {
+			width: 100%;
+
+			&::after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+
+			article {
+				width: 280px;
+				height: 250px;
+				background: #555;
+				float: left;
+				margin-right: 20px;
+				transition: 0.5s;
+				opacity: 0;
+				transform: translateY(100px);
+
+				&:first-of-type {
+					transition-delay: 0s;
+				}
+
+				&:nth-of-type(2) {
+					transition-delay: 0.2s;
+				}
+
+				&:nth-of-type(3) {
+					transition-delay: 0.4s;
+				}
+
+				&:last-of-type {
+					margin-right: 0;
+					transition-delay: 0.6s;
+				}
+			}
+		}
+	}
+
+	&.on {
+		.inner .wrap article {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+}
+
+#footer {
+	width: 100%;
+	padding: 80px 0;
+	border-top: 1px solid #bbb;
+
+	.inner {
+		width: 1180px;
+		margin: 0 auto;
+		min-height: 300px;
+
+		p {
+			font: 14px/1 'arial';
+			color: #888;
+			letter-spacing: 2px;
+			text-align: center;
+		}
+	}
+}
+
+#navi {
+	position: fixed;
+	right: 50px;
+	top: 50%;
+	transform: translateY(-50%);
+
+	li {
+		margin: 20px 0;
+
+		a {
+			display: block;
+			width: 10px;
+			height: 10px;
+			background: #888;
+			border-radius: 5px;
+			transition: 0.5s;
+
+			&.on {
+				background: #111;
+				height: 60px;
+			}
+		}
+	}
+}

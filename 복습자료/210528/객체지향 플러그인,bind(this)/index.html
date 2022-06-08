@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체지향</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://kit.fontawesome.com/2cb5c8587f.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script defer src="js/youtube.js"></script>
+  <script>
+    $(document).ready(function(){
+      //1. "#box1"을 인수로 넣어서 생성자 Box를 호출해서 복사본인 인스턴스 box1 생성
+      var box1 = new Box("#box1");
+      var box2 = new Box("#box2");
+      var box3 = new Box("#box3");
+      var box4 = new Box("#box4");
+      var box5 = new Box("#box5");
+
+      var txt1 = new Txt(".txt1");
+      var txt2 = new Txt(".txt2");
+      var txt3 = new Txt(".txt3");
+      var txt4 = new Txt(".txt4");
+      var txt5 = new Txt(".txt5");
+    });
+  </script>
+</head>
+<body>
+  <div id="box1"></div>
+  <div id="box2"></div>
+  <div id="box3"></div>
+  <div id="box4"></div>
+  <div id="box5"></div>
+
+  <p class="txt1">button1</p>
+  <p class="txt2">button2</p>
+  <p class="txt3">button3</p>
+  <p class="txt4">button4</p>
+  <p class="txt5">button5</p>
+  
+</body>
+</html>

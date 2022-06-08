@@ -1,0 +1,43 @@
+@charset "utf-8";
+@import "reset";
+
+.pic {
+	width: 800px;
+	height: 400px;
+	margin: 100px auto;
+	border: 1px solid #000;
+	background-image: url(../img/rose.jpg);
+	background-repeat: no-repeat;
+	background-position: 9999px;
+	background-size: cover;
+	position: relative;
+
+	&::before, &::after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-image: inherit;
+		background-repeat: inherit;
+		background-position: center;
+		background-size: inherit;
+		transition-duration: 0.7s;
+	}
+
+	&::before {
+		clip-path: inset(0% 100% 50% 0%);
+	}
+	&::after {
+		clip-path: inset(50% 100% 0% 0%);
+		transition-delay: 0.2s;
+	}
+	&:hover::before {
+		clip-path: inset(0% 0% 50% 0%);
+	}
+	&:hover::after {
+		clip-path: inset(50% 0% 0% 0%);
+	}
+}

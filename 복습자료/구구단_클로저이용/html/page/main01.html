@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 main01</title>
+    <script src="../../resource/js/jquery-2.2.4.min.js"></script>
+    <script src="../../resource/js/main01.js"></script>
+    <!-- <script defer src="../../resource/js/main01.js"></script> -->
+    <!-- <script src="../../resource/js/main01_01.js"></script> -->
+    <link rel="stylesheet" href="../../resource/css/main01.css">
+</head>
+<body>
+    <div class="haeder">
+        <h1 class="main_title">구구단 main01</h1>
+    </div>
+    <div class="content">
+        <div class="content_inner">
+            <div class="gugudan_set">
+
+                <div class="gugudan_wrap">
+                    <div class="content_title">
+                        <p>원하는 구구단을 입력하세요.</p>
+                    </div>
+                    <div class="content_wrap">
+                        <div class="gugudan">
+                            <div class="input_wrap">
+                                <input type="text" class="input_submit" autofocus="autofocus" placeholder="ex. 9">
+                                <button type="button" class="btn_gugudan">입력</button>
+                                <button type="button" class="btn_gugudan_reset">구구단 지우기</button>
+                            </div>
+                            <div class="result_wrap"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gugudan_wrap">
+                    <div class="content_title">
+                        <p>원하는 구구단을 입력하세요.</p>
+                    </div>
+                    <div class="content_wrap">
+                        <div class="gugudan">
+                            <div class="input_wrap">
+                                <input type="text" class="input_submit" placeholder="ex. 9">
+                                <button type="button" class="btn_gugudan">입력</button>
+                                <button type="button" class="btn_gugudan_reset">구구단 지우기</button>
+                            </div>
+                            <div class="result_wrap"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gugudan_wrap">
+                    <div class="content_title">
+                        <p>원하는 구구단을 입력하세요.</p>
+                    </div>
+                    <div class="content_wrap">
+                        <div class="gugudan">
+                            <div class="input_wrap">
+                                <input type="text" class="input_submit" placeholder="ex. 9">
+                                <button type="button" class="btn_gugudan">입력</button>
+                                <button type="button" class="btn_gugudan_reset">구구단 지우기</button>
+                            </div>
+                            <div class="result_wrap"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="log">
+                <h2 class="tbl_title">전체 log</h2>
+                <button type="button" class="btn_search_log">조회하기</button>
+                <button type="button" class="btn_reset_log">log 초기화</button>
+
+                <table class="tbl">
+                    <caption class="hidden">전체 검색결과 log 입니다.</caption>
+                    <colgroup>
+                        <col style="width: 10%">
+                        <col style="width: 15%">
+                        <col style="width: 40%">
+                        <col style="width: 35%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>순번</th>
+                            <th>구구단</th>
+                            <th>값</th>
+                            <th>검색시간</th>
+                        </tr>
+                    </thead>
+                    <tbody class="search_log"></tbody>
+                </table>
+                <!-- <ul class="search_log"></ul> -->
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

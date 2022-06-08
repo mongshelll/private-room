@@ -1,0 +1,9 @@
+* { margin: 0; padding: 0; }
+
+ul, ol, li { list-style: none; }
+
+a { text-decoration: none; }
+
+body { height: 2000px; }
+
+ul { position: absolute; top: 100px; left: 100px; }

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>데이터파싱</title>
+</head>
+<body>
+	<script>
+		fetch("data.json")
+		.then(function(data){
+			console.log(data);
+			var result = data.json();
+			return result;
+		})
+		.then(function(result){
+			console.log(result.data);
+			console.log(result.data2);
+
+			var item = result.data;
+
+			item.forEach(function(data, index){
+				console.log(data.name);
+			})
+
+			var item2 = result.data2;
+
+			item2.forEach(function(data, index){
+				console.log(data.href);
+				console.log(index);
+			})
+		})
+	</script>
+<!--
+	특정 데이터 자료구조로부터 원하는 데이터를 선별해서 의미있는 컨텐츠로 가공하는 작업
+	1. 데이터베이스에서 바로 자료를 가지고 와서 컨텐츠를 구성하는 경우
+	2. 외부 데이터베이스에서 자료를 빌려와서 컨텐츠를 구성하는 경우 API서비스(json)
+
+	json : js 객체 자료형 //기존의 배열과 객체의 장점을 합친 형태
+
+	배열
+	- 장점 : 데이터의 형식이 비슷한 여러개의 데이터를 그룹화해서 관리 할 수 있다.
+	- 단점 : 데이터의 형식이 다른경우 순번만 가지고 데이터를 뽑아내기 때문에 관리가 어렵다.
+
+	객체
+	- 장점 : 데이터 형식이 다르더라도 키 값을 부여해서 값을 관리하기 때문에 데이터 구조화에 유리
+	- 단점 : 여러개의 데이터를 관리불가능
+
+	json - 객체를 배열로 만들어서 다시 객체형태로 감싼다.
+-->
+
+</body>
+</html>

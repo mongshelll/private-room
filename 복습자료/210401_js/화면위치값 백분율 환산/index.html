@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>화면위치값 백분율 환산</title>
+</head>
+<body>
+	<script>
+		/*
+			백분율 구하기 : (획득한 점수 / 총점수) * 100
+		*/
+		window.onmousemove = function(e){
+			// console.log(e);
+
+			var x = e.pageX;  // 현재 마우스 위치 X
+			var y = e.pageY;  // 현재 마우스 위치 Y
+			// console.log(x)
+
+			var totalX = window.innerWidth; // 브라우저 전체 너비값
+			var totalY = window.innerHeight; // 브라우저 전체 높이값
+
+			// var percentX = (x / totalX) * 100;
+			// var percentY = (y / totalY) * 100;
+			// console.log(parseInt(percentX));
+			// console.log(parseInt(percentY));
+
+			var percentX = parseInt((x / totalX) * 100);
+			var percentY = parseInt((y / totalY) * 100);
+			console.log(percentX);
+			console.log(percentY);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+sliding({
+	type: "text",
+	selector: ".tit1",
+	speed: 600,
+	delay: 0
+});
+sliding({
+	type: "box",
+	selector: ".pic1",
+	speed: 600,
+	delay: 300
+});
+
+sliding({
+	type: "text",
+	selector: ".tit2",
+	speed: 600,
+	delay: 600
+});
+sliding({
+	type: "box",
+	selector: ".pic2",
+	speed: 600,
+	delay: 900
+});
+
+sliding({
+	type: "text",
+	selector: ".tit3",
+	speed: 600,
+	delay: 1200
+});
+sliding({
+	type: "box",
+	selector: ".pic3",
+	speed: 600,
+	delay: 1500
+});
+
+sliding({
+	type: "text",
+	selector: ".tit4",
+	speed: 600,
+	delay: 1800
+});
+sliding({
+	type: "box",
+	selector: ".pic4",
+	speed: 600,
+	delay: 2100
+});
+
+function sliding(options){
+	var defaults = {
+		type: "text",
+		selector: ".txt",
+		speed: 500,
+		delay: 500
+	}
+
+	var options = $.extend({}, defaults, options);
+	if(options.type == "text"){
+		var bgColor = $(options.selector).children("span").css("color");
+	}else{
+		var bgColor = $(options.selector).attr("data-color");
+	}
+
+	$(options.selector).append(
+		$("<div class='mask'>").css({
+			width: "100%",
+			height: "100%",
+			backgroundColor: bgColor,
+			position: "absolute",
+			top: 0,
+			left: "-100%"
+		})
+	);
+
+	$(options.selector).find(".mask").stop().delay(options.delay).animate({
+		left: 0
+	}, options.speed, "easeInExpo", function(){
+		$(this).prev().css({
+			opacity: 1
+		});
+		$(this).stop().animate({
+			left: "100%"
+		}, options.speed, "easeInExpo", function(){
+			$(this).remove();
+		})
+	});
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>setTimeout</title>
+</head>
+<body>
+	<h1 id="tit">TEXT</h1>
+	<script>
+		/*
+		setTimeout(실행함수, 지연시간);
+		*/
+	var tit = document.getElementById("tit");
+
+	tit.onclick = function(){
+
+		setTimeout(function(){
+			console.log("1초 후 실행"); //두번째 실행
+		}, 1000);
+		console.log("실행"); //첫번째 실행
+	}
+
+	/*
+	코드실행순서
+	1. 이벤트가 발생한 순간 익명함수가 callstact에 쌓임
+	2. callstact안쪽의 두개의 구문을 발견해서 callstact에 올릴 준비 (setTimeout, 실행 console구문)
+	3. setTimeou을 실행하려고 보니 js엔진이 아닌 브라우저가 처리할 일이어서 callstact에 올리지 않고 web API에 전달
+	4. 그 다음 바로 console.log("실행")을 callstact에 올려서 실행
+	5. web API가 setTimeout을 실행하고 그 안에 있는 console문을 다시 queue에 등록
+	6. 이벤트 loop가 새롭게 queue에 등록괸 console문 ("1초 후 실행")을 인식하고 callstact에 등록해서 실햄 후 종료
+
+	기본적으로 일반적인 프로그래밍 언어에서는 이전 함수가 끝나기 전까지 다은 함수가 실행을 못하고 대기 (동기방식)
+	setTimeout, ajax, DOM 기능들을 js가 실행하기 않고 web API에 대신 전달하기 때문에 해당 구문이 호출될 때마다 동기방식이 아닌 비동기방식으로 동작되어 코드가 에러가 발생하게 됨
+
+	js에서 비동기방식을 다시 동기화해야 될 이슈가 많다.
+
+	콜백함수를 통한 동기화
+
+	*/
+
+	</script>
+</body>
+</html>

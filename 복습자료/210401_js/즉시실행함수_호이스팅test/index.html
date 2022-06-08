@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>즉시 실행함수 호이스팅</title>
+</head>
+
+<body>
+	<script>
+		var i = 0;
+
+		for (var i = 0; i < 3; i++) {
+			(function (i) {
+				console.log(i);
+			})(i);
+		}
+		console.log(i); // 즉시실행 함수 사용했는데 변수 호이스팅 되는거 이해 안됨
+
+		// 아마 이렇게 하는게 아닐까??
+		var k = 0;
+
+		(function(){
+			for (var k = 0; k < 3; k++) {
+				console.log(k); // 0, 1, 2
+			}
+		}())
+		console.log(k); // 0
+		//호이스팅 없음
+	</script>
+</body>
+
+</html>
