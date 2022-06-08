@@ -139,7 +139,7 @@ function creatList(el, counter, m, n) {
 	$result.append($list);
 
 	for(var i = counter; i <= counter; i++) {
-		$contentTile.text("단 / " + m + "단 / " + n +"단계").prepend(
+		$contentTile.text("단 / " + m + "단까지 / " + n +"단계").prepend(
 			$("<span>").text(i)
 		);
 		for(var j = 1; j <= n; j++) {

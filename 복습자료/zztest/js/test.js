@@ -154,7 +154,7 @@ mjID.getID(); // 567: It returns the updated celebrityId variable
 function Website() {
 
 	// private members
-	var privateUrl = 'http://www.internalpointers.com';
+	var privateUrl = 'https://www.internalpointers.com';
 	var privatePrint = function() {
 		console.log(privateUrl);
 	};
@@ -166,12 +166,29 @@ function Website() {
 };
 
 var InternalPointers = new Website();
-InternalPointers.printUrl();               // 'http://www.internalpointers.com'
+InternalPointers.printUrl();               // 'https://www.internalpointers.com'
 console.log(InternalPointers.privateUrl);  // undefined
-InternalPointers.privatePrint();           // TypeError: InternalPointers.privatePrint is not a function
+// InternalPointers.privatePrint();           // TypeError: InternalPointers.privatePrint is not a function
 
 
+////////////////////////
 
+
+function makeCounter() {
+	let count = 0;
+
+	return function() {
+		return count++;
+	};
+}
+
+	let counter = makeCounter();
+	let counter2 = makeCounter();
+
+	console.log( counter() ); // 0
+	console.log( counter() ); // 1
+	console.log( counter() ); // 2
+	console.log( counter2() ); // 0
 
 
 
