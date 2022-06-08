@@ -25,7 +25,6 @@ $(document).on("click", ".btn_gugudan", function(){
 });
 
 
-
 function creatList(n, el) {
 	var date = new Date().toLocaleString();
 	var $contentInner = $(".content_inner");
