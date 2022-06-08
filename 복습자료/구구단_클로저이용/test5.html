@@ -2,47 +2,47 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TESST5</title>
-    <script src="resource/js/jquery-2.2.4.min.js"></script>
-    <style>
-        .content { margin: 100px auto; width: 300px; }
-        .test { width: 200px; height: 200px; background: cyan; }
-    </style>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TESST5</title>
+	<script src="resource/js/jquery-2.2.4.min.js"></script>
+	<style>
+		.content { margin: 100px auto; width: 300px; }
+		.test { width: 200px; height: 200px; background: cyan; }
+	</style>
 </head>
 
 <body>
-    <div class="content">
-        <div class="test"></div>
-    </div>
+	<div class="content">
+		<div class="test"></div>
+	</div>
 
-    <script>
-        $(document).on("mouseenter", ".test", function() {
-            bg($(this));
-        });
-        $(document).on("mouseleave", ".test", function() {
-            bgcg($(this));
-        });
+	<script>
+		$(document).on("mouseenter", ".test", function() {
+			bg($(this));
+		});
+		$(document).on("mouseleave", ".test", function() {
+			bgcg($(this));
+		});
 
-        function bg(el) {
-            el.css({background: "lightcyan"});
-            txt(el, "center", "");
-        }
+		function bg(el) {
+			el.css({background: "lightcyan"});
+			txt(el, "center", "");
+		}
 
-        function bgcg(el) {
-            el.css({background: "cyan"});
-            txt(el, "", "200px");
-        }
+		function bgcg(el) {
+			el.css({background: "cyan"});
+			txt(el, "", "200px");
+		}
 
-        function txt(el, cen, sz) {
+		function txt(el, cen, sz) {
 
-            arguments[0].css({textAlign : arguments[2], lineHeight: arguments[3]})
-            el.text("test");
-        }
+			arguments[0].css({textAlign : arguments[2], lineHeight: arguments[3]})
+			el.text("test");
+		}
 
-    </script>
+	</script>
 </body>
 
 </html>

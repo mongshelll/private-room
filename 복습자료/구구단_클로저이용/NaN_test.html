@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEST</title>
-    <style>
-    .test {
-        position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 30px;
-    }
-    </style>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TEST</title>
+	<style>
+	.test {
+		position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 30px;
+	}
+	</style>
 
 </head>
 <body>
-    <script src="/resource/js/jquery-2.2.4.min.js"></script>
-    <div class="test">
-        <input type="text" autofocus="autofocus">
-        <button tinpype="button" class="btn">confirm</button>
-    </div>
-    <script>
-        $(document).on("click", ".btn", function () {
-            var target = $("input").val();
-            var a = typeof target;
-            console.log(target); //input에 입력한 value
-            console.log(a); //문자, 숫자 전부 string  
-            console.log($.isNumeric(target)); //문자, 숫자 구별됨. $.isNumeric() 숫자 판별 함수
-            console.log(!isNaN(target)); //isNaN "not a number" 숫자가 아니면 true값 리턴
-            console.log(Number.isNaN(target)); //엄격하기때문에 문자열로 리턴되는 값 문자열로 봄
-        });
-    </script>
+	<script src="/resource/js/jquery-2.2.4.min.js"></script>
+	<div class="test">
+		<input type="text" autofocus="autofocus">
+		<button tinpype="button" class="btn">confirm</button>
+	</div>
+	<script>
+		$(document).on("click", ".btn", function () {
+			var target = $("input").val();
+			var a = typeof target;
+			console.log(target); //input에 입력한 value
+			console.log(a); //문자, 숫자 전부 string
+			console.log($.isNumeric(target)); //문자, 숫자 구별됨. $.isNumeric() 숫자 판별 함수
+			console.log(!isNaN(target)); //isNaN "not a number" 숫자가 아니면 true값 리턴
+			console.log(Number.isNaN(target)); //엄격하기때문에 문자열로 리턴되는 값 문자열로 봄
+		});
+	</script>
 </body>
 </html>

@@ -1,143 +1,143 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEST3</title>
-    <script src="resource/js/jquery-2.2.4.min.js"></script>
-    <style>
-        .content { margin: 100px auto; width: 300px; }
-    </style>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TEST3</title>
+	<script src="resource/js/jquery-2.2.4.min.js"></script>
+	<style>
+		.content { margin: 100px auto; width: 300px; }
+	</style>
 </head>
 
 <body>
 
-    <!-- <p>클로저를 사용한 Countung</p>
-    <button type="button" id="inclease">+</button>
-    <p id="count">0</p> -->
+	<!-- <p>클로저를 사용한 Countung</p>
+	<button type="button" id="inclease">+</button>
+	<p id="count">0</p> -->
 
 
-    <div class="content">
-        <p>클로저를 사용한 Countung</p>
-        <div class="test1">
-            <button type="button" class="inclease">+</button>
-            <button type="button" class="declease">-</button>
-            <p class="count">0</p>
-        </div>
-        <div class="test2">
-            <button type="button" class="inclease">+</button>
-            <button type="button" class="declease">-</button>
-            <p class="count">0</p>
-        </div>
-    </div>
+	<div class="content">
+		<p>클로저를 사용한 Countung</p>
+		<div class="test1">
+			<button type="button" class="inclease">+</button>
+			<button type="button" class="declease">-</button>
+			<p class="count">0</p>
+		</div>
+		<div class="test2">
+			<button type="button" class="inclease">+</button>
+			<button type="button" class="declease">-</button>
+			<p class="count">0</p>
+		</div>
+	</div>
 
-    <script>
+	<script>
 
-        var incleaseBtn = $(".inclease");
-        var decleaseBtn = $(".declease");
-        var count = $(".count");
+		var incleaseBtn = $(".inclease");
+		var decleaseBtn = $(".declease");
+		var count = $(".count");
 
-        $(document).on("click", ".inclease", function(){
-            var target = $(this).closest("div").find(count);
-            // target.text(Num.increase());
-            // count.text(incerase());
-            // console.log($(this));
-            Num.increase();
-            target.text(Num.checking());
-        });
+		$(document).on("click", ".inclease", function(){
+			var target = $(this).closest("div").find(count);
+			// target.text(Num.increase());
+			// count.text(incerase());
+			// console.log($(this));
+			Num.increase();
+			target.text(Num.checking());
+		});
 
-        $(document).on("click", ".declease", function(){
-            var target = $(this).closest("div").find(count);
-            // target.text(Num.decrease());
-            Num.decrease();
-            target.text(Num.checking());
-        });
+		$(document).on("click", ".declease", function(){
+			var target = $(this).closest("div").find(count);
+			// target.text(Num.decrease());
+			Num.decrease();
+			target.text(Num.checking());
+		});
 
-        // function makeCounter(predicate){
-        //     var counter = 0;
-        //     return function() {
-        //         counter = predicate(counter);
-        //         return counter;
-        //     };
-        // }
+		// function makeCounter(predicate){
+		//     var counter = 0;
+		//     return function() {
+		//         counter = predicate(counter);
+		//         return counter;
+		//     };
+		// }
 
-        // function increase(n) {
-        //     return ++n;
-        // }
+		// function increase(n) {
+		//     return ++n;
+		// }
 
-        // function decrease(n) {
-        //     return --n;
-        // }
+		// function decrease(n) {
+		//     return --n;
+		// }
 
-        // var increaser = makeCounter(increase);
-        // var decreaser = makeCounter(decrease);
-
-
-        var Num = (function(){
-            var num = 0;
-            function changeBy(val){
-                num += val;
-            }
-            return {
-                increase : function() {
-                    changeBy(1);
-                },
-                decrease : function() {
-                    changeBy(-1);
-                },
-                checking : function() {
-                    return num;
-                }
-            }
-        })();
+		// var increaser = makeCounter(increase);
+		// var decreaser = makeCounter(decrease);
 
 
-        // function counter(){
-        //     var num = 0;
-        //     function changeBy(val){
-        //         num += val;
-        //     }
-        //     return {
-        //         increase : function() {
-        //             changeBy(1);
-        //         },
-        //         decrease : function() {
-        //             changeBy(-1);
-        //         },
-        //         checking : function() {
-        //             return num;
-        //         }
-        //     }
-        // };
+		var Num = (function(){
+			var num = 0;
+			function changeBy(val){
+				num += val;
+			}
+			return {
+				increase : function() {
+					changeBy(1);
+				},
+				decrease : function() {
+					changeBy(-1);
+				},
+				checking : function() {
+					return num;
+				}
+			}
+		})();
 
-        // var Num = counter();
 
-        // Num.increase();
-        // Num.increase();
-        // Num.increase();
-        // Num.decrease();
-        console.log(Num.checking());
+		// function counter(){
+		//     var num = 0;
+		//     function changeBy(val){
+		//         num += val;
+		//     }
+		//     return {
+		//         increase : function() {
+		//             changeBy(1);
+		//         },
+		//         decrease : function() {
+		//             changeBy(-1);
+		//         },
+		//         checking : function() {
+		//             return num;
+		//         }
+		//     }
+		// };
 
-        ///////////////////
-    function factoryMovie(title) {
-        return {
-            get_title : function(){
-                return title;
-            },
-            set_title : function(_title) {
-                title = _title;
-            }
-        }
-    }
+		// var Num = counter();
 
-    var test1 = factoryMovie("이름1");
-    var test2 = factoryMovie("이름2");
-    console.log(test1.get_title());
-    console.log(test2.get_title());
-    test1.set_title(1);
-    console.log(test1.get_title());
-    console.log(test2.get_title());
+		// Num.increase();
+		// Num.increase();
+		// Num.increase();
+		// Num.decrease();
+		console.log(Num.checking());
+
+		///////////////////
+	function factoryMovie(title) {
+		return {
+			get_title : function(){
+				return title;
+			},
+			set_title : function(_title) {
+				title = _title;
+			}
+		}
+	}
+
+	var test1 = factoryMovie("이름1");
+	var test2 = factoryMovie("이름2");
+	console.log(test1.get_title());
+	console.log(test2.get_title());
+	test1.set_title(1);
+	console.log(test1.get_title());
+	console.log(test2.get_title());
 
 //////////////
 // function likeCounter(){
@@ -166,108 +166,108 @@
 
 /////////////////////
 
-    // var Like = (function(){
-    //     var like = 0;
-    //     function changeBy(val){
-    //         like += val;
-    //     }
-    //     return {
-    //     iLike: function(){
-    //         changeBy(1);
-    //         },
-    //     disLike: function(){
-    //         changeBy(-1);
-    //         },
-    //     checking: function(){
-    //         return like;
-    //         }
-    //     }
-    // })();
+	// var Like = (function(){
+	//     var like = 0;
+	//     function changeBy(val){
+	//         like += val;
+	//     }
+	//     return {
+	//     iLike: function(){
+	//         changeBy(1);
+	//         },
+	//     disLike: function(){
+	//         changeBy(-1);
+	//         },
+	//     checking: function(){
+	//         return like;
+	//         }
+	//     }
+	// })();
 
-    // Like.iLike();
-    // Like.iLike();
-    // Like.iLike();
-    // Like.disLike();
-    // console.log(Like.iLike());
-    // console.log(Like.disLike());
-
-
-        // var incleaseBtn = $(".inclease");
-        // var count = $(".count");
-
-        // var increase = (function() {
-        //     var counter = 0;
-        //     return function() {
-        //         return ++counter;
-        //     }
-        // }());
-
-        // var decrease = (function() {
-        //     var counter = 0;
-        //     return function() {
-        //         return --counter;
-        //     }
-        // }());
+	// Like.iLike();
+	// Like.iLike();
+	// Like.iLike();
+	// Like.disLike();
+	// console.log(Like.iLike());
+	// console.log(Like.disLike());
 
 
+		// var incleaseBtn = $(".inclease");
+		// var count = $(".count");
+
+		// var increase = (function() {
+		//     var counter = 0;
+		//     return function() {
+		//         return ++counter;
+		//     }
+		// }());
+
+		// var decrease = (function() {
+		//     var counter = 0;
+		//     return function() {
+		//         return --counter;
+		//     }
+		// }());
 
 
-        //아마도 해결방안 클로저, 즉시실행함수
-
-        // var incleaseBtn = document.getElementById('inclease');
-        // var count = document.getElementById('count');
-
-        // var increase = (function () {
-        //     // 카운트 상태를 유지하기 위한 자유 변수
-        //     var counter = 0;
-        //     // 클로저를 반환
-        //     return function () {
-        //         return ++counter;
-        //     };
-        // }());
-
-        // incleaseBtn.onclick = function () {
-        //     count.innerHTML = increase();
-        // };
 
 
-        // function outter() {
-        //     var title = "test";
-        //     return function inner() {
-        //         alert(title);
-        //     }
-        // }
-        // var inner = outter();
-        // console.log(inner());
+		//아마도 해결방안 클로저, 즉시실행함수
 
-        // function factoryMovie(title) {
-        //     return {
-        //         get_title : function(){
-        //             return title;
-        //         },
-        //         set_title : function(_title) {
-        //             title = _title;
-        //         }
-        //     }
-        // }
+		// var incleaseBtn = document.getElementById('inclease');
+		// var count = document.getElementById('count');
 
-        // var test1 = factoryMovie("이름1");
-        // var test2 = factoryMovie("이름2");
-        // alert(test1.get_title());
-        // alert(test2.get_title());
-        // test1.set_title(1);
-        // alert(test1.get_title());
-        // alert(test2.get_title());
+		// var increase = (function () {
+		//     // 카운트 상태를 유지하기 위한 자유 변수
+		//     var counter = 0;
+		//     // 클로저를 반환
+		//     return function () {
+		//         return ++counter;
+		//     };
+		// }());
 
-        // //함수 변수화
-        // var test = function(){
-        //     //...
-        // }();
+		// incleaseBtn.onclick = function () {
+		//     count.innerHTML = increase();
+		// };
 
-        // //즉시실행함수
-        // (function(){
-        //     //...
-        // })();
-    </script>
+
+		// function outter() {
+		//     var title = "test";
+		//     return function inner() {
+		//         alert(title);
+		//     }
+		// }
+		// var inner = outter();
+		// console.log(inner());
+
+		// function factoryMovie(title) {
+		//     return {
+		//         get_title : function(){
+		//             return title;
+		//         },
+		//         set_title : function(_title) {
+		//             title = _title;
+		//         }
+		//     }
+		// }
+
+		// var test1 = factoryMovie("이름1");
+		// var test2 = factoryMovie("이름2");
+		// alert(test1.get_title());
+		// alert(test2.get_title());
+		// test1.set_title(1);
+		// alert(test1.get_title());
+		// alert(test2.get_title());
+
+		// //함수 변수화
+		// var test = function(){
+		//     //...
+		// }();
+
+		// //즉시실행함수
+		// (function(){
+		//     //...
+		// })();
+	</script>
 </body>
 </html>

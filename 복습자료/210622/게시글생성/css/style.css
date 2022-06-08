@@ -3,48 +3,48 @@
 
 
 .community {
-  width: 100%;
-  padding: 100px 0px;
+	width: 100%;
+	padding: 100px 0px;
 }
 
 .community .inner {
-  width: 1180px;
-  margin: 0 auto;
+	width: 1180px;
+	margin: 0 auto;
 }
 
 .community .inner table {
-  width: 100%;
-  border-bottom: 2px solid #111;
+	width: 100%;
+	border-bottom: 2px solid #111;
 }
 
 .community .inner table th:nth-of-type(1) {
-  width: 10%;
+	width: 10%;
 }
 
 .community .inner table th:nth-of-type(2) {
-  width: 60%;
+	width: 60%;
 }
 
 .community .inner table th:nth-of-type(3) {
-  width: 15%;
+	width: 15%;
 }
 
 .community .inner table th:nth-of-type(4) {
-  width: 15%;
+	width: 15%;
 }
 
 .community .inner table th {
-  background: #444;
-  padding: 15px;
-  color: #fff;
+	background: #444;
+	padding: 15px;
+	color: #fff;
 }
 
 .community .inner table td {
-  padding: 13px;
-  border-bottom: 1px solid #ddd;
-  text-align: center;
+	padding: 13px;
+	border-bottom: 1px solid #ddd;
+	text-align: center;
 }
 
 .community .inner table td a {
-  color: #666;
+	color: #666;
 }

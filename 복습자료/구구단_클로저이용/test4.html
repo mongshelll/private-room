@@ -2,120 +2,120 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TESST4</title>
-    <script src="resource/js/jquery-2.2.4.min.js"></script>
-    <style>
-        .content { margin: 100px auto; width: 300px; }
-    </style>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TESST4</title>
+	<script src="resource/js/jquery-2.2.4.min.js"></script>
+	<style>
+		.content { margin: 100px auto; width: 300px; }
+	</style>
 </head>
 
 <body>
-    <!-- 클로저 이용하여 증감값 사용하기 -->
-    <div class="content">
-        <p>클로저를 사용한 Countung</p>
-        <div class="test1">
-            <button type="button" class="inclease">+</button>
-            <button type="button" class="declease">-</button>
-            <p class="count">0</p>
-        </div>
-        <div class="test2">
-            <button type="button" class="inclease">+</button>
-            <button type="button" class="declease">-</button>
-            <p class="count">0</p>
-        </div>
-    </div>
+	<!-- 클로저 이용하여 증감값 사용하기 -->
+	<div class="content">
+		<p>클로저를 사용한 Countung</p>
+		<div class="test1">
+			<button type="button" class="inclease">+</button>
+			<button type="button" class="declease">-</button>
+			<p class="count">0</p>
+		</div>
+		<div class="test2">
+			<button type="button" class="inclease">+</button>
+			<button type="button" class="declease">-</button>
+			<p class="count">0</p>
+		</div>
+	</div>
 
-    <script>
+	<script>
 
-        var incleaseBtn = $(".inclease");
-        var decleaseBtn = $(".declease");
-        var count = $(".count");
+		var incleaseBtn = $(".inclease");
+		var decleaseBtn = $(".declease");
+		var count = $(".count");
 
-        $(document).on("click", ".inclease", function(){
-            var target = $(this).closest("div").find(count);
-            // target.text(Num.increase());
-            // count.text(incerase());
-            // console.log($(this));
-            Num.increase();
-            target.text(Num.checking());
-        });
+		$(document).on("click", ".inclease", function(){
+			var target = $(this).closest("div").find(count);
+			// target.text(Num.increase());
+			// count.text(incerase());
+			// console.log($(this));
+			Num.increase();
+			target.text(Num.checking());
+		});
 
-        $(document).on("click", ".declease", function(){
-            var target = $(this).closest("div").find(count);
-            // target.text(Num.decrease());
-            Num.decrease();
-            target.text(Num.checking());
-        });
-
-
-        var Num = (function(){
-            var num = 0;
-            function changeBy(val){
-                num += val;
-            }
-            return {
-                increase : function() {
-                    changeBy(1);
-                },
-                decrease : function() {
-                    changeBy(-1);
-                },
-                checking : function() {
-                    return num;
-                }
-            }
-        })();
-        console.log(Num.checking());
+		$(document).on("click", ".declease", function(){
+			var target = $(this).closest("div").find(count);
+			// target.text(Num.decrease());
+			Num.decrease();
+			target.text(Num.checking());
+		});
 
 
-        function counter(){
-            var num = 0;
-            function changeBy(val){
-                num += val;
-            }
-            return {
-                increase : function() {
-                    changeBy(1);
-                },
-                decrease : function() {
-                    changeBy(-1);
-                },
-                checking : function() {
-                    return num;
-                }
-            }
-        };
-        console.log(counter().checking());
+		var Num = (function(){
+			var num = 0;
+			function changeBy(val){
+				num += val;
+			}
+			return {
+				increase : function() {
+					changeBy(1);
+				},
+				decrease : function() {
+					changeBy(-1);
+				},
+				checking : function() {
+					return num;
+				}
+			}
+		})();
+		console.log(Num.checking());
 
-        // var Num = counter();
 
-        // Num.increase();
-        // Num.increase();
-        // Num.increase();
-        // Num.decrease();
-        // console.log(Num.checking());
+		function counter(){
+			var num = 0;
+			function changeBy(val){
+				num += val;
+			}
+			return {
+				increase : function() {
+					changeBy(1);
+				},
+				decrease : function() {
+					changeBy(-1);
+				},
+				checking : function() {
+					return num;
+				}
+			}
+		};
+		console.log(counter().checking());
 
-        var x = 1; // global
+		// var Num = counter();
 
-        function first() {
-        var x = 10;
-        second();
-        }
+		// Num.increase();
+		// Num.increase();
+		// Num.increase();
+		// Num.decrease();
+		// console.log(Num.checking());
 
-        function second() {
-        console.log(x);
-        }
-        first();
-        second();
+		var x = 1; // global
 
-        var a = [1, 2, 3, 4];
-        a.push(5);
-        // a.unshift(5);
-        console.log(a);
-    </script>
+		function first() {
+		var x = 10;
+		second();
+		}
+
+		function second() {
+		console.log(x);
+		}
+		first();
+		second();
+
+		var a = [1, 2, 3, 4];
+		a.push(5);
+		// a.unshift(5);
+		console.log(a);
+	</script>
 </body>
 
 </html>

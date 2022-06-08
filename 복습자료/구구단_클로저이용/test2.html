@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEST</title>
-    <style>
-        .test {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 30px;
-        }
-    </style>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TEST</title>
+	<style>
+		.test {
+			position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 30px;
+		}
+	</style>
 </head>
 <body>
-    <script src="resource/js/jquery-2.2.4.min.js"></script>
-    <div class="test">
-        <input type="text" class="input1" autofocus="autofocus">
-        <button type="button" class="btn">confirm</button>
-    </div>
-    <script>
-        $(window).on("keypress", function (e) {
-            if (e.keyCode === 13) {
-                // test();
-            }
-        })
+	<script src="resource/js/jquery-2.2.4.min.js"></script>
+	<div class="test">
+		<input type="text" class="input1" autofocus="autofocus">
+		<button type="button" class="btn">confirm</button>
+	</div>
+	<script>
+		$(window).on("keypress", function (e) {
+			if (e.keyCode === 13) {
+				// test();
+			}
+		})
 
-        var arr = [];
-        var arr2 = [];
+		var arr = [];
+		var arr2 = [];
 
-        $(document).on("click", ".btn", function() {
-            var target = $(".input1").val();
+		$(document).on("click", ".btn", function() {
+			var target = $(".input1").val();
 
-            arr.push(target);
-            console.log(arr);
+			arr.push(target);
+			console.log(arr);
 
-            // test();
-        });
-
-
-
-        // function test(){
-        //     // var date = new Date().toLocaleString();
-        //     // var target = $(".input1").val();
-        //     // var arr = [];
-        //     // var arr2 = [];
-
-        //     arr.push(target);
-        //     console.log(arr);
-        // }
+			// test();
+		});
 
 
-    </script>
+
+		// function test(){
+		//     // var date = new Date().toLocaleString();
+		//     // var target = $(".input1").val();
+		//     // var arr = [];
+		//     // var arr2 = [];
+
+		//     arr.push(target);
+		//     console.log(arr);
+		// }
+
+
+	</script>
 </body>
 </html>
