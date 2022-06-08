@@ -133,7 +133,7 @@ function creatLog($log, arr, $searchLog, date) {
 		$("<tr>").append(
 			$("<td>").text(gugudan.length + ".") //순서값
 		).append(
-			$("<td>").text(arr[0]) //출력한 구구단 단계
+			$("<td>").text(arr[0] + "단") //출력한 구구단 단계
 		).append(
 			$("<td>").text(gugudan[0]) //구구단 값
 		).append(
@@ -148,18 +148,18 @@ function logSearch(el) {
 	if(0 <= el-1) {
 		(el-1 < gugudan.length) ?
 		alert("해당 log의 값은 " + searchTarget[0] + "단 " + searchTarget + " 입니다.") :
-		alert("존제하지 않는 log입니다.\n\n다시 확인해 주세요.");
+		alert("존재하지 않는 log입니다.\n\n다시 확인해 주세요.");
 		// if(el-1 < gugudan.length) {
 		//     alert("해당 log의 값은 " + searchTarget[0] + "단 " + searchTarget + " 입니다.");
 		// }else{
-		//     alert("존제하지 않는 log입니다.\n\n다시 확인해 주세요.");
+		//     alert("존재하지 않는 log입니다.\n\n다시 확인해 주세요.");
 		// }
 	}else if( 0 > el-1 || gugudan.length == 0){  //0번째 로그 검색, 로그 초기화후 조회 할 경우
-		alert("존제하지 않는 log입니다.\n\n다시 확인해 주세요.");
+		alert("존재하지 않는 log입니다.\n\n다시 확인해 주세요.");
 	// console.log(searchTarget);
 	}
 	if (!$.isNumeric(el)) {  //숫자 이외 문자 입력시
-		alert("존제하지 않는 log입니다.\n\n숫자만 입력해 주세요.");
+		alert("존재하지 않는 log입니다.\n\n숫자만 입력해 주세요.");
 	}
 }
 
