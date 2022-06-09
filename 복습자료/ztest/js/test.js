@@ -320,23 +320,36 @@ army[5](); // 5번째 shooter 역시 10을 출력함
 
 // let ask = (question, yes, no) => confirm(question) ? yes() : no();
 
-let ask = (question, yes, no) => {
-	if(confirm(question)){
-		return yes();
-	}else{
-		return no();
-	}
-}
 
-ask(
-	"동의하십니까?",
-	() => alert("동의하셨습니다."),
-	() => alert("취소 버튼을 누르셨습니다.")
-);
+// let ask = (question, yes, no) => {
+// 	if(confirm(question)){
+// 		return yes();
+// 	}else{
+// 		return no();
+// 	}
+// }
+
+// ask(
+// 	"동의하십니까?",
+// 	() => console.log("동의하셨습니다."),
+// 	() => console.log("취소 버튼을 누르셨습니다.")
+// );
 
 
 ////////////////////////////////
 
 //  https://ko.javascript.info/
 
+
+
+////////////
+// let name1 = "John";
+
+// // 변수를 문자열 중간에 삽입
+// alert( `Hello, ${name1}!` ); // Hello, John!
+
+// // 표현식을 문자열 중간에 삽입
+// alert( `the result is ${1 + 2}` ); // the result is 3
+// alert( "the result is " + (1 + 2) ); // the result is 3
+////////////
 
