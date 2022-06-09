@@ -303,3 +303,40 @@ army[5](); // 5번째 shooter 역시 10을 출력함
 
 
 ////////////////////////////////
+
+
+// function ask(question, yes, no) {
+// 	if (confirm(question)) yes()
+// 	else no();
+// }
+
+// ask("동의하십니까?", function() {
+// 	alert("동의하셨습니다.");
+// }, function() {
+// 	alert("취소 버튼을 누르셨습니다.");
+// });
+
+// 화살표함수로 변경하기
+
+// let ask = (question, yes, no) => confirm(question) ? yes() : no();
+
+let ask = (question, yes, no) => {
+	if(confirm(question)){
+		return yes();
+	}else{
+		return no();
+	}
+}
+
+ask(
+	"동의하십니까?",
+	() => alert("동의하셨습니다."),
+	() => alert("취소 버튼을 누르셨습니다.")
+);
+
+
+////////////////////////////////
+
+//  https://ko.javascript.info/
+
+
