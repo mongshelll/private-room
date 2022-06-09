@@ -182,13 +182,13 @@ function makeCounter() {
 	};
 }
 
-	let counter = makeCounter();
-	let counter2 = makeCounter();
+let counter = makeCounter();
+let counter2 = makeCounter();
 
-	console.log( counter() ); // 0
-	console.log( counter() ); // 1
-	console.log( counter() ); // 2
-	console.log( counter2() ); // 0
+console.log( counter() ); // 0
+console.log( counter() ); // 1
+console.log( counter() ); // 2
+console.log( counter2() ); // 0
 
 
 
@@ -209,9 +209,9 @@ function inArray(arr) {
 
 let arr = [1, 2, 3, 4, 5, 6, 7];
 
-console.log( arr.filter(inBetween(3, 6)) ); // 3,4,5,6
+console.log(arr.filter(inBetween(3, 6))); // 3,4,5,6
 
-console.log( arr.filter(inArray([1, 2, 10])) ); // 1,2
+console.log(arr.filter(inArray([1, 2, 10]))); // 1,2
 
 
 /////////////////////////////////////////

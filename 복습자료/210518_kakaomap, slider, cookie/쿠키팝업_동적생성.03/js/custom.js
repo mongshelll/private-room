@@ -16,58 +16,58 @@ createPop();
 
 //쿠키가 없다면
 if(isCookie == -1){
-  $("#pop").show();
+	$("#pop").show();
 }else{
-  $("#pop").hide();
+	$("#pop").hide();
 };
 
 $("body").on("click", "#pop .close", function(e){
-  e.preventDefault();
+	e.preventDefault();
 
-  var isChecked = $(this).prev().find("input[type=checkbox]").is(":checked");
-  // var id_name = $(this).parent().attr("id");
+	var isChecked = $(this).prev().find("input[type=checkbox]").is(":checked");
+	// var id_name = $(this).parent().attr("id");
 
-  // if(isChecked) setCookie(id_name, "done", 10);
-  if(isChecked) setCookie("today", "done", 10);
+	// if(isChecked) setCookie(id_name, "done", 10);
+	if(isChecked) setCookie("today", "done", 10);
 
-  $(this).parent().fadeOut();
+	$(this).parent().fadeOut();
 });
 
 $("#create").on("click", function(){
-  setCookie("today", "done", 1);
+	setCookie("today", "done", 1);
 });
 
 $("#check").on("click", function(){
-  console.log(document.cookie);
+	console.log(document.cookie);
 });
 
 $("#delete").on("click", function(){
-  setCookie("today", "done", 0);
+	setCookie("today", "done", 0);
 });
 
 function setCookie(cookieName, cookieValue, time){
-  var today = new Date();
-  var min = today.getMinutes();
-  today.setMinutes(min + time)
+	var today = new Date();
+	var min = today.getMinutes();
+	today.setMinutes(min + time)
 
-  var duedate = today.toGMTString();
-  document.cookie = cookieName +"="+ cookieValue+"; path=/; expires ="+ duedate;
+	var duedate = today.toGMTString();
+	document.cookie = cookieName +"="+ cookieValue+"; path=/; expires ="+ duedate;
 }
 
 
 
 function createPop(){
-  $("body")
-  .append(
-    $("<aside id='pop'>")
-    .append(
-      $("<div class='content'>"),
-      $("<div class='wrap'>")
-      .append(
-        $("<input type='checkbox' id='ck'>"),
-        $("<label for='ck'>").text("오늘하루 그만 보기")
-      ),
-      $("<a href='#'>").addClass("close").text("Close")
-    ).fadeIn()
-  )
+	$("body")
+	.append(
+		$("<aside id='pop'>")
+		.append(
+			$("<div class='content'>"),
+			$("<div class='wrap'>")
+			.append(
+				$("<input type='checkbox' id='ck'>"),
+				$("<label for='ck'>").text("오늘하루 그만 보기")
+			),
+			$("<a href='#'>").addClass("close").text("Close")
+		).fadeIn()
+	)
 }

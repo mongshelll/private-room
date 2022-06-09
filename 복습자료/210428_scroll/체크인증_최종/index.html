@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>sep5 체크 인증_최종</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" integrity="sha384-haqrlim99xjfMxRP6EWtafs0sB1WKcMdynwZleuUSwJR0mDeRYbhtY+KPMr+JL6f" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script defer src="js/main.js"></script>
+</head>
+<body>
+	<section>
+		<div class="inner">
+			<form action="result.html" method="get">
+				<fieldset>
+					<legend>MEMBERSHIP</legend>
+					<article class="userid">
+						<label for="userid">User ID</label>
+						<input type="text" name="userid" id="userid" placeholder="아이디를 입력하세요.">
+					</article>
+					<article class="pwd">
+						<label for="pwd1">Password</label>
+						<input type="password" name="pwd1" id="pwd1" placeholder="비밀번호를 입력하세요."><br>
+
+						<label for="pwd2">Re Password</label>
+						<input type="password" name="pwd2" id="pwd2" placeholder="비밀번호를 재입력하세요.">
+					</article>
+					<article class="gender">
+						<h2>Gender</h2>
+						<p>성별을 선택해 주세요.</p>
+						<label for="male"><input type="radio" name="gender" id="male" value="male">male</label>
+						<label for="female"><input type="radio" name="gender" id="female" value="female">female</label>
+					</article>
+					<article class="job">
+						<label for="job">Job</label>
+						<select name="job" id="job">
+							<option value="">직업을 선택해 주세요.</option>
+							<option value="doctor">의사</option>
+							<option value="nurse">간호사</option>
+							<option value="teacher">교사</option>
+							<option value="programmer">프로그래머</option>
+						</select>
+					</article>
+					<article class="email">
+						<label for="emali">E-mail</label>
+						<input type="text" name="email1" id="email" placeholder="이메일을 입력해 주세요.">
+						<select name="email2" id="email">
+							<option value="">선택해주세요.</option>
+							<option value="naver.com">@naver.com</option>
+							<option value="nate.com">@nate.com</option>
+							<option value="gmail.com">@gmail.com</option>
+						</select>
+					</article>
+					<article class="comments">
+						<label for="commentd">Leave Messege</label>
+						<textarea name="comments" id="comments" cols="30" rows="5" placeholder="메세지를 남겨주세요."></textarea>
+					</article>
+					<article class="hobby">
+						<h2>Hobby</h2>
+						<p>취미를 1가지 이상 선택해 주세요.</p>
+						<label for="sports"><input type="checkbox" name="hobby" id="sports" value="sports">Sports</label>
+						<label for="music"><input type="checkbox" name="hobby" id="music" value="music">Music</label>
+						<label for="game"><input type="checkbox" name="hobby" id="game" value="game">Game</label>
+						<label for="reading"><input type="checkbox" name="hobby" id="reading" value="reading">Reading</label>
+					</article>
+					<input type="reset" value="CANCEL">
+					<input type="submit" value="COMFIRM">
+				</fieldset>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

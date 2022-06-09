@@ -1,0 +1,47 @@
+@charset 'utf-8';
+@import 'reset';
+
+
+section {
+	width: 100%;
+	height: 100vh;
+	position: relative;
+
+	&#box1 {
+		background: aqua;
+	}
+	&#box2 {
+		background: lightgreen;
+	}
+	&#box3 {
+		background: orange;
+	}
+	&#box4 {
+		background: hotpink;
+	}
+}
+
+#navi {
+	position: fixed;
+	top: 50%;
+	right: 50px;
+	transform: translateY(-50%);
+
+	li {
+		margin-bottom: 20px;
+
+		a {
+			display: block;
+			width: 10px;
+			height: 10px;
+			background: #bbb;
+			border-radius: 5px;
+			transition: 0.5s;
+
+			&.on {
+				height: 60px;
+				background: #111;
+			}
+		}
+	}
+}

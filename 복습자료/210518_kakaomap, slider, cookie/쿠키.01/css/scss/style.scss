@@ -1,0 +1,45 @@
+@charset "utf-8";
+@import "reset";
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+/*
+font-family: 'Orbitron', sans-serif;
+*/
+
+body>a {
+	margin-right: 20px;
+}
+
+#popup {
+	width: 500px;
+	background: lightblue;
+	padding: 40px;
+	box-sizing: border-box;
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	.content {
+		width: 100%;
+		min-height: 150px;
+	}
+	&::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.wrap {
+		float: left;
+
+		label {
+			font: bold 12px/1 '맑은 고딕';
+			color: #fff;
+			margin-left: 4px;
+		}
+	}
+	.close {
+		float: right;
+		font: 14px/1 'arial';
+	}
+}

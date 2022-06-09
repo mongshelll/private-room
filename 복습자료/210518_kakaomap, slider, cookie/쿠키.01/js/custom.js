@@ -13,22 +13,22 @@ document.cookie = {쿠키이름} +"="+ {쿠키값}+"; path=/; expires="+{사라�
 */
 
 $("#create").on("click", function(){
-  setCookie("today", "done", 1);
+	setCookie("today", "done", 1);
 });
 
 $("#check").on("click", function(){
-  console.log(document.cookie);
+	console.log(document.cookie);
 })
 
 $("#delete").on("click", function(){
-  setCookie("today", "done", 0);
+	setCookie("today", "done", 0);
 })
 
 function setCookie(cookieName, cookieValue, time){
-  var today = new Date();
-  var min = today.getMinutes();
-  today.setMinutes(min + time)
+	var today = new Date();
+	var min = today.getMinutes();
+	today.setMinutes(min + time)
 
-  var duedate = today.toGMTString();
-  document.cookie = cookieName +"="+ cookieValue+"; path=/; expires ="+ duedate;
+	var duedate = today.toGMTString();
+	document.cookie = cookieName +"="+ cookieValue+"; path=/; expires ="+ duedate;
 }

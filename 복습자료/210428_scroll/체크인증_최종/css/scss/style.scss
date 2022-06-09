@@ -1,0 +1,128 @@
+@charset 'utf-8';
+@import 'reset';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+//font-family: 'Roboto', sans-serif;
+body {
+	background: rgba(228, 250, 255, 0.9);
+}
+section {
+	width: 400px;
+	background: #fff;
+	margin: 100px auto;
+	padding: 70px 50px 60px;
+	box-sizing: border-box;
+	border-radius: 10px;
+	box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+
+	legend {
+		font: 45px/1 'Roboto', sans-serif;
+		color: #555;
+		margin-bottom: 40px;
+		&::after {
+			content: '';
+			display: block;
+			width: 40px;
+			height: 1px;
+			background: #999;
+			margin-top: 20px;
+		}
+	}
+
+	.userid, .pwd, .comments, .job, .email {
+		label {
+			display: block;
+			margin-bottom: 10px;
+			color: #999;
+		}
+		textarea {
+			resize: none;
+		}
+
+		input[type=text], input[type=password], textarea, select {
+			width: 100%;
+			background: #f5ffff;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			padding: 10px;
+			box-sizing: border-box;
+			margin-bottom: 20px;
+			transition: 1s;
+
+			&::placeholder {
+				color: skyblue;
+			}
+			&:focus {
+				border: 1px solid #1aabff;
+				background: #e6faff;
+			}
+			&.error {
+				background: #ffeafe;
+				border: 1px solid #ff24ff;
+			}
+		}
+	}
+
+	.gender, .hobby {
+		margin-bottom: 10px;
+
+		h2 {
+			font: normal 16px/1 'arial';
+			color: #888;
+			margin-bottom: 10px;
+		}
+		p {
+			font: 12px/1 '맑은 고딕';
+			color: hotpink;
+			display: none;
+		}
+		input {
+			margin-right: 5px;
+			margin-left: 5px;
+		}
+	}
+
+	input[type=reset] {
+		width: 100%;
+		border: none;
+		border-radius: 4px;
+		margin-top: 24px;
+		margin-bottom: 15px;
+		padding: 12px;
+		box-sizing: border-box;
+		font: bold 12px/1 'arial';
+		color: #fff;
+		background: linear-gradient(45deg, #c5c5c5, #868686);
+		box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.1);
+		letter-spacing: 1px;
+		cursor: pointer;
+		opacity: 0.5;
+		transition: 0.5s;
+
+		&:hover {
+			opacity: 1;
+			transform: scale(1.05);
+		}
+	}
+
+	input[type=submit] {
+		width: 100%;
+		border: none;
+		border-radius: 4px;
+		margin-bottom: 15px;
+		padding: 12px;
+		box-sizing: border-box;
+		font: bold 12px/1 'arial';
+		color: #fff;
+		background: linear-gradient(45deg, #52f9ff, #25b0fd);
+		box-shadow: 3px 6px 10px rgba(19, 200, 255, 0.4);
+		letter-spacing: 4px;
+		cursor: pointer;
+		opacity: 0.8;
+		transition: 0.5s;
+
+		&:hover {
+			opacity: 1;
+			transform: scale(1.05);
+		}
+	}
+}

@@ -1,57 +1,32 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
-* {
-  margin: 0px;
-  padding: 0px; }
+* { margin: 0px; padding: 0px; }
 
-ol, ul {
-  list-style: none; }
+ol, ul { list-style: none; }
 
-a {
-  text-decoration: none; }
+a { text-decoration: none; }
 
-table, td, th {
-  border-collapse: collapse; }
+table, td, th { border-collapse: collapse; }
 
-fieldset {
-  border: none; }
+fieldset { border: none; }
 
-input, a, button {
-  outline: 1; }
+input, a, button { outline: 1; }
 
-.hidden {
-  position: absolute;
-  top: -9999px;
-  opacity: 0; }
+.hidden { position: absolute; top: -9999px; opacity: 0; }
 
 /*
 font-family: 'Orbitron', sans-serif;
 */
-body > button {
-  margin-right: 20px; }
+body > button { margin-right: 20px; }
 
-#pop {
-  width: 500px;
-  background: lightskyblue;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
-  #pop .content {
-    width: 100%;
-    min-height: 150px; }
-  #pop::after {
-    content: '';
-    display: block;
-    clear: both; }
-  #pop .wrap {
-    float: left; }
-    #pop .wrap label {
-      font: bold 12px/1 '맑은 고딕';
-      color: #fff;
-      margin-left: 4px; }
-  #pop .close {
-    float: right;
-    font: 14px/1 'arial'; }
+#pop { width: 500px; background: lightskyblue; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
 
-/*# sourceMappingURL=style.css.map */
+#pop .content { width: 100%; min-height: 150px; }
+
+#pop::after { content: ''; display: block; clear: both; }
+
+#pop .wrap { float: left; }
+
+#pop .wrap label { font: bold 12px/1 '맑은 고딕'; color: #fff; margin-left: 4px; }
+
+#pop .close { float: right; font: 14px/1 'arial'; }
