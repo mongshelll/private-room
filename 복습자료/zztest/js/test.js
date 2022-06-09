@@ -191,6 +191,16 @@ console.log( counter() ); // 2
 console.log( counter2() ); // 0
 
 
+///////////////////////////////
+
+
+function sum(a) {
+	return function(b){
+		return a + b;
+	}
+}
+
+console.log(sum(3)(5));
 
 
 ////////////////////////
@@ -219,3 +229,77 @@ console.log(arr.filter(inArray([1, 2, 10]))); // 1,2
 //  https://ko.javascript.info/new-function
 //  https://ko.javascript.info/arrow-functions-basics
 //  https://ko.javascript.info/intro
+
+
+/////////////////////////
+
+let users = [
+	{ name: "John", age: 20, surname: "Johnson" },
+	{ name: "Pete", age: 18, surname: "Peterson" },
+	{ name: "Ann", age: 19, surname: "Hathaway" }
+];
+
+// // 이름을 기준으로 정렬(Ann, John, Pete)
+// users.sort((a, b) => a.name > b.name ? 1 : -1);
+
+// // 나이를 기준으로 정렬(Pete, Ann, John)
+// users.sort((a, b) => a.age > b.age ? 1 : -1);
+
+// users.sort(byField('name'));
+// users.sort(byField('age'));
+
+function byField(fieldName){
+	return function(a, b){
+		return a[fieldName] > b[fieldName] ? 1 : -1;
+
+		// if(a[fieldName] > b[fieldName]){
+		// 	return 1;
+		// }else{
+		// 	return -1;
+		// }
+	}
+}
+byField(users.name);
+byField(users.age);
+
+
+//////////////////////
+
+
+function makeArmy() {
+	let shooters = [];
+
+	// let i = 0;
+	// while (i < 10) {
+	// 	let shooter = function() { // shooter 함수
+	// 		alert( i ); // 몇 번째 shooter인지 출력해줘야 함
+	// 	};
+	// 	shooters.push(shooter);
+	// 	i++;
+	// }
+
+	for( let i = 0; i < 10; i++){
+		let shooter = function() { // shooter 함수
+			console.log(i); // 몇 번째 shooter인지 출력해줘야 함
+		};
+		shooters.push(shooter);
+	}
+
+	return shooters;
+}
+
+let army = makeArmy();
+
+army[0](); // 0번째 shooter가 10을 출력함
+army[5](); // 5번째 shooter 역시 10을 출력함
+// 모든 shooter가 자신의 번호 대신 10을 출력하고 있음
+
+
+
+////  end closure
+
+
+
+
+
+////////////////////////////////
