@@ -1,69 +1,27 @@
-* {
-  margin: 0px;
-  padding: 0px; }
+* { margin: 0px; padding: 0px; }
 
-ol, ul {
-  list-style: none; }
+ol, ul { list-style: none; }
 
-a {
-  text-decoration: none; }
+a { text-decoration: none; }
 
-table, td, th {
-  border-collapse: collapse; }
+table, td, th { border-collapse: collapse; }
 
-fieldset {
-  border: none; }
+fieldset { border: none; }
 
-input, a, button {
-  outline: 1; }
+input, a, button { outline: 1; }
 
-.hidden {
-  position: absolute;
-  top: -9999px;
-  opacity: 0; }
+.hidden { position: absolute; top: -9999px; opacity: 0; }
 
-#banner {
-  width: 100%;
-  height: 80px;
-  overflow: hidden;
-  margin: 300px auto;
-  position: relative; }
-  #banner ul {
-    height: 80px; }
-    #banner ul li {
-      width: 150px;
-      height: 100%;
-      float: left;
-      border: 1px solid #666;
-      box-sizing: border-box;
-      font: bold 30px/80px 'arial';
-      color: #555;
-      text-align: center; }
-  #banner .prev {
-    display: block;
-    width: 20px;
-    height: 60px;
-    background: #111;
-    position: absolute;
-    left: -120px;
-    top: 10px;
-    opacity: 0;
-    transition: 0.5s; }
-  #banner .next {
-    display: block;
-    width: 20px;
-    height: 60px;
-    background: #111;
-    position: absolute;
-    right: -120px;
-    top: 10px;
-    opacity: 0;
-    transition: 0.5s; }
-  #banner:hover .prev {
-    opacity: 1;
-    left: 20px; }
-  #banner:hover .next {
-    opacity: 1;
-    right: 20px; }
+#banner { width: 100%; height: 80px; overflow: hidden; margin: 300px auto; position: relative; }
 
-/*# sourceMappingURL=style.css.map */
+#banner ul { height: 80px; }
+
+#banner ul li { width: 150px; height: 100%; float: left; border: 1px solid #666; -webkit-box-sizing: border-box; box-sizing: border-box; font: bold 30px/80px 'arial'; color: #555; text-align: center; }
+
+#banner .prev { display: block; width: 20px; height: 60px; background: #111; position: absolute; left: -120px; top: 10px; opacity: 0; -webkit-transition: 0.5s; transition: 0.5s; }
+
+#banner .next { display: block; width: 20px; height: 60px; background: #111; position: absolute; right: -120px; top: 10px; opacity: 0; -webkit-transition: 0.5s; transition: 0.5s; }
+
+#banner:hover .prev { opacity: 1; left: 20px; }
+
+#banner:hover .next { opacity: 1; right: 20px; }
