@@ -353,3 +353,24 @@ army[5](); // 5번째 shooter 역시 10을 출력함
 // alert( "the result is " + (1 + 2) ); // the result is 3
 ////////////
 
+(function(a, b){
+	if((a - b) > 0 ){
+		console.log(b);
+	}else{
+		console.log(a);
+	}
+})(4, 7);
+
+(function(a, b){
+	if(a < b) {
+		console.log(a);
+	}else{
+		console.log(b);
+	}
+})(2,4);
+
+(function(a, b){
+	(a < b) ? console.log(a) : console.log(b);
+})(5, 7);
+
+
