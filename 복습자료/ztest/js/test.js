@@ -374,3 +374,157 @@ army[5](); // 5번째 shooter 역시 10을 출력함
 })(5, 7);
 
 //////////////////////////
+
+
+
+let codes = {
+	"+49": "독일",
+	"+41": "스위스",
+	"+44": "영국",
+	// ..,
+	"+1": "미국"
+};
+
+for (let code in codes) {
+	console.log( +code ); // 49, 41, 44, 1
+
+
+	console.log( codes[code] ); //
+}
+
+let user = {};
+
+user.name = "John";
+user.surname = "Smith";
+console.log(user.name);
+
+user.name = "Pate";
+console.log(user.name);
+
+delete user.name;
+console.log(user.name);
+
+
+let schedule = {};
+
+console.log( isEmpty(schedule) ); // true
+
+schedule["8:30"] = "get up";
+
+console.log( isEmpty(schedule) ); // false
+
+function isEmpty(obj) {
+	for( let key in obj) {
+		return false;
+	}
+	return true;
+}
+
+
+//모든 팀원의 월급을 합한 값을 구하고, 그 값을 변수 sum에 저장해주는 코드를 작성해보세요. sum엔 390이 저장되어야겠죠?
+
+//주의: salaries가 비어있다면 sum에 0이 저장되어야 합니다.
+
+
+let salaries = {
+	John: 100,
+	Ann: 160,
+	Pete: 130
+}
+
+let sumCost = 0;
+for (let key in salaries) {
+	console.log(salaries[key]);
+	sumCost += salaries[key];
+}
+
+console.log(sumCost); // 390
+
+
+//객체 obj의 프로퍼티 값이 숫자인 경우 그 값을 두 배 해주는 함수 multiplyNumeric(obj)을 만들어보세요.
+
+//multiplyNumeric은 아무것도 반환하지 않아도 괜찮습니다. 객체 자체를 수정해주기만 하면 됩니다.
+//힌트) typeof를 사용하면 프로퍼티 값이 숫자인지 확인할 수 있습니다.
+
+// 함수 호출 전
+let menu = {
+	width: 200,
+	height: 300,
+	title: "My menu"
+};
+
+multiplyNumeric(menu);
+
+// 함수 호출 후
+
+console.log(menu);
+
+// menu = {
+// 	width: 400,
+// 	height: 600,
+// 	title: "My menu"
+// };
+
+function multiplyNumeric(obj){
+	for(let key in obj) {
+		if(typeof obj[key] == 'number'){
+			obj[key] *= 2;
+		}
+	}
+}
+
+
+
+
+
+let user_ = {
+	name: "John",
+	age: 30
+};
+
+  let clone = {}; // 새로운 빈 객체
+
+// // 빈 객체에 user 프로퍼티 전부를 복사해 넣습니다.
+// for (let key in user) {
+// 	clone[key] = user[key];
+// }
+
+// // 이제 clone은 완전히 독립적인 복제본이 되었습니다.
+// clone.name = "Pete"; // clone의 데이터를 변경합니다.
+
+// alert( user.name ); // 기존 객체에는 여전히 John이 있습니다.
+
+
+
+Object.assign(clone, user_); // 객체 병합하기
+
+console.log(clone.name);
+console.log(clone.age);
+
+clone.name = "test";
+
+console.log(clone.name);
+console.log(user_.name);
+
+
+let user2 = {
+	name: "John",
+	age: 30
+};
+
+let clone2 = Object.assign({}, user2);
+
+console.log(clone2);
+clone2.name = "Pepe";
+clone2.age = 35;
+console.log(clone2);
+console.log(user2);
+
+
+let user5 = {
+	name: "John",
+	sizes: {
+		width: 50,
+		height: 182
+	}
+};
