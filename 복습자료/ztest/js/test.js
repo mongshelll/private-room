@@ -528,3 +528,121 @@ let user5 = {
 		height: 182
 	}
 };
+
+
+function marry(man, woman) {
+	woman.husband = man;
+	man.wife = woman;
+
+	return {
+		father: man,
+		mother: woman
+	}
+}
+
+let family = marry({
+	name: "John"
+}, {
+	name: "Ann"
+});
+
+console.log(family);
+delete family.father;
+delete family.mother.husband;
+console.log(family);
+family = null;
+console.log(family);
+
+
+////////////////
+//계산기
+
+//calculator라는 객체를 만들고 세 메서드를 구현해 봅시다.
+
+//read()에선 프롬프트 창을 띄우고 더할 값 두 개를 입력받습니다. 입력받은 값은 객체의 프로퍼티에 저장합니다.
+//sum()은 저장된 두 값의 합을 반환합니다.
+//mul()은 저장된 두 값의 곱을 반환합니다.
+
+
+// let calculator2 = {
+
+// 	sum : function(){
+// 	return this.a + this.b;
+// 	},
+// 	mul : function(){
+// 		return this.a * this.b;
+// 	},
+// 	read : function(){
+// 		this.a = prompt('첫 번째 자리', 0);
+// 		this.b = prompt('첫 번째 자리', 0);
+// 	},
+// };
+
+// calculator2.read();
+// console.log( calculator2.sum() );
+// console.log( calculator2.mul() );
+
+////////////////
+
+let obj = {};
+
+function A() {
+	return obj;
+}
+function B() {
+	return obj;
+}
+
+let a = new A;
+let b = new B;
+
+console.log( a == b ); // true
+
+
+//계산기 만들기
+
+
+//아래와 같은 세 개의 메서드를 가진 생성자 함수, Calculator를 만들어보세요.
+
+//read() – prompt 함수를 이용해 사용자로부터 값 두 개를 받고, 이를 객체 프로퍼티에 저장합니다.
+//sum() – 프로퍼티에 저장된 값 두 개를 더한 후 반환합니다.
+//mul() – 프로퍼티에 저장된 값 두 개를 곱한 후 반환합니다.
+
+
+// let calculator = new Calculator();
+// calculator.read();
+
+// function Calculator() {
+// 	this.read = function() {
+// 		this.a = +prompt("number input", 0)
+// 		this.b = +prompt("number input", 0)
+// 	};
+
+// 	this.sum = function() {
+// 		return this.a + this.b;
+// 	};
+
+// 	this.mul = function() {
+// 		return this.a * this.b;
+// 	};
+// }
+
+// console.log( "Sum=" + calculator.sum() );
+// console.log( "Mul=" + calculator.mul() );
+
+
+function Accumulator(num) {
+	this.value = num;
+
+	this.read = function() {
+		this.value += +prompt("더할 값");
+	};
+}
+
+let accumulator = new Accumulator(1); // 최초값: 1
+
+// accumulator.read(); // 사용자가 입력한 값을 더해줌
+// accumulator.read(); // 사용자가 입력한 값을 더해줌
+// accumulator.read(); // 사용자가 입력한 값을 더해줌
+
+console.log(accumulator.value); // 최초값과 사용자가 입력한 모든 값을 더해 출력함
