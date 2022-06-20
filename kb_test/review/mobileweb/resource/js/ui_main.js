@@ -92,6 +92,22 @@ function playCtrl(targetSwiper, targetPlay, targetStop) {
 	});
 }
 
+// function playCtrl(targetSwiper) {
+// 	$(document).on("click", ".btn_slide_stop", function(){
+// 		$(this).removeClass("on");
+// 		$(".btn_slide_start").addClass("on");
+// 		targetSwiper.autoplay.stop();
+// 		return false;
+// 	});
+
+// 	$(document).on("click", ".btn_slide_start", function(){
+// 		$(this).removeClass("on");
+// 		$(".btn_slide_stop").addClass("on");
+// 		targetSwiper.autoplay.stop();
+// 		return false;
+// 	});
+// }
+
 //메인 플로팅버튼
 function floatingMenu() {
 	$(document).on("click", ".floating_menu .ebbtn.btn_cs", function(){

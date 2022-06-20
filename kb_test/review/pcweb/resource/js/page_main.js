@@ -25,7 +25,7 @@ var mainSwiper;
 function mainBanner(){
 	mainSwiper = new Swiper('.main-swiper',{
 		speed: 800,
-		loop: true,		
+		loop: true,
 		autoplay: {
 			delay: 5000,
 			disableOnInteraction: false,
@@ -50,15 +50,15 @@ function mainBanner(){
             autoplayStart: function(){
                 $('.main-swiper .swiper-controller .swiper-player .se-btn').removeClass('on')
             },
-			slideChange: function(){	
+			slideChange: function(){
 				var $slide = $('.main-swiper .swiper-wrapper .swiper-slide');
 
 				$slide.find('.contain').removeClass('on')
 				$slide.eq(this.activeIndex).find('.contain').addClass('on')
-				
+
 			},
 		}
-		
+
 	})
 }
 
@@ -80,10 +80,10 @@ $(document).on('click', '.main-swiper .swiper-controller .swiper-player .se-btn'
 /* function */
 var bannerLayout = (function(){
 	var method = {
-		init : function(){			
+		init : function(){
 			var $main = $('.layout-main');
 			var $logo = $('.header .logo');
-			var $bannerLogo = $('.layout-banner').find('.banner-logo');			
+			var $bannerLogo = $('.layout-banner').find('.banner-logo');
 
 			setTimeout(function(){
 				if ( !$main.hasClass('on') ){
@@ -94,41 +94,41 @@ var bannerLayout = (function(){
 					$main.addClass('during-on');
 					mainSwiper.autoplay.start();
 				}
-				
+
 			},1400)
 			// setTimeout(function(){
 			// 	if ( !$main.hasClass('on') ){
-					
-			// 	}					
+
+			// 	}
 			// },1600)
-			
+
 
 		},
 		toggle : function(){
 			var $main = $('.layout-main');
 
 			if ( $main.hasClass('on') ){
-				$main.removeClass('on');					
-				$main.removeClass('during-on');	
+				$main.removeClass('on');
+				$main.removeClass('during-on');
 				$main.removeClass('after-on');
-					
-				mainSwiper.autoplay.stop();	
-				
+
+				mainSwiper.autoplay.stop();
+
 				$('.floating-menu').css('opacity','0')
 				setTimeout(function(){
 					$('.floating-menu').animate({
 						'opacity':'1'
 					},200)
 				},300)
-				
-			}else {					
+
+			}else {
 				$main.addClass('on');
-				$main.addClass('after-on');	
+				$main.addClass('after-on');
 				setTimeout(function(){
 					$main.addClass('during-on');
-					
-				},200)				
-				mainSwiper.autoplay.start();		
+
+				},200)
+				mainSwiper.autoplay.start();
 			}
 		},
 		logoShow : function(){
@@ -143,7 +143,7 @@ var bannerLayout = (function(){
 				$logo.css('opacity','1')
 				$bannerLogo.css('opacity','0');
 			}
-		}				
+		}
 	}
 	return method;
 })();
