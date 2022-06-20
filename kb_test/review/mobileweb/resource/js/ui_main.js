@@ -12,20 +12,21 @@
 	ready, load
 */
 $(document).ready(function(){
-	//main swiper
-	swiper();
 
-	//메인 플로팅버튼
-	floatingMenu();
-
-	//랜딩페이지 배너 컨트롤
-	$(".top_banner .btn_banner_close").on("click", function(){
-		$(".top_banner").slideUp();
-	});
 });
 
 
 $(window).on('load',function(){
+		//main swiper
+		swiper();
+
+		//메인 플로팅버튼
+		floatingMenu();
+
+		//랜딩페이지 배너 컨트롤
+		$(".top_banner .btn_banner_close").on("click", function(){
+			$(".top_banner").slideUp();
+		});
 });
 
 
