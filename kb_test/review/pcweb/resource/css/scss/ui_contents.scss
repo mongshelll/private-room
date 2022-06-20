@@ -1,0 +1,960 @@
+@charset "utf-8";
+
+/* v0.1 | 2022-06-03 */
+/*---------------------------------------------
+	대분류
+---------------------------------------------*/
+/*
+	중분류
+*/
+/* 소분류 */
+
+
+
+/*---------------------------------------------
+	컨텐츠 레이아웃
+---------------------------------------------*/
+.part {
+    font-size: 0;
+}
+
+.section:last-child, .section-full:last-child {
+    padding-bottom: 60px;
+}
+
+
+/*
+    서브헤더
+*/
+.subheader {
+    
+    .page-head {
+        position: relative;
+
+        .shortcut-pack {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0;
+
+            > .se-btn {
+                padding: 10px 22px;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            .btn-consult {
+                color: #fff;
+                background-color: #303030;
+                border-radius: 4px 12px;
+            }
+
+            > .se-btn + .se-btn {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+
+
+/*---------------------------------------------
+    서브메인 - 자동차금융
+---------------------------------------------*/
+
+/*
+    상품 탭 영역
+*/
+/* tabbtn - ty main */
+.se-tabbtn.ty-main {
+    font-size: 0;
+
+    > li {
+        position: relative;
+        display: inline-block;
+
+        > .se-btn {
+            padding: 0 20px;
+            color: #C8C8C8;
+            font-size: 24px;
+            font-weight: normal;
+            font-family: 'KBFGDisplay';
+        }
+
+        &:first-child {
+            > .se-btn {
+                padding-left: 0;
+            }
+        }
+
+        // on
+        &.on {
+            > .se-btn {
+                color: #303030;
+            }
+        }
+    }
+
+    > li + li {
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 16px;
+            background-color: #EDEDED;
+        }
+    }
+}
+
+/* 상품 스와이퍼 */
+
+// navigation
+.prod-nav {
+    position: absolute;
+    right: 0;
+    top: -30px;
+    font-size: 0;
+
+    .prod-swiper-nav {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+
+        .se-btn {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            background-color: #303030;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+            transition: all 300ms;
+        }
+
+        &.prev {
+            .btn-prod-prev {
+                background-image: url('../image/contents/icon_prev_white.png');
+            }
+        }
+
+        &.next {
+            margin-left: 10px;
+
+            .btn-prod-next {
+                background-image: url('../image/contents/icon_next_white.png');
+            }
+        }
+    }
+
+    .swiper-button-disabled {
+
+        .se-btn {
+            background-color: #E5E5E5;
+        }
+
+        &.prev {
+            .btn-prod-prev {
+                 background-image: url('../image/contents/icon_prev_grey.png');
+            }
+        }
+
+        &.next {
+            .btn-prod-next {
+                background-image: url('../image/contents/icon_next_grey.png');
+           }
+        }
+    }
+}
+
+.prod-swiper-wrap {
+    position: relative;       
+
+    .prod-list {  
+        
+        position: relative;      
+        width: calc(100% + 40px);      
+        margin-left: -40px; 
+
+        &:after {
+            z-index: 1000;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 27px;
+            height: 100%;
+            background-color: #f8f8f8;
+        }
+        
+        .swiper-wrapper {
+            padding-left: 40px;
+        }
+        
+        .swiper-slide {
+            width: 360px !important;
+            height: 320px !important;  
+            padding-top: 30px;          
+
+            .prod-item {
+                position: relative;
+                width: 360px;
+                height: 240px;
+                border-radius: 20px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+                background-color: #FF7D7C;
+                overflow: hidden;
+                transition: all 500ms;
+
+                > a {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    padding: 40px;
+                    box-sizing: border-box;
+                    border-radius: inherit;
+                }
+
+                .text {
+                    position: relative;
+                    z-index: 2;
+                    color: #fff;
+                    letter-spacing: -1px;
+
+                    .tit {
+                        font-family: 'KBFGDisplay';
+                        font-size: 24px;
+                        font-weight: bold;
+                    }
+    
+                    .desc {
+                        margin-top: 10px;
+                        font-size: 14px;
+                    }
+                }  
+
+                .ico {
+                    z-index: 2;
+                    position: absolute;
+                    width: 160px;
+                    height: 255px;
+                    top: 240px;
+                    right: 80px;
+                    background-position: center;
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    transition: all 500ms;
+                }
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    right: -70px;
+                    bottom: -78px;
+                    width: 270px;
+                    height: 270px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+                    transition: all 500ms;
+                }
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    right: -70px;
+                    bottom: -78px;
+                    width: 270px;
+                    height: 270px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+                    transform: scale(5);
+                    opacity: 0;
+                    transition: all 500ms;
+                }
+
+                // on - mouseover 
+                &.on {
+                    // width: 377px;
+                    // height: 252px;
+                    transform: scale(1.05);
+
+                    &:before {
+                        transform: scale(5);
+                    }
+
+                    &:after {
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+
+                    .ico {
+                        top: 40px;
+                        right: 0;
+                    }
+
+                    &.ty-new {
+                        box-shadow: 0 6px 30px rgba(233,49,86,.26);
+                    }
+
+                    &.ty-corp {
+                        box-shadow: 0 6px 30px rgba(69,43,177,.26);
+                    }
+
+                    &.ty-used {
+                        box-shadow: 0 6px 30px rgba(146,115,10,.26);
+                    }
+
+                    &.ty-credit {
+                        box-shadow: 0 6px 30px rgba(86,132,0,.26);
+                    }
+
+                    &.ty-rent {
+                        box-shadow: 0 6px 30px rgba(21,80,129,.26);
+                    }
+                }
+
+
+                &.ty-new {
+                    background-color: #FF7D7C;
+
+                    &:before {
+                        background-image: url('../image/contents/bg_prod_card01_bf.png');
+                    }
+
+                    &:after {
+                        background-image: url('../image/contents/bg_prod_card01_af.png');
+                    }
+
+                    .ico {
+                        background-image: url('../image/contents/icon_prod_card01.png');
+                    }
+                }
+
+                &.ty-corp {
+                    background-color: #9280DE;
+
+                    &:before {
+                        background-image: url('../image/contents/bg_prod_card02_bf.png');
+                    }
+
+                    &:after {
+                        background-image: url('../image/contents/bg_prod_card02_af.png');
+                    }
+
+                    .ico {
+                        background-image: url('../image/contents/icon_prod_card02.png');
+                    }
+                }
+
+                &.ty-used {
+                    background-color: #FFD133;
+
+                    .text {
+                        color: #303030;
+
+                        .desc {
+                            color: #505050;
+                        }
+                    }
+
+                    &:before {
+                        background-image: url('../image/contents/bg_prod_card03_bf.png');
+                    }
+
+                    &:after {
+                        background-image: url('../image/contents/bg_prod_card03_af.png');
+                    }
+
+                    .ico {
+                        background-image: url('../image/contents/icon_prod_card03.png');
+                    }
+                }
+
+                &.ty-credit {
+                    background-color: #A4D646;
+
+                    .text {
+                        color: #303030;
+
+                        .desc {
+                            color: #505050;
+                        }
+                    }
+
+                    &:before {
+                        background-image: url('../image/contents/bg_prod_card04_bf.png');
+                    }
+
+                    &:after {
+                        background-image: url('../image/contents/bg_prod_card04_af.png');
+                    }
+
+                    .ico {
+                        background-image: url('../image/contents/icon_prod_card04.png');
+                    }
+                }
+
+                &.ty-rent {
+                    background-color: #5DAEF2;
+
+                    &:before {
+                        background-image: url('../image/contents/bg_prod_card05_bf.png');
+                    }
+
+                    &:after {
+                        background-image: url('../image/contents/bg_prod_card05_af.png');
+                    }
+
+                    .ico {
+                        background-image: url('../image/contents/icon_prod_card05.png');
+                    }
+                }
+            }
+        }        
+    }
+}
+
+
+
+/*
+    FAQ 영역 
+*/
+.faq-wrap {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    width: calc(100% - 780px);
+
+    .title {
+        margin-bottom: 20px;
+        font-family: 'KBFGDisplay';
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .btn-faqmore {
+        position: absolute;
+        right: 0;
+        top: 8px;
+        padding-left: 20px;
+        background: url('../image/contents/btn_faqmore.png') no-repeat left center / 13px;
+        font-size: 14px;
+    }
+
+    .faq-list {
+        > li {
+            overflow: hidden;
+
+            > a {
+                display: block;
+                position: relative;
+                width: 100%;
+                padding: 0 20px 0 14px;
+                margin: 10px 0;
+                box-sizing: border-box;
+                font-size: 16px;
+                background: url('../image/contents/icon_faq_arrow.png') no-repeat right center / 10px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 10px;
+                    width: 4px;
+                    height: 4px;
+                    border-radius: 100%;
+                    background-color: #303030;
+                }
+            }
+
+        }
+    }
+    
+}
+
+
+/*
+    배너 영역 
+*/
+.banner-wrap {
+    display: inline-block;
+    vertical-align: top;
+    width: 700px;
+
+    .banner-box {
+        a {
+            display: block;
+            padding: 36px 40px;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            background-size: 100%;
+
+            .text {
+                display: block;
+
+                > * {
+                    display: block;
+                }
+            }
+
+            .subtit {
+                font-size: 14px; 
+            }
+            .tit {
+                font-size: 24px;
+                font-family: 'KBFGDisplay';
+                font-weight: bold;
+            }
+            .desc {
+                margin-top : 10px;
+                font-size: 14px;
+                color: #606060;
+            }
+        }
+    }
+
+    .banner-box.left {
+        a {
+            background-image: url('../image/contents/img_banner_char.png');
+
+            .subtit {
+                color: #8D744A;
+            }
+        }
+    }
+
+    .banner-box.right {
+        a {
+            position: relative;
+            margin-left: 80px;
+            background-color: #E2E2E2;
+            background-image: url('../image/contents/img_banner_car.png');
+
+            &:before {
+                content: '';
+                position: absolute;
+                right: 40px;
+                bottom: 30px;
+                width: 40px;
+                height: 10px;
+                background: url('../image/contents/icon_banner_pagi.png') no-repeat center / 100%;
+            }
+
+            .subtit {
+                color: #4E476D;
+            }
+        }
+    }
+}
+
+
+
+/*---------------------------------------------
+    로그인 페이지
+---------------------------------------------*/
+.login-wrap {
+    width: 820px;
+    margin: 0 auto;
+
+    .se-tabbtn.ty-main {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .login-box {
+        width: 100%;
+        height: 420px;
+        padding: 100px 50px 60px 50px;
+        box-sizing: border-box;
+        text-align: center;
+        border-radius: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.04);
+
+        .pinnum-pack {
+            margin: 0 auto 80px;
+            font-size: 0;
+            
+            > li {
+                position: relative;
+                display: inline-block;
+                width: 36px;
+                height: 36px;
+                margin: 0 10px;
+                border-radius: 100%;
+                background-color: #E6E6E6;
+                transition: all 500ms;
+
+                &:before {
+                    content: '';
+                    opacity: 0;
+                    position: absolute;
+                    left: 53%;
+                    top: 42%;
+                    transform: translate(-50%,-50%);
+                    width: 46px;
+                    height: 42px;
+                    background: url('../image/contents/icon_masking.png') no-repeat center / 100%;
+                    transition: all 500ms;
+                }
+
+                &:first-child {
+                    transition-delay: 500ms;
+                    &:before {
+                        transition-delay: 500ms;
+                    }
+                }
+
+                &:nth-child(2n) {
+                    transition-delay: 700ms;
+                    &:before {
+                        transition-delay: 700ms;
+                    }
+                }
+
+                &:nth-child(3n) {
+                    transition-delay: 900ms;
+                    &:before {
+                        transition-delay: 900ms;
+                    }
+                }
+
+                &:nth-child(4n) {
+                    transition-delay: 1100ms;
+                    &:before {
+                        transition-delay: 1100ms;
+                    }
+                }
+
+                &:nth-child(5n) {
+                    transition-delay: 1300ms;
+                    &:before {
+                        transition-delay: 1300ms;
+                    }
+                }
+
+                &:last-child {
+                    transition-delay: 1500ms;
+                    &:before {
+                        transition-delay: 1500ms;
+                    }
+                }
+            }
+
+            > li.on {
+                background-color: #8B7869;
+
+                &:before {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .btn-solid {
+            min-width: 240px;
+            padding: 25px;
+            box-sizing: border-box;
+            border-radius: 8px 20px;
+            background-color: #303030;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .subbtn-pack {
+            margin: 30px auto 0;
+            font-size: 0;
+
+            > li {
+                position: relative;
+                display: inline-block;
+
+                .se-btn {
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    color: #707070;
+                }
+            }
+
+            > li + li {
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 50%; 
+                    transform: translateY(-50%);
+                    width: 1px;
+                    height: 12px;
+                    background-color: #E6E6E6;
+
+                }
+            }
+        }
+    }
+
+    .notice-list {
+        padding-top: 30px;
+         
+        > li {
+            position: relative;
+            padding-left: 10px;
+            margin: 3px 0;
+            color: #707070;
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 8px;
+                width: 4px;
+                height: 4px;
+                border-radius: 100%;
+                background-color: #707070;
+            }
+        }
+    }
+}
+
+
+/*---------------------------------------------
+    mykb 페이지
+---------------------------------------------*/
+.mykb-wrap {
+    display: flex;
+
+    .mykb-left {
+        display: flex;
+        flex-wrap: wrap;
+        min-width: 960px;
+        outline: 1px solid red;
+    }
+
+    .mykb-right {
+        width: 100%;
+        height: 500px;
+        margin-left: 80px;
+        outline: 1px solid red;
+    }
+
+    .user-box {
+        width: 340px;
+        height: 400px;
+        padding: 40px 30px;
+        border-radius: 8px 20px;
+        background-color: #554C40;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        background-image: url('../image/contents/bg_mykb.png');
+        background-repeat: no-repeat;
+        background-size: inherit;
+        color: #fff;
+
+        .user-pack {
+            text-align: center;
+
+            .user-pic {
+                .pic {
+                    position: relative;
+                    display: inline-block;
+                    width: 79px;
+                    height: 79px;                    
+
+                    .img {
+                        overflow: hidden;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        background-color: #fff;                        
+                    }
+
+                    .btn-pic-modi {
+                        position: absolute;
+                        top: 0;
+                        right: -14px;
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        background-color: #fff;
+                        background-image: url('../image/contents/icon_edit.png');
+                        background-repeat: no-repeat;
+                        background-size: 16px;
+                        background-position: center;
+                    }
+
+                }
+            }
+
+            .user-name {                
+                margin-top: 15px;
+                font-family: 'KBFGDisplay';
+                font-size: 22px;
+                font-weight: lighter;
+
+                .name {
+                    font-weight: bold;
+                }
+            }
+            
+        }
+
+        .amount-pack {
+            margin-top: 20px;
+            border-top: 1px solid #625D55;
+            padding-top: 24px;
+            
+            ul.list {                           
+                width: 100%;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+
+                    .title {
+                        font-size: 16px;
+                    }
+
+                    .value {
+                        margin-left: auto;
+                        white-space: nowrap;
+                        font-size: 16px;
+
+                        .emp {
+                            font-size: 20px;
+                            font-weight: bold;
+                        }
+                    }
+
+                    & + li {
+                        margin-top: 14px;
+                    }
+                }                
+            }            
+        }
+
+        .btn-pack {
+            margin-top: 28px;
+
+            .btn-confirm {
+                width: 100%;
+                height: 60px;
+                border-radius: 12px;                
+                font-size: 18px;
+                font-weight: 700;
+
+                &.clr-brw {
+                    background-color: #716657;
+                }
+            }
+        }
+    }
+
+    .state-box {
+        width: 600px;
+        margin-left: 20px;
+        padding: 40px;
+        border: 1px solid #ECECEC;
+        border-radius: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+
+        .title-pack {
+            display: flex;
+            align-items: center;
+
+            .title {
+                font-family: 'KBFGDisplay';
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            .col-right {
+                margin-left: auto;
+
+                .btn-round {
+                    min-width: 130px;
+                    height: 44px;
+                    border: 1px solid #E6E6E6;
+                    border-radius: 30px;
+                    background-color: #fff;
+                    font-size: 15px;
+                    font-weight: 700;
+                }
+            }
+        }
+
+    }
+
+    .prod-box {
+        width: 100%;
+        margin-top: 60px;
+
+        .title-pack {
+            .title {
+                font-family: 'KBFGDisplay';
+                font-size: 24px;
+                font-weight: lighter;
+
+                .val {
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .mykb-prod-swiper {
+            width: 100%;
+
+            .swiper-slide {
+                width: 340px;
+                height: 238px;
+                background-color: #fff;
+                border: 1px solid #E6E6E6;
+
+                .inner {
+                    padding: 30px;
+
+                    .title-pack {
+                        .badge {
+                            display: inline-block;
+                            min-width: 54px;
+                            height: 30px;
+                            line-height: 28px;
+                            padding: 0 5px;
+                            border-radius: 8px;
+                            color: #FF9D00;
+                            font-size: 15px;
+                            font-weight: 700;
+                            text-align: center;
+                            vertical-align: middle;
+
+                            &.clr-01 {
+                                background-color: #FFF3CE;
+
+                            }
+                        }
+
+                        .title {
+                            display: inline-block;
+                            margin-left: 8px;
+                            font-size: 20px;
+                            font-weight: bold;
+                            vertical-align: middle;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 미디어쿼리 

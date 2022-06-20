@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" href="worklist_src/favicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="worklist_src/favicon.ico">
+	<title>퍼블리싱가이드 - 발주사 | 프로젝트명 </title>
+
+	<!-- lib -->
+	<script src="worklist_src/lib/jquery-1.12.4.min.js"></script>
+	<script src="worklist_src/lib/jquery-ui-1.11.4.js"></script>
+
+	<!-- index용 리소스 -->
+	<link rel="stylesheet" href="worklist_src/index/index.css">
+	<script src="worklist_src/index/index.js"></script>
+</head>
+
+<body>
+
+<!-- MobileWeb SET -->
+<!-- PCWeb SET : eb-layout에 pw 클래스 추가 -->
+<div class="eb-layout">
+	<!-- frame list wrap -->
+	<div class="eb-frame-list">		
+		<!-- worklist -->
+		<iframe src="map.html" name="frameList" id="frameList" title="frameList"></iframe>
+	</div>
+
+	<!-- frame view wrap -->
+	<!-- data-active-mode: default | device -->
+	<div class="eb-frame-view" data-active-mode="default">
+		<div class="inner">
+			<div class="frame-head">
+				<div class="mode-option">				
+
+					<button type="button" class="btn-mode" data-func="mode"></button>	
+					<div class="se-textfld frame-control" data-func="viewSize">
+						<input type="number" placeholder="width" step="50" >
+						<span class="max-val"></span>
+					</div>				
+				</div>			
+				<div class="device-option">	
+									
+					<div class="option-size">
+						<div class="device-size">
+							<select name="deviceOption" id="deviceOption" data-option="device">
+								<option value="custom" data-type="custom" data-model="custom" data-size="">직접 입력</option>
+							</select>
+						</div>
+	
+						<div class="custom-size">
+							<div class="se-textfld">
+								<input type="number" data-custom="width" placeholder="width">
+							</div>
+							<span class="unit">X</span>
+							<div class="se-textfld">
+								<input type="number" data-custom="height" placeholder="height" required>
+							</div>
+							<button type="button" class="btn-confirm" data-option="custom">확인</button>
+							<div class="msg"></div>
+						</div>
+					</div>	
+					
+					<div class="option-rotate">
+						<button type="button" class="btn-rotate" data-func="rotate"></button>
+					</div>
+				</div>	
+			</div>
+			<div class="frame-body">
+
+				<!-- frame view -->
+				<div class="device-frame" data-device="target">	
+					<div class="indicator"></div>
+					<iframe src="worklist_src/guide/index.html" name="frameView" data-device="frame" title="frameView" id="frameView1" ></iframe>
+				</div>				
+			</div>
+		</div>			
+	</div>
+</div>
+
+</body>
+
+</html>

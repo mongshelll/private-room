@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<!--
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="telephone=no" name="format-detection" />	
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	-->
+	<title></title>
+
+</head>
+<body>
+
+<style type="text/css">
+/*---------------------------------------------
+	Layout - main #배너
+---------------------------------------------*/
+/*
+    공통
+*/
+.contain { display: none; position: relative; width: 1200px; height: 1000px; overflow: hidden; float: left; }
+.contain img { vertical-align: top; }
+.contain .cnt-bg { position: absolute; }
+.contain .cnt-char { position: absolute; }
+.contain .cnt-deco1 { position: absolute; }
+.contain .cnt-mask { z-index: 2; position: absolute; background: #FFFFFF; } 
+
+/* 
+	배너1 
+*/
+.contain.banner1 { background: #FFFBEF; }
+.contain.banner1 .cnt-bg { bottom: 47.5px; right: -138.5px; }
+.contain.banner1 .cnt-char { bottom: 70px; right: 166.1px; } 
+.contain.banner1 .cnt-deco1 { bottom: 496px; right: 65.3px; }
+.contain.banner1 .cnt-mask { bottom: -280px; right: 200px; width: 430px; height: 250px; background: #FFFBEF; transform-origin: 50% 50%; transform: rotate(-25deg); }
+
+/* 애니메이션 */
+.contain.banner1.on { display: block; }
+.contain.banner1.on .cnt-bg { animation: bg1 forwards 500ms 0ms ease-in-out; }
+.contain.banner1.on .cnt-char { opacity: 0; animation: char1 forwards 1200ms 200ms ease-in-out; }
+.contain.banner1.on .cnt-deco1 { opacity: 0; animation: deco1 forwards 800ms 200ms ease-in-out; }
+.contain.banner1.on .cnt-mask { animation: mask1 forwards 500ms 0ms ease-in-out; transform-origin: 0% 0%; }
+@keyframes bg1 { 
+	0% { transform: translateX(50px) translateY(0px); } 
+	100% { transform: translateX(0px) translateY(0px); } 
+}
+@keyframes char1 { 
+	0% { opacity: 1; transform: translateX(-50px) translateY(400px) scale(0.6); } 
+	50% { transform: translateX(-50px) translateY(-120px) scale(1.1); } 
+	80% { transform: translateX(0px) translateY(0px) scale(1); } 
+	100% {  opacity: 1; transform: translateX(0px) translateY(0px); } 
+}
+@keyframes deco1 { 
+	0% { opacity: 1; transform: translateX(250px) translateY(150px) rotate(35deg); } 
+	100% {  opacity: 1; transform: translateX(0px) translateY(0px) rotate(); } 
+}
+@keyframes mask1 { 
+	0% { transform: translateX(50px) translateY(0px) rotate(-25deg); } 
+	100% { transform: translateX(0px) translateY(0px) rotate(-25deg); } 
+}
+
+
+/* 
+	배너2 
+*/
+.contain.banner2 { background: #F8FEE0; }
+.contain.banner2 .cnt-bg { bottom: 29.4px; right: -153.5px; }
+.contain.banner2 .cnt-char { bottom: -9.8px; right: 49.8px; }
+.contain.banner2 .cnt-mask { bottom: -224px; right: 0px; width: 278px; height: 250px; background: #F8FEE0; transform-origin: 100% 0%; transform: rotate(32deg); }
+
+/* 애니메이션 */
+.contain.banner2.on { display: block; }
+.contain.banner2.on .cnt-bg { animation: bg2 forwards 500ms 0ms ease-in-out; }
+.contain.banner2.on .cnt-char { opacity: 0; animation: char2 forwards 1200ms 200ms ease-in-out; }
+.contain.banner2.on .cnt-mask { animation: mask2 forwards 500ms 0ms ease-in-out; }
+@keyframes bg2 { 
+	0% { transform: translateX(-50px) translateY(0px); } 
+	100% { transform: translateX(0px) translateY(0px); } 
+}
+@keyframes char2 { 
+	0% { opacity: 1; transform: translateX(300px) translateY(100px) scale(0.6); } 
+	50% { transform: translateX(50px) translateY(-120px) scale(1.1); } 
+	80% { transform: translateX(0px) translateY(0px) scale(1); } 
+	100% {  opacity: 1; transform: translateX(0px) translateY(0px); } 
+}
+@keyframes mask2 { 
+	0% { transform: translateX(-50px) translateY(0px) rotate(20deg); } 
+	100% { transform: translateX(0px) translateY(0px) rotate(20deg); } 
+}
+
+
+
+/* 
+	배너3 
+*/
+.contain.banner3 { background: #F5FBFF; }
+.contain.banner3 .cnt-bg { bottom: 100px; right: 0px;}
+.contain.banner3 .cnt-char { bottom: 265px; right: 245px; }
+
+/* 애니메이션 */
+.contain.banner3.on { display: block; }
+.contain.banner3.on .cnt-bg { opacity: 0; animation: bg3 forwards 500ms 500ms ease-in-out; }
+.contain.banner3.on .cnt-char { animation: char3 forwards 1000ms 0ms ease-in-out; transform-origin: 50% 50%; }
+@keyframes bg3 { 
+	0% { opacity: 1; transform: scale(0); } 
+	80% { opacity: 1; transform: scale(1.2); } 
+	100% { opacity: 1; transform: scale(1); } 
+}
+@keyframes char3 { 
+	0% { transform: translateX(0px) translateY(0px) scale(1.6); } 
+	100% { transform: translateX(0px) translateY(0px); } 
+}
+
+/* 
+	배너4 
+*/
+.contain.banner4 { background: #FFF5EF; }
+.contain.banner4 .cnt-bg { bottom: 145px; right: -106.6px; }
+.contain.banner4 .cnt-char { bottom: 93.4px; right: 115px; }
+.contain.banner4 .cnt-mask { bottom: -105px; right: 0px; width: 500px; height: 250px; background:#FFF5EF; }
+
+/* 애니메이션 */
+.contain.banner4.on { display: block; }
+.contain.banner4.on .cnt-bg { animation: bg4 forwards 500ms 0ms ease-in-out; }
+.contain.banner4.on .cnt-char { opacity: 0; animation: char4 forwards 1200ms 200ms ease-in-out; }
+.contain.banner4.on .cnt-mask { animation: mask4 forwards 500ms 250ms ease-in-out; transform: translateY(-25px);}
+@keyframes bg4 { 
+	0% { transform: translateX(0px) translateY(-50px); } 
+	100% { transform: translateX(0px) translateY(0px); } 
+}
+@keyframes char4 { 
+	0% { opacity: 1; transform: translateX(0px) translateY(300px) scale(0.6); } 
+	50% { transform: translateX(0px) translateY(-120px) scale(1.1); } 
+	80% { transform: translateX(0px) translateY(0px) scale(1); } 
+	100% {  opacity: 1; transform: translateX(0px) translateY(0px); } 
+}
+@keyframes mask4 { 
+	0% { transform: translateX(0px) translateY(-25px); } 
+	100% { transform: translateX(0px) translateY(100px); } 
+}
+</style>
+
+
+<div class="contain banner1 on">	
+	<div class="cnt-bg"><img src="banner1-bg.png" alt=""></div>	  	
+	<div class="cnt-char"><img src="banner1-char.png" alt=""></div>
+	<div class="cnt-deco1"><img src="banner1-car.png" alt=""></div>
+	<div class="cnt-mask"></div>
+</div>
+
+<div class="contain banner2 on">	
+	<div class="cnt-bg"><img src="banner2-bg.png" alt=""></div>	  	
+	<div class="cnt-char"><img src="banner2-char.png" alt=""></div>
+	<div class="cnt-mask"></div>
+</div>
+
+<div class="contain banner3 on">	
+	<div class="cnt-bg"><img src="banner3-bg.png" alt=""></div>
+	<div class="cnt-char"><img src="banner3-char.png" alt=""></div>
+</div>
+
+<div class="contain banner4 on">	
+	<div class="cnt-bg"><img src="banner4-bg.png" alt=""></div>	  	
+	<div class="cnt-char"><img src="banner4-char.png" alt=""></div>
+	<div class="cnt-mask"></div>
+</div>
+
+
+</body>
+</html>

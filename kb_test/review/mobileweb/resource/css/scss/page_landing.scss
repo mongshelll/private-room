@@ -1,0 +1,253 @@
+.container {
+    overflow: hidden;
+    .contents {
+        padding-bottom: 110px;
+    }
+}
+.top_banner {
+    z-index: 200;
+    position: relative;
+    width: 100%;
+    height: 144px;
+    background: #2E374A url('../image/landing/bg_mask.png') no-repeat center/cover;
+
+    > img {
+        margin: 20px 0 0 25px;
+        width: 201px;
+    }
+    .ebbtn.btn_banner_close {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        right: 22px;
+        bottom: 20px;
+        text-indent: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        background: url('../image/landing/icon_close.png') no-repeat center/contain;
+    }
+}
+.header {
+    position: static;
+}
+
+.landing_main_visula {
+    position: relative;
+    height: 479px;
+
+    > img {
+        display: block;
+    }
+
+    > a {
+        width: 77px;
+        height: 17px;
+        margin-top: 30px;
+        display: block;
+        background: url('../image/landing/icon_more.png') no-repeat center/contain;
+    }
+    &::before {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        top: -205px;
+        left: -62px;
+        width: 566px;
+        height: 688px;
+        background: url('../image/landing/main_bg.png') no-repeat center/contain;
+    }
+
+
+}
+
+.prod_info_part {
+    padding: 40px 25px;
+    box-sizing: border-box;
+    background: #F8F8F9;
+    .cont_box {
+        margin-top: 25px;
+        .data_box {
+            display: table;
+            width: 100%;
+            & + .data_box {
+                margin-top: 25px;
+            }
+            .left {
+                display: table-cell;
+                vertical-align: middle;
+                font-size: 0;
+                > span {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 10px;
+                }
+                .img01 {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 30px;
+                    height: 30px;
+                    background: url('../image/landing/icon_prod01.png') no-repeat center/contain;
+                }
+                .img02 {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 30px;
+                    height: 30px;
+                    background: url('../image/landing/icon_prod02.png') no-repeat center/contain;
+                }
+                .img03 {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 30px;
+                    height: 30px;
+                    background: url('../image/landing/icon_prod03.png') no-repeat center/contain;
+                }
+                .data_name {
+                    font-size: 14px;
+                    color: #707070;
+                }
+
+            }
+            .right {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: right;
+                .data {
+                    font-size: 18px;
+                    color: #303030;
+                }
+            }
+        }
+    }
+    .btn_box {
+        margin-top: 40px;
+
+        .ebbtn.btn_limit {
+            width: 100%;
+            padding: 15px 15px 14px 15px;
+            border-radius: 12px;
+            background: #E9E9E9;
+            font-size: 16px;
+            text-align: center;
+        }
+    }
+}
+
+.faq_part {
+    padding: 40px 0;
+    .title_box {
+		display: table;
+		width: 100%;
+		.title {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		.btn_more {
+			width: 57px;
+			display: table-cell;
+			vertical-align: middle;
+			text-align: right;
+			font-size: 14px;
+			color: #707070;
+		}
+	}
+
+    .list_box {
+        margin-top: 15px;
+        .cont_box {
+            display: table;
+            width: 100%;
+            padding: 21px 0;
+            .left {
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .right {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: right;
+
+                .ebbtn.btn_down {
+                    width: 16px;
+                    height: 16px;
+                    background: url('../image/landing/btn_down.png') no-repeat center/cover;
+                }
+            }
+
+        }
+    }
+
+}
+
+.card_menu_part {
+    padding-bottom: 29px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 15px;
+    .item {
+        position: relative;
+        width: calc( 50% - (15px/2) );
+        height: 140px;
+        padding: 25px;
+        box-sizing: border-box;
+        background: #fff;
+        border: 1px solid #E6E6E6;
+        border-radius: 14px;
+
+        .menu_name {
+            font-family: "KBFGDisplay";
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .img01 {
+            position: absolute;
+            right: 25px;
+            bottom: 25px;
+            display: inline-block;
+            width: 35px;
+            height: 34px;
+            background: url('../image/landing/img_card_menu01.png') no-repeat right bottom/contain;
+        }
+        .img02 {
+            position: absolute;
+            right: 25px;
+            bottom: 25px;
+            display: inline-block;
+            width: 26px;
+            height: 34px;
+            background: url('../image/landing/img_card_menu02.png') no-repeat right bottom/contain;
+        }
+    }
+}
+.contents_bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 110px;
+    padding: 0 20px 43px;
+    background-color: #fff;
+    .btn_box {
+        .ebbtn.btn_main {
+            width: 100%;
+            margin-top: 10px;
+            padding: 20px 0 19px;
+            background: #FFCC00;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 12px;
+        }
+    }
+}
+
+
+
+.title {
+    font-family: "KBFGDisplay";
+    font-weight: bold;
+    font-size: 20px;
+}
+

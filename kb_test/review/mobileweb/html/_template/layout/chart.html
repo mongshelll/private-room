@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">	
+
+	<title>KB캐피탈</title>
+
+	<!-- Publishing CSS -->
+	<link rel="stylesheet" href="../../../resource/css/ui_piugin.css">
+	<link rel="stylesheet" href="../../../resource/css/ui_style.css">
+
+	<!-- Publishing JS -->
+	<script src="../../../resource/js/jquery-3.6.0.min.js"></script>
+	<script src="../../../resource/js/jquery-ui-1.12.1.min.js"></script>
+	<script src="../../../resource/js/ui_plugin.js"></script>
+	<script src="../../../resource/js/ui_common.js"></script>
+</head>
+<body>
+
+<!-- layout -->
+<div id="layout" class="layout">
+	<!-- header -->
+	<div id="header" class="header">
+	</div>
+	<!-- //header -->
+
+	<!-- container -->
+	<div id="container" class="container">
+		<div class="contents_wrap">
+			<div class="contents">
+				<!-- 여기부터 컨텐츠 -->
+				
+
+				<div class="circle-cht">					
+					<div class="cht-bg">
+						<svg width="420" height="420">
+							<circle cx="50%" cy="0" r="210" fill="pink">
+						</svg>
+					</div>
+
+					<div class="cht cht01 grd-cht">
+						<svg>
+														
+							<defs>
+								<!-- 해당 id와 circle태그의 stroke속성에 url값 매치 필요 -->
+								<linearGradient id="tmp-linear01" x1="100%" y1="100%" x2="50%" y2="50%">
+									<stop offset="0%"/>
+									<stop offset="100%"/>
+								</linearGradient>
+							</defs>
+					
+							<!-- data-percent : 해당 차트의 퍼센트 값 -->
+							<circle 
+							cx="50%" 
+							cy="50%" 
+							r="170" 
+							stroke="url(#tmp-linear01)"
+							data-percent="100" 
+							/>
+						</svg>
+					</div>
+
+					<div class="cht cht02">
+						<svg>													
+							<defs>								
+								<linearGradient id="tmp-linear02" x1="100%" y1="100%" x2="50%" y2="50%">
+									<stop offset="0%"/>
+									<stop offset="100%"/>
+								</linearGradient>
+							</defs>					
+							
+							<circle 
+							cx="50%" 
+							cy="50%" 
+							r="202" 
+							stroke="url(#tmp-linear02)"
+							data-percent="100" 
+							/>
+						</svg>
+					</div>
+
+					<div class="cht-conts">
+
+					</div>
+				
+					
+				</div>
+
+<style>
+/* 
+    원형차트 
+*/
+
+
+.circle-cht { position: relative; text-align: center; } 
+.circle-cht .cht-bg { overflow: hidden; position: relative; display: inline-block; width: 420px; height: 210px; outline: 1px solid red; }
+.circle-cht .cht-bg:after { content: ''; position: absolute; top: 75px; left: 50%; margin-left: -135px; width: 270px; height: 270px; background-color: #fff; border-radius: 50%; }
+.circle-cht .cht-bg svg { width: 420px; height: 210px; transform: rotate(180deg); fill: azure; }
+
+.circle-cht .cht { position: absolute; top: 0; left: 50%; transform: translateX(-50%); }
+
+.circle-cht .cht01 svg { width: 420px; height: 420px; transform: rotate(180deg); }
+.circle-cht .cht01 svg circle { _stroke-linecap: round; stroke-width: 76px; fill: none; }
+
+.circle-cht .cht02 svg { width: 420px; height: 420px; transform: rotate(180deg); }
+.circle-cht .cht02 svg circle { _stroke-linecap: round; stroke-width: 16px; fill: none; }
+
+
+/* 그라디언트 */
+.circle-cht .cht01 svg defs linearGradient stop:first-child { stop-color: #fdbb3d;  }
+.circle-cht .cht01 svg defs linearGradient stop:last-child { stop-color: #fd403d; }
+.circle-cht .cht02 svg defs linearGradient stop:first-child { stop-color: blue;  }
+.circle-cht .cht02 svg defs linearGradient stop:last-child { stop-color: #fd403d; }
+</style>
+
+
+
+
+				<!-- //여기까지 컨텐츠 -->
+			</div>
+		</div>
+	</div>
+	<!-- //container -->
+
+	<!-- footer -->
+	<div id="footer" class="footer">
+	</div>
+	<!-- //footer -->
+</div>
+<!-- //layout -->
+
+<script>
+	$(window).on('load',function(){
+		circleChartFunc()
+	})
+
+/* 원형차트 */ 
+function circleChartFunc(){
+    var $target = $('.circle-cht');		
+
+    $target.each(function(){
+        var $target = $(this);
+        var $targetS = $target.find('.cht01 svg');
+		var $target02 = $target.find('.cht02 svg');
+        var $targetC = $targetS.find('circle');
+        
+        
+        var _radius = $targetC.css('r');
+        var _r = Number(_radius.replace(/\px/g,'')); //반지름
+        var _d = 2 * Math.PI * _r; //원주		
+        var _val = Number($targetC.attr('data-percent'));
+        var _per = _val/100;
+        var _perDash = 2 * Math.PI * _r * _per;        
+		var _halfPerDash = Math.PI * _r * _per; 
+        
+        $targetC.animate({ //차트 애니메이션
+            'stroke-dasharray': _d,
+            'stroke-dashoffset': _d
+        },0,function(){
+            $targetC.animate({
+                'stroke-dashoffset': _d - _halfPerDash
+            },600);
+        })
+
+		$target02.animate({ //차트 애니메이션
+            'stroke-dasharray': _d,
+            'stroke-dashoffset': _d
+        },0,function(){
+            $targetC.animate({
+                'stroke-dashoffset': _d - _halfPerDash
+            },600);
+        })
+        
+        
+    })	
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+@charset "utf-8";
+
+/* v0.1 | 2022-06-03 */
+/*---------------------------------------------
+	대분류
+---------------------------------------------*/
+/*
+	중분류
+*/
+/* 소분류 */
+// scss 파일 단독 사용
+
+
+
+/*---------------------------------------------
+	reset
+---------------------------------------------*/
+/* normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
+html { line-height: 1.15; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+article, aside, footer, header, nav, section { display: block; }
+h1 { font-size: 2em; margin: 0.67em 0; }
+figcaption, figure, main { display: block; }
+figure { margin: 1em 40px; }
+hr { box-sizing: content-box; height: 0; overflow: visible; }
+pre { font-family: monospace, monospace; font-size: 1em; }
+a { background-color: transparent; -webkit-text-decoration-skip: objects; }
+abbr[title] { border-bottom: none; text-decoration: underline; text-decoration: underline dotted; }
+code, kbd, samp { font-family: monospace, monospace; font-size: 1em; }
+dfn { font-style: italic; }
+mark { background-color: #ff0; color: #000; }
+small { font-size: 80%; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sub { bottom: -0.25em; }
+sup { top: -0.5em; }
+audio, video { display: inline-block; }
+audio:not([controls]) { display: none; height: 0; }
+img { border-style: none; }
+svg:not(:root) { overflow: hidden; }
+button, input, optgroup, select, textarea { font-family: sans-serif; font-size: 100%; line-height: 1.15; margin: 0; }
+button, input { overflow: visible; }
+button, select { text-transform: none; }
+button, html [type="button"], [type="reset"], [type="submit"] { -webkit-appearance: button; }
+button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner { border-style: none; padding: 0; }
+button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focusring, [type="submit"]:-moz-focusring { outline: 1px dotted ButtonText; }
+fieldset { padding: 0.35em 0.75em 0.625em; }
+legend { box-sizing: border-box; color: inherit; display: table; max-width: 100%; padding: 0; white-space: normal; }
+progress { display: inline-block; vertical-align: baseline; }
+textarea { overflow: auto; }
+[type="checkbox"], [type="radio"] { box-sizing: border-box; padding: 0; }
+[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button { height: auto; }
+[type="search"] { -webkit-appearance: textfield; outline-offset: -2px; }
+[type="search"]::-webkit-search-cancel-button, [type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+::-webkit-file-upload-button { -webkit-appearance: button; font: inherit; }
+details, menu { display: block; }
+summary { display: list-item; }
+canvas { display: inline-block; }
+template { display: none; }
+[hidden] { display: none; }
+
+
+
+/*---------------------------------------------
+	font
+---------------------------------------------*/
+/* SpoqaHanSansNeo */
+@font-face {
+	font-family: 'SpoqaHanSansNeo';
+	src: url('../font/SpoqaHanSansNeo-Light.eot');
+	src: url('../font/SpoqaHanSansNeo-Light.eot?#iefix') format('embedded-opentype'),
+		 url('../font/SpoqaHanSansNeo-Light.woff') format('woff');
+	font-stretch: normal;
+	font-style: normal;
+	font-weight: lighter;
+}
+@font-face {
+	font-family: 'SpoqaHanSansNeo';
+	src: url('../font/SpoqaHanSansNeo-Regular.eot');
+	src: url('../font/SpoqaHanSansNeo-Regular.eot?#iefix') format('embedded-opentype'),
+		 url('../font/SpoqaHanSansNeo-Regular.woff') format('woff');
+	font-stretch: normal;
+	font-style: normal;
+	font-weight: normal;
+}
+@font-face {
+	font-family: 'SpoqaHanSansNeo';
+	src: url('../font/SpoqaHanSansNeo-Medium.eot');
+	src: url('../font/SpoqaHanSansNeo-Medium.eot?#iefix') format('embedded-opentype'),
+		 url('../font/SpoqaHanSansNeo-Medium.woff') format('woff');
+	font-stretch: normal;
+	font-style: normal;
+	font-weight: 700;
+}
+@font-face {
+	font-family: 'SpoqaHanSansNeo';
+	src: url('../font/SpoqaHanSansNeo-Bold.eot');
+	src: url('../font/SpoqaHanSansNeo-Bold.eot?#iefix') format('embedded-opentype'),
+		 url('../font/SpoqaHanSansNeo-Bold.woff') format('woff');
+	font-stretch: normal;
+	font-style: normal;
+	font-weight: bold;
+}
+
+/* KBFGDisplay */
+@font-face {
+	font-family: 'KBFGDisplay';
+	src: url('../font/KBFGDisplayL.eot');
+	src: url('../font/KBFGDisplayL.eot?#iefix') format('embedded-opentype'),
+		 url('../font/KBFGDisplayL.woff') format('woff');
+	font-stretch: normal;
+	font-style: normal;
+	font-weight: lighter;
+}
+@font-face {
+	font-family: 'KBFGDisplay';
+	src: url('../font/KBFGDisplayM.eot');
+	src: url('../font/KBFGDisplayM.eot?#iefix') format('embedded-opentype'),
+		 url('../font/KBFGDisplayM.woff') format('woff');
+	font-stretch: normal;
+	font-style: normal;
+	font-weight: normal;
+}
+@font-face {
+	font-family: 'KBFGDisplay';
+	src: url('../font/KBFGDisplayMI.eot');
+	src: url('../font/KBFGDisplayMI.eot?#iefix') format('embedded-opentype'),
+		 url('../font/KBFGDisplayMI.woff') format('woff');
+	font-stretch: normal;
+	font-style: italic;
+	font-weight: normal;
+}
+@font-face {
+	font-family: 'KBFGDisplay';
+	src: url('../font/KBFGDisplayB.eot');
+	src: url('../font/KBFGDisplayB.eot?#iefix') format('embedded-opentype'),
+		 url('../font/KBFGDisplayB.woff') format('woff');
+	font-stretch: normal;
+	font-style: normal;
+	font-weight: bold;
+}
+
+/* KBFGDisplay */
+@font-face {
+	font-family: 'KBFGText';
+	src: url('../font/KBFGTextL.eot');
+	src: url('../font/KBFGTextL.eot?#iefix') format('embedded-opentype'),
+		 url('../font/KBFGTextL.woff') format('woff');
+	font-stretch: normal;
+	font-style: normal;
+	font-weight: lighter;
+}
+@font-face {
+	font-family: 'KBFGText';
+	src: url('../font/KBFGTextM.eot');
+	src: url('../font/KBFGTextM.eot?#iefix') format('embedded-opentype'),
+		 url('../font/KBFGTextM.woff') format('woff');
+	font-stretch: normal;
+	font-style: normal;
+	font-weight: normal;
+}
+@font-face {
+	font-family: 'KBFGText';
+	src: url('../font/KBFGTextB.eot');
+	src: url('../font/KBFGTextB.eot?#iefix') format('embedded-opentype'),
+		 url('../font/KBFGTextB.woff') format('woff');
+	font-stretch: normal;
+	font-style: normal;
+	font-weight: bold;
+}
+
+
+
+/*---------------------------------------------
+	reset override
+---------------------------------------------*/
+html, body { height: 100%; -webkit-text-size-adjust: none; -moz-text-size-adjust: none; -ms-text-size-adjust: none; }
+body { line-height: 1.4; font-family: 'SpoqaHanSansNeo', 'malgun gothic', 'sans-serif', 'dotum'; font-size: 14px; color: #303030; }
+button, input, textarea, select, a { font-family: 'SpoqaHanSansNeo', 'malgun gothic', 'sans-serif', 'dotum'; font-size: 14px; font-size: 14px; letter-spacing: -1px; color: #303030; }
+h1, h2, h3, h4, h5, h6, p { margin: 0; padding: 0; }
+a, a:link, a:visited, a:hover { text-decoration: none; color: inherit; }
+ul, li, ol, li { margin: 0; padding: 0; list-style: none; }
+* { box-sizing: border-box; }
+
+/* letter spacing */
+body { letter-spacing: -0.025em; } 
+button, input, textarea, select, a { letter-spacing: -0.025em; }
+
+
+
+/*================= element =================*/
+/*---------------------------------------------
+	Button #버튼
+---------------------------------------------*/
+/*
+	reset
+*/
+.se-btn { -webkit-appearance: none; -moz-appearance: none; appearance: none; -webkit-box-sizing: border-box; box-sizing: border-box; text-decoration: none; border: 1px solid transparent; _outline: none; cursor: pointer; _-webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+
+.se-btn[disabled="disabled"], .se-btn:disabled, .se-btn.disabled { cursor: default; }
+
+.se-btn { display: inline-block; padding: 0; background: transparent; text-align: center; vertical-align: middle; font-weight: normal; }
+
+
+
+/*---------------------------------------------
+	icon #아이콘
+---------------------------------------------*/
+/* 
+	reset 
+*/
+.se-ico { overflow: hidden; display: inline-block; position: relative; border: 0; width: 1px; height: 1px; clip: rect(1px, 1px, 1px, 1px); font-size: 0; vertical-align: middle; }

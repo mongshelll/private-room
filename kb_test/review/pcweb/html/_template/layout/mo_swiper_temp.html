@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>KB캐피탈</title>
+
+		<!-- Publishing CSS -->
+		<link rel="stylesheet" href="../../../resource/css/ui_piugin.css">
+		<link rel="stylesheet" href="../../../resource/css/ui_style.css">
+
+		<!-- Publishing JS -->
+		<script src="../../../resource/js/jquery-3.6.0.min.js"></script>
+		<script src="../../../resource/js/jquery-ui-1.12.1.min.js"></script>
+		<script src="../../../resource/js/ui_plugin.js"></script>
+
+
+		<style>
+			.eb_btn { display: block; }
+
+			.main_slide { padding-top: 101px; }
+
+			.main_slide .swiper-container { position: relative; width: 100%; height: 299px; overflow: hidden; }
+			.swiper { width: 100%; height: 100%; }
+			.swiper-slide { font-size: 18px; display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; }
+			.swiper-slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+			.slide_tool { position: absolute; left: 22px; bottom: 30px; width: 65px; height: 22px; }
+			.slide_tool .swiper-pagination { top: 50%; left: 0; transform: translateY(-50%); }
+			.slide_tool .swiper-pagination-bullet { width: 5px; height: 5px; border-radius: 50%; border-radius: 22px; opacity: 1; background: #909090; transition: width 0.5s; }
+			.slide_tool .swiper-pagination-bullet-active { width: 13px; height: 5px; background: #606060;  }
+			.swiper-container-horizontal > .slide_tool .swiper-pagination-bullets .swiper-pagination-bullet { margin: 0; line-height: 16px; vertical-align: middle; }
+			.swiper-container-horizontal > .slide_tool .swiper-pagination-bullets .swiper-pagination-bullet + .swiper-pagination-bullet { margin-left: 8px; }
+			.slide_tool .slide_btn { z-index: 10; position: absolute; top: 50%; right: 0; transform: translateY(-50%); width: 16px; }
+			.slide_tool .slide_btn .btn_slide_stop { width: 16px; height: 16px; display: none; }
+			.slide_tool .slide_btn .btn_slide_start { width: 16px; height: 16px; display: none; }
+			.slide_tool .slide_btn .btn_slide_stop.on,
+			.slide_tool .slide_btn .btn_slide_start.on { display: block; }
+
+			.main_slide .swiper-container .cont_box { position: relative; padding: 0 22px; box-sizing: border-box; overflow: hidden; width: 100%; height: 100%; background: url('../../../resource/image/test/main_bg.png') no-repeat center bottom/100%; }
+			.main_slide .cont_box .title_box { margin-top: 10px; }
+			.main_slide .cont_box .title_box .title { font-family: "KBFGDisplay"; font-weight: bold; font-size: 24px; color: #303030; }
+			.main_slide .cont_box .title_box .desc { margin-top: 14px; font-family: "SpoqaHanSansNeo"; font-size: 14px; color: rgba(112, 112, 112, 0.8); }
+
+			.main_slide .swiper-container .slide_img_box { position: absolute; bottom: 25px; right: -62px; }
+			.main_slide .swiper-container .slide_img_box .img_cont { width: 254px; }
+			.main_slide .swiper-container .slide_img_box:nth-of-type(0) .img_cont { width: 170px; }
+
+			.btn_slide_stop { background: url('../../../resource/image/test/icon_pause.png') no-repeat center/16px; }
+			.btn_slide_start { background: #303030; }
+			.cont_box .link_box { margin-top: 20px; }
+			.link_box .eb_btn.ty_text_link { display: inline-block; border-radius: 5px; padding: 6px 12px; box-sizing: border-box; background: #303030; color: #fff; }
+
+
+			/* case2 */
+			.sub_slide { margin-top: 100px; padding: 40px 22px; box-sizing: border-box; background: #EBEFF3; }
+			.sub_slide > .title_box .title { font-family: "KBFGDisplay"; font-weight: bold; font-size: 21px; }
+			.sub_slide .title_box .desc { margin-top: 14px; font-family: "SpoqaHanSansNeo"; font-size: 15px; }
+			.sub_slide .swiper-container { margin: 50px -22px 0; }
+			.sub_slide .swiper-container .swiper.mySwiper2 { padding: 0 22px; box-sizing: border-box; }
+			.sub_slide .swiper-container .swiper-slide { min-width: 200px; width: calc(100% - 153px); }
+
+			.sub_slide .swiper-slide .eb_btn { padding: 25px 20px 15px 25px; box-sizing: border-box; width: 100%; background: #fff; border-radius: 16px; }
+			.sub_slide .swiper-slide .eb_btn .cont_box .title_box { font-family: "SpoqaHanSansNeo"; font-size: 18px; }
+			.sub_slide .swiper-slide .eb_btn .cont_box .slide_img_box { margin-top: 40px; float: right; }
+			.sub_slide .swiper-slide .eb_btn .cont_box .slide_img_box .img_cont { width: 88px; height: 88px; }
+			.sub_slide .swiper-slide .eb_btn .cont_box .slide_img_box .img_cont img { display: inline-block; }
+			.title.ty_text_btn { background: url('../../../resource/image/test/btn_arrow_link.png') no-repeat top right 5px/16px; }
+
+		</style>
+	</head>
+<body>
+
+	<div class="main_slide">
+		<div class="swiper-container">
+
+			<div class="swiper mySwiper">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="cont_box">
+							<div class="title_box">
+								<div class="title">KB캐피탈 Self 상품설계</div>
+								<div class="desc">
+									어떤 상품을 고를지 모르시겠다구요?<br>
+									몇가지 질문을 통해 최적의 상품을 만나보세요!
+								</div>
+							</div>
+							<div class="link_box">
+								<a href="#" class="eb_btn ty_text_link">바로가기</a>
+							</div>
+							<div class="slide_img_box">
+								<div class="img_cont">
+									<img src="../../../resource/image/test/img.png" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="cont_box">
+							<div class="title_box">
+								<div class="title">KB캐피탈 Self 상품설계</div>
+								<div class="desc">
+									어떤 상품을 고를지 모르시겠다구요?<br>
+									몇가지 질문을 통해 최적의 상품을 만나보세요!
+								</div>
+							</div>
+							<div class="link_box">
+								<a href="#" class="eb_btn ty_text_link">바로가기</a>
+							</div>
+							<div class="slide_img_box">
+								<div class="img_cont">
+									<img src="../../../resource/image/test/img.png" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="cont_box">
+							<div class="title_box">
+								<div class="title">KB캐피탈 Self 상품설계</div>
+								<div class="desc">
+									어떤 상품을 고를지 모르시겠다구요?<br>
+									몇가지 질문을 통해 최적의 상품을 만나보세요!
+								</div>
+							</div>
+							<div class="link_box">
+								<a href="#" class="eb_btn ty_text_link">바로가기</a>
+							</div>
+							<div class="slide_img_box">
+								<div class="img_cont">
+									<img src="../../../resource/image/test/img.png" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="slide_tool">
+					<div class="swiper-pagination"></div>
+					<div class="slide_btn">
+						<button type="button" class="ly-btn btn_slide_stop on" title="정지"></button>
+						<button type="button" class="ly-btn btn_slide_start" title="시작"></button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+	<div class="sub_slide">
+		<div class="title_box">
+			<div class="title">Self 상품설계</div>
+			<div class="desc">나에게 맞는 대출상품을 찾아보세요.</div>
+		</div>
+		<div class="swiper-container">
+			<div class="swiper mySwiper2">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<a href="#" class="eb_btn">
+							<div class="cont_box">
+								<div class="title_box">
+									<div class="title ty_text_btn"><b>자동차구매</b><br> 예정이신가요?</div>
+								</div>
+								<div class="slide_img_box">
+									<div class="img_cont">
+										<img src="../../../resource/image/test/icon_car.png" alt="">
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="#" class="eb_btn">
+							<div class="cont_box">
+								<div class="title_box">
+									<div class="title ty_text_btn"><b>신용대출이</b><br> 필요하신가요?</div>
+								</div>
+								<div class="slide_img_box">
+									<div class="img_cont">
+										<img src="../../../resource/image/test/icon_coin.png" alt="">
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="#" class="eb_btn">
+							<div class="cont_box">
+								<div class="title_box">
+									<div class="title ty_text_btn"><b>신용대출이</b><br> 필요하신가요?</div>
+								</div>
+								<div class="slide_img_box">
+									<div class="img_cont">
+										<img src="../../../resource/image/test/icon_coin.png" alt="">
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<script>
+		var mainSwiper = new Swiper(".mySwiper", {
+				pagination: {
+					el: ".swiper-pagination",
+					clickable: true,
+				},
+				loop: true,
+				autoplay: {
+					delay: 3000
+				}
+			});
+
+		$(".btn_slide_stop").on("click", function(){
+			$(this).removeClass("on");
+			$(".btn_slide_start").addClass("on");
+			mainSwiper.autoplay.stop();
+			return false;
+		});
+		$(".btn_slide_start").on("click", function(){
+			$(this).removeClass("on");
+			$(".btn_slide_stop").addClass("on");
+			mainSwiper.autoplay.start();
+			return false;
+		});
+
+		var subSwiper = new Swiper(".mySwiper2", {
+			slidesPerView: "auto",
+			spaceBetween: 10,
+		});
+	</script>
+</body>
+</html>
