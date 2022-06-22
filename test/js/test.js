@@ -1,3 +1,4 @@
+const $test_box = $(".test_box");
 let enable = false;
 
 $(window).on("load", function(){
