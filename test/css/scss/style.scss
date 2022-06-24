@@ -16,7 +16,14 @@
 		.cont_box {
 			width: 100%;
 			height: 300px;
+			padding: 50px;
+			box-sizing: border-box;
 			background: rgba(255, 255, 255, 0.1);
+			font-size: 18px;
+			text-align: center;
+			p + p {
+				margin-top: 20px;
+			}
 		}
 	}
 }
