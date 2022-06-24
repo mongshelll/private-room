@@ -10,7 +10,7 @@ $(window).on("load", function () {
 		console.log(window.innerWidth + "px (화면넓이)");
 		console.log(enable);
 	}
-	$(".cont_box .viewport_size").text(window.innerWidth + "px (화면넓이)" + " X " + + window.innerHeight + "px (화면높이)");
+	$(".cont_box .viewport_size").text(window.innerWidth + " x " + window.innerHeight);
 
 	getBrowserInfo();
 
@@ -18,8 +18,8 @@ $(window).on("load", function () {
 });
 
 $(window).on("resize", function () {
-	// console.log(window.innerWidth + "px (화면넓이)");
-	$(".cont_box .viewport_size").text(window.innerWidth + "px (화면넓이)" + " X " + + window.innerHeight + "px (화면높이)");
+	// $(".cont_box .viewport_size").text(window.innerWidth + "px (화면넓이)" + " X " + + window.innerHeight + "px (화면높이)");
+	$(".cont_box .viewport_size").text(window.innerWidth + " x " + window.innerHeight);
 });
 
 
@@ -37,6 +37,8 @@ function getBrowserInfo() {
 		return 'Edge';
 	} else if (agent.indexOf('OPR') >= 0) {
 		return 'Opera';
+	} else if (agent.indexOf('WHALE') >= 0) {
+		return 'Whale';
 	} else if (agent.indexOf('CHROME') >= 0) {
 		return 'Chrome';
 	} else if (agent.indexOf('SAFARI') >= 0) {
