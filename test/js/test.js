@@ -31,47 +31,38 @@ function browserCheck() {
 function getBrowserInfo() {
 	var agent = navigator.userAgent;
 	console.log(agent);
-
-	// var chromePos = agent.search(/chrome/i);
-	// var chromePos2 = /chrome\/\d+(\.\d)*/i;
-	// var target = agent.match(chromePos2)
-
-	// console.log(chromePos); //81
-	// console.log(target[0]);
-
 	// /text/i.test(var)  var에서 text가 있는지 확인 i는 대소문자 구별없이 결과값 불리언으로 나옴
 	if (/trident/i.test(agent)) {
-		// var iePos = agent.search(/trident/i);
 		return 'Ie';
 	} else if (/firefox/i.test(agent)) {
-		var firefoxText = agent.search(/firefox/i);
-		console.log(firefoxText);
-		console.log(agent.substring(75, 80));
+		// var firefoxText = agent.search(/firefox/i);
+		// console.log(firefoxText);
+		// console.log(agent.substring(75, 80));
 		var firefoxNum = agent.substring(75, 80);
 		return 'Firefox ' + firefoxNum + 'ver';
 	} else if (/edg/i.test(agent)) {
-		var edgeText = agent.search(/edg/i);
-		console.log(edgeText);
-		console.log(agent.substring(120, 125));
+		// var edgeText = agent.search(/edg/i);
+		// console.log(edgeText);
+		// console.log(agent.substring(120, 125));
 		var edgeNum = agent.substring(120, 125);
 		return 'Edge ' + edgeNum + 'ver';
 	} else if (/opr/i.test(agent)) {
-		var oprText = agent.search(/opr/i);
-		console.log(oprText);
-		console.log(agent.substring(121, 125));
+		// var oprText = agent.search(/opr/i);
+		// console.log(oprText);
+		// console.log(agent.substring(121, 125));
 		var oprNum = agent.substring(121, 125);
 		return 'Opera ' + oprNum + 'ver';
 		// return 'Opera';
 	} else if (/whale/i.test(agent)) {
-		var whaleText = agent.search(/whale/i);
-		console.log(whaleText);
-		console.log(agent.substring(109, 120));
+		// var whaleText = agent.search(/whale/i);
+		// console.log(whaleText);
+		// console.log(agent.substring(109, 120));
 		var whaleNum = agent.substring(109, 120);
 		return 'Whale ' + whaleNum + 'ver';
 	} else if (/chrome/i.test(agent)) {
-		var chromeText = agent.search(/chrome/i);
-		console.log(chromeText);
-		console.log(agent.substring(88, 95));
+		// var chromeText = agent.search(/chrome/i);
+		// console.log(chromeText);
+		// console.log(agent.substring(88, 95));
 		var chromeNum = agent.substring(88, 95);
 		return 'Chrome ' + chromeNum + 'ver';
 	} else if (/safari/i.test(agent)) {
