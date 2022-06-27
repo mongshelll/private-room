@@ -28,56 +28,127 @@ function browserCheck() {
 }
 
 //접속 브라우저 확인
+// function getBrowserInfo() {
+// 	var agent = navigator.userAgent.toLowerCase();
+// 	console.log(agent);
+// 	if (agent.indexOf('trident') >= 0) {
+// 		return 'Ie';
+// 	} else if (agent.indexOf('firefox') >= 0) {
+// 		return 'Firefox';
+// 	} else if (agent.indexOf('edg') >= 0) {
+// 		return 'Edge';
+// 	} else if (agent.indexOf('opr') >= 0) {
+// 		return 'Opera';
+// 	} else if (agent.indexOf('whale') >= 0) {
+// 		return 'Whale';
+// 	} else if (agent.indexOf('chrome') >= 0) {
+// 		return 'Chrome';
+// 	} else if (agent.indexOf('safari') >= 0) {
+// 		return 'Safari';
+// 	} else {
+// 		return '';
+// 	}
+// }
+//출처: https://oingdaddy.tistory.com/406
+
+//버전 포함
 function getBrowserInfo() {
 	var agent = navigator.userAgent;
 	console.log(agent);
 	// /text/i.test(var)  var에서 text가 있는지 확인 i는 대소문자 구별없이 결과값 불리언으로 나옴
-	if (/trident/i.test(agent)) {
-		return 'Ie';
-	} else if (/firefox/i.test(agent)) {
-		// var firefoxText = agent.search(/firefox/i);
-		// console.log(firefoxText);
-		// console.log(agent.substring(75, 80));
-		var firefoxNum = agent.substring(75, 80);
-		return 'Firefox ' + firefoxNum + 'ver';
-	} else if (/edg/i.test(agent)) {
-		// var edgeText = agent.search(/edg/i);
-		// console.log(edgeText);
-		// console.log(agent.substring(120, 125));
-		var edgeNum = agent.substring(120, 125);
-		return 'Edge ' + edgeNum + 'ver';
-	} else if (/opr/i.test(agent)) {
-		// var oprText = agent.search(/opr/i);
-		// console.log(oprText);
-		// console.log(agent.substring(121, 125));
-		var oprNum = agent.substring(121, 125);
-		return 'Opera ' + oprNum + 'ver';
-		// return 'Opera';
-	} else if (/whale/i.test(agent)) {
-		// var whaleText = agent.search(/whale/i);
-		// console.log(whaleText);
-		// console.log(agent.substring(109, 120));
-		var whaleNum = agent.substring(109, 120);
-		return 'Whale ' + whaleNum + 'ver';
-	} else if (/chrome/i.test(agent)) {
-		// var chromeText = agent.search(/chrome/i);
-		// console.log(chromeText);
-		// console.log(agent.substring(88, 95));
-		var chromeNum = agent.substring(88, 95);
-		return 'Chrome ' + chromeNum + 'ver';
-	} else if (/safari/i.test(agent)) {
-		// var safariText = agent.search(/safari/i);
-		// console.log(safariText);
-		// console.log(agent.substring(88, 95));
-		// var safariNum = agent.substring(88, 95);
-		// return 'Safari ' + safariNum;
-		return 'Safari';
+
+	if (!/mobile/i.test(agent)) {
+		if (/trident/i.test(agent)) {
+			return 'Ie';
+		} else if (/firefox/i.test(agent)) {
+			// var firefoxText = agent.search(/firefox/i);
+			// console.log(firefoxText);
+			// console.log(agent.substring(75, 80));
+			var firefoxNum = agent.substring(75, 80);
+			return 'Firefox ' + firefoxNum + 'ver';
+		} else if (/edg/i.test(agent)) {
+			// var edgeText = agent.search(/edg/i);
+			// console.log(edgeText);
+			// console.log(agent.substring(120, 125));
+			var edgeNum = agent.substring(120, 125);
+			return 'Edge ' + edgeNum + 'ver';
+		} else if (/opr/i.test(agent)) {
+			// var oprText = agent.search(/opr/i);
+			// console.log(oprText);
+			// console.log(agent.substring(121, 125));
+			var oprNum = agent.substring(121, 125);
+			return 'Opera ' + oprNum + 'ver';
+			// return 'Opera';
+		} else if (/whale/i.test(agent)) {
+			// var whaleText = agent.search(/whale/i);
+			// console.log(whaleText);
+			// console.log(agent.substring(109, 120));
+			var whaleNum = agent.substring(109, 120);
+			return 'Whale ' + whaleNum + 'ver';
+		} else if (/chrome/i.test(agent)) {
+			// var chromeText = agent.search(/chrome/i);
+			// console.log(chromeText);
+			// console.log(agent.substring(88, 97));
+			var chromeNum = agent.substring(88, 97);
+			return 'Chrome ' + chromeNum + 'ver';
+		} else if (/safari/i.test(agent)) {
+			// var safariText = agent.search(/safari/i);
+			// console.log(safariText);
+			// console.log(agent.substring(88, 95));
+			// var safariNum = agent.substring(88, 95);
+			// return 'Safari ' + safariNum;
+			return 'Safari';
+		} else {
+			return '';
+		}
 	} else {
-		return '';
+		if (/trident/i.test(agent)) {
+			return 'Mobile Ie';
+		} else if (/firefox/i.test(agent)) {
+			// var firefoxText = agent.search(/firefox/i);
+			// console.log(firefoxText);
+			// console.log(agent.substring(75, 80));
+			var firefoxNum = agent.substring(75, 80);
+			return 'Mobile Firefox ' + firefoxNum + 'ver';
+			//@@  모바일 ua에 mobile이 안잡힘  @@
+		} else if (/edg/i.test(agent)) {
+			// var edgeText = agent.search(/edg/i);
+			// console.log(edgeText);
+			// console.log(agent.substring(120, 125));
+			var edgeNum = agent.substring(140, 145);
+			return 'Mobile Edge ' + edgeNum + 'ver';
+		} else if (/opr/i.test(agent)) {
+			// var oprText = agent.search(/opr/i);
+			// console.log(oprText);
+			// console.log(agent.substring(121, 125));
+			var oprNum = agent.substring(121, 125);
+			return 'Mobile Opera ' + oprNum + 'ver';
+			//@@  모바일 ua에 오페라 안나옴  @@
+		} else if (/whale/i.test(agent)) {
+			// var whaleText = agent.search(/whale/i);
+			// console.log(whaleText);
+			// console.log(agent.substring(109, 120));
+			var whaleNum = agent.substring(109, 120);
+			return 'Mobile Whale ' + whaleNum + 'ver';
+			//@@  모바일 ua에 웨일이 안나옴  @@
+		} else if (/chrome/i.test(agent)) {
+			// var chromeText = agent.search(/chrome/i);
+			// console.log(chromeText);
+			// console.log(agent.substring(88, 97));
+			var chromeNum = agent.substring(101, 110);
+			return 'Mobile Chrome ' + chromeNum + 'ver';
+		} else if (/safari/i.test(agent)) {
+			// var safariText = agent.search(/safari/i);
+			// console.log(safariText);
+			// console.log(agent.substring(88, 95));
+			// var safariNum = agent.substring(88, 95);
+			// return 'Safari ' + safariNum;
+			return 'Mobile Safari';
+		} else {
+			return '';
+		}
 	}
 }
-
-
 
 // function getBrowserInfo() {
 // 	var agent = navigator.userAgent;
@@ -129,30 +200,6 @@ function getBrowserInfo() {
 // 		return '';
 // 	}
 // }
-
-//agent 내용 대문자로 치환하여 검색하는 방법
-// function getBrowserInfo() {
-// 	var agent = navigator.userAgent.toUpperCase();
-// 	// console.log(agent);
-// 	if (agent.indexOf('TRIDENT') >= 0) {
-// 		return 'Ie';
-// 	} else if (agent.indexOf('FIREFOX') >= 0) {
-// 		return 'Firefox';
-// 	} else if (agent.indexOf('EDG') >= 0) {
-// 		return 'Edge';
-// 	} else if (agent.indexOf('OPR') >= 0) {
-// 		return 'Opera';
-// 	} else if (agent.indexOf('WHALE') >= 0) {
-// 		return 'Whale';
-// 	} else if (agent.indexOf('CHROME') >= 0) {
-// 		return 'Chrome';
-// 	} else if (agent.indexOf('SAFARI') >= 0) {
-// 		return 'Safari';
-// 	} else {
-// 		return '';
-// 	}
-// }
-//출처: https://oingdaddy.tistory.com/406
 
 //화면 사이즈 html에 출력
 function windowSizeCheck() {
