@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Device Info</title>
+    <title>Device Info_TEST</title>
 
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
@@ -986,5 +986,28 @@
             </div>
         </div>
     </div>
+
+    <script>
+        var ua = navigator.userAgent;
+        var lang = navigator.language; //언어 확인
+        var core = navigator.hardwareConcurrency; //CPU 코어수 확인
+        var memory = navigator.deviceMemory; //메모리 확인 최대 8기가까지
+
+        var uaDate = navigator.userAgentData;  //지원브라우저가 적음 (익스, 파폭, 사파리, 웹뷰 미지원)
+        var version = navigator.userAgentData.brands; //브라우저 이름, 버전, 종류 배열로 나옴
+        var mobile = navigator.userAgentData.mobile; //모바일로 접속시 true 반환
+        var platform = navigator.userAgentData.platform;
+
+
+        console.log(ua);
+        console.log(lang);
+        console.log(core);
+        console.log(memory);
+        console.log(uaDate);
+        console.log(version);
+        console.log(mobile);
+        console.log(platform);
+
+    </script>
 </body>
 </html>
