@@ -23,7 +23,16 @@
     background: rgba(0, 0, 0, 0.1);
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    padding-top: 40px;
+    padding-top: 60px;
+}
+.layout .container .btn_box {
+    margin: 20px;
+}
+.layout .container .btn_box .btn_test {
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
 }
 .layout .container .cont_box {
     padding: 20px;

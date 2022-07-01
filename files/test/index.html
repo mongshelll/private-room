@@ -18,8 +18,10 @@
 
 	<div class="layout">
 		<div class="container">
+			<div class="btn_box">
+				<button type="button" class="btn_test">btn_test</button>
+			</div>
 			<div class="cont_box">
-				<button type="button" class="btn_test">test</button>
 				<div class="test_box"></div>
 				<div class="test_box"></div>
 				<div class="test_box"></div>
@@ -36,6 +38,9 @@
 		var $btn_test = document.querySelector(".btn_test");
 		console.log($test_box);
 		console.log($btn_test);
+		var UA = navigator.userAgent;
+
+		console.log(UA);
 
 
 		$btn_test.addEventListener("click", function(){

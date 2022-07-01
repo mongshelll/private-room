@@ -19,9 +19,18 @@
     min-width: 320px;
     background: rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    padding-top: 40px;
+    padding-top: 60px;
 
     .container {
+        .btn_box {
+            margin: 20px;
+            .btn_test {
+                display: inline-block;
+                width: 200px;
+                height: 40px;
+                font-size: 18px;
+            }
+        }
         .cont_box {
             padding: 20px;
 
