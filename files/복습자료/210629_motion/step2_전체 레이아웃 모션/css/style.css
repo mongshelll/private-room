@@ -1,0 +1,94 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+figure {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+figure > section {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    -webkit-transition: 1.5s;
+    transition: 1.5s;
+}
+figure > section.on1 {
+    left: 0%;
+    top: 0%;
+}
+figure > section > article {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border: 1px solid red;
+}
+figure > section > article:nth-of-type(1) {
+    top: 0%;
+    left: 0%;
+}
+figure > section > article:nth-of-type(2) {
+    top: 0%;
+    left: 100%;
+}
+figure > section > article:nth-of-type(3) {
+    top: 0%;
+    left: 200%;
+}
+figure > section > article:nth-of-type(4) {
+    top: 100%;
+    left: 200%;
+}
+figure > section > article:nth-of-type(5) {
+    top: 200%;
+    left: 200%;
+}
+figure > section > article:nth-of-type(6) {
+    top: 200%;
+    left: 100%;
+}
+figure > section > article:nth-of-type(7) {
+    top: 100%;
+    left: 100%;
+}
+figure > section > article:nth-of-type(8) {
+    top: 100%;
+    left: 0%;
+}
+figure .navi {
+    position: absolute;
+    bottom: 5vh;
+    right: 10vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+figure .navi li {
+    width: 12px;
+    height: 12px;
+    background: gray;
+    margin-left: 20px;
+    cursor: pointer;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure .navi li.on {
+    width: 80px;
+    background: #111;
+}

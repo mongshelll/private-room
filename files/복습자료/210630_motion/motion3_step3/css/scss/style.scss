@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap');
+@import "reset";
+
+figure {
+	width: 100%;
+	height: 100vh;
+	background: #efefef;
+	position: relative;
+
+	#panel {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		position: relative;
+
+		ul {
+			width: 400%;
+			height: 100%;
+			margin-left: -100%;
+
+			li {
+				width: 25%;
+				height: 100%;
+				float: left;
+				box-sizing: border-box;
+				position: relative;
+
+				.vid {
+					width: 40vw;
+					height: 40vh;
+					background: #000;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					margin-top: -20vh;
+					margin-left: -20vw;
+					transition: 0.5s;
+					box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+
+					video {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+				}
+
+				&.on {
+					.vid {
+						transform: scale(1.2);
+					}
+				}
+			}
+		}
+	}
+
+	#txt {
+		width: 80vw;
+		height: 20vh;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -10vh;
+		margin-left: -40vw;
+		overflow: hidden;
+
+		ul {
+			width: 100%;
+			height: 400%;
+			position: absolute;
+			top: -100%;
+
+			li {
+				width: 100%;
+				height: 25%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font: 20vh/1 "teko";
+				color: #fff;
+				text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+			}
+		}
+	}
+
+	.btnPrev {
+		position: absolute;
+		top: 50%;
+		left: 100px;
+		transform: translateY(-50%);
+	}
+
+	.btnNext {
+		position: absolute;
+		top: 50%;
+		right: 100px;
+		transform: translateY(-50%);
+	}
+}

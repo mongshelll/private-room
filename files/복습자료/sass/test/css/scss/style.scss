@@ -1,0 +1,14 @@
+@charset "utf-8";
+@import "common", "main", "../../scss2/test";
+
+body {
+	background: #303030;
+	text-decoration: none;
+
+	div {
+		text-align: left;
+		&:hover {
+			color: #707070;
+		}
+	}
+}

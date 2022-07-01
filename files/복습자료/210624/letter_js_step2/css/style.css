@@ -1,0 +1,59 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 span {
+    font-size: 100px;
+    -webkit-transform: scale(1.8);
+            transform: scale(1.8);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+h1 span:nth-of-type(even) {
+    color: hotpink;
+}
+h1:hover span {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+}
+
+div {
+    width: 50vw;
+    height: 50vh;
+    background: aqua;
+    font-size: 5vw;
+    color: #fff;
+    margin: 25vh auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+div span {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+div:hover span {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+}

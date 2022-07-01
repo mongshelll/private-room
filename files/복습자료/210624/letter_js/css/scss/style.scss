@@ -1,0 +1,27 @@
+@charset "utf-8";
+@import "reset";
+
+div {
+	width: 50vw;
+	height: 50vh;
+	background: aqua;
+	font-size: 5vw;
+	color: #fff;
+	margin: 25vh auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	span {
+		transform: translateY(100%);
+		opacity: 0;
+		transition: 0.5s;
+	}
+
+	&:hover {
+		span {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+}

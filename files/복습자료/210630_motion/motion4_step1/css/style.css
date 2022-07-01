@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap");
+* {
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+figure {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    background: #fff;
+}
+figure section {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+figure section article {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background: pink;
+}
+figure section article ul {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+}
+figure section article ul li {
+    position: relative;
+    margin-bottom: 5px;
+    padding: 5px 40px;
+    display: inline-block;
+}
+figure section article ul li::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+figure section article ul li span {
+    font: bold 9vw/1 "teko";
+    color: #fff;
+    position: relative;
+    top: 10px;
+}
+figure .navi {
+    position: absolute;
+    bottom: 10vh;
+    right: 10vw;
+}
+figure .navi li {
+    width: 20px;
+    height: 20px;
+    background: #000;
+    cursor: pointer;
+}

@@ -1,0 +1,354 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+figure {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+figure > section {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: 1.5s;
+    transition: 1.5s;
+}
+figure > section.on1 {
+    left: 0;
+    top: 0;
+}
+figure > section.on2 {
+    top: 0;
+    left: -100%;
+}
+figure > section.on3 {
+    top: 0;
+    left: -200%;
+}
+figure > section.on4 {
+    top: -100%;
+    left: -200%;
+}
+figure > section.on5 {
+    top: -200%;
+    left: -200%;
+}
+figure > section.on6 {
+    top: -200%;
+    left: -100%;
+}
+figure > section.on7 {
+    top: -100%;
+    left: -100%;
+}
+figure > section.on8 {
+    top: -100%;
+    left: 0;
+}
+figure > section article {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border: 1px solid red;
+}
+figure > section article h2 {
+    font: bold 10vw/1 "arial";
+    position: absolute;
+    top: 20vh;
+    left: 5vw;
+    z-index: 2;
+    -webkit-transition: 0.5s 0.5s;
+    transition: 0.5s 0.5s;
+}
+figure > section article .pic {
+    width: 70vw;
+    height: 80vh;
+    background: aqua;
+    position: absolute;
+    top: 10vh;
+    right: 10vw;
+    -webkit-transition: 0.5s 0.7s;
+    transition: 0.5s 0.7s;
+}
+figure > section article .thumb {
+    width: 25vw;
+    height: 20vh;
+    background: hotpink;
+    position: absolute;
+    bottom: 20vh;
+    left: 12vw;
+    -webkit-transition: 0.5s 0.9s;
+    transition: 0.5s 0.9s;
+}
+figure > section article .etc {
+    width: 25vw;
+    height: 6vh;
+    position: absolute;
+    bottom: 60vh;
+    left: 40vw;
+    -webkit-transition: 0.5s 0.9s;
+    transition: 0.5s 0.9s;
+    overflow: hidden;
+}
+figure > section article .etc p {
+    font: 50px/1 "arial";
+    color: #fff;
+    -webkit-transition: 0.5s 1.2s;
+    transition: 0.5s 1.2s;
+}
+figure > section article:nth-of-type(1) {
+    top: 0;
+    left: 0;
+}
+figure > section article:nth-of-type(1).off h2 {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(1).off .pic {
+    -webkit-transform: translateY(-30%);
+            transform: translateY(-30%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(1).off .thumb {
+    -webkit-transform: translateY(-200%);
+            transform: translateY(-200%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(1).off .etc {
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(1).off .etc p {
+    -webkit-transform: translateY(400%);
+            transform: translateY(400%);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(2) {
+    top: 0;
+    left: 100%;
+}
+figure > section article:nth-of-type(2).off h2 {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(2).off .pic {
+    -webkit-transform: translateX(30%);
+            transform: translateX(30%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(2).off .thumb {
+    -webkit-transform: translateX(200%);
+            transform: translateX(200%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(3) {
+    top: 0;
+    left: 200%;
+}
+figure > section article:nth-of-type(3).off h2 {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(3).off .pic {
+    -webkit-transform: translateX(30%);
+            transform: translateX(30%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(3).off .thumb {
+    -webkit-transform: translateX(200%);
+            transform: translateX(200%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(4) {
+    top: 100%;
+    left: 200%;
+}
+figure > section article:nth-of-type(4).off h2 {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(4).off .pic {
+    -webkit-transform: translateY(30%);
+            transform: translateY(30%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(4).off .thumb {
+    -webkit-transform: translateY(200%);
+            transform: translateY(200%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(5) {
+    top: 200%;
+    left: 200%;
+}
+figure > section article:nth-of-type(5).off h2 {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(5).off .pic {
+    -webkit-transform: translateY(30%);
+            transform: translateY(30%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(5).off .thumb {
+    -webkit-transform: translateY(200%);
+            transform: translateY(200%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(6) {
+    top: 200%;
+    left: 100%;
+}
+figure > section article:nth-of-type(6).off h2 {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(6).off .pic {
+    -webkit-transform: translateX(-30%);
+            transform: translateX(-30%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(6).off .thumb {
+    -webkit-transform: translateX(-200%);
+            transform: translateX(-200%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(7) {
+    top: 100%;
+    left: 100%;
+}
+figure > section article:nth-of-type(7).off h2 {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(7).off .pic {
+    -webkit-transform: translateY(-30%);
+            transform: translateY(-30%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(7).off .thumb {
+    -webkit-transform: translateY(-200%);
+            transform: translateY(-200%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(8) {
+    top: 100%;
+    left: 0;
+}
+figure > section article:nth-of-type(8).off h2 {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(8).off .pic {
+    -webkit-transform: translateX(-30%);
+            transform: translateX(-30%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure > section article:nth-of-type(8).off .thumb {
+    -webkit-transform: translateX(-200%);
+            transform: translateX(-200%);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure nav {
+    position: absolute;
+    bottom: 5vh;
+    left: 10vw;
+}
+figure nav a {
+    margin-right: 50px;
+}
+figure .navi {
+    position: absolute;
+    bottom: 5vh;
+    right: 10vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+figure .navi li {
+    width: 12px;
+    height: 12px;
+    background: gray;
+    margin-left: 20px;
+    cursor: pointer;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+figure .navi li.on {
+    width: 80px;
+    background: #111;
+}

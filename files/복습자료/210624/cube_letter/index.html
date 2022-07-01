@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>Swiper demo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="css/swiper.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script defer src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script defer src="js/swiper.min.js"></script>
+	<script defer src="js/letter.js"></script>
+	<script>
+		window.onload = ()=>{
+			new Swiper("section", {
+				grabCursor: true,
+				loop: true,
+				pagination: {
+					el: ".swiper-pagination",
+					clickable: true
+				},
+				effect: "cube",
+				cubeEffect: {
+					shadow: true,
+					slideShadows: true,
+					shadowOffset: 50,
+					shadowScale: 1
+				}
+			})
+		}
+	</script>
+</head>
+<body>
+	<main>
+		<section>
+			<div class="swiper-wrapper">
+				<article class="swiper-slide v1">
+					<h2>TYPOGRAPHY</h2>
+				</article>
+				<article class="swiper-slide v2">
+					<h2>JAVASCRIPT</h2>
+				</article>
+				<article class="swiper-slide v3">
+					<h2>ECMASCRIPT6</h2>
+				</article>
+				<article class="swiper-slide v4">
+					<h2>VANILLASCRIPT</h2>
+				</article>
+			</div>
+			<div class="swiper-pagination"></div>
+		</section>
+	</main>
+</body>
+</html>

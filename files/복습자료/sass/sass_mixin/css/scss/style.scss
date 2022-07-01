@@ -1,0 +1,55 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+@import 'reset';
+@import 'color';
+@import 'font';
+@import 'mixin';
+
+body {
+	background: $bgBodyColor;
+
+	.item {
+		width: 300px;
+		padding: 20px;
+		box-sizing: border-box;
+		background: $bgBoxColor;
+		border-radius: 10px;
+		float: left;
+		box-shadow: 5px, 5px, 20px $contentColor;
+		margin: 20px;
+
+		h2 {
+			color: $titleColor;
+			font-size: $fontBig;
+			font-family: $font;
+			margin-bottom: 15px;
+		}
+
+		p {
+			color: $contentColor;
+			font-size: $fontMid;
+			font-family: $contentFont;
+			margin-bottom: 20px;
+		}
+
+		a {
+			@include button($bgColor: pink, $corner: 0px);
+		}
+
+		&:hover {
+			background: skyblue;
+
+			h2 {
+				color: #fff;
+			}
+
+			p {
+				color: #eee;
+			}
+
+			a {
+				color: #eee;
+			}
+		}
+	}
+}

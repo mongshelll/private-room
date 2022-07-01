@@ -1,0 +1,53 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+$bgBodyColor:#efefef;
+$bgBoxColor: #fff;
+$titleColor: #555;
+$contentColor: #bbb;
+$linkColor: red;
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul, ol, li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	background: $bgBodyColor;
+}
+
+body .item {
+	width: 300px;
+	padding: 20px;
+	box-sizing: border-box;
+	background: #fff;
+	border-radius: 10px;
+	float: left;
+	box-shadow: 5px, 5px, 20px #ddd;
+	margin: 20px;
+}
+
+body .item h2 {
+	color: $titleColor;
+	font-size: 30px;
+	font-family: 'orbitron';
+}
+
+body .item p {
+	color: $contentColor;
+	font-size: 16px;
+	font-family: 'arial';
+}
+
+body .item a {
+	color: $linkColor;
+	font-size: 12px;
+}

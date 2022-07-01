@@ -1,0 +1,72 @@
+@charset "utf-8";
+@import "reset";
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap');
+
+figure {
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	position: absolute;
+	background: #fff;
+
+	section {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		article {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 100%;
+			background: pink;
+
+			ul {
+				position: absolute;
+				top: 15%;
+				left: 10%;
+
+				li {
+					position: relative;
+					margin-bottom: 5px;
+					padding: 5px 40px;
+					display: inline-block;
+
+					&::before {
+						content: "";
+						display: block;
+						width: 100%;
+						height: 100%;
+						background: #111;
+						position: absolute;
+						top: 0;
+						left: 0;
+					}
+
+					span {
+						font: bold 9vw/1 "teko";
+						color: #fff;
+						position: relative;
+						top: 10px;
+					}
+				}
+			}
+		}
+	}
+
+	.navi {
+		position: absolute;
+		bottom: 10vh;
+		right: 10vw;
+
+		li {
+			width: 20px;
+			height: 20px;
+			background: #000;
+			cursor: pointer;
+		}
+	}
+}

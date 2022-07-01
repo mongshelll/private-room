@@ -1,0 +1,143 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+table, td, th {
+    border-collapse: collapse;
+}
+
+fieldset {
+    border: none;
+}
+
+input, a, button {
+    outline: 1;
+}
+
+.hidden {
+    position: absolute;
+    top: -9999px;
+    opacity: 0;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#header {
+    width: 100%;
+    height: 120px;
+    position: relative;
+    z-index: 2;
+    border-bottom: 1px solid #ddd;
+}
+#header .inner {
+    width: 1180px;
+    height: 120px;
+    margin: 0px auto;
+    position: relative;
+}
+#header .inner::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+#header .inner h1 {
+    font: bold 30px/60px "arial";
+    height: 60px;
+    color: #777;
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+}
+#header .inner #gnb {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+#header .inner #gnb > li {
+    float: left;
+}
+#header .inner #gnb > li > a {
+    display: block;
+    width: 150px;
+    height: 60px;
+    font: bold 14px/60px "arial";
+    color: #777;
+    text-align: center;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+#header .inner #gnb > li > a:hover, #header .inner #gnb > li > a.on {
+    background: #777;
+    color: #fff;
+}
+#header .inner #gnb > li .sub {
+    position: absolute;
+    width: 1180px;
+    height: 300px;
+    right: 0px;
+    top: 60px;
+    font-size: 30px;
+    background: #fff;
+    display: none;
+    border: 1px solid red;
+}
+#header .inner #gnb > li .sub::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    position: absolute;
+    top: 0px;
+    left: -100%;
+    border: 1px solid blue;
+}
+#header .inner #gnb > li .sub::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    position: absolute;
+    top: 0px;
+    right: -100%;
+    border: 1px solid green;
+}
+#header .inner #gnb > li .sub .left {
+    width: 380px;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+#header .inner #gnb > li .sub .right {
+    width: 800px;
+    height: 300px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+#visual {
+    width: 100%;
+    height: 500px;
+    background: hotpink;
+    position: relative;
+}

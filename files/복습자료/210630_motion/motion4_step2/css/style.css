@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap");
+* {
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+figure {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    background: #fff;
+}
+figure section {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+figure section article {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background: pink;
+}
+figure section article ul {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+}
+figure section article ul li {
+    position: relative;
+    margin-bottom: 5px;
+    padding: 5px 40px;
+    display: inline-block;
+    overflow: hidden;
+    left: -150%;
+}
+figure section article ul li:nth-of-type(1) {
+    -webkit-transition: 0.5s 0s;
+    transition: 0.5s 0s;
+}
+figure section article ul li:nth-of-type(1)::before {
+    -webkit-transition: 0.5s 0.6s;
+    transition: 0.5s 0.6s;
+}
+figure section article ul li:nth-of-type(2) {
+    -webkit-transition: 0.5s 0.2s;
+    transition: 0.5s 0.2s;
+}
+figure section article ul li:nth-of-type(2)::before {
+    -webkit-transition: 0.5s 0.8s;
+    transition: 0.5s 0.8s;
+}
+figure section article ul li:nth-of-type(3) {
+    -webkit-transition: 0.5s 0.4s;
+    transition: 0.5s 0.4s;
+}
+figure section article ul li:nth-of-type(3)::before {
+    -webkit-transition: 0.5s 1s;
+    transition: 0.5s 1s;
+}
+figure section article ul li::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    position: absolute;
+    top: 0;
+    left: -150%;
+}
+figure section article ul li span {
+    font: bold 9vw/1 "teko";
+    color: #fff;
+    position: relative;
+    top: 10px;
+}
+figure section article.step1 ul li {
+    left: 0;
+}
+figure section article.step1 ul li::before {
+    left: 0;
+}
+figure .navi {
+    position: absolute;
+    bottom: 10vh;
+    right: 10vw;
+}
+figure .navi li {
+    width: 20px;
+    height: 20px;
+    background: #000;
+    cursor: pointer;
+}

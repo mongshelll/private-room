@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap");
+* {
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+figure {
+    width: 100%;
+    height: 100vh;
+    background: #efefef;
+    position: relative;
+}
+figure #panel {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+figure #panel ul {
+    width: 400%;
+    height: 100%;
+    margin-left: -100%;
+}
+figure #panel ul li {
+    width: 25%;
+    height: 100%;
+    float: left;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    position: relative;
+}
+figure #panel ul li .vid {
+    width: 40vw;
+    height: 40vh;
+    background: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -20vh;
+    margin-left: -20vw;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    -webkit-box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+}
+figure #panel ul li .vid video {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+figure #panel ul li.on .vid {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+}
+figure #txt {
+    width: 80vw;
+    height: 20vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -10vh;
+    margin-left: -40vw;
+    overflow: hidden;
+}
+figure #txt ul {
+    width: 100%;
+    height: 400%;
+    position: absolute;
+    top: -100%;
+}
+figure #txt ul li {
+    width: 100%;
+    height: 25%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font: 20vh/1 "teko";
+    color: #fff;
+    text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+}
+figure .btnPrev {
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+figure .btnNext {
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+}

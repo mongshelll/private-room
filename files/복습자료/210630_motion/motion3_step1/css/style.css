@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+figure {
+    width: 100%;
+    height: 100vh;
+    background: #efefef;
+    position: relative;
+}
+figure #panel {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+figure #panel ul {
+    width: 400%;
+    height: 100%;
+    margin-left: -100%;
+}
+figure #panel ul li {
+    width: 25%;
+    height: 100%;
+    float: left;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    position: relative;
+}
+figure #panel ul li .vid {
+    width: 40vw;
+    height: 40vh;
+    background: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -20vh;
+    margin-left: -20vw;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    -webkit-box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+}
+figure #panel ul li .vid video {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+figure #panel ul li.on .vid {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+}
+figure .btnPrev {
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+figure .btnNext {
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+}

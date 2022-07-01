@@ -1,0 +1,47 @@
+@charset "utf-8";
+@import "reset";
+
+h1 {
+	span {
+		font-size: 100px;
+		transform: scale(1.8);
+		opacity: 0;
+		transition: 0.5s;
+
+		&:nth-of-type(even){
+			color: hotpink;
+		}
+	}
+
+	&:hover {
+		span {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
+}
+
+div {
+	width: 50vw;
+	height: 50vh;
+	background: aqua;
+	font-size: 5vw;
+	color: #fff;
+	margin: 25vh auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	span {
+		transform: translateY(100%);
+		opacity: 0;
+		transition: 0.5s;
+	}
+
+	&:hover {
+		span {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+}

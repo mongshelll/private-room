@@ -1,0 +1,81 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+@import 'reset';
+@import 'color';
+@import 'font';
+@import 'mixin';
+
+body {
+	background: $bgBodyColor;
+	.wrap {
+		width: 100%;
+		border: 2px solid #bbb;
+		padding: 100px;
+		box-sizing: border-box;
+		&::after {
+			content: '';
+			display: block;
+			clear:  both;
+		}
+		.item {
+			width: 300px;
+			padding: 20px;
+			box-sizing: border-box;
+			background: $bgBoxColor;
+			border-radius: 10px;
+			float: left;
+			box-shadow: 5px, 5px, 20px $contentColor;
+			margin: 20px;
+			opacity: 0;
+			transform: translateY(100px);
+			transition-duration: 0.5s;
+
+			@for $i from 1 through 10 {
+				&:nth-of-type(#{$i}){
+					transition-delay: 0.1s * $i;
+				}
+			}
+
+			//map을 활용한 each문 반복으로 높이값, 배경색 지정
+			$items:(
+				1: (ht: 100px, bg: pink, col: red),
+				2: (ht: 150px, bg: lightblue, col: blue),
+				3: (ht: 200px, bg: orange, col: orangered),
+				4: (ht: 500px, bg: violet, col: cyan)
+			);
+
+			//반복문
+			@each $index, $item in $items{
+				&:nth-of-type(#{$index}){
+					height: map-get($item, ht);
+					background: map-get($item, bg );
+
+					a{
+						background: map-get($item, bg );
+						color: map-get($item, col )
+					}
+				}
+			}
+
+			h2{
+				color: $titleColor;
+				font-size: $fontBig;
+				font-family: $font;
+				margin-bottom: 15px;
+			}
+			p {
+				color: $contentColor;
+				font-size: $fontMid;
+				font-family: $contentFont;
+				margin-bottom: 20px;
+			}
+			a {
+				@include button($bgColor: pink, $corner: 0px);
+			}
+		}
+		&:hover .item {
+		opacity: 1;
+		transform: translateY(0px);
+		}
+	}
+}
