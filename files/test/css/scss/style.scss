@@ -28,7 +28,13 @@
                 display: inline-block;
                 width: 200px;
                 height: 40px;
+                border: 1px solid #333333;
+                border-radius: 6px;
                 font-size: 18px;
+
+                &:active {
+                    transform: scale(0.98);
+                }
             }
         }
         .cont_box {
@@ -41,6 +47,10 @@
 
                 & + .test_box {
                     margin-top: 10px;
+                }
+
+                &.on {
+                    background: #303030;
                 }
             }
         }
