@@ -65,32 +65,32 @@ function getBrowserInfo() {
 			// console.log(firefoxText);
 			// console.log(agent.substring(75, 80));
 			var firefoxNum = agent.substring(75, 80);
-			return 'Firefox ' + firefoxNum + 'ver';
+			return 'Firefox ver' + firefoxNum;
 		} else if (/edg/i.test(agent)) {
 			// var edgeText = agent.search(/edg/i);
 			// console.log(edgeText);
 			// console.log(agent.substring(120, 125));
 			var edgeNum = agent.substring(120, 125);
-			return 'Edge ' + edgeNum + 'ver';
+			return 'Edge ver' + edgeNum;
 		} else if (/opr/i.test(agent)) {
 			// var oprText = agent.search(/opr/i);
 			// console.log(oprText);
 			// console.log(agent.substring(121, 125));
 			var oprNum = agent.substring(121, 125);
-			return 'Opera ' + oprNum + 'ver';
+			return 'Opera ver' + oprNum;
 			// return 'Opera';
 		} else if (/whale/i.test(agent)) {
 			// var whaleText = agent.search(/whale/i);
 			// console.log(whaleText);
 			// console.log(agent.substring(109, 120));
 			var whaleNum = agent.substring(109, 120);
-			return 'Whale ' + whaleNum + 'ver';
+			return 'Whale ver' + whaleNum;
 		} else if (/chrome/i.test(agent)) {
 			// var chromeText = agent.search(/chrome/i);
 			// console.log(chromeText);
 			// console.log(agent.substring(88, 97));
 			var chromeNum = agent.substring(88, 97);
-			return 'Chrome ' + chromeNum + 'ver';
+			return 'Chrome ver' + chromeNum;
 		} else if (/safari/i.test(agent)) {
 			// var safariText = agent.search(/safari/i);
 			// console.log(safariText);
