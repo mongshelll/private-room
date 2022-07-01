@@ -14,12 +14,38 @@
     <script src="js/common.js"></script>
 </head>
 <body>
+    <div class="viewport_size"></div>
+
     <div class="layout">
         <div class="container">
             <div class="cont_box">
-                <div class="viewport_size"></div>
+                <button type="button" class="btn_test">test</button>
+                <div class="test_box"></div>
+                <div class="test_box"></div>
+                <div class="test_box"></div>
+                <div class="test_box"></div>
+                <div class="test_box"></div>
             </div>
         </div>
     </div>
+
+    <script>
+        var $test_box = document.getElementsByClassName("test_box");
+        // var $test_box = document.querySelector(".test_box");
+        // var $test_box = document.querySelectorAll(".test_box");
+        var $btn_test = document.querySelector(".btn_test");
+        console.log($test_box);
+        console.log($btn_test);
+
+        $btn_test.addEventListener("click", function(){
+            $test_box[2].classList.toggle("on");
+        })
+
+        // $btnTranslate.addEventListener("click", function(){
+        //     $targetTranslateAll.forEach(function(item, index){
+        //         item.classList.toggle("on");
+        //     });
+        // })
+    </script>
 </body>
 </html>

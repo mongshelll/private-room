@@ -8,5 +8,5 @@ $(window).on("resize", function () {
 
 //화면 사이즈 html에 출력 함수
 function windowSizeCheck() {
-    $(".cont_box .viewport_size").text(window.innerWidth + " x " + window.innerHeight);
+    $(".viewport_size").text(window.innerWidth + " x " + window.innerHeight);
 }
