@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.layout {
+    width: 100%;
+    height: 100vh;
+    min-width: 320px;
+    background: rgba(0, 0, 0, 0.1);
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.layout .cont_box {
+    padding: 20px;
+}
+.layout .cont_box .viewport_size {
+    opacity: 0.5;
+    width: 100%;
+    position: fixed;
+    top: 20px;
+    left: 0;
+    text-align: center;
+    font-weight: bold;
+    pointer-events: none;
+}

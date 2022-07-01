@@ -201,7 +201,7 @@ function getBrowserInfo() {
 // 	}
 // }
 
-//화면 사이즈 html에 출력
+//화면 사이즈 html에 출력 함수
 function windowSizeCheck() {
 	// $(".cont_box .viewport_size").text(window.innerWidth + "px (화면넓이)" + " X " + + window.innerHeight + "px (화면높이)");
 	$(".cont_box .viewport_size").text(window.innerWidth + " x " + window.innerHeight);
