@@ -1,3 +1,11 @@
-h1 { font-weight: bold; font-size: 25px; color: #303030; text-align: center; }
+h1 {
+    font-weight: bold;
+    font-size: 25px;
+    color: #303030;
+    text-align: center;
+}
 
-.test { text-align: center; font-size: 10px; }
+.test {
+    text-align: center;
+    font-size: 10px;
+}

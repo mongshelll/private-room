@@ -1,5 +1,12 @@
-* { margin: 0; padding: 0; }
+* {
+    margin: 0;
+    padding: 0;
+}
 
-ul, ol, li { list-style: none; }
+ul, ol, li {
+    list-style: none;
+}
 
-a { text-decoration: none; }
+a {
+    text-decoration: none;
+}

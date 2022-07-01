@@ -1,49 +1,119 @@
-* { margin: 0; padding: 0; }
+* {
+    margin: 0;
+    padding: 0;
+}
 
-ol, ul, li { list-style: none; }
+ol, ul, li {
+    list-style: none;
+}
 
-a { text-decoration: none; }
+a {
+    text-decoration: none;
+}
 
-fieldset { border: none; }
+fieldset {
+    border: none;
+}
 
-input { outline: none; }
+input {
+    outline: none;
+}
 
-section { width: 100%; height: 100vh; position: relative; }
+section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+section#box1 {
+    background: aqua;
+}
+section#box2 {
+    background: lightgreen;
+}
+section#box3 {
+    background: orange;
+}
+section#box4 {
+    background: hotpink;
+}
+section#box3 {
+    padding: 200px 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+section#box3 .inner {
+    width: 1180px;
+    margin: 0 auto;
+}
+section#box3 .inner h1 {
+    font: bold 24px/1 "arial";
+    color: #333;
+    margin-bottom: 100px;
+    text-align: center;
+}
+section#box3 .inner .wrap {
+    width: 100%;
+}
+section#box3 .inner .wrap::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+section#box3 .inner .wrap article {
+    width: 280px;
+    height: 320px;
+    background: #333;
+    float: left;
+    margin-right: 20px;
+    opacity: 0;
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+section#box3 .inner .wrap article:nth-of-type(1) {
+    -webkit-transition-duration: 0s;
+            transition-duration: 0s;
+}
+section#box3 .inner .wrap article:nth-of-type(2) {
+    -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+}
+section#box3 .inner .wrap article:nth-of-type(3) {
+    -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+}
+section#box3 .inner .wrap article:last-of-type {
+    margin-right: 0;
+    -webkit-transition-duration: 0.6s;
+            transition-duration: 0.6s;
+}
+section#box3.on .inner .wrap article {
+    opacity: 1;
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+}
 
-section#box1 { background: aqua; }
-
-section#box2 { background: lightgreen; }
-
-section#box3 { background: orange; }
-
-section#box4 { background: hotpink; }
-
-section#box3 { padding: 200px 0; -webkit-box-sizing: border-box; box-sizing: border-box; }
-
-section#box3 .inner { width: 1180px; margin: 0 auto; }
-
-section#box3 .inner h1 { font: bold 24px/1 'arial'; color: #333; margin-bottom: 100px; text-align: center; }
-
-section#box3 .inner .wrap { width: 100%; }
-
-section#box3 .inner .wrap::after { content: ''; display: block; clear: both; }
-
-section#box3 .inner .wrap article { width: 280px; height: 320px; background: #333; float: left; margin-right: 20px; opacity: 0; -webkit-transform: rotateY(180deg); transform: rotateY(180deg); -webkit-transition: 0.5s; transition: 0.5s; }
-
-section#box3 .inner .wrap article:nth-of-type(1) { -webkit-transition-duration: 0s; transition-duration: 0s; }
-
-section#box3 .inner .wrap article:nth-of-type(2) { -webkit-transition-duration: 0.2s; transition-duration: 0.2s; }
-
-section#box3 .inner .wrap article:nth-of-type(3) { -webkit-transition-duration: 0.4s; transition-duration: 0.4s; }
-
-section#box3 .inner .wrap article:last-of-type { margin-right: 0; -webkit-transition-duration: 0.6s; transition-duration: 0.6s; }
-
-section#box3.on .inner .wrap article { opacity: 1; -webkit-transform: rotateY(0deg); transform: rotateY(0deg); }
-
-#navi { position: fixed; top: 50%; right: 50px; -webkit-transform: translateY(-50%); transform: translateY(-50%); }
-
-#navi li { margin-bottom: 20px; }
-
-#navi li a { display: block; width: 10px; height: 10px; background: #bbb; border-radius: 5px; -webkit-transition: 0.5s; transition: 0.5s; }
-
-#navi li a.on { height: 60px; background: #111; }
+#navi {
+    position: fixed;
+    top: 50%;
+    right: 50px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+#navi li {
+    margin-bottom: 20px;
+}
+#navi li a {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: #bbb;
+    border-radius: 5px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+#navi li a.on {
+    height: 60px;
+    background: #111;
+}

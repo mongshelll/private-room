@@ -1,27 +1,79 @@
-* { margin: 0; padding: 0; }
+* {
+    margin: 0;
+    padding: 0;
+}
 
-ul, ol, li { list-style: none; }
+ul,
+ol,
+li {
+    list-style: none;
+}
 
-a { text-decoration: none; }
+a {
+    text-decoration: none;
+}
 
-#gallery { width: 100%; height: 100vh; background: #000; position: relative; }
-
-#gallery h1 { font: bold 70px/1 'arial'; color: #fff; position: absolute; top: 100px; left: 100px; z-index: 2; }
-
-#gallery .showGallery { width: 100%; height: 100%; position: absolute; top: 0; left: 0; background-image: url(../img/pic1.jpg); background-repeat: no-repeat; background-position: center; background-size: cover; }
-
-#gallery .controls { width: 40%; padding: 50px; -webkit-box-sizing: border-box; box-sizing: border-box; background: rgba(0, 0, 0, 0.7); position: absolute; bottom: 200px; right: 0; }
-
-#gallery .controls ul *::after { content: ''; display: block; clear: both; }
-
-#gallery .controls ul li { float: left; margin-right: 20px; }
-
-#gallery .controls ul li a { font: bold 12px/1 'arial'; color: #999; }
-
-#gallery .controls p { font: 40px/1 'arial'; color: #fff; margin-top: 30px; }
-
-#gallery .controls div { margin-top: 20px; font-size: 14px; color: #888; }
-
-#gallery .controls div strong { color: #fff; }
-
-#gallery .controls div span { color: #888; }
+#gallery {
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    position: relative;
+}
+#gallery h1 {
+    font: bold 70px/1 "arial";
+    color: #fff;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    z-index: 2;
+}
+#gallery .showGallery {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(../img/pic1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#gallery .controls {
+    width: 40%;
+    padding: 50px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    bottom: 200px;
+    right: 0;
+}
+#gallery .controls ul *::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+#gallery .controls ul li {
+    float: left;
+    margin-right: 20px;
+}
+#gallery .controls ul li a {
+    font: bold 12px/1 "arial";
+    color: #999;
+}
+#gallery .controls p {
+    font: 40px/1 "arial";
+    color: #fff;
+    margin-top: 30px;
+}
+#gallery .controls div {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888;
+}
+#gallery .controls div strong {
+    color: #fff;
+}
+#gallery .controls div span {
+    color: #888;
+}

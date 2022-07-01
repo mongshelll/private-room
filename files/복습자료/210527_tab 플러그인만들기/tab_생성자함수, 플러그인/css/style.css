@@ -1,41 +1,108 @@
-* { margin: 0px; padding: 0px; }
+* {
+    margin: 0px;
+    padding: 0px;
+}
 
-ol, ul { list-style: none; }
+ol, ul {
+    list-style: none;
+}
 
-a { text-decoration: none; }
+a {
+    text-decoration: none;
+}
 
-table, td, th { border-collapse: collapse; }
+table, td, th {
+    border-collapse: collapse;
+}
 
-fieldset { border: none; }
+fieldset {
+    border: none;
+}
 
-input, a, button { outline: 1; }
+input, a, button {
+    outline: 1;
+}
 
-.hidden { position: absolute; top: -9999px; opacity: 0; }
+.hidden {
+    position: absolute;
+    top: -9999px;
+    opacity: 0;
+}
 
-#tab1 { width: 300px; border: 1px solid #000; margin: 100px auto; }
+#tab1 {
+    width: 300px;
+    border: 1px solid #000;
+    margin: 100px auto;
+}
+#tab1 ul::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+#tab1 ul li {
+    float: left;
+}
+#tab1 ul li a {
+    display: block;
+    width: 100px;
+    height: 40px;
+    background: #666;
+    font: bold 12px/40px "arial";
+    color: #bbb;
+    text-align: center;
+}
+#tab1 ul li.on a {
+    background: #fff;
+    color: #444;
+}
+#tab1 .group > div {
+    width: 100%;
+    height: 200px;
+    background: #fff;
+    font: bold 20px/200px "arial";
+    color: #444;
+    text-align: center;
+    display: none;
+}
+#tab1 .group > div.on {
+    display: block;
+}
 
-#tab1 ul::after { content: ''; display: block; clear: both; }
-
-#tab1 ul li { float: left; }
-
-#tab1 ul li a { display: block; width: 100px; height: 40px; background: #666; font: bold 12px/40px 'arial'; color: #bbb; text-align: center; }
-
-#tab1 ul li.on a { background: #fff; color: #444; }
-
-#tab1 .group > div { width: 100%; height: 200px; background: #fff; font: bold 20px/200px 'arial'; color: #444; text-align: center; display: none; }
-
-#tab1 .group > div.on { display: block; }
-
-#tab2 { width: 300px; border: 1px solid #000; margin: 100px auto; }
-
-#tab2 ul::after { content: ''; display: block; clear: both; }
-
-#tab2 ul li { float: left; }
-
-#tab2 ul li a { display: block; width: 100px; height: 40px; background: #666; font: bold 12px/40px 'arial'; color: #bbb; text-align: center; }
-
-#tab2 ul li.on a { background: #fff; color: #444; }
-
-#tab2 .group > div { width: 100%; height: 200px; background: #fff; font: bold 20px/200px 'arial'; color: #444; text-align: center; display: none; }
-
-#tab2 .group > div.on { display: block; }
+#tab2 {
+    width: 300px;
+    border: 1px solid #000;
+    margin: 100px auto;
+}
+#tab2 ul::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+#tab2 ul li {
+    float: left;
+}
+#tab2 ul li a {
+    display: block;
+    width: 100px;
+    height: 40px;
+    background: #666;
+    font: bold 12px/40px "arial";
+    color: #bbb;
+    text-align: center;
+}
+#tab2 ul li.on a {
+    background: #fff;
+    color: #444;
+}
+#tab2 .group > div {
+    width: 100%;
+    height: 200px;
+    background: #fff;
+    font: bold 20px/200px "arial";
+    color: #444;
+    text-align: center;
+    display: none;
+}
+#tab2 .group > div.on {
+    display: block;
+}

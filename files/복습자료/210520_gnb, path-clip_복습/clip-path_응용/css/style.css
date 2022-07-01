@@ -1,25 +1,75 @@
-* { margin: 0px; padding: 0px; }
+* {
+    margin: 0px;
+    padding: 0px;
+}
 
-ol, ul { list-style: none; }
+ol, ul {
+    list-style: none;
+}
 
-a { text-decoration: none; }
+a {
+    text-decoration: none;
+}
 
-table, td, th { border-collapse: collapse; }
+table, td, th {
+    border-collapse: collapse;
+}
 
-fieldset { border: none; }
+fieldset {
+    border: none;
+}
 
-input, a, button { outline: 1; }
+input, a, button {
+    outline: 1;
+}
 
-.hidden { position: absolute; top: -9999px; opacity: 0; }
+.hidden {
+    position: absolute;
+    top: -9999px;
+    opacity: 0;
+}
 
-.pic { width: 800px; height: 400px; margin: 100px auto; border: 1px solid #000; background-image: url(../img/rose.jpg); background-repeat: no-repeat; background-position: 9999px; background-size: cover; position: relative; }
-
-.pic::before, .pic::after { content: ''; display: block; width: 100%; height: 100%; position: absolute; top: 0; left: 0; background-image: inherit; background-repeat: inherit; background-position: center; background-size: inherit; -webkit-transition-duration: 0.7s; transition-duration: 0.7s; }
-
-.pic::before { -webkit-clip-path: inset(0% 100% 50% 0%); clip-path: inset(0% 100% 50% 0%); }
-
-.pic::after { -webkit-clip-path: inset(50% 100% 0% 0%); clip-path: inset(50% 100% 0% 0%); -webkit-transition-delay: 0.2s; transition-delay: 0.2s; }
-
-.pic:hover::before { -webkit-clip-path: inset(0% 0% 50% 0%); clip-path: inset(0% 0% 50% 0%); }
-
-.pic:hover::after { -webkit-clip-path: inset(50% 0% 0% 0%); clip-path: inset(50% 0% 0% 0%); }
+.pic {
+    width: 800px;
+    height: 400px;
+    margin: 100px auto;
+    border: 1px solid #000;
+    background-image: url(../img/rose.jpg);
+    background-repeat: no-repeat;
+    background-position: 9999px;
+    background-size: cover;
+    position: relative;
+}
+.pic::before, .pic::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: inherit;
+    background-repeat: inherit;
+    background-position: center;
+    background-size: inherit;
+    -webkit-transition-duration: 0.7s;
+            transition-duration: 0.7s;
+}
+.pic::before {
+    -webkit-clip-path: inset(0% 100% 50% 0%);
+            clip-path: inset(0% 100% 50% 0%);
+}
+.pic::after {
+    -webkit-clip-path: inset(50% 100% 0% 0%);
+            clip-path: inset(50% 100% 0% 0%);
+    -webkit-transition-delay: 0.2s;
+            transition-delay: 0.2s;
+}
+.pic:hover::before {
+    -webkit-clip-path: inset(0% 0% 50% 0%);
+            clip-path: inset(0% 0% 50% 0%);
+}
+.pic:hover::after {
+    -webkit-clip-path: inset(50% 0% 0% 0%);
+            clip-path: inset(50% 0% 0% 0%);
+}

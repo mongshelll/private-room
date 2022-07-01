@@ -1,17 +1,42 @@
-* { margin: 0px; padding: 0px; }
+* {
+    margin: 0px;
+    padding: 0px;
+}
 
-ol, ul { list-style: none; }
+ol, ul {
+    list-style: none;
+}
 
-a { text-decoration: none; }
+a {
+    text-decoration: none;
+}
 
-table, td, th { border-collapse: collapse; }
+table, td, th {
+    border-collapse: collapse;
+}
 
-fieldset { border: none; }
+fieldset {
+    border: none;
+}
 
-input, a, button { outline: 1; }
+input, a, button {
+    outline: 1;
+}
 
-.hidden { position: absolute; top: -9999px; opacity: 0; }
+.hidden {
+    position: absolute;
+    top: -9999px;
+    opacity: 0;
+}
 
-h1 { font-size: 100px; text-align: center; margin: 100px 0px; }
+h1 {
+    font-size: 100px;
+    text-align: center;
+    margin: 100px 0px;
+}
 
-h2 { font-size: 50px; color: blue; text-align: center; }
+h2 {
+    font-size: 50px;
+    color: blue;
+    text-align: center;
+}
