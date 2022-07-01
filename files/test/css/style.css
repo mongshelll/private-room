@@ -3,32 +3,30 @@
     padding: 0;
 }
 
-.viewport_size {
-    opacity: 0.5;
-    width: 100%;
-    height: 40px;
-    position: fixed;
-    top: 20px;
-    left: 0;
-    line-height: 40px;
-    text-align: center;
-    font-weight: bold;
-    pointer-events: none;
+.test_box {
+    width: 100vw;
+    height: 100%;
+    background: #303030;
+    color: #f0f0f0;
+    font-size: 12px;
 }
-
-.layout {
-    width: 100%;
-    height: 100vh;
-    min-width: 320px;
-    background: rgba(0, 0, 0, 0.1);
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    padding-top: 60px;
+.test_box .scroll_test_box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 10px;
 }
-.layout .container .btn_box {
+.test_box .scroll_test_box .btn_box {
     margin: 20px;
 }
-.layout .container .btn_box .btn_test {
+.test_box .scroll_test_box .btn_box .btn_test {
     display: inline-block;
     width: 200px;
     height: 40px;
@@ -36,21 +34,30 @@
     border-radius: 6px;
     font-size: 18px;
 }
-.layout .container .btn_box .btn_test:active {
+.test_box .scroll_test_box .btn_box .btn_test:active {
     -webkit-transform: scale(0.98);
             transform: scale(0.98);
 }
-.layout .container .cont_box {
-    padding: 20px;
+.test_box .scroll_test_box .cont_box {
+    width: 100%;
+    padding: 100px 10px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 22px;
+    text-align: center;
 }
-.layout .container .cont_box .test_box {
+.test_box .scroll_test_box .cont_box p + p {
+    margin-top: 20px;
+}
+.test_box .scroll_test_box .cont_box .test_box {
     width: 40px;
     height: 40px;
     background: #ccc;
 }
-.layout .container .cont_box .test_box + .test_box {
+.test_box .scroll_test_box .cont_box .test_box + .test_box {
     margin-top: 10px;
 }
-.layout .container .cont_box .test_box.on {
+.test_box .scroll_test_box .cont_box .test_box.on {
     background: #303030;
 }

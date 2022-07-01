@@ -1,28 +1,20 @@
 @charset 'utf-8';
 @import 'reset';
 
-.viewport_size {
-    opacity: 0.5;
-    width: 100%;
-    height: 40px;
-    position: fixed;
-    top: 20px;
-    left: 0;
-    line-height: 40px;
-    text-align: center;
-    font-weight: bold;
-    pointer-events: none;
-}
-.layout {
-    width: 100%;
-    height: 100vh;
-    min-width: 320px;
-    background: rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    padding-top: 60px;
+.test_box {
+	width: 100vw;
+	height: 100%;
+	background: #303030;
+	color: #f0f0f0;
+	font-size: 12px;
 
-    .container {
-        .btn_box {
+	.scroll_test_box {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		gap: 10px;
+
+		.btn_box {
             margin: 20px;
             .btn_test {
                 display: inline-block;
@@ -37,10 +29,19 @@
                 }
             }
         }
-        .cont_box {
-            padding: 20px;
 
-            .test_box {
+		.cont_box {
+			width: 100%;
+			padding: 100px 10px;
+			box-sizing: border-box;
+			background: rgba(255, 255, 255, 0.1);
+			font-size: 22px;
+			text-align: center;
+			p + p {
+				margin-top: 20px;
+			}
+
+			.test_box {
                 width: 40px;
                 height: 40px;
                 background: #ccc;
@@ -53,7 +54,8 @@
                     background: #303030;
                 }
             }
-        }
-    }
+		}
 
+
+	}
 }

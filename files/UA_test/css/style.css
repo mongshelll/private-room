@@ -3,35 +3,63 @@
     padding: 0;
 }
 
-.test_box {
-    width: 100vw;
-    height: 100%;
-    background: #303030;
-    color: #f0f0f0;
-    font-size: 12px;
-}
-.test_box .scroll_test_box {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    gap: 10px;
-}
-.test_box .scroll_test_box .cont_box {
+.layout {
     width: 100%;
-    padding: 100px 10px;
+    height: 100vh;
+    min-width: 320px;
+    background: rgba(0, 0, 0, 0.1);
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.1);
-    font-size: 22px;
-    text-align: center;
+    padding-top: 50px;
 }
-.test_box .scroll_test_box .cont_box p + p {
-    margin-top: 20px;
+.layout .container .viewport_size {
+    opacity: 0.5;
+    width: 100%;
+    height: 40px;
+    padding: 0 40px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+.layout .container .browser_check {
+    opacity: 0.5;
+    width: 100%;
+    height: 40px;
+    padding: 0 40px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+.layout .container .btn_box {
+    margin: 20px;
+}
+.layout .container .btn_box .btn_test {
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    font-size: 18px;
+}
+.layout .container .btn_box .btn_test:active {
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+}
+.layout .container .cont_box {
+    padding: 20px;
+}
+.layout .container .cont_box .test_box {
+    width: 40px;
+    height: 40px;
+    background: #ccc;
+}
+.layout .container .cont_box .test_box + .test_box {
+    margin-top: 10px;
+}
+.layout .container .cont_box .test_box.on {
+    background: #303030;
 }

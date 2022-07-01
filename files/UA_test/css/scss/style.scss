@@ -1,28 +1,67 @@
 @charset 'utf-8';
 @import 'reset';
 
-.test_box {
-	width: 100vw;
-	height: 100%;
-	background: #303030;
-	color: #f0f0f0;
-	font-size: 12px;
 
-	.scroll_test_box {
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		gap: 10px;
-		.cont_box {
-			width: 100%;
-			padding: 100px 10px;
-			box-sizing: border-box;
-			background: rgba(255, 255, 255, 0.1);
-			font-size: 22px;
-			text-align: center;
-			p + p {
-				margin-top: 20px;
-			}
-		}
-	}
+.layout {
+    width: 100%;
+    height: 100vh;
+    min-width: 320px;
+    background: rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    padding-top: 50px;
+
+    .container {
+        .viewport_size {
+            opacity: 0.5;
+            width: 100%;
+            height: 40px;
+            padding: 0 40px;
+            box-sizing: border-box;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .browser_check {
+            opacity: 0.5;
+            width: 100%;
+            height: 40px;
+            padding: 0 40px;
+            box-sizing: border-box;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .btn_box {
+            margin: 20px;
+            .btn_test {
+                display: inline-block;
+                width: 200px;
+                height: 40px;
+                border: 1px solid #333333;
+                border-radius: 6px;
+                font-size: 18px;
+
+                &:active {
+                    transform: scale(0.98);
+                }
+            }
+        }
+        .cont_box {
+            padding: 20px;
+
+            .test_box {
+                width: 40px;
+                height: 40px;
+                background: #ccc;
+
+                & + .test_box {
+                    margin-top: 10px;
+                }
+
+                &.on {
+                    background: #303030;
+                }
+            }
+        }
+    }
 }

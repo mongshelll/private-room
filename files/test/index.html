@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<title>TEST</title>
 
 	<!-- css -->
@@ -11,15 +12,18 @@
 
 	<!-- js -->
 	<script src="js/jquery-3.6.0.min.js"></script>
-	<script src="js/common.js"></script>
+	<script src="js/test.js"></script>
+
 </head>
 <body>
-	<div class="viewport_size"></div>
-
-	<div class="layout">
-		<div class="container">
+	<div class="test_box">
+		<div class="scroll_test_box">
 			<div class="btn_box">
 				<button type="button" class="btn_test">btn_test</button>
+			</div>
+			<div class="cont_box">
+				<p class="viewport_size"></p>
+				<p class="access_browser"></p>
 			</div>
 			<div class="cont_box">
 				<div class="test_box"></div>
@@ -38,9 +42,6 @@
 		var $btn_test = document.querySelector(".btn_test");
 		console.log($test_box);
 		console.log($btn_test);
-		var UA = navigator.userAgent;
-
-		console.log(UA);
 
 
 		$btn_test.addEventListener("click", function(){
