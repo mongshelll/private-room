@@ -1,51 +1,57 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEST</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TEST</title>
 
-    <!-- css -->
-    <link rel="stylesheet" href="css/style.css">
+	<!-- css -->
+	<link rel="stylesheet" href="css/style.css">
 
-    <!-- js -->
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/common.js"></script>
+	<!-- js -->
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script src="js/common.js"></script>
 </head>
 <body>
-    <div class="viewport_size"></div>
+	<div class="viewport_size"></div>
 
-    <div class="layout">
-        <div class="container">
-            <div class="cont_box">
-                <button type="button" class="btn_test">test</button>
-                <div class="test_box"></div>
-                <div class="test_box"></div>
-                <div class="test_box"></div>
-                <div class="test_box"></div>
-                <div class="test_box"></div>
-            </div>
-        </div>
-    </div>
+	<div class="layout">
+		<div class="container">
+			<div class="cont_box">
+				<button type="button" class="btn_test">test</button>
+				<div class="test_box"></div>
+				<div class="test_box"></div>
+				<div class="test_box"></div>
+				<div class="test_box"></div>
+				<div class="test_box"></div>
+			</div>
+		</div>
+	</div>
 
-    <script>
-        var $test_box = document.getElementsByClassName("test_box");
-        // var $test_box = document.querySelector(".test_box");
-        // var $test_box = document.querySelectorAll(".test_box");
-        var $btn_test = document.querySelector(".btn_test");
-        console.log($test_box);
-        console.log($btn_test);
+	<script>
+		// var $test_box = document.getElementsByClassName("test_box");	//전체를 객체로 받음
+		// var $test_box = document.querySelector(".test_box");	//첫번째만 받아옴
+		var $test_box = document.querySelectorAll(".test_box"); //전체 배열로 받아옴
+		var $btn_test = document.querySelector(".btn_test");
+		console.log($test_box);
+		console.log($btn_test);
 
-        $btn_test.addEventListener("click", function(){
-            $test_box[2].classList.toggle("on");
-        })
 
-        // $btnTranslate.addEventListener("click", function(){
-        //     $targetTranslateAll.forEach(function(item, index){
-        //         item.classList.toggle("on");
-        //     });
-        // })
-    </script>
+		$btn_test.addEventListener("click", function(){
+			//document.querySelectorAll
+			$test_box.forEach(element => {
+				element.classList.toggle("on");
+			});
+			// $test_box.forEach(function(element) {
+			//     element.classList.toggle("on");
+			// });
+
+			//getElementsByClassName
+			// for(var i = 0; i < $test_box.length; i++) {
+			// 	$test_box[i].classList.toggle("on");
+			// }
+		})
+	</script>
 </body>
 </html>
