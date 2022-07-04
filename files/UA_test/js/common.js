@@ -8,7 +8,8 @@
 	var uaDate = navigator.userAgentData;  //지원브라우저가 적음 (익스, 파폭, 사파리, 웹뷰 미지원)
 	var version = navigator.userAgentData.brands; //브라우저 이름, 버전, 종류 배열로 나옴
 	var mobile = navigator.userAgentData.mobile; //모바일로 접속시 true 반환
-	var platform = navigator.userAgentData.platform; //os확인
+	// var platform = navigator.userAgentData.platform; //os확인
+	var platform = navigator.platform; //os확인
 
 	var today = new Date();
 
@@ -28,7 +29,7 @@
 	var deviceResolutionWidth = window.screen.width * window.devicePixelRatio;
 	var deviceResolutionHeight = window.screen.height * window.devicePixelRatio;
 
-	var deviceResolution = deviceResolutionWidth + "X" + deviceResolutionHeight; //디바이스 해상도
+	var deviceResolution = deviceResolutionWidth + " X " + deviceResolutionHeight //디바이스 해상도
 
 	console.log(deviceResolution);
 
@@ -65,16 +66,16 @@ $(window).on("resize", function () {
 
 //접속한 브라우저 내용 html에 출력
 function browserCheck() {
-	$(".browser_check").text("현재 접속중인 브라우저는 " + getBrowserInfo() + " 브라우저 입니다.");
-	$(".lang_check").text("현재 접속중인 브라우저는 " + lang + " 언어를 사용합니다.");
-	$(".resolution_check").text("현재 접속중인 브라우저의 해상도는 " + deviceResolution + " 입니다.");
-	$(".today_check").text("현재 브라우저에 접속한 날짜와 시간 " + today + " 입니다.");
+	$(".browser_check").text(getBrowserInfo() + " 브라우저 입니다.");
+	$(".lang_check").text(lang + " 언어를 사용합니다.");
+	$(".resolution_check").text("해상도는 " + deviceResolution + " 입니다.");
+	$(".today_check").text("접속한 날짜와 시간은 " + today + " 입니다.");
 	$(".os_check").text("현재 사용중인 OS는 " + platform + " 입니다.");
 }
 
 //화면 사이즈 html에 출력 함수
 function windowSizeCheck() {
-    $(".viewport_size").text("현재 브라우저의 화면크기는 " + window.innerWidth + " x " + window.innerHeight + " 입니다.");
+    $(".viewport_size").text("화면크기는 " + window.innerWidth + "px x " + window.innerHeight + "px 입니다.");
 }
 
 //접속 브라우저 확인

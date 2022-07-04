@@ -12,20 +12,19 @@
             box-sizing: border-box;
     padding-top: 50px;
 }
+.layout .container {
+    padding: 0 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
 .layout .container .noti {
     opacity: 0.5;
     width: 100%;
-    height: 40px;
-    padding: 0 40px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    line-height: 40px;
-    text-align: center;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
 }
 .layout .container .noti.noti {
-    margin-top: 40px;
+    margin-bottom: 20px;
 }
 .layout .container .btn_box {
     margin: 20px;
