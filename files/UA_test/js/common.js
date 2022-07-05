@@ -4,12 +4,13 @@
 	var lang = navigator.language; //언어 확인
 	var core = navigator.hardwareConcurrency; //CPU 코어수 확인
 	var memory = navigator.deviceMemory; //메모리 확인 최대 8기가까지
+	var version = navigator.appVersion;
 
-	var uaDate = navigator.userAgentData;  //지원브라우저가 적음 (익스, 파폭, 사파리, 웹뷰 미지원)
-	var version = navigator.userAgentData.brands; //브라우저 이름, 버전, 종류 배열로 나옴
-	var mobile = navigator.userAgentData.mobile; //모바일로 접속시 true 반환
+	// var uaDate = navigator.userAgentData;  //지원브라우저가 적음 (익스, 파폭, 사파리, 웹뷰 미지원)
+	// var version = navigator.userAgentData.brands; //브라우저 이름, 버전, 종류 배열로 나옴
+	// var mobile = navigator.userAgentData.mobile; //모바일로 접속시 true 반환
 	// var platform = navigator.userAgentData.platform; //os확인
-	var platform = navigator.platform; //os확인
+	var platform = navigator.platform; //브라우저가 설치된 시스템환경
 
 	var today = new Date();
 
@@ -18,12 +19,13 @@
 	console.log(lang);
 	console.log(core);
 	console.log(memory);
-	console.log(uaDate);
-	console.log(version);
-	console.log(mobile);
-	console.log(platform);
+	// console.log(uaDate);
+	// console.log(version);
+	// console.log(mobile);
+	// console.log(platform);
 	console.log(document.referrer);
 	console.log(today);
+	console.log(version);
 
 
 	var deviceResolutionWidth = window.screen.width * window.devicePixelRatio;
@@ -42,6 +44,14 @@ $(window).on("load", function () {
     windowSizeCheck(); //화면 사이즈 html에 출력
     getBrowserInfo(); //접속 브라우저 확인
     browserCheck(); //접속한 브라우저 내용 html에 출력
+
+	var checkMobile = isMobile();
+
+	if( checkMobile ) {
+		$(".mobile_check").text("모바일로 접속하셨습니다.");
+	} else {
+		$(".mobile_check").text("PC로 접속하셨습니다.");
+	}
 });
 
 $(window).on("resize", function () {
@@ -57,10 +67,29 @@ $(window).on("resize", function () {
 // console.log(parseInt(inxTest.substring(textt, textt + 1)), 10);
 
 
+// var checkMobile = isMobile();
 
+// if( checkMobile ) {
+// 	$(".mobile_check").text("모바일로 접속하셨습니다.");
+// } else {
+// 	$(".mobile_check").text("PC로 접속하셨습니다.");
+// }
 
+function isMobile() {
 
+    var is_mobile = false;
 
+    if( ua.indexOf("iPhone") > -1
+        || ua.indexOf("Android") > -1
+        || ua.indexOf("iPad") > -1
+        || ua.indexOf("iPod") > -1
+    ) {
+
+        is_mobile = true;
+
+    }
+    return is_mobile;
+}
 
 
 
@@ -71,6 +100,7 @@ function browserCheck() {
 	$(".resolution_check").text("해상도는 " + deviceResolution + " 입니다.");
 	$(".today_check").text("접속한 날짜와 시간은 " + today + " 입니다.");
 	$(".os_check").text("현재 사용중인 OS는 " + platform + " 입니다.");
+	$(".ua").text(ua);
 }
 
 //화면 사이즈 html에 출력 함수
@@ -157,14 +187,14 @@ function getBrowserInfo() {
 			// var firefoxText = ua.search(/firefox/i);
 			// console.log(firefoxText);
 			// console.log(ua.substring(75, 80));
-			var firefoxNum = ua.substring(75, 80);
+			var firefoxNum = ua.substring(63, 68);
 			return 'Mobile Firefox ver ' + firefoxNum;
 			//@@  모바일 ua에 mobile이 안잡힘  @@
 		} else if (/edg/i.test(ua)) {
 			// var edgeText = ua.search(/edg/i);
 			// console.log(edgeText);
 			// console.log(ua.substring(120, 125));
-			var edgeNum = ua.substring(140, 145);
+			var edgeNum = ua.substring(128, 141);
 			return 'Mobile Edge ver ' + edgeNum;
 		} else if (/opr/i.test(ua)) {
 			// var oprText = ua.search(/opr/i);
@@ -173,18 +203,23 @@ function getBrowserInfo() {
 			var oprNum = ua.substring(121, 125);
 			return 'Mobile Opera ver ' + oprNum;
 			//@@  모바일 ua에 오페라 안나옴  @@
+		} else if (/naver/i.test(ua)) {
+			return 'Mobile NAVER App';
 		} else if (/whale/i.test(ua)) {
 			// var whaleText = ua.search(/whale/i);
 			// console.log(whaleText);
 			// console.log(ua.substring(109, 120));
-			var whaleNum = ua.substring(109, 120);
+			var whaleNum = ua.substring(108, 115);
 			return 'Mobile Whale ver ' + whaleNum;
 			//@@  모바일 ua에 웨일이 안나옴  @@
+		} else if (/samsungbrowser/i.test(ua)) {
+			var samsungbrowserNum = ua.substring(113, 117);
+			return 'Mobile SamsungBrowser ver ' + samsungbrowserNum;
 		} else if (/chrome/i.test(ua)) {
 			// var chromeText = ua.search(/chrome/i);
 			// console.log(chromeText);
 			// console.log(ua.substring(88, 97));
-			var chromeNum = ua.substring(101, 110);
+			var chromeNum = ua.substring(88, 97);
 			return 'Mobile Chrome ver ' + chromeNum;
 		} else if (/safari/i.test(ua)) {
 			// var safariText = ua.search(/safari/i);
