@@ -1,43 +1,5 @@
 //device info test js
 
-	var ua = navigator.userAgent; //UA
-	var lang = navigator.language; //언어 확인
-	var core = navigator.hardwareConcurrency; //CPU 코어수 확인
-	var platform = navigator.platform; //브라우저가 설치된 시스템환경
-	var today = new Date(); //날짜 시간
-	var cookie = navigator.cookieEnabled; //쿠키 사용가능 여부
-	var connection = navigator.connection; //네트워크 확인
-
-	//해상도 구하기
-	var deviceResolutionWidth = window.screen.width * window.devicePixelRatio; //가로 값
-	var deviceResolutionHeight = window.screen.height * window.devicePixelRatio; //세로 값
-	var deviceResolution = deviceResolutionWidth + " X " + deviceResolutionHeight //디바이스 해상도
-
-	console.log(deviceResolution); //해상도 값
-
-
-	console.log(ua);
-	console.log(lang);
-	console.log(core);
-	console.log("이전 방문 url " + document.referrer);
-	console.log(today);
-	console.log(cookie);
-	console.log(connection);
-
-
-
-
-	// 추가할 기능
-
-	// Webcams
-	// Cookies 가능
-	// Pop-up Windows
-	// JavaScript
-	// WebRTC
-	// WebSocket
-	// Device Pixel Ratio
-	// Performance
-
 
 
 $(window).on("load", function () {
@@ -51,11 +13,50 @@ $(window).on("resize", function () {
 });
 
 
+var ua = navigator.userAgent; //UA
+var lang = navigator.language; //언어 확인
+var core = navigator.hardwareConcurrency; //CPU 코어수 확인
+var platform = navigator.platform; //브라우저가 설치된 시스템환경
+var today = new Date(); //날짜 시간
+var cookie = navigator.cookieEnabled; //쿠키 사용가능 여부
+var connection = navigator.connection; //네트워크 확인
+
+//해상도 구하기
+var deviceResolutionWidth = window.screen.width * window.devicePixelRatio; //가로 값
+var deviceResolutionHeight = window.screen.height * window.devicePixelRatio; //세로 값
+var deviceResolution = deviceResolutionWidth + " X " + deviceResolutionHeight //디바이스 해상도
+
+console.log(deviceResolution); //해상도 값
+
+
+console.log(ua);
+console.log(lang);
+console.log(core);
+console.log("이전 방문 url " + document.referrer);
+console.log(today);
+console.log(cookie);
+console.log(connection);
+
+
+
+
+// 추가할 기능
+
+// Webcams
+// Cookies 가능
+// Pop-up Windows
+// JavaScript
+// WebRTC
+// WebSocket
+// Device Pixel Ratio
+// Performance
+
+
 //접속한 브라우저 내용 html에 출력
 function browserCheck() {
-	$(".browser_check").text(getBrowserInfo() + " 브라우저 입니다.");
-	$(".lang_check").text(lang + " 언어를 사용합니다.");
+	$(".browser_check").text(getBrowserInfo() + "으로 접속하셨습니다.");
 	$(".resolution_check").text("해상도는 " + deviceResolution + " 입니다.");
+	$(".lang_check").text(lang + " 언어를 사용합니다.");
 	$(".today_check").text("접속한 날짜와 시간은 " + today + " 입니다.");
 	$(".cookie_check").text("쿠키사용 여부" + " : " + cookie);
 	$(".ua").text(ua);
@@ -112,13 +113,14 @@ function getBrowserInfo() {
 			var firefoxNum = ua.substring(browserInfo("firefox"), browserInfo("firefox") + 5);
 			return 'Mobile Firefox ver ' + firefoxNum;
 		} else if (/edg/i.test(ua)) {
-			var edgeNum = ua.substring(browserInfo("edg"), browserInfo("edg") + 13);
+			var edgeNum = ua.substring(browserInfo("edg") + 1, browserInfo("edg") + 14);
 			return 'Mobile Edge ver ' + edgeNum;
 		} else if (/opr/i.test(ua)) {
 			var oprNum = ua.substring(browserInfo("opr"), browserInfo("opr") + 4);
 			return 'Mobile Opera ver ' + oprNum;
 		} else if (/naver/i.test(ua)) {
-			return 'Mobile NAVER App';
+			var naverNum = ua.substring(browserInfo("naver") + 21, browserInfo("naver") + 28);
+			return 'Mobile NAVER App ver ' + naverNum;
 		} else if (/whale/i.test(ua)) {
 			var whaleNum = ua.substring(browserInfo("whale"), browserInfo("whale") + 7);
 			return 'Mobile Whale ver ' + whaleNum;
