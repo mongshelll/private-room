@@ -15,10 +15,10 @@ $(window).on("resize", function () {
 
 var ua = navigator.userAgent; //UA
 var lang = navigator.language; //언어 확인
-var core = navigator.hardwareConcurrency; //CPU 코어수 확인
 var platform = navigator.platform; //브라우저가 설치된 시스템환경
 var today = new Date(); //날짜 시간
 var cookie = navigator.cookieEnabled; //쿠키 사용가능 여부
+var core = navigator.hardwareConcurrency; //CPU 코어수 확인
 var connection = navigator.connection; //네트워크 확인
 
 //해상도 구하기
@@ -26,18 +26,15 @@ var deviceResolutionWidth = window.screen.width * window.devicePixelRatio; //가
 var deviceResolutionHeight = window.screen.height * window.devicePixelRatio; //세로 값
 var deviceResolution = deviceResolutionWidth + " X " + deviceResolutionHeight //디바이스 해상도
 
-console.log(deviceResolution); //해상도 값
-
-
 console.log(ua);
 console.log(lang);
-console.log(core);
-console.log("이전 방문 url " + document.referrer);
+console.log(deviceResolution); //해상도 값
+console.log(platform);
 console.log(today);
 console.log(cookie);
+console.log(core);
 console.log(connection);
-
-
+console.log("이전 방문 url " + document.referrer);
 
 
 // 추가할 기능
@@ -69,16 +66,31 @@ function windowSizeCheck() {
 
 //OS 체크
 function osCheck() {
-	if(/win/i.test(platform)){
+	if(/win/i.test(ua)) {
 		$(".os_check").text("현재 사용중인 OS는 Windows 입니다.");
-	} else if(/android/i.test(ua)){
+	} else if (/android/i.test(ua)) {
 		var androidOS = ua.substring(browserInfo("android"), browserInfo("android") + 2)
 		$(".os_check").text("현재 사용중인 OS는 Android " + androidOS + " 입니다.");
-	} else {
-		$(".os_check").text("현재 사용중인 OS는 " + platform + " 입니다.");
+	} else if (/iphone/i.test(ua) || /ios/i.test(ua) || /ipad/i.test(ua) || /ipod/i.test(ua)) {
+		$(".os_check").text("현재 사용중인 OS는 ios 입니다.");
+	} else if (/mac/i.test(ua) || /macintosh/i.test(ua)) {
+		$(".os_check").text("현재 사용중인 OS는 Mac OS 입니다.");
 	}
-	console.log(platform);
 }
+
+//OS 체크
+// platform이 지원 중단될 경우 대비
+// function osCheck() {
+// 	if(/win/i.test(platform)){
+// 		$(".os_check").text("현재 사용중인 OS는 Windows 입니다.");
+// 	} else if(/android/i.test(ua)){
+// 		var androidOS = ua.substring(browserInfo("android"), browserInfo("android") + 2)
+// 		$(".os_check").text("현재 사용중인 OS는 Android " + androidOS + " 입니다.");
+// 	} else {
+// 		$(".os_check").text("현재 사용중인 OS는 " + platform + " 입니다.");
+// 	}
+// 	console.log(platform);
+// }
 
 //브라우저, 버전 정보
 function getBrowserInfo() {
@@ -176,7 +188,7 @@ function browserInfo(target){
 	// console.log(uaDate);
 	// console.log(version);
 	// console.log(mobile);
-	// console.log(platform);
+
 
 
 
