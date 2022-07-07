@@ -4,7 +4,7 @@
 	var lang = navigator.language; //언어 확인
 	var core = navigator.hardwareConcurrency; //CPU 코어수 확인
 	var memory = navigator.deviceMemory; //메모리 확인 최대 8기가까지
-	var version = navigator.appVersion;
+	// var version = navigator.appVersion;
 
 	// var uaDate = navigator.userAgentData;  //지원브라우저가 적음 (익스, 파폭, 사파리, 웹뷰 미지원)
 	// var version = navigator.userAgentData.brands; //브라우저 이름, 버전, 종류 배열로 나옴
@@ -14,6 +14,8 @@
 
 	var today = new Date();
 
+	var cookie = navigator.cookieEnabled; //쿠키 사용가능 여부
+	var con = navigator.connection;
 
 	console.log(ua);
 	console.log(lang);
@@ -25,7 +27,9 @@
 	// console.log(platform);
 	console.log(document.referrer);
 	console.log(today);
-	console.log(version);
+	// console.log(version);
+	console.log(cookie);
+	console.log(con);
 
 
 	var deviceResolutionWidth = window.screen.width * window.devicePixelRatio;
@@ -36,7 +40,16 @@
 	console.log(deviceResolution);
 
 
+	// 추가할 기능
 
+	// Webcams
+	// Cookies 가능
+	// Pop-up Windows
+	// JavaScript
+	// WebRTC
+	// WebSocket
+	// Device Pixel Ratio
+	// Performance
 
 
 
@@ -44,53 +57,12 @@ $(window).on("load", function () {
     windowSizeCheck(); //화면 사이즈 html에 출력
     getBrowserInfo(); //접속 브라우저 확인
     browserCheck(); //접속한 브라우저 내용 html에 출력
-
-	var checkMobile = isMobile();
-
-	if( checkMobile ) {
-		$(".mobile_check").text("모바일로 접속하셨습니다.");
-	} else {
-		$(".mobile_check").text("PC로 접속하셨습니다.");
-	}
+	osCheck(); //os 체크
 });
 
 $(window).on("resize", function () {
     windowSizeCheck(); //화면크기 변경시 화면 사이즈 html에 출력
 });
-
-
-// var inxTest = "teteteSt";
-// var textt = inxTest.search(/s/i);
-
-// console.log(textt);
-// console.log(inxTest.search(/s/i));
-// console.log(parseInt(inxTest.substring(textt, textt + 1)), 10);
-
-
-// var checkMobile = isMobile();
-
-// if( checkMobile ) {
-// 	$(".mobile_check").text("모바일로 접속하셨습니다.");
-// } else {
-// 	$(".mobile_check").text("PC로 접속하셨습니다.");
-// }
-
-function isMobile() {
-
-    var is_mobile = false;
-
-    if( ua.indexOf("iPhone") > -1
-        || ua.indexOf("Android") > -1
-        || ua.indexOf("iPad") > -1
-        || ua.indexOf("iPod") > -1
-    ) {
-
-        is_mobile = true;
-
-    }
-    return is_mobile;
-}
-
 
 
 //접속한 브라우저 내용 html에 출력
@@ -99,7 +71,7 @@ function browserCheck() {
 	$(".lang_check").text(lang + " 언어를 사용합니다.");
 	$(".resolution_check").text("해상도는 " + deviceResolution + " 입니다.");
 	$(".today_check").text("접속한 날짜와 시간은 " + today + " 입니다.");
-	$(".os_check").text("현재 사용중인 OS는 " + platform + " 입니다.");
+	$(".cookie_check").text("쿠키사용 여부" + " : " + cookie);
 	$(".ua").text(ua);
 }
 
@@ -107,6 +79,109 @@ function browserCheck() {
 function windowSizeCheck() {
     $(".viewport_size").text("화면크기는 " + window.innerWidth + "px x " + window.innerHeight + "px 입니다.");
 }
+
+function osCheck() {
+	if(/win/i.test(platform)){
+		$(".os_check").text("현재 사용중인 OS는 Windows 입니다.");
+	} else if(/android/i.test(ua)){
+		var androidOS = ua.substring(browserInfo("android"), browserInfo("android") + 2)
+		$(".os_check").text("현재 사용중인 OS는 Android " + androidOS + " 입니다.");
+	} else {
+		$(".os_check").text("현재 사용중인 OS는 " + platform + " 입니다.");
+	}
+	console.log(platform);
+}
+
+//브라우저 버전포함 수정
+function getBrowserInfo() {
+	// /text/i.test(var)  var에서 text가 있는지 확인 i는 대소문자 구별없이 결과값 불리언으로 나옴
+	if (!/mobile/i.test(ua)) {
+		if (/trident/i.test(ua)) {
+			return 'Ie';
+		} else if (/firefox/i.test(ua)) {
+			var firefoxNum = ua.substring(browserInfo("firefox"), browserInfo("firefox") + 5);
+			return 'Firefox ver ' + firefoxNum;
+		} else if (/edg/i.test(ua)) {
+			// var edgeNum = ua.substring(120, 125);
+			var edgeNum = ua.substring(browserInfo("edg"), browserInfo("edg") + 5);
+			return 'Edge ver ' + edgeNum;
+		} else if (/opr/i.test(ua)) {
+			// var oprNum = ua.substring(121, 125);
+			var oprNum = ua.substring(browserInfo("opr"), browserInfo("opr") + 5);
+			return 'Opera ver ' + oprNum;
+		} else if (/whale/i.test(ua)) {
+			// var whaleNum = ua.substring(109, 120);
+			var whaleNum = ua.substring(browserInfo("whale"), browserInfo("whale") + 5);
+			return 'Whale ver ' + whaleNum;
+		} else if (/chrome/i.test(ua)) {
+			// var chromeNum = ua.substring(88, 97);
+			var chromeNum = ua.substring(browserInfo("chrome"), browserInfo("chrome") + 9);
+			return 'Chrome ver ' + chromeNum;
+		} else if (/safari/i.test(ua)) {
+			var safariNum = ua.substring(browserInfo("safari"), browserInfo("safari") + 5);
+			return 'Safari ver ' + safariNum;
+		} else {
+			return '';
+		}
+	} else {
+		if (/trident/i.test(ua)) {
+			return 'Mobile Ie';
+		} else if (/firefox/i.test(ua)) {
+			// var firefoxNum = ua.substring(63, 68);
+			var firefoxNum = ua.substring(browserInfo("firefox"), browserInfo("firefox") + 5);
+			return 'Mobile Firefox ver ' + firefoxNum;
+		} else if (/edg/i.test(ua)) {
+			// var edgeNum = ua.substring(128, 141);
+			var edgeNum = ua.substring(browserInfo("edg"), browserInfo("edg") + 13);
+			return 'Mobile Edge ver ' + edgeNum;
+		} else if (/opr/i.test(ua)) {
+			// var oprNum = ua.substring(121, 125);
+			var oprNum = ua.substring(browserInfo("opr"), browserInfo("opr") + 4);
+			return 'Mobile Opera ver ' + oprNum;
+			//@@  모바일 ua에 오페라 안나옴  @@
+		} else if (/naver/i.test(ua)) {
+			return 'Mobile NAVER App';
+		} else if (/whale/i.test(ua)) {
+			// var whaleNum = ua.substring(108, 115);
+			var whaleNum = ua.substring(browserInfo("whale"), browserInfo("whale") + 7);
+			return 'Mobile Whale ver ' + whaleNum;
+		} else if (/samsungbrowser/i.test(ua)) {
+			// var samsungbrowserNum = ua.substring(113, 117);
+			var samsungbrowserNum = ua.substring(browserInfo("samsungbrowser"), browserInfo("samsungbrowser") + 4);
+			return 'Mobile SamsungBrowser ver ' + samsungbrowserNum;
+		} else if (/chrome/i.test(ua)) {
+			// var chromeNum = ua.substring(88, 97);
+			var chromeNum = ua.substring(browserInfo("chrome"), browserInfo("chrome") + 9);
+			return 'Mobile Chrome ver ' + chromeNum;
+		} else if (/safari/i.test(ua)) {
+			var safariNum = ua.substring(browserInfo("safari"), browserInfo("safari") + 5);
+			return 'Mobile Safari ver ' + safariNum;
+		} else {
+			return '';
+		}
+	}
+}
+
+function browserInfo(target){
+	var target_text = new RegExp(target, "i");
+	var start = ua.search(target_text);
+	var target_length = target.length + 1;
+	var browserInforesult = start + target_length;
+	// console.log(target_length);
+
+	return browserInforesult;
+}
+
+// function versionInfo(target){
+// 	var target_text = new RegExp(target, "i");
+// 	var start = ua.search(target_text);
+// 	var end = ua.search(target_text);
+// 	var target_length = target.length + 1;
+// 	var browserInforesult = start + target_length;
+// 	// console.log(target_length);
+
+// 	return browserInforesult;
+// }
 
 //접속 브라우저 확인
 // function getBrowserInfo() {
@@ -133,106 +208,123 @@ function windowSizeCheck() {
 //출처: https://oingdaddy.tistory.com/406
 
 //버전 포함
-function getBrowserInfo() {
+// function getBrowserInfo() {
 
-	// /text/i.test(var)  var에서 text가 있는지 확인 i는 대소문자 구별없이 결과값 불리언으로 나옴
-	if (!/mobile/i.test(ua)) {
-		if (/trident/i.test(ua)) {
-			return 'Ie';
-		} else if (/firefox/i.test(ua)) {
-			// var firefoxText = ua.search(/firefox/i);
-			// console.log(firefoxText);
-			// console.log(ua.substring(75, 80));
-			var firefoxNum = ua.substring(75, 80);
-			return 'Firefox ver ' + firefoxNum;
-		} else if (/edg/i.test(ua)) {
-			// var edgeText = ua.search(/edg/i);
-			// console.log(edgeText);
-			// console.log(ua.substring(120, 125));
-			var edgeNum = ua.substring(120, 125);
-			return 'Edge ver ' + edgeNum;
-		} else if (/opr/i.test(ua)) {
-			// var oprText = ua.search(/opr/i);
-			// console.log(oprText);
-			// console.log(ua.substring(121, 125));
-			var oprNum = ua.substring(121, 125);
-			return 'Opera ver ' + oprNum;
-			// return 'Opera';
-		} else if (/whale/i.test(ua)) {
-			// var whaleText = ua.search(/whale/i);
-			// console.log(whaleText);
-			// console.log(ua.substring(109, 120));
-			var whaleNum = ua.substring(109, 120);
-			return 'Whale ver ' + whaleNum;
-		} else if (/chrome/i.test(ua)) {
-			// var chromeText = ua.search(/chrome/i);
-			// console.log(chromeText);
-			// console.log(ua.substring(88, 97));
-			var chromeNum = ua.substring(88, 97);
-			return 'Chrome ver ' + chromeNum;
-		} else if (/safari/i.test(ua)) {
-			// var safariText = ua.search(/safari/i);
-			// console.log(safariText);
-			// console.log(ua.substring(88, 95));
-			// var safariNum = ua.substring(88, 95);
-			// return 'Safari ' + safariNum;
-			return 'Safari';
-		} else {
-			return '';
-		}
-	} else {
-		if (/trident/i.test(ua)) {
-			return 'Mobile Ie';
-		} else if (/firefox/i.test(ua)) {
-			// var firefoxText = ua.search(/firefox/i);
-			// console.log(firefoxText);
-			// console.log(ua.substring(75, 80));
-			var firefoxNum = ua.substring(63, 68);
-			return 'Mobile Firefox ver ' + firefoxNum;
-			//@@  모바일 ua에 mobile이 안잡힘  @@
-		} else if (/edg/i.test(ua)) {
-			// var edgeText = ua.search(/edg/i);
-			// console.log(edgeText);
-			// console.log(ua.substring(120, 125));
-			var edgeNum = ua.substring(128, 141);
-			return 'Mobile Edge ver ' + edgeNum;
-		} else if (/opr/i.test(ua)) {
-			// var oprText = ua.search(/opr/i);
-			// console.log(oprText);
-			// console.log(ua.substring(121, 125));
-			var oprNum = ua.substring(121, 125);
-			return 'Mobile Opera ver ' + oprNum;
-			//@@  모바일 ua에 오페라 안나옴  @@
-		} else if (/naver/i.test(ua)) {
-			return 'Mobile NAVER App';
-		} else if (/whale/i.test(ua)) {
-			// var whaleText = ua.search(/whale/i);
-			// console.log(whaleText);
-			// console.log(ua.substring(109, 120));
-			var whaleNum = ua.substring(108, 115);
-			return 'Mobile Whale ver ' + whaleNum;
-			//@@  모바일 ua에 웨일이 안나옴  @@
-		} else if (/samsungbrowser/i.test(ua)) {
-			var samsungbrowserNum = ua.substring(113, 117);
-			return 'Mobile SamsungBrowser ver ' + samsungbrowserNum;
-		} else if (/chrome/i.test(ua)) {
-			// var chromeText = ua.search(/chrome/i);
-			// console.log(chromeText);
-			// console.log(ua.substring(88, 97));
-			var chromeNum = ua.substring(88, 97);
-			return 'Mobile Chrome ver ' + chromeNum;
-		} else if (/safari/i.test(ua)) {
-			// var safariText = ua.search(/safari/i);
-			// console.log(safariText);
-			// console.log(ua.substring(88, 95));
-			// var safariNum = ua.substring(88, 95);
-			// return 'Safari ' + safariNum;
-			return 'Mobile Safari';
-		} else {
-			return '';
-		}
-	}
-}
+// 	// /text/i.test(var)  var에서 text가 있는지 확인 i는 대소문자 구별없이 결과값 불리언으로 나옴
+// 	if (!/mobile/i.test(ua)) {
+// 		if (/trident/i.test(ua)) {
+// 			return 'Ie';
+// 		} else if (/firefox/i.test(ua)) {
+// 			// var firefoxText = ua.search(/firefox/i);
+// 			// console.log(firefoxText);
+// 			// console.log(ua.substring(75, 80));
+// 			var findNum = ua.search(/firefox/i) + 8;
+// 			// var firefoxNum = ua.substring(75, 80);
+// 			var firefoxNum = ua.substring(findNum, findNum + 5);
+// 			// console.log(findNum);
+// 			// browserInfo(firefox)
+// 			return 'Firefox ver ' + firefoxNum;
+// 		} else if (/edg/i.test(ua)) {
+// 			// var edgeText = ua.search(/edg/i);
+// 			// console.log(edgeText);
+// 			// console.log(ua.substring(120, 125));
+// 			var edgeNum = ua.substring(120, 125);
+// 			return 'Edge ver ' + edgeNum;
+// 		} else if (/opr/i.test(ua)) {
+// 			// var oprText = ua.search(/opr/i);
+// 			// console.log(oprText);
+// 			// console.log(ua.substring(121, 125));
+// 			var oprNum = ua.substring(121, 125);
+// 			return 'Opera ver ' + oprNum;
+// 			// return 'Opera';
+// 		} else if (/whale/i.test(ua)) {
+// 			// var whaleText = ua.search(/whale/i);
+// 			// console.log(whaleText);
+// 			// console.log(ua.substring(109, 120));
+// 			var whaleNum = ua.substring(109, 120);
+// 			return 'Whale ver ' + whaleNum;
+// 		} else if (/chrome/i.test(ua)) {
+// 			// var chromeText = ua.search(/chrome/i);
+// 			// console.log(chromeText);
+// 			// console.log(ua.substring(88, 97));
+// 			var chromeNum = ua.substring(88, 97);
+// 			return 'Chrome ver ' + chromeNum;
+// 		} else if (/safari/i.test(ua)) {
+// 			// var safariText = ua.search(/safari/i);
+// 			// console.log(safariText);
+// 			// console.log(ua.substring(88, 95));
+// 			// var safariNum = ua.substring(88, 95);
+// 			// return 'Safari ' + safariNum;
+// 			return 'Safari';
+// 		} else {
+// 			return '';
+// 		}
+// 	} else {
+// 		if (/trident/i.test(ua)) {
+// 			return 'Mobile Ie';
+// 		} else if (/firefox/i.test(ua)) {
+// 			// var firefoxText = ua.search(/firefox/i);
+// 			// console.log(firefoxText);
+// 			// console.log(ua.substring(75, 80));
+// 			var firefoxNum = ua.substring(63, 68);
+// 			return 'Mobile Firefox ver ' + firefoxNum;
+// 			//@@  모바일 ua에 mobile이 안잡힘  @@
+// 		} else if (/edg/i.test(ua)) {
+// 			// var edgeText = ua.search(/edg/i);
+// 			// console.log(edgeText);
+// 			// console.log(ua.substring(120, 125));
+// 			var edgeNum = ua.substring(128, 141);
+// 			return 'Mobile Edge ver ' + edgeNum;
+// 		} else if (/opr/i.test(ua)) {
+// 			// var oprText = ua.search(/opr/i);
+// 			// console.log(oprText);
+// 			// console.log(ua.substring(121, 125));
+// 			var oprNum = ua.substring(121, 125);
+// 			return 'Mobile Opera ver ' + oprNum;
+// 			//@@  모바일 ua에 오페라 안나옴  @@
+// 		} else if (/naver/i.test(ua)) {
+// 			return 'Mobile NAVER App';
+// 		} else if (/whale/i.test(ua)) {
+// 			// var whaleText = ua.search(/whale/i);
+// 			// console.log(whaleText);
+// 			// console.log(ua.substring(109, 120));
+// 			var whaleNum = ua.substring(108, 115);
+// 			return 'Mobile Whale ver ' + whaleNum;
+// 			//@@  모바일 ua에 웨일이 안나옴  @@
+// 		} else if (/samsungbrowser/i.test(ua)) {
+// 			var samsungbrowserNum = ua.substring(113, 117);
+// 			return 'Mobile SamsungBrowser ver ' + samsungbrowserNum;
+// 		} else if (/chrome/i.test(ua)) {
+// 			// var chromeText = ua.search(/chrome/i);
+// 			// console.log(chromeText);
+// 			// console.log(ua.substring(88, 97));
+// 			var chromeNum = ua.substring(88, 97);
+// 			return 'Mobile Chrome ver ' + chromeNum;
+// 		} else if (/safari/i.test(ua)) {
+// 			// var safariText = ua.search(/safari/i);
+// 			// console.log(safariText);
+// 			// console.log(ua.substring(88, 95));
+// 			// var safariNum = ua.substring(88, 95);
+// 			// return 'Safari ' + safariNum;
+// 			return 'Mobile Safari';
+// 		} else {
+// 			return '';
+// 		}
+// 	}
+// }
+
+// browserInfo("firefox");
+// console.log(browserInfo());
+// function browserInfo(target) {
+// 	var targetBrow = new RegExp(/target/);
+// 	var tetest = ua.search(targetBrow);
+// 	var findNum = tetest + 8;
+// 	// var firefoxNum = ua.substring(75, 80);
+// 	var targetNum = ua.substring(findNum, findNum + 5);
+// 	console.log(targetNum);
+// 	console.log(tetest);
+// 	return targetNum;
+// }
 
 // function getBrowserInfo() {
 // 	// var chromePos = ua.search(/chrome/i);
@@ -281,3 +373,4 @@ function getBrowserInfo() {
 // 		return '';
 // 	}
 // }
+
