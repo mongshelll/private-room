@@ -1,43 +1,30 @@
+//device info test js
 
-
-	var ua = navigator.userAgent;
+	var ua = navigator.userAgent; //UA
 	var lang = navigator.language; //언어 확인
 	var core = navigator.hardwareConcurrency; //CPU 코어수 확인
-	var memory = navigator.deviceMemory; //메모리 확인 최대 8기가까지
-	// var version = navigator.appVersion;
-
-	// var uaDate = navigator.userAgentData;  //지원브라우저가 적음 (익스, 파폭, 사파리, 웹뷰 미지원)
-	// var version = navigator.userAgentData.brands; //브라우저 이름, 버전, 종류 배열로 나옴
-	// var mobile = navigator.userAgentData.mobile; //모바일로 접속시 true 반환
-	// var platform = navigator.userAgentData.platform; //os확인
 	var platform = navigator.platform; //브라우저가 설치된 시스템환경
-
-	var today = new Date();
-
+	var today = new Date(); //날짜 시간
 	var cookie = navigator.cookieEnabled; //쿠키 사용가능 여부
-	var con = navigator.connection;
+	var connection = navigator.connection; //네트워크 확인
+
+	//해상도 구하기
+	var deviceResolutionWidth = window.screen.width * window.devicePixelRatio; //가로 값
+	var deviceResolutionHeight = window.screen.height * window.devicePixelRatio; //세로 값
+	var deviceResolution = deviceResolutionWidth + " X " + deviceResolutionHeight //디바이스 해상도
+
+	console.log(deviceResolution); //해상도 값
+
 
 	console.log(ua);
 	console.log(lang);
 	console.log(core);
-	console.log(memory);
-	// console.log(uaDate);
-	// console.log(version);
-	// console.log(mobile);
-	// console.log(platform);
-	console.log(document.referrer);
+	console.log("이전 방문 url " + document.referrer);
 	console.log(today);
-	// console.log(version);
 	console.log(cookie);
-	console.log(con);
+	console.log(connection);
 
 
-	var deviceResolutionWidth = window.screen.width * window.devicePixelRatio;
-	var deviceResolutionHeight = window.screen.height * window.devicePixelRatio;
-
-	var deviceResolution = deviceResolutionWidth + " X " + deviceResolutionHeight //디바이스 해상도
-
-	console.log(deviceResolution);
 
 
 	// 추가할 기능
@@ -55,7 +42,6 @@
 
 $(window).on("load", function () {
     windowSizeCheck(); //화면 사이즈 html에 출력
-    getBrowserInfo(); //접속 브라우저 확인
     browserCheck(); //접속한 브라우저 내용 html에 출력
 	osCheck(); //os 체크
 });
@@ -80,6 +66,7 @@ function windowSizeCheck() {
     $(".viewport_size").text("화면크기는 " + window.innerWidth + "px x " + window.innerHeight + "px 입니다.");
 }
 
+//OS 체크
 function osCheck() {
 	if(/win/i.test(platform)){
 		$(".os_check").text("현재 사용중인 OS는 Windows 입니다.");
@@ -92,9 +79,8 @@ function osCheck() {
 	console.log(platform);
 }
 
-//브라우저 버전포함 수정
+//브라우저, 버전 정보
 function getBrowserInfo() {
-	// /text/i.test(var)  var에서 text가 있는지 확인 i는 대소문자 구별없이 결과값 불리언으로 나옴
 	if (!/mobile/i.test(ua)) {
 		if (/trident/i.test(ua)) {
 			return 'Ie';
@@ -102,19 +88,15 @@ function getBrowserInfo() {
 			var firefoxNum = ua.substring(browserInfo("firefox"), browserInfo("firefox") + 5);
 			return 'Firefox ver ' + firefoxNum;
 		} else if (/edg/i.test(ua)) {
-			// var edgeNum = ua.substring(120, 125);
 			var edgeNum = ua.substring(browserInfo("edg"), browserInfo("edg") + 5);
 			return 'Edge ver ' + edgeNum;
 		} else if (/opr/i.test(ua)) {
-			// var oprNum = ua.substring(121, 125);
 			var oprNum = ua.substring(browserInfo("opr"), browserInfo("opr") + 5);
 			return 'Opera ver ' + oprNum;
 		} else if (/whale/i.test(ua)) {
-			// var whaleNum = ua.substring(109, 120);
 			var whaleNum = ua.substring(browserInfo("whale"), browserInfo("whale") + 5);
 			return 'Whale ver ' + whaleNum;
 		} else if (/chrome/i.test(ua)) {
-			// var chromeNum = ua.substring(88, 97);
 			var chromeNum = ua.substring(browserInfo("chrome"), browserInfo("chrome") + 9);
 			return 'Chrome ver ' + chromeNum;
 		} else if (/safari/i.test(ua)) {
@@ -127,30 +109,23 @@ function getBrowserInfo() {
 		if (/trident/i.test(ua)) {
 			return 'Mobile Ie';
 		} else if (/firefox/i.test(ua)) {
-			// var firefoxNum = ua.substring(63, 68);
 			var firefoxNum = ua.substring(browserInfo("firefox"), browserInfo("firefox") + 5);
 			return 'Mobile Firefox ver ' + firefoxNum;
 		} else if (/edg/i.test(ua)) {
-			// var edgeNum = ua.substring(128, 141);
 			var edgeNum = ua.substring(browserInfo("edg"), browserInfo("edg") + 13);
 			return 'Mobile Edge ver ' + edgeNum;
 		} else if (/opr/i.test(ua)) {
-			// var oprNum = ua.substring(121, 125);
 			var oprNum = ua.substring(browserInfo("opr"), browserInfo("opr") + 4);
 			return 'Mobile Opera ver ' + oprNum;
-			//@@  모바일 ua에 오페라 안나옴  @@
 		} else if (/naver/i.test(ua)) {
 			return 'Mobile NAVER App';
 		} else if (/whale/i.test(ua)) {
-			// var whaleNum = ua.substring(108, 115);
 			var whaleNum = ua.substring(browserInfo("whale"), browserInfo("whale") + 7);
 			return 'Mobile Whale ver ' + whaleNum;
 		} else if (/samsungbrowser/i.test(ua)) {
-			// var samsungbrowserNum = ua.substring(113, 117);
 			var samsungbrowserNum = ua.substring(browserInfo("samsungbrowser"), browserInfo("samsungbrowser") + 4);
 			return 'Mobile SamsungBrowser ver ' + samsungbrowserNum;
 		} else if (/chrome/i.test(ua)) {
-			// var chromeNum = ua.substring(88, 97);
 			var chromeNum = ua.substring(browserInfo("chrome"), browserInfo("chrome") + 9);
 			return 'Mobile Chrome ver ' + chromeNum;
 		} else if (/safari/i.test(ua)) {
@@ -162,6 +137,7 @@ function getBrowserInfo() {
 	}
 }
 
+//브라우저 버전확인용
 function browserInfo(target){
 	var target_text = new RegExp(target, "i");
 	var start = ua.search(target_text);
@@ -171,6 +147,36 @@ function browserInfo(target){
 
 	return browserInforesult;
 }
+
+
+
+
+
+
+
+
+
+///////////////////////////////////
+// 테스트//////////////////////////
+///////////////////////////////////
+
+	// var memory = navigator.deviceMemory; //메모리 확인 최대 8기가까지
+	// var version = navigator.appVersion;
+
+	// var uaDate = navigator.userAgentData;  //지원브라우저가 적음 (익스, 파폭, 사파리, 웹뷰 미지원)
+	// var version = navigator.userAgentData.brands; //브라우저 이름, 버전, 종류 배열로 나옴
+	// var mobile = navigator.userAgentData.mobile; //모바일로 접속시 true 반환
+	// var platform = navigator.userAgentData.platform; //os확인
+
+
+
+	// console.log(memory);
+	// console.log(uaDate);
+	// console.log(version);
+	// console.log(mobile);
+	// console.log(platform);
+
+
 
 // function versionInfo(target){
 // 	var target_text = new RegExp(target, "i");
@@ -205,7 +211,6 @@ function browserInfo(target){
 // 		return '';
 // 	}
 // }
-//출처: https://oingdaddy.tistory.com/406
 
 //버전 포함
 // function getBrowserInfo() {
