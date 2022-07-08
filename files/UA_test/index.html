@@ -21,21 +21,13 @@
 			<div class="noti resolution_check"></div>
 			<div class="noti viewport_size"></div>
 			<div class="noti window_size"></div>
-			<div class="noti lang_check"></div>
+			<!-- <div class="noti lang_check"></div> -->
 			<div class="noti today_check"></div>
-			<div class="noti mobile_check"></div>
+			<!-- <div class="noti mobile_check"></div> -->
 			<div class="noti cookie_check"></div>
 			<div class="noti ip_WAN"></div>
+			<div class="noti popup_check"></div>
 			<div class="noti ua"></div>
 		</div>
 	</div>
-	<!-- <script type="text/javascript" src="https://jsonip.com"></script> -->
-	<script>
-		fetch('https://jsonip.com', { mode: 'cors' })
-		.then((resp) => resp.json())
-		.then((ip) => {
-			console.log(ip);
-			$(".ip_WAN").text("접속자 WAN IP : " + ip.ip);
-		});
-	</script>
 </html>

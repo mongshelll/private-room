@@ -6,6 +6,8 @@ $(window).on("load", function () {
 	osCheck(); //os 체크
     windowSizeCheck(); //화면 사이즈 html에 출력
     browserCheck(); //접속한 브라우저 내용 html에 출력
+	popupCheck()  //팝업 허용여부 확인
+	ipCheck(); //ip 확인
 });
 
 $(window).on("resize", function () {
@@ -14,32 +16,28 @@ $(window).on("resize", function () {
 
 
 var ua = navigator.userAgent; //UA
-var lang = navigator.language; //언어 확인
 var platform = navigator.platform; //브라우저가 설치된 시스템환경
 var today = new Date(); //날짜 시간
 var cookie = navigator.cookieEnabled; //쿠키 사용가능 여부
-var core = navigator.hardwareConcurrency; //CPU 코어수 확인
-var connection = navigator.connection; //네트워크 확인
+
+
 
 //해상도 구하기
 var deviceResolutionWidth = window.screen.width * window.devicePixelRatio; //가로 값
 var deviceResolutionHeight = window.screen.height * window.devicePixelRatio; //세로 값
 var deviceResolution = deviceResolutionWidth + " X " + deviceResolutionHeight //디바이스 해상도
 
+
 console.log(ua);
-console.log(lang);
 console.log(deviceResolution); //해상도 값
 console.log(platform);
 console.log(today);
 console.log(cookie);
-console.log(core);
-console.log(connection);
 console.log("이전 방문 url " + document.referrer);
 console.log(window.devicePixelRatio);
 
 
 // 추가할 기능
-
 // Webcams
 // Cookies 가능
 // Pop-up Windows
@@ -49,12 +47,33 @@ console.log(window.devicePixelRatio);
 // Device Pixel Ratio
 // Performance
 
+//ip 확인
+function ipCheck() {
+	fetch('https://jsonip.com', { mode: 'cors' })
+		.then((resp) => resp.json())
+		.then((ip) => {
+			console.log(ip);
+			$(".ip_WAN").text("접속자 WAN IP : " + ip.ip);
+		});
+}
+
+//popup 허용여부 확인
+function popupCheck() {
+	var popup = window.open("popup_test.html", "popup_test", "top=200, left=100, width=200, height=134");
+
+	if(popup == null) {
+		$(".popup_check").text("팝업이 차단되어 있습니다.");
+	} else {
+		$(".popup_check").text("팝업이 허용되어 있습니다.");
+		// popup.close();
+	}
+}
 
 //접속한 브라우저 내용 html에 출력
 function browserCheck() {
 	$(".browser_check").text(getBrowserInfo() + "으로 접속하셨습니다.");
 	$(".resolution_check").text("해상도 : " + deviceResolution);
-	$(".lang_check").text(lang + " 언어를 사용합니다.");
+	// $(".lang_check").text(lang + " 언어를 사용합니다.");
 	$(".today_check").text("접속 일시 : " + today);
 	$(".cookie_check").text("쿠키사용 여부" + " : " + cookie);
 	$(".ua").text(ua);
@@ -176,20 +195,26 @@ function browserInfo(target){
 // 테스트//////////////////////////
 ///////////////////////////////////
 
-	// var memory = navigator.deviceMemory; //메모리 확인 최대 8기가까지
-	// var version = navigator.appVersion;
+// var memory = navigator.deviceMemory; //메모리 확인 최대 8기가까지
+// var version = navigator.appVersion;
+// var lang = navigator.language; //언어 확인
+// var core = navigator.hardwareConcurrency; //CPU 코어수 확인
+// var connection = navigator.connection; //네트워크 확인
 
-	// var uaDate = navigator.userAgentData;  //지원브라우저가 적음 (익스, 파폭, 사파리, 웹뷰 미지원)
-	// var version = navigator.userAgentData.brands; //브라우저 이름, 버전, 종류 배열로 나옴
-	// var mobile = navigator.userAgentData.mobile; //모바일로 접속시 true 반환
-	// var platform = navigator.userAgentData.platform; //os확인
+// var uaDate = navigator.userAgentData;  //지원브라우저가 적음 (익스, 파폭, 사파리, 웹뷰 미지원)
+// var version = navigator.userAgentData.brands; //브라우저 이름, 버전, 종류 배열로 나옴
+// var mobile = navigator.userAgentData.mobile; //모바일로 접속시 true 반환
+// var platform = navigator.userAgentData.platform; //os확인
 
 
 
-	// console.log(memory);
-	// console.log(uaDate);
-	// console.log(version);
-	// console.log(mobile);
+// console.log(lang);
+// console.log(core);
+// console.log(connection);
+// console.log(memory);
+// console.log(uaDate);
+// console.log(version);
+// console.log(mobile);
 
 
 
