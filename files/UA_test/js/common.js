@@ -3,9 +3,9 @@
 
 
 $(window).on("load", function () {
+	osCheck(); //os 체크
     windowSizeCheck(); //화면 사이즈 html에 출력
     browserCheck(); //접속한 브라우저 내용 html에 출력
-	osCheck(); //os 체크
 });
 
 $(window).on("resize", function () {
@@ -35,6 +35,7 @@ console.log(cookie);
 console.log(core);
 console.log(connection);
 console.log("이전 방문 url " + document.referrer);
+console.log(window.devicePixelRatio);
 
 
 // 추가할 기능
@@ -52,16 +53,17 @@ console.log("이전 방문 url " + document.referrer);
 //접속한 브라우저 내용 html에 출력
 function browserCheck() {
 	$(".browser_check").text(getBrowserInfo() + "으로 접속하셨습니다.");
-	$(".resolution_check").text("해상도는 " + deviceResolution + " 입니다.");
+	$(".resolution_check").text("해상도 : " + deviceResolution);
 	$(".lang_check").text(lang + " 언어를 사용합니다.");
-	$(".today_check").text("접속한 날짜와 시간은 " + today + " 입니다.");
+	$(".today_check").text("접속 일시 : " + today);
 	$(".cookie_check").text("쿠키사용 여부" + " : " + cookie);
 	$(".ua").text(ua);
 }
 
 //화면 사이즈 html에 출력 함수
 function windowSizeCheck() {
-    $(".viewport_size").text("화면크기는 " + window.innerWidth + "px x " + window.innerHeight + "px 입니다.");
+    $(".viewport_size").text("내부 크기 : " + window.innerWidth + "px x " + window.innerHeight + "px");
+    $(".window_size").text("외부 크기 : " + window.outerWidth + "px x " + window.outerHeight + "px");
 }
 
 //OS 체크
@@ -69,7 +71,7 @@ function osCheck() {
 	if(/win/i.test(ua)) {
 		$(".os_check").text("현재 사용중인 OS는 Windows 입니다.");
 	} else if (/android/i.test(ua)) {
-		var androidOS = ua.substring(browserInfo("android"), browserInfo("android") + 2)
+		var androidOS = ua.substring(browserInfo("android"), browserInfo("android") + 3)
 		$(".os_check").text("현재 사용중인 OS는 Android " + androidOS + " 입니다.");
 	} else if (/iphone/i.test(ua) || /ios/i.test(ua) || /ipad/i.test(ua) || /ipod/i.test(ua)) {
 		$(".os_check").text("현재 사용중인 OS는 ios 입니다.");
@@ -113,7 +115,7 @@ function getBrowserInfo() {
 			var chromeNum = ua.substring(browserInfo("chrome"), browserInfo("chrome") + 9);
 			return 'Chrome ver ' + chromeNum;
 		} else if (/safari/i.test(ua)) {
-			var safariNum = ua.substring(browserInfo("safari"), browserInfo("safari") + 5);
+			var safariNum = ua.substring(browserInfo("safari"), browserInfo("safari") + 7);
 			return 'Safari ver ' + safariNum;
 		} else {
 			return '';
