@@ -12,6 +12,15 @@
 	<!-- js -->
 	<script src="js/jquery-3.6.0.min.js"></script>
 	<script src="js/common.js"></script>
+
+	<script>
+		// document.getElementsByTagName("html")[0].style.visibility = "hidden", setTimeout(function() {
+        //     document.getElementsByTagName("html")[0].style.visibility = "visible"
+        // }, 4e3);
+        var ID = function(e) {
+            return document.getElementById(e)
+        }
+	</script>
 </head>
 <body>
 	<div class="layout">
@@ -28,6 +37,47 @@
 			<div class="noti ip_WAN"></div>
 			<div class="noti popup_check"></div>
 			<div class="noti ua"></div>
+
+			<!-- 서이준 -->
+			<div class="noti performance">
+				<div>Performance(성능)</div>
+				<div>
+					<span>Page Load Time:</span>
+					<span id="pf1_1"></span>
+					<span id="pf1_2"></span>
+				</div>
+				<div>
+					<span>Network Time:</span>
+					<span id="pf2_1"></span>
+					<span id="pf2_2"></span>
+				</div>
+				<div>
+					<span>DNS Lookup Time:</span>
+					<span id="pf3_1"></span>
+					<span id="pf3_2"></span>
+				</div>
+				<div>
+					<span>TCP Connection Time:</span>
+					<span id="pf4_1"></span>
+					<span id="pf4_2"></span>
+				</div>
+				<div>
+					<span>Server Response Time:</span>
+					<span id="pf5_1"></span>
+					<span id="pf5_2"></span>
+				</div>
+				<div>
+					<span>Page Download Time:</span>
+					<span id="pf6_1"></span>
+					<span id="pf6_2"></span>
+				</div>
+				<div>
+					<span>Browser Time:</span>
+					<span id="pf7_1"></span>
+					<span id="pf7_2"></span>
+				</div>
+			</div>
+			<!-- //서이준 -->
 		</div>
 	</div>
 </html>

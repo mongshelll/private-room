@@ -1,5 +1,5 @@
-var ver = navigator.userAgent;
+var ua = navigator.userAgent;
 
-if(/mobile/i.test(ver)){
+if(/mobile/i.test(ua)){
 	$("body").addClass("mo");
 }

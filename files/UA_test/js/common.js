@@ -8,6 +8,7 @@ $(window).on("load", function () {
     browserCheck(); //접속한 브라우저 내용 html에 출력
 	popupCheck()  //팝업 허용여부 확인
 	ipCheck(); //ip 확인
+	performanceCheck(); //퍼포먼스 체크
 });
 
 $(window).on("resize", function () {
@@ -19,8 +20,10 @@ var ua = navigator.userAgent; //UA
 var platform = navigator.platform; //브라우저가 설치된 시스템환경
 var today = new Date(); //날짜 시간
 var cookie = navigator.cookieEnabled; //쿠키 사용가능 여부
+var mediaDevice = navigator.mediaDevices.enumerateDevices();
+// var mediaDevice = navigator.mediaDevices;
 
-
+console.log(mediaDevice);
 
 //해상도 구하기
 var deviceResolutionWidth = window.screen.width * window.devicePixelRatio; //가로 값
@@ -37,6 +40,7 @@ console.log("이전 방문 url " + document.referrer);
 console.log(window.devicePixelRatio);
 
 
+
 // 추가할 기능
 // Webcams
 // Cookies 가능
@@ -46,6 +50,37 @@ console.log(window.devicePixelRatio);
 // WebSocket
 // Device Pixel Ratio
 // Performance
+
+// (async () => {
+// 	await navigator.mediaDevices.getUserMedia({video: true});
+// 	let devices = await navigator.mediaDevices.enumerateDevices();
+// 	console.log(devices);
+// })();
+(async function() {
+	await navigator.mediaDevices.getUserMedia({video: true});
+	let devices = await navigator.mediaDevices.enumerateDevices();
+	console.log(devices);
+
+
+	if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+		console.log("enumerateDevices()를 지원하지 않습니다.");
+		return;
+	}
+
+	// 카메라와 마이크 리스트
+
+	navigator.mediaDevices.enumerateDevices()
+	.then(function(devices) {
+		devices.forEach(function(device) {
+			console.log(device.kind + ": " + device.label + " id = " + device.deviceId);
+		});
+	})
+	.catch(function(err) {
+		console.log(err.name + ": " + err.message);
+	});
+})();
+
+
 
 //ip 확인
 function ipCheck() {
@@ -185,7 +220,50 @@ function browserInfo(target){
 
 
 
+///////////////////////////////////
+// 서이준 테스트//////////////////////////
+///////////////////////////////////
 
+// 퍼포먼스 체크
+function performanceCheck() {
+	setTimeout(function() {
+		var e = (l = performance.timing).connectEnd,
+			n = l.connectStart,
+			i = l.domainLookupEnd,
+			a = l.domainLookupStart,
+			t = l.loadEventEnd,
+			o = l.navigationStart,
+			r = l.requestStart,
+			s = l.responseStart,
+			l = l.responseEnd,
+			d = "Less than 0.001 sec",
+			c = "sec",
+			p = "sec",
+			u = 0,
+			y = (t - o) / 1e3;
+
+		ID("pf1_1").innerHTML = "", y <= 0 ? (ID("pf1_2").innerHTML = d, u += 1) :
+		ID("pf1_2").innerHTML = 1 == y ? y + " " + c : y + " " + p, y = (r - o) / 1e3,
+
+		ID("pf2_1").innerHTML = "", y <= 0 ? (ID("pf2_2").innerHTML = d, u += 1) :
+		ID("pf2_2").innerHTML = 1 == y ? y + " " + c : y + " " + p, o = (i - a) / 1e3,
+
+		ID("pf3_1").innerHTML = "", o <= 0 ? (ID("pf3_2").innerHTML = d, u += 1) :
+		ID("pf3_2").innerHTML = 1 == o ? o + " " + c : o + " " + p, y = (e - n) / 1e3,
+
+		ID("pf4_1").innerHTML = "", y <= 0 ? (ID("pf4_2").innerHTML = d, u += 1) :
+		ID("pf4_2").innerHTML = 1 == y ? y + " " + c : y + " " + p, i = (s - r) / 1e3,
+
+		ID("pf5_1").innerHTML = "", i <= 0 ? (ID("pf5_2").innerHTML = d, u += 1) :
+		ID("pf5_2").innerHTML = 1 == i ? i + " " + c : i + " " + p, a = (l - s) / 1e3,
+
+		ID("pf6_1").innerHTML = "", a <= 0 ? (ID("pf6_2").innerHTML = d, u += 1) :
+		ID("pf6_2").innerHTML = 1 == a ? a + " " + c : a + " " + p, o = (t - l) / 1e3;
+
+		ID("pf7_1").innerHTML = "", o <= 0 ? (ID("pf7_2").innerHTML = d, u += 1) :
+		ID("pf7_2").innerHTML = 1 == o ? o + " " + c : o + " " + p, 7 === u;
+	}, 1);
+}
 
 
 
