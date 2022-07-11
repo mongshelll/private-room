@@ -51,36 +51,38 @@ console.log(window.devicePixelRatio);
 // Device Pixel Ratio
 // Performance
 
+
+//카메라 마이크 테스트
 // (async () => {
 // 	await navigator.mediaDevices.getUserMedia({video: true});
 // 	let devices = await navigator.mediaDevices.enumerateDevices();
 // 	console.log(devices);
 // })();
-(async function() {
-	await navigator.mediaDevices.getUserMedia({video: true});
-	let devices = await navigator.mediaDevices.enumerateDevices();
-	console.log(devices);
-	$(".cam_check").text("사용가능한 cam : " + devices[1].label)
+// (async function() {
+// 	await navigator.mediaDevices.getUserMedia({video: true});
+// 	let devices = await navigator.mediaDevices.enumerateDevices();
+// 	console.log(devices);
+// 	$(".cam_check").text("사용가능한 cam : " + devices[1].label)
 
 
-	if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
-		console.log("enumerateDevices()를 지원하지 않습니다.");
-		return;
-	}
+// 	if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+// 		console.log("enumerateDevices()를 지원하지 않습니다.");
+// 		return;
+// 	}
 
-	// 카메라와 마이크 리스트
+// 	// 카메라와 마이크 리스트
 
-	navigator.mediaDevices.enumerateDevices()
-	.then(function(devices) {
-		devices.forEach(function(device) {
-			console.log(device.kind + ": " + device.label + " id = " + device.deviceId);
-		});
-	})
-	.catch(function(err) {
-		console.log(err.name + ": " + err.message);
-	});
-})();
-
+// 	navigator.mediaDevices.enumerateDevices()
+// 	.then(function(devices) {
+// 		devices.forEach(function(device) {
+// 			console.log(device.kind + ": " + device.label + " id = " + device.deviceId);
+// 		});
+// 	})
+// 	.catch(function(err) {
+// 		console.log(err.name + ": " + err.message);
+// 	});
+// })();
+//카메라 마이크 테스트 end
 
 
 //ip 확인
