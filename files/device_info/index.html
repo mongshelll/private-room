@@ -13,6 +13,8 @@
 		.layout .container { display: none; }
 		.layout .noti { font-size: 14px; color: #303030; }
 		.pc { display: none; }
+		.layout .noti.performance { margin-top: 20px; }
+		.layout .noti.performance .title { margin-bottom: 10px; }
 	</style>
 
 	<!-- js -->
@@ -36,12 +38,11 @@
 			<div class="noti popup_check"></div>
 			<div class="noti ip_WAN"></div>
 			<div class="noti ua"></div>
-			<br>
 
 
 			<!-- 서이준 -->
 			<div class="noti performance">
-				<div>Performance(성능)</div>
+				<div class="title">Performance(성능)</div>
 				<div>
 					<span>Page Load Time:</span>
 					<span id="pf1_1"></span>
