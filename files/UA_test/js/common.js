@@ -126,14 +126,14 @@ function windowSizeCheck() {
 //OS 체크
 function osCheck() {
 	if(/win/i.test(ua)) {
-		$(".os_check").text("사용중인 OS는 Windows");
+		$(".os_check").text("사용중인 OS : Windows");
 	} else if (/android/i.test(ua)) {
 		var androidOS = ua.substring(browserInfo("android"), browserInfo("android") + 3)
-		$(".os_check").text("사용중인 OS는 Android " + androidOS);
+		$(".os_check").text("사용중인 OS : Android " + androidOS);
 	} else if (/iphone/i.test(ua) || /ios/i.test(ua) || /ipad/i.test(ua) || /ipod/i.test(ua)) {
-		$(".os_check").text("사용중인 OS는 iOS");
+		$(".os_check").text("사용중인 OS : iOS");
 	} else if (/mac/i.test(ua) || /macintosh/i.test(ua)) {
-		$(".os_check").text("사용중인 OS는 Mac OS");
+		$(".os_check").text("사용중인 OS : Mac OS");
 	}
 }
 
@@ -141,12 +141,12 @@ function osCheck() {
 // platform이 지원 중단될 경우 대비
 // function osCheck() {
 // 	if(/win/i.test(platform)){
-// 		$(".os_check").text("현재 사용중인 OS는 Windows");
+// 		$(".os_check").text("현재 사용중인 OS : Windows");
 // 	} else if(/android/i.test(ua)){
 // 		var androidOS = ua.substring(browserInfo("android"), browserInfo("android") + 2)
-// 		$(".os_check").text("현재 사용중인 OS는 Android " + androidOS);
+// 		$(".os_check").text("현재 사용중인 OS : Android " + androidOS);
 // 	} else {
-// 		$(".os_check").text("현재 사용중인 OS는 " + platform);
+// 		$(".os_check").text("현재 사용중인 OS : " + platform);
 // 	}
 // 	console.log(platform);
 // }
