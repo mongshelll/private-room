@@ -9,6 +9,9 @@ $(window).on("load", function () {
 	popupCheck()  //팝업 허용여부 확인
 	ipCheck(); //ip 확인
 	performanceCheck(); //퍼포먼스 체크
+	websocketCheck();//websocket 체크
+	webRTC();//webRTC 체크
+	webcams();//webcams 체크
 });
 
 $(window).on("resize", function () {
@@ -138,12 +141,12 @@ function osCheck() {
 }
 
 //OS 체크
-// platform이 지원 중단될 경우 대비
+// platform이 지원 중단될 수도 있음
 // function osCheck() {
 // 	if(/win/i.test(platform)){
 // 		$(".os_check").text("현재 사용중인 OS : Windows");
 // 	} else if(/android/i.test(ua)){
-// 		var androidOS = ua.substring(browserInfo("android"), browserInfo("android") + 2)
+// 		var androidOS = ua.substring(browserInfo("android"), browserInfo("android") + 3)
 // 		$(".os_check").text("현재 사용중인 OS : Android " + androidOS);
 // 	} else {
 // 		$(".os_check").text("현재 사용중인 OS : " + platform);
@@ -215,10 +218,10 @@ function browserInfo(target){
 	var target_text = new RegExp(target, "i");
 	var start = ua.search(target_text);
 	var target_length = target.length + 1;
-	var browserInforesult = start + target_length;
+	var browserInfoResult = start + target_length;
 	// console.log(target_length);
 
-	return browserInforesult;
+	return browserInfoResult;
 }
 
 
