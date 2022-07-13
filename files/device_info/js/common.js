@@ -87,7 +87,7 @@ function osCheck() {
 			$(".os_check").text("OS : iOS " + iOS);
 		}
 	} else if (/mac/i.test(ua) || /macintosh/i.test(ua)) {
-		var macOS = ua.substring(versionInfo("x") + 2, versionInfo("[)]") -5);
+		var macOS = ua.substring(versionInfo("x"), versionInfo("[)]") -4);
 		$(".os_check").text("OS : Mac OS" + macOS);
 	}
 }
