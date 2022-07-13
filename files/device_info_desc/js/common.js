@@ -58,7 +58,7 @@ function popupCheck() {
 
 //접속 브라우저 정보
 function browserCheck() {
-	$(".browser_check").text(getBrowserInfo());
+	$(".browser_check").text(getversionInfo());
 	$(".resolution_check").text("해상도 : " + deviceResolution);
 	$(".today_check").text("접속 일시 : " + today.toLocaleString());
 	$(".cookie_check").text("쿠키사용 여부" + " : " + cookie);
@@ -73,15 +73,22 @@ function windowSizeCheck() {
 
 //OS 체크
 function osCheck() {
-	if(/win/i.test(ua)) {
-		$(".os_check").text("OS : Windows");
+	if(/windows/i.test(ua)) {
+		var winOS = ua.substring(versionInfo("win") + 20, versionInfo("win") + 23);
+		$(".os_check").text("OS : Windows " + winOS);
 	} else if (/android/i.test(ua)) {
-		var androidOS = ua.substring(browserInfo("android"), browserInfo("android") + 3)
-		$(".os_check").text("OS : Android " + androidOS);
+		var androidOS = ua.substring(versionInfo("android"), versionInfo("[)]") -4);
+		$(".os_check").text("OS, 모델명 : Android " + androidOS.replace(/\;/g,''));
 	} else if (/iphone/i.test(ua) || /ios/i.test(ua) || /ipad/i.test(ua) || /ipod/i.test(ua)) {
-		$(".os_check").text("OS : iOS");
+		var iOS = ua.substring(versionInfo("os"), versionInfo("like") -5);
+		if(/ipad/i.test(ua)) {
+			$(".os_check").text("OS : iPad iOS " + iOS);
+		} else {
+			$(".os_check").text("OS : iOS " + iOS);
+		}
 	} else if (/mac/i.test(ua) || /macintosh/i.test(ua)) {
-		$(".os_check").text("OS : Mac OS");
+		var macOS = ua.substring(versionInfo("x") + 2, versionInfo("[)]") -5);
+		$(".os_check").text("OS : Mac OS" + macOS);
 	}
 }
 
@@ -91,7 +98,7 @@ function osCheck() {
 // 	if(/win/i.test(platform)){
 // 		$(".os_check").text("OS : Windows");
 // 	} else if(/android/i.test(ua)){
-// 		var androidOS = ua.substring(browserInfo("android"), browserInfo("android") + 3)
+// 		var androidOS = ua.substring(versionInfo("android"), versionInfo("android") + 3)
 // 		$(".os_check").text("OS : Android " + androidOS);
 // 	} else {
 // 		$(".os_check").text("OS : " + platform);
@@ -100,27 +107,27 @@ function osCheck() {
 // }
 
 //브라우저, 버전 정보
-function getBrowserInfo() {
+function getversionInfo() {
 	if (!/mobile/i.test(ua)) {
 		if (/trident/i.test(ua)) {
 			return 'Ie';
 		} else if (/firefox/i.test(ua)) {
-			var firefoxNum = ua.substring(browserInfo("firefox"), browserInfo("firefox") + 5);
+			var firefoxNum = ua.substring(versionInfo("firefox"), versionInfo("firefox") + 5);
 			return 'Firefox ver ' + firefoxNum;
 		} else if (/edg/i.test(ua)) {
-			var edgeNum = ua.substring(browserInfo("edg"), browserInfo("edg") + 5);
+			var edgeNum = ua.substring(versionInfo("edg"), versionInfo("edg") + 5);
 			return 'Edge ver ' + edgeNum;
 		} else if (/opr/i.test(ua)) {
-			var oprNum = ua.substring(browserInfo("opr"), browserInfo("opr") + 5);
+			var oprNum = ua.substring(versionInfo("opr"), versionInfo("opr") + 5);
 			return 'Opera ver ' + oprNum;
 		} else if (/whale/i.test(ua)) {
-			var whaleNum = ua.substring(browserInfo("whale"), browserInfo("whale") + 5);
+			var whaleNum = ua.substring(versionInfo("whale"), versionInfo("whale") + 5);
 			return 'Whale ver ' + whaleNum;
 		} else if (/chrome/i.test(ua)) {
-			var chromeNum = ua.substring(browserInfo("chrome"), browserInfo("chrome") + 9);
+			var chromeNum = ua.substring(versionInfo("chrome"), versionInfo("chrome") + 9);
 			return 'Chrome ver ' + chromeNum;
 		} else if (/safari/i.test(ua)) {
-			var safariNum = ua.substring(browserInfo("safari"), browserInfo("safari") + 7);
+			var safariNum = ua.substring(versionInfo("safari"), versionInfo("safari") + 7);
 			return 'Safari ver ' + safariNum;
 		} else {
 			return '';
@@ -129,28 +136,28 @@ function getBrowserInfo() {
 		if (/trident/i.test(ua)) {
 			return 'Mobile Ie';
 		} else if (/firefox/i.test(ua)) {
-			var firefoxNum = ua.substring(browserInfo("firefox"), browserInfo("firefox") + 5);
+			var firefoxNum = ua.substring(versionInfo("firefox"), versionInfo("firefox") + 5);
 			return 'Mobile Firefox ver ' + firefoxNum;
 		} else if (/edg/i.test(ua)) {
-			var edgeNum = ua.substring(browserInfo("edg"), browserInfo("edg") + 14);
+			var edgeNum = ua.substring(versionInfo("edg"), versionInfo("edg") + 14);
 			return 'Mobile Edge ver ' + edgeNum;
 		} else if (/opr/i.test(ua)) {
-			var oprNum = ua.substring(browserInfo("opr"), browserInfo("opr") + 4);
+			var oprNum = ua.substring(versionInfo("opr"), versionInfo("opr") + 4);
 			return 'Mobile Opera ver ' + oprNum;
 		} else if (/naver/i.test(ua)) {
-			var naverNum = ua.substring(browserInfo("naver") + 21, browserInfo("naver") + 28);
+			var naverNum = ua.substring(versionInfo("naver") + 21, versionInfo("naver") + 28);
 			return 'Mobile NAVER App ver ' + naverNum;
 		} else if (/whale/i.test(ua)) {
-			var whaleNum = ua.substring(browserInfo("whale"), browserInfo("whale") + 7);
+			var whaleNum = ua.substring(versionInfo("whale"), versionInfo("whale") + 7);
 			return 'Mobile Whale ver ' + whaleNum;
 		} else if (/samsungbrowser/i.test(ua)) {
-			var samsungbrowserNum = ua.substring(browserInfo("samsungbrowser"), browserInfo("samsungbrowser") + 4);
+			var samsungbrowserNum = ua.substring(versionInfo("samsungbrowser"), versionInfo("samsungbrowser") + 4);
 			return 'Mobile SamsungBrowser ver ' + samsungbrowserNum;
 		} else if (/chrome/i.test(ua)) {
-			var chromeNum = ua.substring(browserInfo("chrome"), browserInfo("chrome") + 9);
+			var chromeNum = ua.substring(versionInfo("chrome"), versionInfo("chrome") + 9);
 			return 'Mobile Chrome ver ' + chromeNum;
 		} else if (/safari/i.test(ua)) {
-			var safariNum = ua.substring(browserInfo("safari"), browserInfo("safari") + 5);
+			var safariNum = ua.substring(versionInfo("safari"), versionInfo("safari") + 5);
 			return 'Mobile Safari ver ' + safariNum;
 		} else {
 			return '';
@@ -158,15 +165,15 @@ function getBrowserInfo() {
 	}
 }
 
-//브라우저 버전확인용
-function browserInfo(target){
+//버전확인용
+function versionInfo(target){
 	var target_text = new RegExp(target, "i");
 	var start = ua.search(target_text);
 	var target_length = target.length + 1;
-	var browserInfoResult = start + target_length;
+	var versionInfoResult = start + target_length;
 	// console.log(target_length);
 
-	return browserInfoResult;
+	return versionInfoResult;
 }
 
 //정보수집 동의체크

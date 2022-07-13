@@ -73,21 +73,21 @@ function windowSizeCheck() {
 
 //OS 체크
 function osCheck() {
-	if(/win/i.test(ua)) {
-		var winOS = ua.substring(versionInfo("win") + 20, versionInfo("win") + 23)
+	if(/windows/i.test(ua)) {
+		var winOS = ua.substring(versionInfo("win") + 20, versionInfo("win") + 23);
 		$(".os_check").text("OS : Windows " + winOS);
 	} else if (/android/i.test(ua)) {
-		var androidOS = ua.substring(versionInfo("android"), versionInfo("[)]") -4)
-		$(".os_check").text("OS, 모델명 : Android " + androidOS);
+		var androidOS = ua.substring(versionInfo("android"), versionInfo("[)]") -4);
+		$(".os_check").text("OS, 모델명 : Android " + androidOS.replace(/\;/g,''));
 	} else if (/iphone/i.test(ua) || /ios/i.test(ua) || /ipad/i.test(ua) || /ipod/i.test(ua)) {
-		var iOS = ua.substring(versionInfo("os"), versionInfo("like") -5)
+		var iOS = ua.substring(versionInfo("os"), versionInfo("like") -5);
 		if(/ipad/i.test(ua)) {
 			$(".os_check").text("OS : iPad iOS " + iOS);
 		} else {
 			$(".os_check").text("OS : iOS " + iOS);
 		}
 	} else if (/mac/i.test(ua) || /macintosh/i.test(ua)) {
-		var macOS = ua.substring(versionInfo("x"), versionInfo("[)]") -5)
+		var macOS = ua.substring(versionInfo("x") + 2, versionInfo("[)]") -5);
 		$(".os_check").text("OS : Mac OS" + macOS);
 	}
 }
