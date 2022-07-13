@@ -127,7 +127,7 @@ function getversionInfo() {
 			var chromeNum = ua.substring(versionInfo("chrome"), versionInfo("chrome") + 9);
 			return 'Chrome ver ' + chromeNum;
 		} else if (/safari/i.test(ua)) {
-			var safariNum = ua.substring(versionInfo("safari"), versionInfo("safari") + 7);
+			var safariNum = ua.substring(versionInfo("safari"), versionInfo("safari") + 8);
 			return 'Safari ver ' + safariNum;
 		} else {
 			return '';
