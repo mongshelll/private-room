@@ -121,7 +121,7 @@ function getversionInfo() {
 			var oprNum = ua.substring(versionInfo("opr"), versionInfo("opr") + 5);
 			return 'Opera ver ' + oprNum;
 		} else if (/whale/i.test(ua)) {
-			var whaleNum = ua.substring(versionInfo("whale"), versionInfo("whale") + 5);
+			var whaleNum = ua.substring(versionInfo("whale"), versionInfo("whale") + 12);
 			return 'Whale ver ' + whaleNum;
 		} else if (/chrome/i.test(ua)) {
 			var chromeNum = ua.substring(versionInfo("chrome"), versionInfo("chrome") + 9);
