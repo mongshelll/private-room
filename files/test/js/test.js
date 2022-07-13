@@ -1,11 +1,11 @@
 var enable = false;
-
+var ua = navigator.userAgent;
 
 
 $(window).on("load", function () {
 	windowSizeLimite(); //width 375보다 클 경우에만 실행가능
 	windowSizeCheck(); //화면 사이즈 html에 출력
-	getBrowserInfo(); //접속 브라우저 확인
+	getversionInfo(); //접속 브라우저 확인
 	browserCheck(); //접속한 브라우저 내용 html에 출력
 });
 
@@ -24,7 +24,7 @@ $(window).on("resize", function () {
 
 //접속한 브라우저 내용 html에 출력
 function browserCheck() {
-	$(".cont_box .access_browser").text("현재 접속중인 브라우저는 " + getBrowserInfo() + " 브라우저 입니다.");
+	$(".cont_box .access_browser").text(getversionInfo());
 }
 
 //접속 브라우저 확인
@@ -50,156 +50,77 @@ function browserCheck() {
 // 	}
 // }
 //출처: https://oingdaddy.tistory.com/406
-
+console.log(ua);
 //버전 포함
-function getBrowserInfo() {
-	var agent = navigator.userAgent;
-	console.log(agent);
-	// /text/i.test(var)  var에서 text가 있는지 확인 i는 대소문자 구별없이 결과값 불리언으로 나옴
-
-	if (!/mobile/i.test(agent)) {
-		if (/trident/i.test(agent)) {
+//브라우저, 버전 정보
+function getversionInfo() {
+	if (!/mobile/i.test(ua)) {
+		if (/trident/i.test(ua)) {
 			return 'Ie';
-		} else if (/firefox/i.test(agent)) {
-			// var firefoxText = agent.search(/firefox/i);
-			// console.log(firefoxText);
-			// console.log(agent.substring(75, 80));
-			var firefoxNum = agent.substring(75, 80);
+		} else if (/firefox/i.test(ua)) {
+			var firefoxNum = ua.substring(versionInfo("firefox"), versionInfo("firefox") + 5);
 			return 'Firefox ver ' + firefoxNum;
-		} else if (/edg/i.test(agent)) {
-			// var edgeText = agent.search(/edg/i);
-			// console.log(edgeText);
-			// console.log(agent.substring(120, 125));
-			var edgeNum = agent.substring(120, 125);
+		} else if (/edg/i.test(ua)) {
+			var edgeNum = ua.substring(versionInfo("edg"), versionInfo("edg") + 5);
 			return 'Edge ver ' + edgeNum;
-		} else if (/opr/i.test(agent)) {
-			// var oprText = agent.search(/opr/i);
-			// console.log(oprText);
-			// console.log(agent.substring(121, 125));
-			var oprNum = agent.substring(121, 125);
+		} else if (/opr/i.test(ua)) {
+			var oprNum = ua.substring(versionInfo("opr"), versionInfo("opr") + 5);
 			return 'Opera ver ' + oprNum;
-			// return 'Opera';
-		} else if (/whale/i.test(agent)) {
-			// var whaleText = agent.search(/whale/i);
-			// console.log(whaleText);
-			// console.log(agent.substring(109, 120));
-			var whaleNum = agent.substring(109, 120);
+		} else if (/whale/i.test(ua)) {
+			var whaleNum = ua.substring(versionInfo("whale"), versionInfo("whale") + 5);
 			return 'Whale ver ' + whaleNum;
-		} else if (/chrome/i.test(agent)) {
-			// var chromeText = agent.search(/chrome/i);
-			// console.log(chromeText);
-			// console.log(agent.substring(88, 97));
-			var chromeNum = agent.substring(88, 97);
+		} else if (/chrome/i.test(ua)) {
+			var chromeNum = ua.substring(versionInfo("chrome"), versionInfo("chrome") + 9);
 			return 'Chrome ver ' + chromeNum;
-		} else if (/safari/i.test(agent)) {
-			// var safariText = agent.search(/safari/i);
-			// console.log(safariText);
-			// console.log(agent.substring(88, 95));
-			// var safariNum = agent.substring(88, 95);
-			// return 'Safari ' + safariNum;
-			return 'Safari';
+		} else if (/safari/i.test(ua)) {
+			var safariNum = ua.substring(versionInfo("safari"), versionInfo("safari") + 7);
+			return 'Safari ver ' + safariNum;
 		} else {
 			return '';
 		}
 	} else {
-		if (/trident/i.test(agent)) {
+		if (/trident/i.test(ua)) {
 			return 'Mobile Ie';
-		} else if (/firefox/i.test(agent)) {
-			// var firefoxText = agent.search(/firefox/i);
-			// console.log(firefoxText);
-			// console.log(agent.substring(75, 80));
-			var firefoxNum = agent.substring(75, 80);
+		} else if (/firefox/i.test(ua)) {
+			var firefoxNum = ua.substring(versionInfo("firefox"), versionInfo("firefox") + 5);
 			return 'Mobile Firefox ver ' + firefoxNum;
-			//@@  모바일 ua에 mobile이 안잡힘  @@
-		} else if (/edg/i.test(agent)) {
-			// var edgeText = agent.search(/edg/i);
-			// console.log(edgeText);
-			// console.log(agent.substring(120, 125));
-			var edgeNum = agent.substring(140, 145);
+		} else if (/edg/i.test(ua)) {
+			var edgeNum = ua.substring(versionInfo("edg"), versionInfo("edg") + 14);
 			return 'Mobile Edge ver ' + edgeNum;
-		} else if (/opr/i.test(agent)) {
-			// var oprText = agent.search(/opr/i);
-			// console.log(oprText);
-			// console.log(agent.substring(121, 125));
-			var oprNum = agent.substring(121, 125);
+		} else if (/opr/i.test(ua)) {
+			var oprNum = ua.substring(versionInfo("opr"), versionInfo("opr") + 4);
 			return 'Mobile Opera ver ' + oprNum;
-			//@@  모바일 ua에 오페라 안나옴  @@
-		} else if (/whale/i.test(agent)) {
-			// var whaleText = agent.search(/whale/i);
-			// console.log(whaleText);
-			// console.log(agent.substring(109, 120));
-			var whaleNum = agent.substring(109, 120);
+		} else if (/naver/i.test(ua)) {
+			var naverNum = ua.substring(versionInfo("naver") + 21, versionInfo("naver") + 28);
+			return 'Mobile NAVER App ver ' + naverNum;
+		} else if (/whale/i.test(ua)) {
+			var whaleNum = ua.substring(versionInfo("whale"), versionInfo("whale") + 7);
 			return 'Mobile Whale ver ' + whaleNum;
-			//@@  모바일 ua에 웨일이 안나옴  @@
-		} else if (/chrome/i.test(agent)) {
-			// var chromeText = agent.search(/chrome/i);
-			// console.log(chromeText);
-			// console.log(agent.substring(88, 97));
-			var chromeNum = agent.substring(101, 110);
+		} else if (/samsungbrowser/i.test(ua)) {
+			var samsungbrowserNum = ua.substring(versionInfo("samsungbrowser"), versionInfo("samsungbrowser") + 4);
+			return 'Mobile SamsungBrowser ver ' + samsungbrowserNum;
+		} else if (/chrome/i.test(ua)) {
+			var chromeNum = ua.substring(versionInfo("chrome"), versionInfo("chrome") + 9);
 			return 'Mobile Chrome ver ' + chromeNum;
-		} else if (/safari/i.test(agent)) {
-			// var safariText = agent.search(/safari/i);
-			// console.log(safariText);
-			// console.log(agent.substring(88, 95));
-			// var safariNum = agent.substring(88, 95);
-			// return 'Safari ' + safariNum;
-			return 'Mobile Safari';
+		} else if (/safari/i.test(ua)) {
+			var safariNum = ua.substring(versionInfo("safari"), versionInfo("safari") + 5);
+			return 'Mobile Safari ver ' + safariNum;
 		} else {
 			return '';
 		}
 	}
 }
 
-// function getBrowserInfo() {
-// 	var agent = navigator.userAgent;
-// 	console.log(agent);
+//버전확인용
+function versionInfo(target){
+	var target_text = new RegExp(target, "i");
+	var start = ua.search(target_text);
+	var target_length = target.length + 1;
+	var versionInfoResult = start + target_length;
+	// console.log(target_length);
 
-// 	// var chromePos = agent.search(/chrome/i);
-// 	// var chromePos2 = /chrome\/\d+(\.\d)*/i;
-// 	// var target = agent.match(chromePos2)
-
-// 	// console.log(chromePos); //81
-// 	// console.log(target[0]);
-
-// 	// /text/i.test(var)  var에서 text가 있는지 확인 i는 대소문자 구별없이 결과값 불리언으로 나옴
-// 	if (/trident/i.test(agent)) {
-// 		// var iePos = agent.search(/trident/i);
-// 		return 'Ie';
-// 	} else if (/firefox/i.test(agent)) {
-// 		var firefoxNum = /firefox\/\d+/i;
-// 		var firefoxVersion = agent.match(firefoxNum)
-// 		return firefoxVersion;
-// 		// return 'Firefox';
-// 	} else if (/edg/i.test(agent)) {
-// 		var edgeNum = /edg\/\d+/i;
-// 		var edgeVersion = agent.match(edgeNum)
-// 		return edgeVersion;
-// 		// return 'Edge';
-// 	} else if (/opr/i.test(agent)) {
-// 		var operaNum = /opr\/\d+/i;
-// 		var operaVersion = agent.match(operaNum)
-// 		return operaVersion;
-// 		// return 'Opera';
-// 	} else if (/whale/i.test(agent)) {
-// 		var whaleNum = /whale\/\d+/i;
-// 		var whaleVersion = agent.match(whaleNum)
-// 		return whaleVersion;
-// 		// return 'Whale';
-// 	} else if (/chrome/i.test(agent)) {
-// 		// var chromeText = agent.search(/chrome/i);
-// 		var chromeNum = /chrome\/\d+/i;
-// 		var chromeVersion = agent.match(chromeNum)
-// 		return chromeVersion;
-// 		// return 'Chrome';
-// 	} else if (/safari/i.test(agent)) {
-// 		var safariNum = /safari\/\d+/i;
-// 		var safariVersion = agent.match(safariNum)
-// 		return safariVersion;
-// 		// return 'Safari';
-// 	} else {
-// 		return '';
-// 	}
-// }
+	return versionInfoResult;
+}
 
 //화면 사이즈 html에 출력 함수
 function windowSizeCheck() {
