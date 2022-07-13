@@ -87,8 +87,8 @@ function osCheck() {
 			$(".os_check").text("OS : iOS " + iOS);
 		}
 	} else if (/mac/i.test(ua) || /macintosh/i.test(ua)) {
-		var macOS = ua.substring(versionInfo("x") + 2, versionInfo("[)]") -5);
-		$(".os_check").text("OS : Mac OS" + macOS);
+		var macOS = ua.substring(versionInfo("x"), versionInfo("[)]") -4);
+		$(".os_check").text("OS : Mac OS " + macOS);
 	}
 }
 
@@ -127,7 +127,7 @@ function getversionInfo() {
 			var chromeNum = ua.substring(versionInfo("chrome"), versionInfo("chrome") + 9);
 			return 'Chrome ver ' + chromeNum;
 		} else if (/safari/i.test(ua)) {
-			var safariNum = ua.substring(versionInfo("safari"), versionInfo("safari") + 7);
+			var safariNum = ua.substring(versionInfo("safari"), versionInfo("safari") + 8);
 			return 'Safari ver ' + safariNum;
 		} else {
 			return '';
