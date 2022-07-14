@@ -9,14 +9,15 @@ var deviceResolutionWidth = window.screen.width * window.devicePixelRatio; //가
 var deviceResolutionHeight = window.screen.height * window.devicePixelRatio; //세로 값
 var deviceResolution = deviceResolutionWidth + " X " + deviceResolutionHeight //디바이스 해상도
 
-console.info(
-`
-%c오류확인을 위한 페이지 입니다.
-%c확인하는 정보
-%cOS정보, 브라우저 종류 및 버전, 해상도, 화면크기, 접속일시, 쿠키허용상태, 팝업사용상태, WAN IP, userAgent, 브라우저 성능
-`,
-	"color: #ddd; font-weight: bold; font-size: 24px;", "color: #bbb; font-weight: bold; font-size: 20px;","color: #aaa; font-weight: inherit; font-size: 18px"
-);
+// console.info(
+// `
+// %c오류확인을 위한 페이지 입니다.
+// %c확인하는 정보
+// %cOS정보, 브라우저 종류 및 버전, 해상도, 화면크기, 접속일시, 쿠키허용상태, 팝업사용상태, WAN IP, userAgent, 브라우저 성능
+// `,
+// 	"color: #ddd; font-weight: bold; font-size: 24px;", "color: #bbb; font-weight: bold; font-size: 20px;","color: #aaa; font-weight: inherit; font-size: 18px"
+// );
+console.info("%c오류확인을 위한 페이지 입니다.\n%c확인하는 정보\n%cOS정보, 브라우저 종류 및 버전, 해상도, 화면크기, 접속일시, 쿠키허용상태, 팝업사용상태, WAN IP, userAgent, 브라우저 성능", "color: #ddd; font-weight: bold; font-size: 24px;", "color: #bbb; font-weight: bold; font-size: 20px;","color: #aaa; font-weight: inherit; font-size: 18px");
 
 $(window).on("load", function () {
 	agree() //정보수집 동의확인
