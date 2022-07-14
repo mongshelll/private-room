@@ -115,10 +115,10 @@ function getversionInfo() {
 			var firefoxNum = ua.substring(versionInfo("firefox"), versionInfo("firefox") + 5);
 			return 'Firefox ver ' + firefoxNum;
 		} else if (/edg/i.test(ua)) {
-			var edgeNum = ua.substring(versionInfo("edg"), versionInfo("edg") + 5);
+			var edgeNum = ua.substring(versionInfo("edg"), versionInfo("edg") + 14);
 			return 'Edge ver ' + edgeNum;
 		} else if (/opr/i.test(ua)) {
-			var oprNum = ua.substring(versionInfo("opr"), versionInfo("opr") + 5);
+			var oprNum = ua.substring(versionInfo("opr"), versionInfo("opr") + 13);
 			return 'Opera ver ' + oprNum;
 		} else if (/whale/i.test(ua)) {
 			var whaleNum = ua.substring(versionInfo("whale"), versionInfo("whale") + 12);

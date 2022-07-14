@@ -61,19 +61,19 @@ function getversionInfo() {
 			var firefoxNum = ua.substring(versionInfo("firefox"), versionInfo("firefox") + 5);
 			return 'Firefox ver ' + firefoxNum;
 		} else if (/edg/i.test(ua)) {
-			var edgeNum = ua.substring(versionInfo("edg"), versionInfo("edg") + 5);
+			var edgeNum = ua.substring(versionInfo("edg"), versionInfo("edg") + 14);
 			return 'Edge ver ' + edgeNum;
 		} else if (/opr/i.test(ua)) {
 			var oprNum = ua.substring(versionInfo("opr"), versionInfo("opr") + 5);
 			return 'Opera ver ' + oprNum;
 		} else if (/whale/i.test(ua)) {
-			var whaleNum = ua.substring(versionInfo("whale"), versionInfo("whale") + 5);
+			var whaleNum = ua.substring(versionInfo("whale"), versionInfo("whale") + 12);
 			return 'Whale ver ' + whaleNum;
 		} else if (/chrome/i.test(ua)) {
 			var chromeNum = ua.substring(versionInfo("chrome"), versionInfo("chrome") + 9);
 			return 'Chrome ver ' + chromeNum;
 		} else if (/safari/i.test(ua)) {
-			var safariNum = ua.substring(versionInfo("safari"), versionInfo("safari") + 7);
+			var safariNum = ua.substring(versionInfo("safari"), versionInfo("safari") + 8);
 			return 'Safari ver ' + safariNum;
 		} else {
 			return '';
