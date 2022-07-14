@@ -127,7 +127,6 @@ function getversionInfo() {
 			var chromeNum = ua.substring(versionInfo("chrome"), versionInfo("chrome") + 9);
 			return 'Chrome ver ' + chromeNum;
 		} else if (/safari/i.test(ua)) {
-			// var safariNum = ua.substring(versionInfo("safari"), versionInfo("safari") + 8);
 			if (/iphone/i.test(ua) || /ios/i.test(ua) || /ipad/i.test(ua) || /ipod/i.test(ua)) {
 				var iOS = ua.substring(versionInfo("os"), versionInfo("like") -5);
 				if(/ipad/i.test(ua)) {
@@ -139,7 +138,6 @@ function getversionInfo() {
 				var macOS = ua.substring(versionInfo("x"), versionInfo("[)]") -9);
 				return 'Safari ver ' +  macOS;
 			}
-			// return 'Safari ver ' + safariNum;
 		} else {
 			return '';
 		}
@@ -168,7 +166,6 @@ function getversionInfo() {
 			var chromeNum = ua.substring(versionInfo("chrome"), versionInfo("chrome") + 9);
 			return 'Mobile Chrome ver ' + chromeNum;
 		} else if (/safari/i.test(ua)) {
-			// var safariNum = ua.substring(versionInfo("safari"), versionInfo("safari") + 5);
 			if (/iphone/i.test(ua) || /ios/i.test(ua) || /ipad/i.test(ua) || /ipod/i.test(ua)) {
 				var iOS = ua.substring(versionInfo("os"), versionInfo("like") -8);
 				if(/ipad/i.test(ua)) {
@@ -180,7 +177,6 @@ function getversionInfo() {
 				var macOS = ua.substring(versionInfo("x"), versionInfo("[)]") -4);
 				return 'Safari ver ' +  macOS;
 			}
-			// return 'Safari ver ' + safariNum;
 		} else {
 			return '';
 		}
