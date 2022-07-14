@@ -153,7 +153,10 @@ function getversionInfo() {
 		if (/trident/i.test(ua)) {
 			return 'Mobile IE';
 		} else if (/kakaotalk/i.test(ua)) {
-			// var kakaotalkNum = ua.substring(versionInfo("kakaotalk"), versionInfo("kakaotalk") + 5);
+			if(/iphone/i.test(ua) || /ios/i.test(ua) || /ipad/i.test(ua)) {
+				var kakaotalkNum = ua.substring(versionInfo("kakaotalk"), versionInfo("kakaotalk") + 5);
+				return 'Mobile KAKAOTALK ver' + kakaotalkNum;
+			}
 			return 'Mobile KAKAOTALK';
 		} else if (/firefox/i.test(ua)) {
 			var firefoxNum = ua.substring(versionInfo("firefox"), versionInfo("firefox") + 5);
