@@ -118,7 +118,7 @@ function osCheck() {
 function getversionInfo() {
 	if (!/mobile/i.test(ua)) {
 		if (/trident/i.test(ua)) {
-			return 'Ie';
+			return 'IE';
 		} else if (/firefox/i.test(ua)) {
 			var firefoxNum = ua.substring(versionInfo("firefox"), versionInfo("firefox") + 5);
 			return 'Firefox ver ' + firefoxNum;
@@ -151,7 +151,7 @@ function getversionInfo() {
 		}
 	} else {
 		if (/trident/i.test(ua)) {
-			return 'Mobile Ie';
+			return 'Mobile IE';
 		} else if (/firefox/i.test(ua)) {
 			var firefoxNum = ua.substring(versionInfo("firefox"), versionInfo("firefox") + 5);
 			return 'Mobile Firefox ver ' + firefoxNum;
