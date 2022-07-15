@@ -12,31 +12,31 @@ var enableClick = true;
 
 
 $btns.on("click", function(e){
-  e.preventDefault();
+	e.preventDefault();
 
-  if(enableClick){
-    activation(this);
-    enableClick = false;
-  }
+	if(enableClick){
+		activation(this);
+		enableClick = false;
+	}
 });
 
 function activation(self){
-  var isOn = $(self).hasClass("on");
+	var isOn = $(self).hasClass("on");
 
-  $btns.removeClass("on");
-  $boxs.slideUp(speed);
+	$btns.removeClass("on");
+	$boxs.slideUp(speed);
 
-  if(isOn){
-    $(self).removeClass("on");
-    $(self).next("dd").slideUp(speed, function(){
-      enableClick = true;
-    });
-  }else{
-    $(self).addClass("on");
-    $(self).next("dd").slideDown(speed, function(){
-      enableClick = true;
-    });
-  }
+	if(isOn){
+		$(self).removeClass("on");
+		$(self).next("dd").slideUp(speed, function(){
+			enableClick = true;
+		});
+	}else{
+		$(self).addClass("on");
+		$(self).next("dd").slideDown(speed, function(){
+			enableClick = true;
+		});
+	}
 }
 
 

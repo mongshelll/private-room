@@ -6,37 +6,37 @@
 
 
 function Toggle(selector) {
-  this.init(selector);
-  this.bindingEvent();
+	this.init(selector);
+	this.bindingEvent();
 }
 
 Toggle.prototype.init = function(selector){
-  this.$frame = $(selector);
-  this.$btns = this.$frame.find("dt");
-  this.$boxs = this.$frame.find("dd");
+	this.$frame = $(selector);
+	this.$btns = this.$frame.find("dt");
+	this.$boxs = this.$frame.find("dd");
 }
 
 
 Toggle.prototype.bindingEvent = function(){
-  var self = this;
-  self.$btns.on("click", function(e){
-    e.preventDefault();
+	var self = this;
+	self.$btns.on("click", function(e){
+		e.preventDefault();
 
-    self.activation(this);
-  });
+		self.activation(this);
+	});
 }
 
 Toggle.prototype.activation = function(self){
-  var isOn = $(self).hasClass("on");
+	var isOn = $(self).hasClass("on");
 
-  this.$btns.removeClass("on");
-  this.$boxs.slideUp();
+	this.$btns.removeClass("on");
+	this.$boxs.slideUp();
 
-  if(isOn){
-    $(self).removeClass("on");
-    $(self).next("dd").slideUp();
-    return;
-  }
-    $(self).addClass("on");
-    $(self).next("dd").slideDown();
+	if(isOn){
+		$(self).removeClass("on");
+		$(self).next("dd").slideUp();
+		return;
+	}
+		$(self).addClass("on");
+		$(self).next("dd").slideDown();
 }
