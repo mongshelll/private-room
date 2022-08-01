@@ -7,3 +7,19 @@
     @include test_mixin;
     display: flex;
 }
+
+
+$font-size-test: 30px;
+
+.test2 {
+    font-size: $font-size-test; //30px
+}
+
+.test3 {
+    font-size: $font_size_test; //30px
+}
+
+// 주석테스트
+/*
+    주석 테스트
+*/

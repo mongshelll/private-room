@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .test {
     font-size: 20px;
     font-size: 40px;
@@ -6,3 +7,15 @@
     display: -ms-flexbox;
     display: flex;
 }
+
+.test2 {
+    font-size: 30px;
+}
+
+.test3 {
+    font-size: 30px;
+}
+
+/*
+    주석 테스트
+*/
