@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>neumorphism</title>
+	<style>
+		h1 { text-align: center; }
+		.contain { padding: 50px 20px; box-sizing: border-box; background: #f3f3f3; }
+		.wrap { height: 460px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 30px;}
+		.wrap .item { position: relative; width: 200px; height: 200px; background-color: #f3f3f3; border-radius: 30% 70% 30% 70% / 70% 30% 70% 30%; }
+		.wrap .item { box-shadow: -10px -10px 10px #fff, 10px 10px 10px #e0e0e0; transform: rotate(-12deg); }
+
+		/* .wrap .item:first-of-type { border-radius: 70% 30% 70% 30% / 30% 70% 30% 70%; transform: rotate(12deg); }
+		.wrap .item:first-of-type::before { border-radius: 70% 30% 70% 30% / 30% 70% 30% 70%; }
+		.wrap .item:first-of-type > a { transform: translate(-50%, -50%) rotate(-12deg); } */
+
+		.wrap .item::before { content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 95%; height: 95%; background-color: #f3f3f3; border-radius: 30% 70% 30% 70% / 70% 30% 70% 30%; }
+		.wrap .item::before { box-shadow: -10px -10px 10px #fff, 10px 10px 10px #e0e0e0; }
+		.wrap .item.dot::before { box-shadow: inset -10px -10px 10px #e0e0e0, inset 10px 10px 10px #fff; }
+		/* .wrap .item:hover::before { box-shadow: -10px -10px 10px #fff, 10px 10px 10px #e0e0e0; } */
+		.wrap .item:active::before { box-shadow: inset -10px -10px 10px #fff, inset 10px 10px 10px #e0e0e0; }
+
+		.wrap .item > a { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(12deg); width: 100%; height: 100%; }
+		.wrap .item > .pc { background: url("img/ver_pw.png") no-repeat center/100px; }
+		.wrap .item > .mo { background: url("img/ver_mw.png") no-repeat center/100px; }
+
+
+		.wrap .item.circle,
+		.wrap .item.circle::before { border-radius: 50%;
+		}
+		/* .wrap .item.circle,
+		.wrap .item.circle::before { border-radius: 50%; background: linear-gradient(145deg, #ffffff, #dadada); box-shadow:  20px 20px 40px #a2a2a2, -20px -20px 40px #ffffff; }
+		.wrap .item.circle:active::before { background: linear-gradient(145deg, #dadada, #ffffff); box-shadow:  20px 20px 40px #a2a2a2, -20px -20px 40px #ffffff; } */
+
+	</style>
+</head>
+<body>
+	<div class="contain">
+		<h1>text</h1>
+		<div class="wrap">
+			<div class="item">
+				<a href="#none" class="pc"></a>
+			</div>
+			<div class="item dot">
+				<a href="#none" class="mo"></a>
+			</div>
+			<div class="item circle">
+				<a href="#none"></a>
+			</div>
+			<div class="item dot circle">
+				<a href="#none"></a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
