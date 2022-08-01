@@ -1,0 +1,9 @@
+@charset "utf-8";
+@import "var_test";
+
+.test {
+    font-size: 20px;
+    font-size: $font;
+    @include test_mixin;
+    display: flex;
+}

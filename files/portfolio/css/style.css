@@ -1297,7 +1297,6 @@ fieldset {
     .loading {
         top: 65%;
     }
-
     #gallery .sub_visual {
         margin-bottom: 50px;
     }
@@ -4105,7 +4104,6 @@ fieldset {
     #header .header_lower {
         display: none;
     }
-
     #main_visual .swiper-pagination {
         left: 10%;
     }
@@ -4115,11 +4113,9 @@ fieldset {
     #main_visual .inner_pic_slide {
         top: 300px;
     }
-
     #about_brand .inner {
         width: 100%;
     }
-
     #about {
         overflow: hidden;
     }
@@ -4132,22 +4128,18 @@ fieldset {
     #about .inner .about_tit p {
         width: 60vw;
     }
-
     #banner .inner {
         padding-left: 20px;
     }
-
     #event_pg .inner {
         width: 100%;
     }
-
     #team {
         padding-top: 20vw;
     }
     #team .inner {
         width: 100%;
     }
-
     #footer {
         padding: 50px 40px;
         -webkit-box-sizing: border-box;
@@ -4215,11 +4207,9 @@ fieldset {
     #header .header_upper > .inner .login_btn {
         display: none;
     }
-
     #navi {
         display: none;
     }
-
     #main_visual .swiper-pagination {
         left: 10%;
     }
@@ -4246,14 +4236,12 @@ fieldset {
         right: 48vw;
         bottom: 20vh;
     }
-
     #about_brand .inner > h1 {
         font-size: 20px;
     }
     #about_brand .inner > p {
         font-size: 14px;
     }
-
     #about .inner .about_pic_box {
         margin-bottom: 100px;
         display: -webkit-box;
@@ -4274,7 +4262,6 @@ fieldset {
         font-size: 14px;
         line-height: 1.5;
     }
-
     #event_pg .inner .wrap .left .event_tit {
         margin-top: 100px;
     }
@@ -4309,7 +4296,6 @@ fieldset {
         width: 20%;
         height: 30vh;
     }
-
     #team {
         height: 100%;
         padding-top: 172px;
@@ -4345,7 +4331,6 @@ fieldset {
     #banner .inner {
         padding-left: 10px;
     }
-
     #footer .inner .upper .logo {
         width: 100px;
         left: 50%;
