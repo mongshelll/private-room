@@ -6,7 +6,7 @@
 .test_box {
     width: 100vw;
     height: 100%;
-    background: #303030;
+    background: #d7ccc8;
     color: #f0f0f0;
     font-size: 12px;
 }
@@ -43,7 +43,7 @@
     padding: 100px 10px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.1);
+    background: #a69b97;
     font-size: 22px;
     text-align: center;
 }
@@ -53,11 +53,11 @@
 .test_box .scroll_test_box .cont_box .test_box {
     width: 40px;
     height: 40px;
-    background: #ccc;
+    background: #bdb9b7;
 }
 .test_box .scroll_test_box .cont_box .test_box + .test_box {
     margin-top: 10px;
 }
 .test_box .scroll_test_box .cont_box .test_box.on {
-    background: #303030;
+    background: #efebe9;
 }

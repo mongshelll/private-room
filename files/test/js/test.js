@@ -51,12 +51,12 @@ function browserCheck() {
 // }
 //출처: https://oingdaddy.tistory.com/406
 console.log(ua);
-//버전 포함
+
 //브라우저, 버전 정보
 function getversionInfo() {
 	if (!/mobile/i.test(ua)) {
 		if (/trident/i.test(ua)) {
-			return 'Ie';
+			return 'IE';
 		} else if (/firefox/i.test(ua)) {
 			var firefoxNum = ua.substring(versionInfo("firefox"), versionInfo("firefox") + 5);
 			return 'Firefox ver ' + firefoxNum;
@@ -64,7 +64,7 @@ function getversionInfo() {
 			var edgeNum = ua.substring(versionInfo("edg"), versionInfo("edg") + 14);
 			return 'Edge ver ' + edgeNum;
 		} else if (/opr/i.test(ua)) {
-			var oprNum = ua.substring(versionInfo("opr"), versionInfo("opr") + 5);
+			var oprNum = ua.substring(versionInfo("opr"), versionInfo("opr") + 13);
 			return 'Opera ver ' + oprNum;
 		} else if (/whale/i.test(ua)) {
 			var whaleNum = ua.substring(versionInfo("whale"), versionInfo("whale") + 12);
@@ -73,14 +73,29 @@ function getversionInfo() {
 			var chromeNum = ua.substring(versionInfo("chrome"), versionInfo("chrome") + 9);
 			return 'Chrome ver ' + chromeNum;
 		} else if (/safari/i.test(ua)) {
-			var safariNum = ua.substring(versionInfo("safari"), versionInfo("safari") + 8);
-			return 'Safari ver ' + safariNum;
+			if (/iphone/i.test(ua) || /ios/i.test(ua) || /ipad/i.test(ua) || /ipod/i.test(ua)) {
+				var iOS = ua.substring(versionInfo("os"), versionInfo("like") -5);
+				if(/ipad/i.test(ua)) {
+					return 'Safari ver ' + iOS;
+				} else {
+					return 'Safari ver ' +  iOS;
+				}
+			} else if (/mac/i.test(ua) || /macintosh/i.test(ua)) {
+				var macOS = ua.substring(versionInfo("x"), versionInfo("[)]") -9);
+				return 'Safari ver ' +  macOS;
+			}
 		} else {
 			return '';
 		}
 	} else {
 		if (/trident/i.test(ua)) {
-			return 'Mobile Ie';
+			return 'Mobile IE';
+		} else if (/kakaotalk/i.test(ua)) {
+			if(/iphone/i.test(ua) || /ios/i.test(ua) || /ipad/i.test(ua)) {
+				var kakaotalkNum = ua.substring(versionInfo("kakaotalk"), versionInfo("kakaotalk") + 5);
+				return 'Mobile KAKAOTALK ver' + kakaotalkNum;
+			}
+			return 'Mobile KAKAOTALK';
 		} else if (/firefox/i.test(ua)) {
 			var firefoxNum = ua.substring(versionInfo("firefox"), versionInfo("firefox") + 5);
 			return 'Mobile Firefox ver ' + firefoxNum;
@@ -103,8 +118,17 @@ function getversionInfo() {
 			var chromeNum = ua.substring(versionInfo("chrome"), versionInfo("chrome") + 9);
 			return 'Mobile Chrome ver ' + chromeNum;
 		} else if (/safari/i.test(ua)) {
-			var safariNum = ua.substring(versionInfo("safari"), versionInfo("safari") + 5);
-			return 'Mobile Safari ver ' + safariNum;
+			if (/iphone/i.test(ua) || /ios/i.test(ua) || /ipad/i.test(ua) || /ipod/i.test(ua)) {
+				var iOS = ua.substring(versionInfo("os"), versionInfo("like") -8);
+				if(/ipad/i.test(ua)) {
+					return 'Safari ver ' + iOS;
+				} else {
+					return 'Safari ver ' +  iOS;
+				}
+			} else if (/mac/i.test(ua) || /macintosh/i.test(ua)) {
+				var macOS = ua.substring(versionInfo("x"), versionInfo("[)]") -4);
+				return 'Safari ver ' +  macOS;
+			}
 		} else {
 			return '';
 		}
