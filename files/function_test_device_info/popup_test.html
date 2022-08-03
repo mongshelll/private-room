@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popup_test</title>
+
+    <style>
+        button { width: 100%; height: 50px; border: 0; border-radius: 12px; background: #ccc; cursor: pointer; line-height: 50px; font-weight: bold; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <p>팝업 테스트 화면 입니다.</p>
+    <button type="button" id="close">창 닫기</button>
+
+    <script>
+        var closeBtn = document.getElementById("close");
+        closeBtn.addEventListener("click", function(){
+            window.close();
+        })
+    </script>
+</body>
+</html>

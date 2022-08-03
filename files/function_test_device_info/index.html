@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Device Info</title>
+
+	<style>
+		* { margin: 0; padding: 0; }
+		.layout { padding: 20px 20px; box-sizing: border-box; width: 100%; height: 100%; min-width: 280px; }
+		.layout .container { display: none; }
+		.layout .noti { margin-bottom: 2px; font-size: 14px; color: #303030; }
+		.layout .noti.performance { margin-top: 20px; }
+		.layout .noti.performance .title { margin-bottom: 10px; }
+		.pc { display: none; }
+
+		noscript > .noti { position: fixed; top: 40px; left: 50%; transform: translateX(-50%); min-width: 280px; text-align: center; font-weight: bold; }
+	</style>
+
+	<!-- js -->
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script src="js/common.js"></script>
+
+</head>
+<body>
+	<div class="layout">
+		<noscript>
+			<div class="noti">JavaScript 비활성화 페이지입니다!!!</div>
+		</noscript>
+		<div class="container">
+			<div class="noti os_check"></div>
+			<div class="noti browser_check"></div>
+			<div class="noti resolution_check"></div>
+			<div class="noti viewport_size"></div>
+			<div class="noti window_size"></div>
+			<div class="noti today_check"></div>
+			<div class="noti cookie_check"></div>
+			<div class="noti popup_check"></div>
+			<div class="noti ip_WAN"></div>
+			<div class="noti ua"></div>
+			<div class="noti performance">
+				<div class="title">Performance</div>
+				<div>
+					<span>Page Load Time :</span>
+					<span id="pf1_1"></span>
+					<span id="pf1_2"></span>
+				</div>
+				<div>
+					<span>Network Time :</span>
+					<span id="pf2_1"></span>
+					<span id="pf2_2"></span>
+				</div>
+				<div>
+					<span>DNS Lookup Time :</span>
+					<span id="pf3_1"></span>
+					<span id="pf3_2"></span>
+				</div>
+				<div>
+					<span>TCP Connection Time :</span>
+					<span id="pf4_1"></span>
+					<span id="pf4_2"></span>
+				</div>
+				<div>
+					<span>Server Response Time :</span>
+					<span id="pf5_1"></span>
+					<span id="pf5_2"></span>
+				</div>
+				<div>
+					<span>Page Download Time :</span>
+					<span id="pf6_1"></span>
+					<span id="pf6_2"></span>
+				</div>
+				<div>
+					<span>Browser Time :</span>
+					<span id="pf7_1"></span>
+					<span id="pf7_2"></span>
+				</div>
+			</div>
+			<div class="noti websocket">
+				<div>
+					<span>WebSocket :</span>
+					<span id="ws1"></span>
+					<span id="ws2"></span>
+				</div>
+				<div>
+					<span>WebSocket Connections :</span>
+					<span id="wsc1"></span>
+					<span id="wsc2"></span>
+				</div>
+			</div>
+			<div class="noti webrtc">
+				<span>WebRTC :</span>
+				<span id="rtc1"></span>
+			</div>
+			<div class="pc">
+				<div class="noti webcams">
+					<div>
+						<div>Webcams</div>
+						<div id="qlova"></div>
+					</div>
+					<div id="frybh"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</html>
