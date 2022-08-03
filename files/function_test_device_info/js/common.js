@@ -1,6 +1,5 @@
 //device info
 var ua = navigator.userAgent; //UA
-var platform = navigator.platform; //브라우저가 설치된 시스템환경
 var cookie = navigator.cookieEnabled; //쿠키 사용가능 여부
 var today = new Date(); //날짜 시간
 
@@ -317,7 +316,6 @@ var webRTC = function(){
 };
 
 var webcams = function(){
-
 	var xe = !1;
 	var Tn = !1;
 	var	Ln = !1;
@@ -336,7 +334,6 @@ var webcams = function(){
 		g = document,
 		Q = "103.0",
 		d = "";
-
 
 	if (!1 === xe)
 		if (!1 === Tn)
