@@ -12,7 +12,7 @@ var deviceResolution = deviceResolutionWidth + " X " + deviceResolutionHeight //
 
 
 $(window).on("load", function () {
-	agree() //정보수집 동의확인
+	agree; //정보수집 동의확인
 	osCheck(); //os 체크
     windowSizeCheck(); //화면 사이즈 html에 출력
     browserCheck(); //접속한 브라우저 내용 html에 출력
