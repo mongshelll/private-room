@@ -63,13 +63,13 @@ function browserCheck() {
 	$(".today_check").text("접속 일시 : " + today.toLocaleString());
 	$(".cookie_check").text("쿠키사용 여부" + " : " + cookie);
 	$(".ua").text(ua);
-}
+};
 
 //화면 사이즈 체크
 function windowSizeCheck() {
     $(".viewport_size").text("viewport size : " + window.innerWidth + " x " + window.innerHeight);
     $(".window_size").text("window size : " + window.outerWidth + " x " + window.outerHeight);
-}
+};
 
 //OS 체크
 var osCheck = function() {
@@ -90,7 +90,7 @@ var osCheck = function() {
 		var macOS = ua.substring(versionInfo("x"), versionInfo("[)]") -4);
 		$(".os_check").text("OS : Mac OS " + macOS);
 	}
-}
+};
 
 //브라우저, 버전 정보
 var getversionInfo = function() {
@@ -173,7 +173,7 @@ var getversionInfo = function() {
 			return '';
 		}
 	}
-}
+};
 
 //버전확인용
 var versionInfo = function(target){
@@ -184,7 +184,7 @@ var versionInfo = function(target){
 	// console.log(target_length);
 
 	return versionInfoResult;
-}
+};
 
 //정보수집 동의체크
 var agree = function(){
@@ -204,12 +204,12 @@ var agree = function(){
 	} else {
 		window.close();
 	}
-}
+};
 
 
 var ID = function(e) {
 	return document.getElementById(e)
-}
+};
 
 // 퍼포먼스 체크
 var performanceCheck = function() {
@@ -250,7 +250,7 @@ var performanceCheck = function() {
 		ID("pf7_1").innerHTML = "", o <= 0 ? (ID("pf7_2").innerHTML = d, u += 1) :
 		ID("pf7_2").innerHTML = 1 == o ? o + " " + c : o + " " + p, 7 === u;
 	}, 1);
-}
+};
 
 //websocket 체크
 var websocketCheck = function(){
@@ -294,7 +294,7 @@ var websocketCheck = function(){
 	} catch (e) {
 		ID("ws2").innerHTML = h, ID("wsc2").innerHTML = h
 	}
-}
+};
 
 //webRTC 체크
 var webRTC = function(){
@@ -314,7 +314,7 @@ var webRTC = function(){
 	}
 
 	ID("rtc1").innerHTML = mn
-}
+};
 
 var webcams = function(){
 
@@ -439,4 +439,4 @@ var webcams = function(){
                 } else ID("qlova").innerHTML = n;
         else ID("qlova").innerHTML = ve;
         else ID("qlova").innerHTML = ke;
-}
+};
