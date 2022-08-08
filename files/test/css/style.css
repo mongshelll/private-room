@@ -24,24 +24,9 @@
             flex-direction: column;
     gap: 10px;
 }
-.test_box .scroll_test_box .btn_box {
-    margin: 20px;
-}
-.test_box .scroll_test_box .btn_box .btn_test {
-    display: inline-block;
-    width: 200px;
-    height: 40px;
-    border: 1px solid #333333;
-    border-radius: 6px;
-    font-size: 18px;
-}
-.test_box .scroll_test_box .btn_box .btn_test:active {
-    -webkit-transform: scale(0.98);
-            transform: scale(0.98);
-}
 .test_box .scroll_test_box .cont_box {
     width: 100%;
-    padding: 100px 10px;
+    padding: 20px 20px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     background: #a69b97;
@@ -52,6 +37,21 @@
 }
 .test_box .scroll_test_box .cont_box p + p {
     margin-top: 20px;
+}
+.test_box .scroll_test_box .cont_box .btn_box {
+    margin: 20px;
+}
+.test_box .scroll_test_box .cont_box .btn_box .btn_test {
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    font-size: 18px;
+}
+.test_box .scroll_test_box .cont_box .btn_box .btn_test:active {
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
 }
 .test_box .scroll_test_box .cont_box .test_box {
     width: 40px;
@@ -84,7 +84,6 @@
     left: 0;
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0); /* 위치사용 */
-    float: left;
     /* 사이즈 */
     min-width: 100px;
     width: 200px;
@@ -193,7 +192,7 @@
     display: -ms-flexbox;
     display: flex;
     gap: 10px;
-    padding-top: 350px;
+    padding-top: 200px;
 }
 .test_box .scroll_test_box .cont_box .img-box-wrap .img-box {
     width: 200px;

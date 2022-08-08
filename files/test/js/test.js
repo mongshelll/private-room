@@ -160,3 +160,16 @@ function windowSizeLimite() {
 		console.log(enable);
 	}
 }
+
+
+
+
+const module = (function() {
+	const number = 23;
+	return {
+		getNumber() { return number }
+	}
+})();
+
+module.getNumber(); // Expected output: 23
+console.log(module.getNumber());

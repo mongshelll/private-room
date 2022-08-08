@@ -18,12 +18,12 @@
 <body>
 	<div class="test_box">
 		<div class="scroll_test_box">
-			<div class="btn_box">
-				<button type="button" class="btn_test">btn_test</button>
-			</div>
 			<div class="cont_box">
 				<p class="viewport_size"></p>
 				<p class="access_browser"></p>
+				<div class="btn_box">
+					<button type="button" class="btn_test">btn_test</button>
+				</div>
 				<div class="test_box"></div>
 				<div class="test_box"></div>
 				<div class="test_box"></div>
@@ -34,14 +34,23 @@
 			<div class="cont_box">
 				<div class="test2-test">blur, box-shadow</div>
 				<div class="img-box-wrap">
+					<!--
+						랜덤 이미지 관련 api 설명
+						https://unsplash.com/developers
+						https://unsplash.com/documentation
+						https://awik.io/generate-random-images-unsplash-without-using-api/
+						https://blog.voidmainvoid.net/55
+						https://cloud-library.tistory.com/entry/Unsplash-Source-랜덤-이미지-가져오기
+					-->
 					<div class="img-box">
-						<img src="https://source.unsplash.com/random" alt="random">
+						<img src="https://source.unsplash.com/random/200x200/?nature,water" alt="random">
 					</div>
 					<div class="img-box">
-						<img src="https://source.unsplash.com/collection/1" alt="여러개 random">
+						<img src="https://source.unsplash.com/random/200x200/?universe" alt="random">
+						<!-- <img src="https://source.unsplash.com/collection/1/200x200/" alt="여러개 random"> -->
 					</div>
 					<div class="img-box">
-						<img src="https://source.unsplash.com/collection/2" alt="여러개 random">
+						<img src="https://source.unsplash.com/collection/200x200/?city,night" alt="여러개 random">
 					</div>
 				</div>
 			</div>
