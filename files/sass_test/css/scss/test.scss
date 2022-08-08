@@ -32,7 +32,7 @@ $font-size-test: 30px;
 	/*css 작성 룰*/
 	&:before {
 		/* 컨텐트 생성 */
-		content: "box-shadow box-shadow";
+		content: "blur, box-shadow box-shadow";
 
 		/* 우선순위 */
 		z-index: 10;
@@ -55,8 +55,8 @@ $font-size-test: 30px;
 
 		/* 사이즈 */
 		min-width: 100px;
-		width: 120px;
-		max-width: 130px;
+		width: 170px;
+		max-width: 200px;
 		min-height: 100px;
 		height: 120px;
 		max-height: 130px;
@@ -88,13 +88,13 @@ $font-size-test: 30px;
 	}
 
 	&::after {
-		content: "drop-shadow";
+		content: "blur, drop-shadow";
 		z-index: 10;
 		opacity: 1;
 		position: absolute;
 		top: 160px;
 		left: 0;
-		width: 120px;
+		width: 170px;
 		height: 120px;
 		line-height: 120px;
 		border: 1px solid #000;
@@ -121,8 +121,8 @@ $font-size-test: 30px;
 	opacity: 1;
 	position: absolute;
 	top: 295px;
-	left: 150px;
-	width: 120px;
+	left: 200px;
+	width: 170px;
 	height: 120px;
 	border: 1px solid #000;
 	border-radius: 10px;
