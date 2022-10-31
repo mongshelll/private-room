@@ -4,14 +4,14 @@
     padding: 0;
 }
 
-.test_box_wrap {
+.test_box {
     width: 100vw;
     height: 100%;
     background: #d7ccc8;
     color: #f0f0f0;
     font-size: 12px;
 }
-.test_box_wrap .scroll_test_box {
+.test_box .scroll_test_box {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -24,7 +24,7 @@
             flex-direction: column;
     gap: 10px;
 }
-.test_box_wrap .scroll_test_box .cont_box {
+.test_box .scroll_test_box .cont_box {
     width: 100%;
     padding: 20px 20px;
     -webkit-box-sizing: border-box;
@@ -32,16 +32,16 @@
     background: #a69b97;
     font-size: 22px;
 }
-.test_box_wrap .scroll_test_box .cont_box p {
+.test_box .scroll_test_box .cont_box p {
     text-align: center;
 }
-.test_box_wrap .scroll_test_box .cont_box p + p {
+.test_box .scroll_test_box .cont_box p + p {
     margin-top: 20px;
 }
-.test_box_wrap .scroll_test_box .cont_box .btn_box {
+.test_box .scroll_test_box .cont_box .btn_box {
     margin: 20px;
 }
-.test_box_wrap .scroll_test_box .cont_box .btn_box .btn_test {
+.test_box .scroll_test_box .cont_box .btn_box .btn_test {
     display: inline-block;
     width: 200px;
     height: 40px;
@@ -49,22 +49,22 @@
     border-radius: 6px;
     font-size: 18px;
 }
-.test_box_wrap .scroll_test_box .cont_box .btn_box .btn_test:active {
+.test_box .scroll_test_box .cont_box .btn_box .btn_test:active {
     -webkit-transform: scale(0.98);
             transform: scale(0.98);
 }
-.test_box_wrap .scroll_test_box .cont_box .test_box {
+.test_box .scroll_test_box .cont_box .test_box {
     width: 40px;
     height: 40px;
     background: #bdb9b7;
 }
-.test_box_wrap .scroll_test_box .cont_box .test_box + .test_box {
+.test_box .scroll_test_box .cont_box .test_box + .test_box {
     margin-top: 10px;
 }
-.test_box_wrap .scroll_test_box .cont_box .test_box.on {
+.test_box .scroll_test_box .cont_box .test_box.on {
     background: #efebe9;
 }
-.test_box_wrap .scroll_test_box .cont_box .test2-test {
+.test_box .scroll_test_box .cont_box .test2-test {
     /*css 작성 룰*/
     /* 컨텐트 생성 */
     /*content: "blur, box-shadow box-shadow";*/
@@ -122,7 +122,7 @@
             filter: blur(0.8px);
     /*//css 작성 룰*/
 }
-.test_box_wrap .scroll_test_box .cont_box .test2-test::before {
+.test_box .scroll_test_box .cont_box .test2-test::before {
     content: "blur, drop-shadow";
     z-index: 10;
     opacity: 1;
@@ -153,7 +153,7 @@
     -webkit-filter: blur(0.8px) drop-shadow(10px 10px 10px #000);
             filter: blur(0.8px) drop-shadow(10px 10px 10px #000);
 }
-.test_box_wrap .scroll_test_box .cont_box .test2-test::after {
+.test_box .scroll_test_box .cont_box .test2-test::after {
     content: "blur, drop-shadow, bg /blur, drop-shadow, bg";
     z-index: 10;
     overflow: hidden;
@@ -187,19 +187,19 @@
     -webkit-filter: blur(0.8px) drop-shadow(10px 10px 10px #000);
             filter: blur(0.8px) drop-shadow(10px 10px 10px #000);
 }
-.test_box_wrap .scroll_test_box .cont_box .img-box-wrap {
+.test_box .scroll_test_box .cont_box .img-box-wrap {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     gap: 10px;
     padding-top: 200px;
 }
-.test_box_wrap .scroll_test_box .cont_box .img-box-wrap .img-box {
+.test_box .scroll_test_box .cont_box .img-box-wrap .img-box {
     width: 200px;
     height: 200px;
     overflow: hidden;
 }
-.test_box_wrap .scroll_test_box .cont_box .img-box-wrap .img-box > img {
+.test_box .scroll_test_box .cont_box .img-box-wrap .img-box > img {
     width: 100%;
 }
 

@@ -173,29 +173,3 @@ const module = (function() {
 
 module.getNumber(); // Expected output: 23
 console.log(module.getNumber());
-
-$(".test-section").prepend(	"<div class='tetetest'>dddd</div>")
-console.log($(".test-section"));
-// $('.btns').append(
-// 	'<button class="category-btn"><span class="text">'+category.find('.big-title').text()+'</span></button>'
-// )
-///-----
-//참고소스
-//-----
-
-// var date = [
-//     '2020-01-01',
-//     '2020-01-03',
-//     '2020-01-02',
-//     '2020-01-05',
-//     '2020-01-06'
-// ]
-
-// var orderedDate = date.sort((_a, _b) => new Date(_a) - new Date(_b));
-// // new Date()사용하여 문자열로 입력된 날짜를 날짜 형태로 변환한 후 sort함수를 사용하여 반환하는 방식
-
-// for( var i = orderedDate.length; i > 0; i-- ) {
-//     $option = $('<option>',{
-//         text: orderedDate[i],
-//     }).appendTo($select);
-// }
