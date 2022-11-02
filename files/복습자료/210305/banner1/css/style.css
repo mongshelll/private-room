@@ -1,0 +1,155 @@
+@charset 'utf-8';
+@import 'reset.css';
+.wrap::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+
+#banner1 {
+	width: 100%;
+	padding: 180px 0;
+	background: #444;
+}
+#banner1 .inner {
+	width: 1180px;
+	margin: 0 auto;
+}
+#banner1 .inner h1 {
+	font: bold 22px/1 'arial';
+	color: #eee;
+	margin-bottom: 80px;
+	text-align: center;
+}
+#banner1 .inner .wrap {
+	width: 100%;
+	position: relative;
+}
+
+#banner1 .inner .wrap article {
+	width: 280px;
+	float: left;
+	margin-right: 20px;
+}
+#banner1 .inner .wrap article:last-of-type {
+	margin-right: 0;
+}
+#banner1 .inner .wrap article .pic {
+	width: 100%;
+	height: 240px;
+	background: #bbb;
+}
+#banner1 .inner .wrap article .txtBox {
+	width: 100%;
+	height: 150px;
+	padding: 20px;
+	box-sizing: border-box;
+	background: #fff;
+}
+#banner1 .inner .wrap article .txtBox h2 {
+	font: normal 14px/1 'arial';
+	color: #888;
+	margin-bottom: 10px;
+}
+#banner1 .inner .wrap article .txtBox h3 {
+	font: bold 18px/1 'arial';
+	color: #666;
+	margin-bottom: 40px;
+}
+#banner1 .inner .wrap article .txtBox p a {
+	font: bold 14px/1 'arial';
+	color: #888;
+	margin-right: 20px;
+}
+#banner1 .inner .wrap article .txtBox p span {
+	font: 12px/1 'arial';
+	color: #999;
+}
+
+
+
+.arrow .prev {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 50%;
+	left: -60px;
+	transform: translateY(-50%);
+}
+.arrow .next {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 50%;
+	right: -60px;
+	transform: translateY(-50%);
+}
+
+.arrow .prev::before {
+	content: '';
+	display: block;
+	width:100%;
+	height: 2px;
+	background: #fff;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: rotate(-45deg);
+	transform-origin: left center;
+}
+.arrow .prev::after {
+	content: '';
+	display: block;
+	width:100%;
+	height: 2px;
+	background: #fff;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: rotate(45deg);
+	transform-origin: left center;
+}
+
+.arrow .prev:hover::before {
+	transform: rotate(0deg);
+	top: 0%;
+	transition: all 0.5s;
+}
+.arrow .prev:hover::after {
+	transform: rotate(0deg);
+	bottom: 0%;
+	transition: all 0.5s;
+}
+
+.arrow .next::before {
+	content: '';
+	display: block;
+	width:100%;
+	height: 2px;
+	background: #fff;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: rotate(-45deg);
+	transform-origin: right center;
+}
+.arrow .next::after {
+	content: '';
+	display: block;
+	width:100%;
+	height: 2px;
+	background: #fff;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: rotate(45deg);
+	transform-origin: right center;
+}
+
+
+
+
+
+
+

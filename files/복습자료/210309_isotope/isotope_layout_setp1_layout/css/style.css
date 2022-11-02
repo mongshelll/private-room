@@ -1,0 +1,111 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
+
+/* reset */
+* {
+	margin:0px;
+	padding:0px;
+	box-sizing: border-box;
+}
+ul,ol,li {
+	list-style:none;
+}
+a {
+	text-decoration:none;
+}
+body {
+	background:#efefef;
+}
+
+
+section {
+	width: 100%;
+	padding: 20px;
+}
+
+section .wrap {
+	width: 100%;
+}
+section .wrap::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+section .wrap article {
+	float: left;
+	width: calc(100% / 6);
+	padding: 10px;
+}
+section .wrap article .inner {
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+}
+article:nth-of-type(1) {
+	height: 200px;
+}
+article:nth-of-type(2) {
+	height: 160px;
+}
+article:nth-of-type(3) {
+	height: 180px;
+}
+article:nth-of-type(4) {
+	height: 240px;
+}
+article:nth-of-type(5) {
+	height: 220px;
+}
+article:nth-of-type(6) {
+	height: 180px;
+}
+article:nth-of-type(7) {
+	height: 200px;
+}
+article:nth-of-type(8) {
+	height: 160px;
+}
+article:nth-of-type(9) {
+	height: 220px;
+}
+article:nth-of-type(10) {
+	height: 240px;
+}
+
+
+@media screen and (max-width: 1599px){
+	section .wrap article {
+		width: calc(100% / 5);
+	}
+}
+@media screen and (max-width: 1199px){
+	section .wrap article {
+		width: calc(100% / 4);
+	}
+}
+@media screen and (max-width: 899px){
+	section .wrap article {
+		width: calc(100% / 3);
+	}
+}
+@media screen and (max-width: 679px){
+	section .wrap article {
+		width: calc(100% / 2);
+	}
+}
+@media screen and (max-width: 539px){
+	section .wrap article {
+		width: calc(100% / 1);
+	}
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,77 @@
+@charset 'utf-8';
+@import 'reset.css';
+
+#icon2 {
+	width: 100%;
+	padding: 100px 0;
+	background: #555;
+}
+
+#icon2 .inner {
+	width: 1180px;
+	margin: 0 auto;
+}
+
+#icon2 .inner h1 {
+	font: bold 22px/1 'arial';
+	color: #fff;
+	text-align: center;
+	margin-bottom: 10px;
+}
+#icon2 .inner>p {
+	font: 16px/1 'arial';
+	color: #bbb;
+	text-align: center;
+	margin-bottom: 40px;
+}
+#icon2 .inner .btn {
+	display: block;
+	width: 200px;
+	height: 40px;
+	border: 1px solid #888;
+	border-radius: 20px;
+	font: 14px/40px 'arial';
+	color: #ddd;
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 70px;
+}
+#icon2 .inner .wrap::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+#icon2 .inner .wrap article {
+	width: calc(100% / 4);
+	float: left;
+	text-align: center;
+	padding: 0 20px;
+	box-sizing: border-box;
+	position: relative;
+}
+#icon2 .inner .wrap article::after {
+	content: '';
+	display: block;
+	width: 1px;
+	height: 80%;
+	position: absolute;
+	top:10%;
+	right:0;
+	background: #fff;
+	opacity: 0.3;
+}
+#icon2 .inner .wrap article:last-child::after {
+	display: none;
+}
+#icon2 .inner .wrap article i {
+	font-size: 50px;
+	color: #fff;
+	margin-bottom: 20px;
+	opacity: 0.7;
+}
+#icon2 .inner .wrap article p {
+	font: bold 14px/1 'arial';
+	color: #ddd;
+}
+
+

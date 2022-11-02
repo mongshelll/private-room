@@ -1,0 +1,233 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
+
+/* reset */
+* {
+	margin:0px;
+	padding:0px;
+	box-sizing: border-box;
+}
+ul,ol,li {
+	list-style:none;
+}
+a {
+	text-decoration:none;
+}
+body {
+	background:#efefef;
+}
+
+
+header {
+	width:400px;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: linear-gradient(45deg, aqua, royalblue);
+}
+header h1 {
+	font: bold 50px/1 'orbitron';
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 40px;
+	transform: translateY(-50%);
+}
+header h1::after {
+	content: '';
+	display: block;
+	width: 120px;
+	height: 2px;
+	background: #fff;
+	margin-top: 20px;
+}
+header p {
+	font: 16px/1 'orbitron';
+	color: #fff;
+	position: absolute;
+	top:50%;
+	left: 40px;
+	transform: translateY(500%);
+}
+header .sns {
+	position: absolute;
+	left: 40px;
+	bottom: 100px;
+}
+header .sns::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+header .sns li {
+	float: left;
+	margin-right: 10px;
+}
+header .sns li a {
+	font: 20px/1 'arial';
+	color: #fff;
+}
+header .sns li a span {
+	font: 12px/1 'arial';
+	color: #fff;
+}
+section {
+	padding: 20px;
+	margin-left: 400px;
+}
+section .fliter {
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+section .filter::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+section .filter li {
+	float: left;
+	margin-right: 20px;
+}
+section .filter li a {
+	display: block;
+	width: 100px;
+	height: 26px;
+	font: bold 7px/26px 'orbitron';
+	color: #aaa;
+	text-align: center;
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+	border-radius: 4px;
+}
+section .filter li a.on {
+	background: linear-gradient(45deg, aqua, royalblue);
+	color: #fff;
+	box-shadow: 5px 5px 10px rgba(0, 255, 255, 0.6);
+}
+
+section .wrap {
+	width: 100%;
+}
+section .wrap::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+section .wrap article {
+	float: left;
+	width: calc(100% / 6);
+	padding: 10px;
+}
+section .wrap article .inner {
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+	border-radius: 5px;
+	padding: 20px;
+}
+section .wrap article .inner img {
+	width: 100%;
+	margin-bottom: 15px;
+}
+section .wrap article .inner h2 {
+	font: bold 11px/1 'orbitron';
+	color: #444;
+	margin-bottom: 5px;
+	letter-spacing: 1px;
+}
+section .wrap article .inner p {
+font: 10px/1.2 'arial';
+color: #777;
+margin-bottom: 15px;
+}
+
+
+
+@media screen and (max-width: 1599px){
+	header {
+		width:350px;
+	}
+	header h1 {
+		font: bold 40px/1 'orbitron';
+	}
+
+	section .wrap article {
+		width: calc(100% / 5);
+	}
+}
+/* header layout 변경 */
+@media screen and (max-width: 1199px){
+	header {
+		position: relative;
+		width:100%;
+		height: 80px;
+	}
+	header h1 {
+		font: bold 24px/1 'orbitron';
+	}
+	header h1::after {
+		display: none;
+	}
+	header p {
+		display: none;
+	}
+	header .sns {
+		left: auto;
+		right: 50px;
+		bottom: 25px;
+	}
+	/* section margin-left:0 수정 */
+	section {
+		margin-left: 0;
+	}
+	section .wrap article {
+		width: calc(100% / 4);
+	}
+}
+@media screen and (max-width: 899px){
+	section .wrap article {
+		width: calc(100% / 3);
+	}
+}
+@media screen and (max-width: 679px){
+	header .sns li {
+		margin-right: 0;
+		margin-left: 20px;
+	}
+	header .sns li a span {
+		display: none;
+	}
+	section .wrap article {
+		width: calc(100% / 2);
+	}
+}
+@media screen and (max-width: 539px){
+	header h1 {
+		font: bold 20px/1 'orbitron';
+	}
+	header .sns {
+		right: 20px;
+	}
+	section .filter li {
+		width: calc(100% /3);
+		margin-right: 0;
+	}
+	section .filter li a {
+		width:100%;
+	}
+	section .wrap article {
+		width: calc(100% / 1);
+	}
+}
+
+
+
+
+
+
+
+
+
+

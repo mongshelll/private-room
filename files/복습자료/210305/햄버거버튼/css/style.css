@@ -1,0 +1,75 @@
+@charset 'utf-8';
+@import 'reset.css';
+
+
+.btnCall {
+	display: block;
+	width: 40px;
+	height: 40px;
+	margin: 100px;
+	position: relative;
+}
+
+.btnCall::before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 2px;
+	background: #000;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: top 0.5s 0s, transform 0.5s 0.5s;
+}
+.btnCall::after {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 2px;
+	background: #000;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	transition: bottom 0.5s 0s, transform 0.5s 0.5s;
+}
+
+.btnCall span {
+	display: block;
+	width: 100%;
+	height: 2px;
+	background: #000;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	margin-top: -1px;
+	text-indent: -9999px;
+	transition: all 0.5s;
+}
+
+/* .btnCall:hover::before {
+	transform: rotate(45deg);
+	top: calc(50% - 1px);
+}
+.btnCall:hover::after {
+	transform: rotate(-45deg);
+	bottom: calc(50% - 1px);
+}
+.btnCall:hover span {
+	transform: translateX(100%);
+	opacity: 0;
+} */
+
+
+.btnCall.on::before {
+	transform: rotate(45deg);
+	top: calc(50% - 1px);
+}
+.btnCall.on::after {
+	transform: rotate(-45deg);
+	bottom: calc(50% - 1px);
+}
+.btnCall.on span {
+	transform: translateX(100%);
+	opacity: 0;
+}
+

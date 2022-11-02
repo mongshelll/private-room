@@ -1,0 +1,126 @@
+@charset 'utf-8';
+@import 'reset.css';
+
+
+/* prev */
+.prev {
+	display: block;
+	width: 100px;
+	height: 100px;
+	margin: 100px;
+	position: relative;
+	float: left;
+	/* border: 1px solid red; */
+}
+
+.prev::before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 1px;
+	background: #000;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: rotate(-30deg);
+	transform-origin: left center;
+	transition: all 0.5s;
+}
+.prev::after {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 1px;
+	background: #000;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: rotate(30deg);
+	transform-origin: left center;
+	transition: all 0.5s;
+}
+.prev strong {
+	font: bold 12px/1 'arial';
+	color: #111;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(100%, -50%);
+	opacity: 0;
+	transition: all 0.5s;
+}
+.prev:hover strong {
+	opacity: 1;
+	transform: translate(-50%, -50%);
+}
+.prev:hover::before {
+	transform: rotate(-180deg);
+	top: 0%;
+	transform-origin: center center;
+}
+.prev:hover::after {
+	transform: rotate(180deg);
+	top: 100%;
+	transform-origin: center center;
+}
+
+/* next */
+.next {
+	display: block;
+	width: 100px;
+	height: 100px;
+	margin: 100px;
+	position: relative;
+	float: left;
+	/* border: 1px solid red; */
+}
+.next::before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 1px;
+	background: #000;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: rotate(30deg);
+	transform-origin: right center;
+	transition: all 0.5s;
+}
+.next::after {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 1px;
+	background: #000;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: rotate(-30deg);
+	transform-origin: right center;
+	transition: all 0.5s;
+}
+.next strong {
+	font: bold 12px/1 'arial';
+	color: #111;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-200%, -50%);
+	opacity: 0;
+	transition: all 0.5s;
+}
+.next:hover strong {
+	opacity: 1;
+	transform: translate(-50%, -50%);
+}
+.next:hover::before {
+	transform: rotate(180deg);
+	top: 0%;
+	transform-origin: center center;
+}
+.next:hover::after {
+	transform: rotate(-180deg);
+	top: 100%;
+	transform-origin: center center;
+}

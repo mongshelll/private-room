@@ -1,0 +1,696 @@
+@charset 'utf-8';
+@import "reset.css";
+.wrap::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+/* header */
+#header {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+#header .inner {
+    width: 1180px;
+    height: 120px;
+    margin: 0 auto;
+    position: relative;
+}
+#header .inner h1 {
+    position: absolute;
+    left: 0;
+    bottom: 15px;
+}
+#header .inner h1 a {
+    font: bold 24px/1 "arial";
+    color: #444;
+}
+
+#header .inner .util {
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+#header .inner .util li {
+    float: left;
+}
+#header .inner .util li a {
+    display: block;
+    font: 12px/1 "arial";
+    color: #999;
+    padding: 0 10px;
+    border-right: 1px solid #aaa;
+}
+#header .inner .util li:last-child a {
+    border-right: none;
+}
+
+#header .inner #gnb {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#header .inner #gnb li {
+    float: left;
+}
+#header .inner #gnb li a {
+    display: block;
+    padding: 20px 40px;
+    font: bold 15px/1 "arial";
+    color: #555;
+    transition: all 0.5s;
+}
+#header .inner #gnb li:hover a {
+    background: #555;
+    color: #fff;
+}
+
+#header .inner .btnCall {
+    position: absolute;
+    right: 30px;
+    bottom: 15px;
+    font-size: 20px;
+    color: #555;
+    display: none;
+}
+/* visual  */
+#visual {
+    width: 100%;
+    height: calc(100vh - 120px);
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    padding-top: 250px;
+}
+#visual video {
+    width: 2000px;
+    height: 1125px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#visual .inner {
+    width: 1180px;
+    margin: 0 auto;
+    position: relative;
+}
+#visual .inner h1 {
+    font: normal 120px/1 "arial";
+    color: #fff;
+    margin-bottom: 20px;
+}
+#visual .inner p {
+    font: 16px/1.4 "arial";
+    color: #888;
+    margin-bottom: 60px;
+}
+#visual .inner a {
+    display: block;
+    width: 400px;
+    height: 30px;
+    border: 1px solid #bbb;
+    font: bold 11px/30px "arial";
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1px;
+    transition: all 0.5s;
+}
+#visual .inner a:hover {
+    background: #fff;
+    color: #555;
+}
+
+/* news  */
+#news {
+    width: 100%;
+    padding: 200px 0;
+}
+#news .inner {
+    width: 1180px;
+    margin: 0 auto;
+}
+#news .inner h1 {
+    font: bold 24px/1 "arial";
+    color: #555;
+    text-align: center;
+    margin-bottom: 50px;
+}
+#news .inner .wrap {
+    width: 100%;
+}
+
+#news .inner .wrap article {
+    width: 280px;
+    float: left;
+    margin-right: 20px;
+}
+#news .inner .wrap article:last-child {
+    margin-right: 0px;
+}
+
+#news .inner .wrap article .pic {
+    width: 100%;
+    height: 120px;
+    background: #333;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+}
+#news .inner .wrap article .pic::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1);
+    transition: all 1s;
+}
+
+#news .inner .wrap article:nth-of-type(1) .pic::before {
+    background-image: url(../img/news1.jpg);
+}
+#news .inner .wrap article:nth-of-type(2) .pic::before {
+    background-image: url(../img/news2.jpg);
+}
+#news .inner .wrap article:nth-of-type(3) .pic::before {
+    background-image: url(../img/news3.jpg);
+}
+#news .inner .wrap article:nth-of-type(4) .pic::before {
+    background-image: url(../img/news4.jpg);
+}
+
+#news .inner .wrap article .pic::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(173, 216, 230, 0.8),
+        rgba(238, 130, 238, 0.7)
+    );
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+#news .inner .wrap article:hover .pic::before {
+    transform: scale(1.2);
+}
+#news .inner .wrap article:hover .pic::after {
+    opacity: 1;
+}
+
+#news .inner .wrap article h2 {
+    margin-bottom: 10px;
+}
+#news .inner .wrap article h2 a {
+    font: bold 16px/1 "arial";
+    color: #555;
+}
+#news .inner .wrap article p {
+    font: 14px/1.4 "arial";
+    color: #777;
+}
+
+/* brand */
+#brand {
+    width: 100%;
+    padding: 200px 0;
+    background: #eee;
+}
+#brand .inner {
+    width: 1180px;
+    margin: 0 auto;
+}
+#brand .inner h1 {
+    font: 24px/1 "arial";
+    color: #555;
+    text-align: center;
+    margin-bottom: 50px;
+}
+#brand .inner h1 .wrap {
+    width: 100%;
+}
+
+/* brand brand1 */
+#brand .inner .wrap .brand1 {
+    width: 380px;
+    height: 620px;
+    background: #444;
+    float: left;
+    margin-right: 20px;
+    text-align: center;
+    padding: 170px 50px 0;
+    box-sizing: border-box;
+}
+#brand .inner .wrap .brand1 i {
+    font-size: 100px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+#brand .inner .wrap .brand1 h2 {
+    font: bold 20px/1 "arial";
+    color: #fff;
+    margin-bottom: 10px;
+}
+#brand .inner .wrap .brand1 p {
+    font: 14px/1.3 "arial";
+    color: #999;
+    margin-bottom: 30px;
+}
+#brand .inner .wrap .brand1 a {
+    display: block;
+    width: 150px;
+    height: 30px;
+    font: 11px/30px "arial";
+    color: #ddd;
+    border: 1px solid #bbb;
+    margin: 0 auto;
+}
+
+/* brand brand2 */
+#brand .inner .wrap .brand2 {
+    width: 380px;
+    height: 300px;
+    background: #444;
+    float: left;
+    margin-right: 20px;
+}
+
+/* brand brand3 */
+#brand .inner .wrap .brand3 {
+    width: 380px;
+    height: 300px;
+    background: #444;
+    float: left;
+}
+/* brand brand4 */
+#brand .inner .wrap .brand4 {
+    width: 780px;
+    height: 300px;
+    background: #444;
+    float: left;
+    margin-top: 20px;
+} /*  이미지는 각자 넣기  */
+
+/* banner */
+#banner {
+    width: 100%;
+    padding: 150px 0;
+    background: url(../img/banner.jpg) no-repeat center/cover fixed;
+}
+#banner .inner {
+    width: 1180px;
+    margin: 0 auto;
+}
+#banner .inner h1 {
+    font: bold 30px/1 "arial";
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+#banner .inner p {
+    font: 16px/1.3 "arial";
+    color: #bbb;
+    text-align: center;
+}
+
+/* comments */
+#comments {
+    width: 100%;
+    padding: 150px 0;
+    background: #ddd;
+}
+#comments .inner {
+    width: 1180px;
+    margin: 0 auto;
+}
+#comments .inner h1 {
+    font: bold 20px/1 "arial";
+    color: #555;
+    text-align: center;
+    margin-bottom: 30px;
+}
+#comments .inner ul {
+    width: 100%;
+}
+#comments .inner ul li {
+    width: 100%;
+    border: 1px solid #111;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    box-sizing: border-box;
+}
+#comments .inner ul li::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+#comments .inner ul li a {
+    float: left;
+    font: 12px/1 "arial";
+    color: #555;
+}
+#comments .inner ul li span {
+    float: right;
+    font: 12px/1 "arial";
+    color: #888;
+}
+
+#comments .inner ul li:hover {
+    background: #444;
+}
+#comments .inner ul li:hover a {
+    color: #fff;
+}
+#comments .inner ul li:hover span {
+    color: #ddd;
+}
+
+/* footer */
+
+#footer {
+    width: 100%;
+    background: #444;
+    padding: 100px 0;
+}
+#footer .inner {
+    width: 1180px;
+    margin: 0 auto;
+}
+#footer .inner .upper {
+    width: 100%;
+    border-bottom: 1px solid #777;
+    padding-bottom: 20px;
+}
+#footer .inner .upper::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+#footer .inner .upper h1 {
+    float: left;
+    font: bold 24px/1 "arial";
+    color: #555;
+}
+#footer .inner .upper ul {
+    float: right;
+}
+#footer .inner .upper ul li {
+    float: left;
+    margin-left: 20px;
+}
+#footer .inner .upper ul li a {
+    font: bold 14px/1 "arial";
+    color: #666;
+}
+
+#footer .inner .lower {
+    width: 100%;
+    padding-top: 20px;
+}
+#footer .inner .lower address {
+    font: 12px/1.3 "arial";
+    color: #777;
+    margin-bottom: 20px;
+}
+#footer .inner .lower p {
+    font: 12px/1 "arial";
+    color: #777;
+}
+
+/*--------------------------------------------------------
+----------------------------------------------------------
+----------------------------------------------------------*/
+/* tablet */
+@media screen and (max-width: 1179px) {
+    /* header */
+    #header .inner {
+        width: 100%;
+        height: 60px;
+    }
+    #header .inner h1 {
+        left: 30px;
+    }
+
+    #header .inner .util {
+        display: none;
+    }
+
+    #header .inner #gnb {
+        display: none;
+    }
+    #header .inner .btnCall {
+        position: absolute;
+        right: 30px;
+        bottom: 15px;
+        font-size: 20px;
+        color: #555;
+        display: block;
+    }
+    /* visual  */
+    #visual {
+        height: 500px;
+        padding: 150px 30px;
+        box-sizing: border-box;
+        background: url(../img/visual1.jpg) no-repeat center/cover;
+    }
+    #visual video {
+        display: none;
+    }
+
+    #visual .inner {
+        width: 100%;
+    }
+    #visual .inner h1 {
+        font: normal 70px/1 "arial";
+    }
+
+    /* news  */
+    #news {
+        padding: 120px 30px;
+        box-sizing: border-box;
+    }
+    #news .inner {
+        width: 100%;
+    }
+
+    #news .inner .wrap article {
+        width: 49%;
+        margin-right: 2%;
+        margin-bottom: 50px;
+    }
+    #news .inner .wrap article:nth-child(2n) {
+        margin-right: 0px;
+    }
+
+    #news .inner .wrap article .pic {
+        height: 17vw;
+    }
+
+    /* brand */
+    #brand {
+        padding: 120px 30px;
+        box-sizing: border-box;
+    }
+    #brand .inner {
+        width: 100%;
+    }
+
+    /* brand brand1 */
+    #brand .inner .wrap .brand1 {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        padding: 50px;
+        margin-bottom: 20px;
+    }
+    #brand .inner .wrap .brand1 i {
+        font-size: 100px;
+        color: #fff;
+        margin-bottom: 20px;
+    }
+    #brand .inner .wrap .brand1 h2 {
+        font: bold 20px/1 "arial";
+        color: #fff;
+        margin-bottom: 10px;
+    }
+    #brand .inner .wrap .brand1 p {
+        font: 14px/1.3 "arial";
+        color: #999;
+        margin-bottom: 30px;
+    }
+    #brand .inner .wrap .brand1 a {
+        display: block;
+        width: 150px;
+        height: 30px;
+        font: 11px/30px "arial";
+        color: #ddd;
+        border: 1px solid #bbb;
+        margin: 0 auto;
+    }
+
+    /* brand brand2 */
+    #brand .inner .wrap .brand2 {
+        width: 49%;
+        height: 30vw;
+        margin-right: 2%;
+    }
+
+    /* brand brand3 */
+    #brand .inner .wrap .brand3 {
+        width: 49%;
+        height: 30vw;
+        margin-right: 0;
+    }
+    /* brand brand4 */
+    #brand .inner .wrap .brand4 {
+        width: 100%;
+        height: 30vw;
+    } /*  이미지는 각자 넣기  */
+
+    /* banner */
+    #banner {
+        padding: 100px 30px;
+        box-sizing: border-box;
+    }
+    #banner .inner {
+        width: 100%;
+    }
+
+    /* comments */
+    #comments {
+        padding: 100px 30px;
+        box-sizing: border-box;
+    }
+    #comments .inner {
+        width: 100%;
+    }
+
+    /* footer */
+
+    #footer {
+        padding: 80px 30px;
+        box-sizing: border-box;
+    }
+    #footer .inner {
+        width: 100%;
+    }
+    #footer .inner .upper h1 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    #footer .inner .upper ul {
+        width: 100%;
+        text-align: center;
+    }
+    #footer .inner .upper ul li {
+        float: none;
+        display: inline-block;
+        margin-left: 0;
+        padding: 0 20px;
+    }
+
+    #footer .inner .lower address {
+        text-align: center;
+    }
+    #footer .inner .lower p {
+        text-align: center;
+    }
+}
+
+/*---------------------------------------------------------
+-------------------------------------------------
+--------------------------------------------------------*/
+/* mobile */
+@media screen and (max-width: 539px) {
+    /* visual  */
+    #visual {
+        height: 400px;
+        padding: 100px 30px 0;
+    }
+
+    #visual .inner h1 {
+        font: normal 40px/1 "arial";
+    }
+    #visual .inner p {
+        font-size: 14px;
+        color: #fff;
+    }
+    #visual .inner a {
+        width: 100%;
+    }
+
+    /* news  */
+    #news {
+        padding: 80px 30px;
+    }
+
+    #news .inner .wrap article {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    #news .inner .wrap article .pic {
+        height: 30vw;
+    }
+
+    /* brand */
+    #brand {
+        padding: 80px 30px;
+    }
+
+    /* brand brand1 */
+    #brand .inner .wrap .brand1 {
+        padding: 50px 20px;
+    }
+
+    /* brand brand2 */
+    #brand .inner .wrap .brand2 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    /* brand brand3 */
+    #brand .inner .wrap .brand3 {
+        width: 100%;
+    }
+    /* brand brand4 */
+    #brand .inner .wrap .brand4 {
+        width: 100%;
+        height: 30vw;
+    } /*  이미지는 각자 넣기  */
+
+    /* banner */
+    #banner {
+        padding: 70px 30px;
+    }
+
+    /* comments */
+    #comments {
+        padding: 70px 30px;
+    }
+    #comments .inner ul li a {
+        margin-bottom: 20px;
+    }
+
+    /* footer */
+    #footer {
+        padding: 60px 30px;
+    }
+    #footer .inner .upper ul li {
+        padding: 0 5px;
+    }
+}

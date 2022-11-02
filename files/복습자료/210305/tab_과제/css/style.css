@@ -1,0 +1,92 @@
+@charset 'utf-8';
+@import 'reset.css';
+
+#tab {
+	width: 100%;
+	padding: 200px 0;
+	box-sizing: border-box;
+	background: #eee;
+}
+#tab .inner {
+	width: 1180px;
+	margin: 0 auto;
+}
+#tab .inner h1 {
+	font: bold 20px/1.2 'arial';
+	color: #333;
+	text-align: center;
+	margin-bottom: 10px;
+}
+#tab .inner>p {
+	font: 12px/1.2 'arial';
+	color: #aaa;
+	text-align: center;
+	margin-bottom: 20px;
+	padding: 0 100px;
+	box-sizing: border-box;
+	margin-bottom: 30px;
+}
+#tab .inner>a.btn {
+	display: block;
+	width: 235px;
+	height: 30px;
+	background: #444;
+	font: bold 12px/30px 'arial';
+	color: #fff;
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 50px;
+}
+
+#tab .inner .wrap {
+	width: 100%;
+}
+#tab .inner .wrap::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+#tab .inner .wrap .picBox {
+	width: 490px;
+	height: 300px;
+	background: #555;
+	margin-left: 100px;
+	float: left;
+}
+#tab .inner .wrap .contentBox {
+	width: 50%;
+	float: left;
+	padding: 20px 0 20px 100px;
+	box-sizing: border-box;
+}
+#tab .inner .wrap .contentBox article {
+	width: 100%;
+	margin-bottom: 20px;
+}
+#tab .inner .wrap .contentBox article::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+#tab .inner .wrap .contentBox article .ioc {
+	width: 70px;
+	height: 70px;
+	background: #ccc;
+	border-radius: 50%;
+	float: left;
+	margin-right: 20px;
+}
+#tab .inner .wrap .contentBox article h2 {
+	width: 300px;
+	float: left;
+	font: bold 14px/1 'arial';
+	color: #333;
+	margin: 10px 0;
+}
+#tab .inner .wrap .contentBox article p {
+	width: 300px;
+	float: left;
+	font: 12px/1.2 'arial';
+	color: #777;
+}

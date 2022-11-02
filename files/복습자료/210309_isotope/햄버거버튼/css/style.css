@@ -1,0 +1,68 @@
+@charset 'utf-8';
+@import 'reset.css';
+
+
+.wrap {
+	width: 50px;
+	height: 50px;
+	/* border: 5px solid red; */
+	position: absolute;
+	top: 20px;
+	right: 30px;
+}
+.wrap .line1 {
+	width: 100%;
+	height: 4px;
+	background: #000;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: all 0.5s;
+}
+.wrap .line3 {
+	width: 100%;
+	height: 4px;
+	background: #000;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	transition: all 0.5s;
+}
+.wrap .line2 {
+	width: 100%;
+	height: 4px;
+	background: #000;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	/* margin-top: -2px; */
+	transform: translateY(-50%);
+	transition: all 0.5s;
+}
+
+/* hover */
+.wrap:hover .line1 {
+	top:50%;
+	transform: translateY(-50%) rotate(45deg);
+}
+.wrap:hover .line3 {
+	bottom: 50%;
+	transform: translateY(50%) rotate(-45deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
