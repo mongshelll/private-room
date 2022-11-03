@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>dark theme 적용 css var test</title>
+
+	<link rel="stylesheet" href="style.css">
+
+	<script src="https://eilab.kr/api/jquery/jquery-1.12.4.min.js"></script>
+
+	<style>
+
+		.layout { width: 100%; }
+
+		/* 전역변수 */
+		:root {
+			/* color 값 */
+			--main-color: #303030;
+			--subtext-color: #707070;
+
+			/* background-color 값 */
+			--main-bg: #f0f0f0;
+			--main-content-bg: #fff;
+		}
+
+		/* dark theme 적용 */
+		body.dark {
+			/* color 값 */
+			--main-color: #f0f0f0;
+			--subtext-color: #fff;
+
+			/* background-color 값 */
+			--main-bg: #303030;
+			--main-content-bg: #707070;
+		}
+
+		/* theme custom */
+		body { background-color: var(--main-bg); color: var(--main-color); transition: background-color 0.3s, color 0.3s; }
+		.theme-btn { position: fixed; top: 40px; right: 40px; text-align: right; }
+
+		/* contnet */
+		.header { width: 100%; }
+		.header .header-area { position: relative; width: 800px; margin: 0 auto; padding: 20px 0; }
+
+		.container { width: 100%; }
+		.container .contents_area { width: 800px; margin: 0 auto; padding: 100px 20px; box-sizing: border-box; }
+		.container .contents_area .content { position: relative; }
+
+		.cont01 { font-size: 0; }
+		.cont01 > .box {display: inline-block; margin-bottom: 20px; padding: 20px; box-sizing: border-box; width: calc(50% - 10px); height: 200px; font-size: 14px; color: var(--subtext-color); background-color: var(--main-content-bg); }
+		.cont01 > .box:nth-child(2n) { margin-left: 20px; }
+
+
+		@media (max-width:800px) {
+			.header .header-area{ width: 100%; padding: 20px; box-sizing: border-box; }
+			.container .contents_area { width: 100%; padding: 40px 20px; }
+		}
+
+	</style>
+</head>
+<body>
+	<div class="layout">
+		<div class="header">
+			<div class="header-area">
+				<h1>test text</h1>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, obcaecati.</p>
+
+				<div class="theme-btn">
+					<div class="se-switch ty-02">
+						<input type="checkbox" id="sw02">
+						<label for="sw02"></label>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="contents_area">
+				<div class="content">
+					<div class="cont01">
+						<div class="box">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, eum.</div>
+						<div class="box">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, eum.</div>
+						<div class="box">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, eum.</div>
+						<div class="box">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, eum.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script>
+		var $themeBtnWrap = $(".theme-btn"),
+			$themeBtn = $themeBtnWrap.find('.se-switch.ty-02 > input');
+
+		$(document).on('click', $themeBtn, function(){
+			$themeBtn.is(':checked') ? $('body').addClass('dark') : $('body').removeClass('dark');
+		})
+	</script>
+</body>
+</html>
