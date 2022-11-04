@@ -49,7 +49,7 @@
 			$themeBtnWrap = document.querySelector('.theme-btn'),
 			$themeBtn = $themeBtnWrap.querySelector('.se-switch.ty-02 > input');
 
-		document.addEventListener('click', function(){
+		$themeBtn.addEventListener('click', function(){
 			$themeBtn.checked ? $body.setAttribute('data-theme', 'dark') : $body.removeAttribute('data-theme');
 		});
 	</script>
