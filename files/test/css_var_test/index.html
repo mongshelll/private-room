@@ -44,6 +44,9 @@
 
 	</div>
 
+	<div class="class">1</div>
+	<div class="class">2</div>
+	<div class="class">3</div>
 	<script>
 		var $body = document.querySelector('body'),
 			$themeBtnWrap = document.querySelector('.theme-btn'),
@@ -52,6 +55,31 @@
 		$themeBtn.addEventListener('click', function(){
 			$themeBtn.checked ? $body.setAttribute('data-theme', 'dark') : $body.removeAttribute('data-theme');
 		});
+
+
+		var $class = document.getElementsByClassName('class'),
+			$query = document.querySelector('.class'),
+			$queryAll = document.querySelectorAll('.class');
+
+		console.log($class);
+		console.log($query);
+		console.log($queryAll);
+
+		$queryAll.forEach(function(item, index){
+			console.log(item);
+			item.classList.add('test');
+		})
+
+		Array.from($class).forEach(function(item, index){
+			console.log(item);
+			item.classList.add('test2');
+		})
+
+		for ( var a = 0; a < $class.length; a++ ) {
+			console.log($class[a]);
+			$class[a].classList.add('test3');
+		}
+
 	</script>
 </body>
 </html>
