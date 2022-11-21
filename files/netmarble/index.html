@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>netmarble</title>
+
+    <!-- Publish CSS -->	
+	<link rel="stylesheet" type="text/css" href="css/style.css" />	
+	<link rel="stylesheet" type="text/css" href="css/swiper.css" />
+
+	<!-- Publish JS -->
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>		
+    <script type="text/javascript" src="js/swiper.js"></script>	
+</head>
+<body>
+    <div class="layout">
+
+        <div class="gnb"></div>
+
+        <div class="container">
+
+            <div class="main_banner">
+
+                <div class="swiper-container main-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide s01">1</div>
+                        <div class="swiper-slide s02">2</div>
+                        <div class="swiper-slide s03">3</div>
+                        <div class="swiper-slide s04">4</div>
+                        <div class="swiper-slide s01">5</div>
+                        <div class="swiper-slide s02">6</div>
+                        <div class="swiper-slide s03">7</div>
+                        <div class="swiper-slide s04">8</div>
+                    </div>
+
+                    <div class="swiper-control">
+                        <div class="swiper-button-pause on"></div>
+                        <div class="swiper-button-play"></div>
+                    </div>
+
+                    <div class="swiper-handler">
+
+                        <div class="swiper-number">
+                            <span class="current">1</span>/<span class="total">4</span>
+                        </div>
+
+                        <div class="swiper-title"></div>
+
+                        <div class="swiper-progress">
+                            <div class="swiper-pagination progress"></div>
+                        </div>
+
+                        <div class="swiper-button">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    
+                    </div>
+                </div>
+    
+                <div class="swiper-container main-swiper-thumbs">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="gauge"></div>
+                            <div class="title">세븐나이츠2</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gauge"></div>
+                            <div class="title">제2의 나라</div>
+                        </div>                       
+                        <div class="swiper-slide">
+                            <div class="gauge"></div>
+                            <div class="title">모두의 마블 PC</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gauge"></div>
+                            <div class="title">윈조이 포커</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gauge"></div>
+                            <div class="title">세븐나이츠2</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gauge"></div>
+                            <div class="title">제2의 나라</div>
+                        </div>                       
+                        <div class="swiper-slide">
+                            <div class="gauge"></div>
+                            <div class="title">모두의 마블 PC</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gauge"></div>
+                            <div class="title">윈조이 포커</div>
+                        </div>
+                    </div>                
+                </div>
+            </div>           
+
+        </div>
+    </div>
+
+<script>    
+    var autoplay = 5000;  
+    var slideView = $('.main-swiper-thumbs .swiper-slide').length;     
+
+    // 메인 스와이퍼 썸네일
+    var mainSwiperThumb = new Swiper('.main-swiper-thumbs',{        
+        slidesPerView: slideView,   
+        slideToClickedSlide: true, 
+        allowTouchMove: false, 
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true, 
+    });    
+
+    // 메인 스와이퍼
+    var mainSwiper = new Swiper('.main-swiper',{
+        effect: 'fade',
+        allowTouchMove: false,
+        navigation: {
+            prevEl: '.swiper-button-prev',
+            nextEl: '.swiper-button-next'
+        },
+        pagination: {
+            el: '.swiper-pagination.progress',
+            type: 'progressbar'
+        },        
+        thumbs: {
+            swiper: mainSwiperThumb
+        },
+        loop: true,       
+        on: {    
+            init: function(){
+                var data = '<div class="data"></div>'
+                var $slide = $('.main-swiper-thumbs .swiper-slide');   
+                var slideLen = $slide.length;
+                var $pagi = $('.main-swiper .swiper-number');   
+                var $pagiTotal = $pagi.find('.total'); 
+
+                $pagiTotal.text(slideLen);
+
+                for(var i = 0; i< $slide.length; i++){                    
+                    var idx = $slide.eq(i).index();
+                    var title = $slide.eq(idx).find('.title').text();  
+                    var $mainTitle = $('.main-swiper .swiper-title')
+                    
+                    $mainTitle.append(data);
+                    $('.main-swiper .swiper-title .data').eq(idx).text(title);
+                    
+                    if(!$('.main-swiper .swiper-title .data').eq(0).hasClass('on')){
+                        $('.main-swiper .swiper-title .data').eq(0).addClass('on');                    
+                    }  
+                }
+            },              
+            slideChange: function(){
+                var idx =  this.realIndex;
+                var $slide = $('.main-swiper-thumbs .swiper-slide').eq(idx);
+                var $progress = $slide.find('.gauge');    
+                var $pagi = $('.main-swiper .swiper-number');
+                var $pagiData = $pagi.find('.current');
+                var paginum = idx + 1;
+                
+                var $title = $('.main-swiper .swiper-title .data')              
+                
+                $progress.removeClass('ani');  
+                $pagiData.text(paginum);
+                $title.eq(idx).addClass('on').siblings('.data').removeClass('on');
+
+                if($('.main-swiper .swiper-button-pause').hasClass('on')){ 
+                    $progress.removeClass('pause');
+
+                    setTimeout(function(){
+                        $progress.addClass('ani');
+                    },1);  
+                };                   
+            },                      
+        },
+        autoplay: {
+            delay: autoplay,
+            disableOnInteraction: false,
+        },        
+    });       
+
+    // 메인스와이퍼 일시정지 버튼 클릭
+    $(document).on('click','.main-swiper .swiper-button-pause',function(){
+        var $this = $(this);
+        var $playBtn = $('.main-swiper .swiper-button-play');
+        var $progress = $('.main-swiper-thumbs .swiper-slide-thumb-active .gauge');
+
+        mainSwiper.autoplay.stop();
+        $this.removeClass('on');        
+        $playBtn.addClass('on');
+
+        $progress.addClass('pause');
+    });
+
+    // 메인스와이퍼 재생버튼 클릭
+    $(document).on('click','.main-swiper .swiper-button-play',function(){
+        var $this = $(this);
+        var $pauseBtn = $('.main-swiper .swiper-button-pause');
+        var $progress = $('.main-swiper-thumbs .swiper-slide-thumb-active .gauge');
+
+        mainSwiper.autoplay.start();
+        $this.removeClass('on');
+        $pauseBtn.addClass('on');
+
+        $progress.removeClass('pause');
+        $progress.removeClass('ani'); 
+
+        setTimeout(function(){
+            $progress.addClass('ani')
+        },1);
+    });
+
+    // 메인 스와이퍼 썸네일 hover
+    $(document).on('mouseenter','.main-swiper-thumbs',function(){
+        var $this = $(this);
+        var $title = $this.find('.swiper-slide .title');
+        $this.addClass('on');
+    });
+
+    $(document).on('mouseleave','.main-swiper-thumbs',function(){
+        var $this = $(this);
+        var $title = $this.find('.swiper-slide .title');
+        $this.removeClass('on');
+    });   
+
+    // 윈도우 스크롤 - gnb
+    // $(window).scroll(function(){        
+    //     $('.gnb').css({left: 0 - $(this).scrollLeft()});
+    // }); 
+
+</script>
+</body>
+</html>

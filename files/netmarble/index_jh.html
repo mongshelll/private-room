@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>netmarble</title>
+
+    <!-- Publish CSS -->	
+	<link rel="stylesheet" type="text/css" href="css/style.css" />	
+	<link rel="stylesheet" type="text/css" href="css/swiper.css" />
+
+	<!-- Publish JS -->
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>		
+    <script type="text/javascript" src="js/swiper.js"></script>	
+</head>
+<body>
+    <div class="layout">
+
+        <div class="gnb"></div>
+
+        <div class="container">
+
+            <div class="main_banner">
+
+                <div class="swiper-container main-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide s01">1</div>
+                        <div class="swiper-slide s02">2</div>
+                        <div class="swiper-slide s03">3</div>
+                        <div class="swiper-slide s04">4</div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+    
+                    <div class="swiper-pagination progress"></div>
+    
+                    <div class="swiper-control">
+                        <div class="swiper-button-pause on">pause</div>
+                        <div class="swiper-button-play">play</div>
+                    </div>
+                </div>
+    
+                <div class="swiper-container main-swiper-thumbs">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">1
+                            <div class="gauge"></div>
+                        </div>
+                        <div class="swiper-slide">2
+                            <div class="gauge"></div>
+                        </div>
+                        <div class="swiper-slide">3
+                            <div class="gauge"></div>
+                        </div>
+                        <div class="swiper-slide">4
+                            <div class="gauge"></div>
+                        </div>
+                    </div>                
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    
+    var autoplay = 1000;
+
+
+    // 메인 스와이퍼 썸네일
+    var mainSwiperThumb = new Swiper('.main-swiper-thumbs',{        
+        slidesPerView: 4,   
+        slideToClickedSlide: true,  
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,        
+    });    
+
+    // 메인 스와이퍼
+    var mainSwiper = new Swiper('.main-swiper',{
+        effect: 'fade',
+        allowTouchMove: false,
+        navigation: {
+            prevEl: '.swiper-button-prev',
+            nextEl: '.swiper-button-next'
+        },
+        pagination: {
+            el: '.swiper-pagination.progress',
+            type: 'progressbar'
+        },        
+        thumbs: {
+            swiper: mainSwiperThumb
+        },
+        loop: true,
+        watchSlidesProgress: true,
+        on: {                  
+            slideChange: function(){
+                var idx =  this.realIndex;
+                var $slide = $('.main-swiper-thumbs .swiper-slide').eq(idx);
+                var $progress = $slide.find('.gauge');
+                var width = 1;
+                // var autoplayTime = ( !$progress.parents('.swiper-slide-thumb').hasClass('test__________________stop') ) ? autoplay / 100 : ;
+
+                var movement = setInterval(progress,  autoplay / 100);
+                console.log(movement)
+
+                function progress(){
+                    if (width >= 100) {
+                        clearInterval(movement);
+                    } else {                       
+                        if($('.main-swiper .swiper-button-pause').hasClass('on')){                                          
+                            width++;     
+                            $progress.css('width', width + '%');
+                            $progress.attr('data-duration', ''+autoplay * width / 100+'');
+                        }
+                    };
+                };   
+                
+                
+                // 메인스와이퍼 일시정지 버튼 클릭
+                $(document).on('click','.main-swiper .swiper-button-pause',function(){
+                    var $this = $(this);
+                    var $playBtn = $('.main-swiper .swiper-button-play');
+
+                    mainSwiper.autoplay.stop();
+                    $this.removeClass('on');        
+                    $playBtn.addClass('on');
+
+                    $(document).find('.swiper-slide-thumb-active').addClass('test__________________stop');
+                    clearInterval(movement);
+
+                    movement = null;
+                    console.log(movement)
+
+                });
+
+                // 메인스와이퍼 재생버튼 클릭
+                $(document).on('click','.main-swiper .swiper-button-play',function(){
+                    var $this = $(this);
+                    var $pauseBtn = $('.main-swiper .swiper-button-pause');
+
+                    mainSwiper.autoplay.start();
+                    $this.removeClass('on');
+                    $pauseBtn.addClass('on');
+
+                    $(document).find('.swiper-slide-thumb-active').removeClass('test__________________stop');
+                    movement = setInterval(progress, 1000 - $progress.attr('data-duration'));
+
+                    console.log(movement)
+                });
+                
+                // var movement = setInterval(function(){
+                    
+                //     if (width >= 100) {
+                //         clearInterval(movement);
+                //     } else {                       
+                //         if($('.main-swiper .swiper-button-pause').hasClass('on')){                                          
+                //             width++;                             
+                //             $progress.css('width', width + '%');
+                //         }      
+                //     };                    
+                // },autoplayTime);
+                
+                 
+            },           
+            autoplayStart: function(){
+                
+            },
+            autoplayStop: function(){
+                
+            },           
+        },
+        autoplay: {
+            delay: autoplay
+        },
+        
+    });
+
+
+    // 윈도우 스크롤 - gnb
+    $(window).scroll(function(){        
+        $('.gnb').css({left: 0 - $(this).scrollLeft()});
+    });
+
+    
+</script>
+</body>
+</html>
