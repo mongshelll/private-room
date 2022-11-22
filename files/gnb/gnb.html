@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>gnb_underline</title>
+
+	<script src="https://eilab.kr/datacenter/api/jquery/jquery-3.6.1.min.js"></script>
+
+	<style>
+		* { margin: 0; padding: 0; }
+		.menu { position: relative; }
+		ul { background: #eee; list-style: none; text-align: center; }
+		li { display: inline-block; font-size: 0; }
+		li a { display: inline-block; padding: 10px 20px; font-size: 12px; text-decoration: none; }
+		li a:hover { background: #ddd; }
+		.line { opacity: 0; position: absolute; bottom: 0; left: 50%; width: 50px; height: 2px; background: red; transition: all 0.3s ease; }
+		ul:hover ~ .line { opacity: 1; }
+	</style>
+</head>
+<body>
+	<div class="menu">
+		<ul>
+			<li><a href="#none">메뉴1</a></li>
+			<li><a href="#none">메뉴2</a></li>
+			<li><a href="#none">메뉴3</a></li>
+			<li><a href="#none">메뉴4</a></li>
+			<li><a href="#none">메뉴5</a></li>
+		</ul>
+		<div class="line"></div>
+	</div>
+
+	<script>
+		$(function(){
+			$('.menu li a').mouseenter(function(){
+				var linePosition = $(this).offset().left + 'px';
+				var lineWidth = $(this).innerWidth();
+
+				$('.menu .line').css("left", linePosition).css("width", lineWidth);
+			});
+		});
+	</script>
+</body>
+</html>
