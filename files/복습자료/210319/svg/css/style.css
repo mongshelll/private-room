@@ -1,0 +1,45 @@
+@charset 'utf-8';
+@import 'reset.css';
+
+
+.wrap {
+	width: 500px;
+	height: 500px;
+	margin: 100px auto;
+	border: 1px solid #000;
+}
+
+.wrap .airbnb {
+	width: 100%;
+	height: 100%;
+}
+.wrap .airbnb path {
+	fill: transparent; /* fill: 배경색 */
+	stroke: #000; /* stroke: 테두리 색 */
+	stroke-width: 4; /* stroke-width: 테두리 두께 */
+	stroke-dasharray: 1720; /* 전체 테두리 길이 1720 */
+	stroke-dashoffset: 1720; /* 선이 시작되는 출발점 */
+	transition: stroke-dashoffset 3s 0s, fill 1s 3s ;
+	/* animation: ani 3s linear 1 forwards; */
+}
+.wrap:hover .airbnb path {
+	stroke-dashoffset: 0;
+	fill: yellow;
+}
+
+
+@keyframes ani {
+	0% {
+		stroke-dashoffset: 1170;
+	}
+	90% {
+		stroke-dashoffset: 0;
+		fill: transparent;
+	}
+	100% {
+		stroke-dashoffset: 0;
+		fill: yellow;
+	}
+}
+
+
