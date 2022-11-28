@@ -32,14 +32,14 @@
 	</div>
 
 	<script>
-		$(function(){
+		(function(){
 			$('.menu li a').mouseenter(function(){
 				var linePosition = $(this).offset().left + 'px';
 				var lineWidth = $(this).innerWidth();
 
 				$('.menu .line').css("left", linePosition).css("width", lineWidth);
 			});
-		});
+		})();
 	</script>
 </body>
 </html>
