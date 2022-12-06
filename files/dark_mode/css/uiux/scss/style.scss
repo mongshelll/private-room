@@ -91,14 +91,14 @@ body {
 }
 
 .btn-theme {
-	position: fixed;
+	position: absolute;
 	top: 40px;
 	right: 20px;
 	font-size: 0;
 }
 
 .btn-browser-setting {
-	position: fixed;
+	position: absolute;
 	top: 80px;
 	right: 20px;
 	font-size: 14px;
@@ -112,7 +112,7 @@ body {
 		position: relative;
 		width: 800px;
 		margin: 0 auto;
-		padding: 20px 60px 20px 20px;
+		padding: 20px 140px 20px 20px;
 		box-sizing: border-box;
 	}
 }
@@ -142,6 +142,7 @@ body {
 		box-sizing: border-box;
 		width: calc(50% - 10px);
 		height: 200px;
+		border-radius: 12px;
 		font-size: 14px;
 		color: var(--subtext-color);
 		background-color: var(--main-content-bg);

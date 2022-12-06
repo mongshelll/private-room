@@ -115,11 +115,12 @@ body[data-theme=dark] {
 
 /* theme custom */
 body { background-color: var(--main-bg); color: var(--main-color); transition: background-color 0.3s, color 0.3s; }
-.btn-theme { position: fixed; top: 40px; right: 20px; font-size: 0; }
+.btn-theme { position: absolute; top: 40px; right: 20px; font-size: 0; }
+.btn-browser-setting { position: absolute; top: 80px; right: 20px; font-size: 14px; }
 
 /* contnet */
 .header { width: 100%; }
-.header .header-area { position: relative; width: 800px; margin: 0 auto; padding: 20px 60px 20px 20px; box-sizing: border-box; }
+.header .header-area { position: relative; width: 800px; margin: 0 auto; padding: 20px 140px 20px 20px; box-sizing: border-box; }
 
 .container { width: 100%; }
 .container .contents_area { width: 800px; margin: 0 auto; padding: 100px 20px; box-sizing: border-box; }
