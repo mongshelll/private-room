@@ -28,6 +28,50 @@ body[data-theme=dark] {
 	--main-content-bg: #707070;
 }
 
+body[data-theme=light] {
+	/* color 값 */
+	--main-color: #303030;
+	--subtext-color: #707070;
+
+	/* background-color 값 */
+	--main-bg: #f0f0f0;
+	--main-content-bg: #fff;
+}
+
+/* 브라우저 설정이 dark mode인 경우 dark theme 적용 */
+@media (prefers-color-scheme: dark) {
+	body {
+		/* color 값 */
+		--main-color: #f0f0f0;
+		--subtext-color: #fff;
+
+		/* background-color 값 */
+		--main-bg: #303030;
+		--main-content-bg: #707070;
+	}
+}
+
+/* 브라우저 설정이 light mode인 경우 light theme 적용 */
+@media (prefers-color-scheme: light) {
+	body {
+		/* color 값 */
+		--main-color: #303030;
+		--subtext-color: #707070;
+
+		/* background-color 값 */
+		--main-bg: #f0f0f0;
+		--main-content-bg: #fff;
+	}
+}
+
+// 브라우저 설정과 버튼으로 컨트롤 둘다 이용을 원하는 경우 document에 테마관련 추가와 미디어쿼리 모두 추가해야 함
+// 위에 예시가 모두 설정해 놓은 경우임.
+// 둘다 이용하는 경우도 있음 https://developer.mozilla.org/ 테마변경에 브라우저 설정, 개인 선택이 가능함
+
+// 브라우저 설정으로 컨트롤시 미디어쿼리 이용만으로 가능 -> 테마변경에 번거러움이 있음(브라우저 설정에 들어가서 수정 해야 함)
+// 버튼을 이용한 방법은 미디어 쿼리없이 document에 관련 내용 추가로 컨트롤 가능 -> 테마 변경이 편리함
+
+
 /* theme custom */
 body {
 	background-color: var(--main-bg);
@@ -51,6 +95,13 @@ body {
 	top: 40px;
 	right: 20px;
 	font-size: 0;
+}
+
+.btn-browser-setting {
+	position: fixed;
+	top: 80px;
+	right: 20px;
+	font-size: 14px;
 }
 
 /* contnet */

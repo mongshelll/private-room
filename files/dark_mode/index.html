@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>dark theme 적용 css var test</title>
+	<title>Dark Theme 적용</title>
 
 	<!-- only css -->
 	<!-- <link rel="stylesheet" href="style.css"> -->
@@ -18,6 +18,7 @@
 		<div class="header">
 			<div class="header-area">
 				<h1>dark theme test</h1>
+
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, obcaecati.</p>
 
 				<div class="btn-theme">
@@ -26,6 +27,8 @@
 						<label for="sw01"></label>
 					</div>
 				</div>
+
+				<button type="button" class="btn-browser-setting">브라우저 설정</button>
 			</div>
 		</div>
 
@@ -41,44 +44,30 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 
-	<div class="class">1</div>
-	<div class="class">2</div>
-	<div class="class">3</div>
 	<script>
+
 		var $body = document.querySelector('body'),
 			$btnThemeWrap = document.querySelector('.btn-theme'),
-			$btnTheme = $btnThemeWrap.querySelector('.se-switch.ty-02 > input');
+			$btnTheme = $btnThemeWrap.querySelector('.se-switch.ty-02 > input'),
+			$btnBrowserSetting = document.querySelector('.btn-browser-setting');
 
-		$btnTheme.addEventListener('click', function(){
-			$btnTheme.checked ? $body.setAttribute('data-theme', 'dark') : $body.removeAttribute('data-theme');
+		// 버튼클릭으로 테마설정 변경
+		$btnTheme.addEventListener('click', function() {
+			$btnTheme.checked ? $body.setAttribute('data-theme', 'dark') : $body.setAttribute('data-theme', 'light');
 		});
 
+		// 기본 브라우저 설정테마로 변경
+		$btnBrowserSetting.addEventListener('click', function() {
+			$body.setAttribute('data-theme', 'browser-setting');
 
-		var $class = document.getElementsByClassName('class'),
-			$query = document.querySelector('.class'),
-			$queryAll = document.querySelectorAll('.class');
+			// 기본 브라우저 설정에 따른 버튼상태 변경
+			window.matchMedia('(prefers-color-scheme: dark)').matches ? $btnTheme.checked = true : $btnTheme.checked = false;
+		});
 
-		console.log($class);
-		console.log($query);
-		console.log($queryAll);
-
-		$queryAll.forEach(function(item, index){
-			console.log(item);
-			item.classList.add('test');
-		})
-
-		Array.from($class).forEach(function(item, index){
-			console.log(item);
-			item.classList.add('test2');
-		})
-
-		for ( var a = 0; a < $class.length; a++ ) {
-			console.log($class[a]);
-			$class[a].classList.add('test3');
-		}
+		// 테마버튼을 초기 설정상태 테마에 반영하기
+		if ( window.matchMedia ('(prefers-color-scheme: dark)').matches ) $btnTheme.checked = true;
 
 	</script>
 </body>
