@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Flex 기업형</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>
+		<h1>DCODELAB</h1>
+		<nav>
+			<ul>
+				<li><a href="#">menu</a></li>
+				<li><a href="#">menu</a></li>
+				<li><a href="#">menu</a></li>
+			</ul>
+		</nav>
+	</header>
+	<figure>
+		SLOGAN
+	</figure>
+
+	<section id="news">
+		<h1>RECENT NEWS</h1>
+		<article>
+			<div class="pic"></div>
+			<h2>Lorem, ipsum dolor.</h2>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempora, officiis dolor dicta quod necessitatibus?</p>
+		</article>
+		<article>
+			<div class="pic"></div>
+			<h2>Lorem, ipsum dolor.</h2>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempora, officiis dolor dicta quod necessitatibus?</p>
+		</article>
+		<article>
+			<div class="pic"></div>
+			<h2>Lorem, ipsum dolor.</h2>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempora, officiis dolor dicta quod necessitatibus?</p>
+		</article>
+		<article>
+			<div class="pic"></div>
+			<h2>Lorem, ipsum dolor.</h2>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempora, officiis dolor dicta quod necessitatibus?</p>
+		</article>
+	</section>
+
+	<scetion id="banner">
+		<h1>Banner Text Comes Here.</h1>
+	</scetion>
+
+	<footer id="footer">
+		2021 DCODELAB &copy; All Right reserved.
+	</footer>
+	<!--
+		flex는 부모요소에 flex옵션값을 설정해서 그 자식요서의 배치방법을 결정
+
+		부모요소
+		display:
+		-- flex : 자식요소를 인라인블록 요소로 만들어서 좌우배치 (부모는 블록속성유지)
+		-- inline-flex : 위와 동일 (부모도 인라인블록 속성으로 변경)
+
+		flex-direction
+		-- row (기본값 : 가로배치)
+		-- column(세로배치) 중심축의 방향을 지정
+
+		flex-wrap
+		-- nowrap (기본값) : 부모영역이 컨텐츠 영역보다 줄어들 때 줄바꿈 되지 않음
+		-- wrap  : 줄바꿈
+
+		justify-content (중심축의 레이아웃 배치)
+		-- flex-start : 자식요소를 중심축에서 시작위치에서 배치
+		-- flex-end : 자식요소를 중심축에서 끝나는 위치에서 배치
+		-- center : 가운데 배치
+		-- space-between : 안쪽 사이간격을 균등배치
+		-- space-around : 자식요소를 기점으로 좌우도 균등배치
+		-- space-evenly : 중첩된 안쪽 간격마저도 균일하게 양 끝에 배치
+
+		align-items (반대축의 레이아웃 배치 - 반대축이 한줄 일 때)
+		align-content (반대축의 레이아웃 배치 - 반대축이 여러줄 일 때 - 무조건 flex-wrap으로 설정)
+
+		자식요소에 직접 지정하는 속성들
+		order : 자식요소의 순서값을 변경
+	-->
+</body>
+</html>

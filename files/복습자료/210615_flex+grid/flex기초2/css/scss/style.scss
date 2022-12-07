@@ -1,0 +1,83 @@
+@charset "utf-8";
+@import "reset";
+
+#box1 {
+	width: 100%;
+	background: lightcyan;
+	display: flex;
+
+	article {
+		background: aqua;
+		border: 1px solid #000;
+		font-size: 50px;
+		color: #fff;
+		flex-basis: auto; //기본값, 여백의 넓이 설정
+		// flex-basis: 0; 여백이 아닌 컨텐츠의 넓이
+
+		&:nth-of-type(1) {
+			flex-grow: 1;
+		}
+		&:nth-of-type(2) {
+			flex-grow: 2;
+		}
+		&:nth-of-type(3) {
+			flex-grow: 3;
+		}
+	}
+}
+
+#box2 {
+	margin-top: 50px;
+	width: 100%;
+	background: pink;
+	display: flex;
+
+	article {
+		width: 400px;
+		background: hotpink;
+		border: 1px solid #000;
+		font-size: 50px;
+		color: #fff;
+		// flex-shrink: 1;
+
+		&:nth-of-type(1) {
+			flex-shrink: 1;
+		}
+		&:nth-of-type(2) {
+			flex-shrink: 2;
+		}
+		&:nth-of-type(3) {
+			flex-shrink: 3;
+		}
+	}
+}
+
+#box3 {
+	margin-top: 50px;
+	width: 100%;
+	background: lightgreen;
+	display: flex;
+
+	article {
+		background: lightseagreen;
+		border: 1px solid #000;
+		font-size: 50px;
+		color: #fff;
+		flex: 1;
+		transition: 0.5s;
+
+		&:hover {
+			flex: 2;
+		}
+
+		// &:nth-of-type(1) {
+		//   flex: 1;
+		// }
+		// &:nth-of-type(2) {
+		//   flex: 2;
+		// }
+		// &:nth-of-type(3) {
+		//   flex: 3;
+		// }
+	}
+}

@@ -1,0 +1,163 @@
+@charset "utf-8";
+@import "reset";
+
+header {
+	width: 90%;
+	padding: 20px;
+	background-color: #fff;
+	position: absolute;
+	left: 5%;
+	top: 5vh;
+	z-index: 2;
+	display: flex;
+	justify-content: space-between;
+	// justify-content: space-around;
+	// justify-content: space-evenly;
+	flex-wrap: wrap;
+
+	h1 {
+		font: bold 20px/1 "arial";
+		color: #444;
+		padding: 0 5vw;
+	}
+	nav {
+		ul {
+			display: flex;
+
+			li {
+				a {
+					font: bold 16px/1 "arial";
+					color: #555;
+					padding: 0px 5vw;
+				}
+			}
+		}
+	}
+}
+
+figure {
+	width: 100%;
+	height: 100vh;
+	background-color: #666;
+	position: relative;
+	z-index: 1;
+	font: 15vw/1 "arial";
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-wrap: wrap;
+}
+
+#news {
+	width: 100%;
+	padding: 150px 5vw;
+	background: #fff;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+	h1 {
+		width: 100%;
+		font: bold 24px/1 "arial";
+		color: #444;
+		padding: 0px 5vw;
+		text-align: center;
+		margin-bottom: 60px;
+	}
+
+	article {
+		width: 23%;
+		.pic {
+			width: 100%;
+			height: 10vmax; //max = web에서 반응
+			background: #888;
+			margin-bottom: 20px;
+		}
+
+		h2 {
+			font: bold 16px/1 "arial";
+			color: #444;
+			margin-bottom: 10px;
+		}
+
+		p {
+			font: 14px/1.2 "arial";
+			color: #666;
+		}
+	}
+}
+
+#banner {
+	width: 100%;
+	padding: 20vh 6vw;
+	background: #999;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-wrap: wrap;
+
+	h1 {
+		font: 3vw/1 "arial";
+		color: #fff;
+	}
+}
+
+footer {
+	width: 100%;
+	height: 100px;
+	font: 14px/1 "arial";
+	color: #555;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-wrap: wrap;
+}
+
+/* tablet */
+@media screen and (max-width: 999px) {
+	header {
+		h1 {
+			font-size: 5vmin; //min = tablet에서 반응 max = web에서 반응
+			width: 100%;
+			margin-bottom: 16px;
+			text-align: center;
+		}
+		nav {
+			width: 100%;
+			ul {
+				width: 100%;
+				justify-content: space-evenly;
+			}
+		}
+	}
+
+	figure {
+		background-color: hotpink;
+	}
+
+	#news {
+		article {
+			width: 48%;
+			margin-bottom: 40px;
+			.pic {
+				height: 20vmin;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 539px) {
+	figure {
+		background-color: aqua;
+	}
+
+	#news {
+		article {
+			width: 100%;
+			.pic {
+				height: 40vmin;
+			}
+		}
+	}
+}
