@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+	padding: 20px;
+	background-color: lightgray;
+}
+
+.box1 {
+
+	.item {
+		padding: 20px;
+		min-height: 40px;
+		background-color: rgba(255, 255, 224, 0.5);
+
+		&:nth-child(odd) {
+			background-color: rgba(235, 102, 102, 0.5);
+		}
+	}
+}
+
+// youtube 주소
+// https://www.youtube.com/watch?v=eprXmC_j9A4
+.box1 {
+	display: grid;
+	//grid-template-columns: 40% 60%; //grid gap 사용시 스크롤 생김
+	//grid-template-columns: 4fr 6fr; //배치 비율 정하기
+	//grid-template-columns: 1fr 1fr 1fr; //1fr을 3번 (1:1:1)
+	//grid-template-columns: repeat(3, 1fr); //1fr을 3번
+	//grid-template-columns: 200px 1fr; //첫 번째 200px 고정 다음은 1fr로 가변성 갖고있음
+	// grid-auto-rows: 200px; //컨텐트 모두 같은 높이로
+	grid-auto-rows: minmax(200px, auto); //모두 최소 200px 내부 크기가 더 크면 그 컨텐트 row만 높이값 조절
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
+	// justify-items: start;
+	// align-items: end;
+
+	.item:nth-child(1) {
+		grid-column: 1/4; //1부터 4까지 영역 사용
+	}
+
+	.item:nth-child(4) {
+		grid-column: 3; //위치를 컬럼 3번으로 이동
+		grid-row: 2/4; //2부터 4까지
+	}
+
+	.item:nth-child(9) { //다른 영역 덮기 (겹치기 가능)
+		grid-column: 3;
+		grid-row: 3/5;
+	}
+
+	.item:nth-child(8) {
+		justify-self: center;
+		align-self: center;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.box2 {
+	margin-top: 50px;
+	background: lightgray;
+	display: grid;
+	// grid-template-columns: 40% 60%; //grid gap 사용시 스크롤 생김
+	// grid-template-columns: 4fr 6fr; //스크롤 안생김
+	grid-template-columns: 1fr 1fr 1fr; //스크롤 안생김
+	// grid-template-columns: repeat(3, 1fr); //스크롤 안생김
+	// grid-template-columns: 200px 1fr; //1번 200px 고정 뒷 컨텐츠 크기 유동적
+	//grid-auto-rows: 200px; //전 컨텐츠 높이 상관없이 높이 고정 (넘칠수 있음)
+	grid-auto-rows: minmax(
+		200px,
+		auto
+	); //200px로 설정, 더 큰 컨텐츠는 크기에 맟춤
+	grid-gap: 1rem;
+	// justify-items: end;
+	// align-items: end;
+
+	.item {
+		background: yellowgreen;
+		border: 1px solid #000;
+		font-size: 50px;
+		color: #fff;
+		p {
+			font-size: 16px;
+		}
+
+		&:nth-of-type(5) {
+			justify-self: start;
+			align-self: center;
+		}
+	}
+}
+
+.box3 {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background: plum;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 1rem;
+
+	.item {
+		background: rgba(119, 136, 153, 0.5);
+		border: 1px solid #000;
+		font-size: 50px;
+		color: #fff;
+		p {
+			font-size: 16px;
+		}
+
+		&:nth-of-type(1) {
+			grid-column: 1/4; //1부터 4까지 차지하기
+		}
+		&:nth-of-type(4) {
+			grid-column: 3; //3번자리에 위치
+			grid-row: 2/4; //2부터 4까지 차지
+		}
+		&:nth-of-type(9) {
+			grid-column: 3;
+			grid-row: 3/5; //다른 영역도 겹치기 가능
+		}
+	}
+}
