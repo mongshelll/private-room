@@ -19,9 +19,9 @@ body {
 
 .box1 {
     display: grid;
-    grid-auto-rows: minmax(200px, auto);
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+    grid-auto-rows: minmax(200px, auto);
+    gap: 10px;
 }
 .box1 .item:nth-child(1) {
     grid-column: 1/4;

@@ -25,15 +25,18 @@ body {
 // https://www.youtube.com/watch?v=eprXmC_j9A4
 .box1 {
 	display: grid;
-	//grid-template-columns: 40% 60%; //grid gap 사용시 스크롤 생김
+	//grid-template-columns: 40% 60%; //gap 사용시 스크롤 생김
 	//grid-template-columns: 4fr 6fr; //배치 비율 정하기
 	//grid-template-columns: 1fr 1fr 1fr; //1fr을 3번 (1:1:1)
 	//grid-template-columns: repeat(3, 1fr); //1fr을 3번
+	//grid-template-columns: 120px repeat(3, 1fr) 2fr 10%;
 	//grid-template-columns: 200px 1fr; //첫 번째 200px 고정 다음은 1fr로 가변성 갖고있음
+	grid-template-columns: repeat(3, 1fr);
+
 	// grid-auto-rows: 200px; //컨텐트 모두 같은 높이로
 	grid-auto-rows: minmax(200px, auto); //모두 최소 200px 내부 크기가 더 크면 그 컨텐트 row만 높이값 조절
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 10px;
+
+	gap: 10px;
 	// justify-items: start;
 	// align-items: end;
 
@@ -87,10 +90,7 @@ body {
 	// grid-template-columns: repeat(3, 1fr); //스크롤 안생김
 	// grid-template-columns: 200px 1fr; //1번 200px 고정 뒷 컨텐츠 크기 유동적
 	//grid-auto-rows: 200px; //전 컨텐츠 높이 상관없이 높이 고정 (넘칠수 있음)
-	grid-auto-rows: minmax(
-		200px,
-		auto
-	); //200px로 설정, 더 큰 컨텐츠는 크기에 맟춤
+	grid-auto-rows: minmax(200px, auto); //200px로 설정, 더 큰 컨텐츠는 크기에 맟춤
 	grid-gap: 1rem;
 	// justify-items: end;
 	// align-items: end;
