@@ -4,8 +4,12 @@
 }
 
 body {
-	padding: 20px;
+	padding: 100px;
 	background-color: lightgray;
+}
+
+div[class^=box] + div[class^=box] {
+	margin-top: 100px;
 }
 
 .box1 {
@@ -43,10 +47,22 @@ body {
 	.item:nth-child(1) {
 		grid-column: 1/4; //1부터 4까지 영역 사용
 	}
+	.item:nth-child(2) {
+		p::first-letter {
+			font-size: 30px;
+			font-weight: bold;
+		}
+	}
 
 	.item:nth-child(4) {
 		grid-column: 3; //위치를 컬럼 3번으로 이동
 		grid-row: 2/4; //2부터 4까지
+	}
+	.item:nth-child(5) {
+		p::first-line {
+			font-size: 20px;
+			font-weight: bold;
+		}
 	}
 
 	.item:nth-child(9) { //다른 영역 덮기 (겹치기 가능)
@@ -81,7 +97,6 @@ body {
 
 
 .box2 {
-	margin-top: 50px;
 	background: lightgray;
 	display: grid;
 	// grid-template-columns: 40% 60%; //grid gap 사용시 스크롤 생김
@@ -112,7 +127,6 @@ body {
 }
 
 .box3 {
-	margin-top: 50px;
 	margin-bottom: 50px;
 	background: plum;
 	display: grid;

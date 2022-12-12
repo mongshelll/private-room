@@ -4,8 +4,12 @@
 }
 
 body {
-    padding: 20px;
+    padding: 100px;
     background-color: lightgray;
+}
+
+div[class^=box] + div[class^=box] {
+    margin-top: 100px;
 }
 
 .box1 .item {
@@ -26,9 +30,17 @@ body {
 .box1 .item:nth-child(1) {
     grid-column: 1/4;
 }
+.box1 .item:nth-child(2) p::first-letter {
+    font-size: 30px;
+    font-weight: bold;
+}
 .box1 .item:nth-child(4) {
     grid-column: 3;
     grid-row: 2/4;
+}
+.box1 .item:nth-child(5) p::first-line {
+    font-size: 20px;
+    font-weight: bold;
 }
 .box1 .item:nth-child(9) {
     grid-column: 3;
@@ -40,7 +52,6 @@ body {
 }
 
 .box2 {
-    margin-top: 50px;
     background: lightgray;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -62,7 +73,6 @@ body {
 }
 
 .box3 {
-    margin-top: 50px;
     margin-bottom: 50px;
     background: plum;
     display: grid;
