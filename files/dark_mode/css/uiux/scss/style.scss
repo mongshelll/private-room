@@ -160,7 +160,7 @@ body {
 	width: 40px;
 	height: 24px;
 
-	input[type="checkbox"] {
+	input[type=checkbox] {
 		opacity: 0;
 		width: 0;
 		height: 0;
@@ -194,7 +194,7 @@ body {
 
 		// 선택
 		&:checked,
-		&[checked="checked"] {
+		&[checked=checked] {
 			+ label {
 				background-color: #6ADBC8;
 

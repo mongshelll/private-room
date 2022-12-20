@@ -1,28 +1,28 @@
 $('.switch').on('click', () => {
-    
-    $('body').toggleClass('dark');
 
-    if($('body').hasClass('dark')){
-        activateDarkMode();
-        localStorage.setItem('darkMode', 'enabled');
-    } else {
-        deactivateDarkMode();
-        localStorage.setItem('darkMode', 'disabled');
-    }
+	$('body').toggleClass('dark');
+
+	if($('body').hasClass('dark')){
+		activateDarkMode();
+		localStorage.setItem('darkMode', 'enabled');
+	} else {
+		deactivateDarkMode();
+		localStorage.setItem('darkMode', 'disabled');
+	}
 });
 
 let mode = localStorage.getItem('darkMode');
 
 if(mode=='enabled'){
-    activateDarkMode();
+	activateDarkMode();
 } else if(mode == 'disabled'){
-    deactivateDarkMode();
+	deactivateDarkMode();
 }
 
 function activateDarkMode(){
-    $('body').addClass('dark');
+	$('body').addClass('dark');
 }
 
 function deactivateDarkMode(){
-    $('body').removeClass('dark');
+	$('body').removeClass('dark');
 }
