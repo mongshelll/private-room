@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>모달 접근성 테스트</title>
+
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+	<style>
+/********************************************************************************************************
+	Common Reset
+*********************************************************************************************************/
+/*------------------------------------------------------------------------------
+	normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css
+-------------------------------------------------------------------------------*/
+		html {
+			line-height: 1.15;
+			-ms-text-size-adjust: 100%;
+			-webkit-text-size-adjust: 100%;
+		}
+
+		body {
+			margin: 0;
+		}
+
+		article,
+		aside,
+		footer,
+		header,
+		nav,
+		section {
+			display: block;
+		}
+
+		h1 {
+			font-size: 2em;
+			margin: 0.67em 0;
+		}
+
+		figcaption,
+		figure,
+		main {
+			display: block;
+		}
+
+		figure {
+			margin: 1em 40px;
+		}
+
+		hr {
+			box-sizing: content-box;
+			height: 0;
+			overflow: visible;
+		}
+
+		pre {
+			font-family: monospace, monospace;
+			font-size: 1em;
+		}
+
+		a {
+			background-color: transparent;
+			-webkit-text-decoration-skip: objects;
+		}
+
+		abbr[title] {
+			border-bottom: none;
+			text-decoration: underline;
+			text-decoration: underline dotted;
+		}
+
+		code,
+		kbd,
+		samp {
+			font-family: monospace, monospace;
+			font-size: 1em;
+		}
+
+		dfn {
+			font-style: italic;
+		}
+
+		mark {
+			background-color: #ff0;
+			color: #000;
+		}
+
+		small {
+			font-size: 80%;
+		}
+
+		sub,
+		sup {
+			font-size: 75%;
+			line-height: 0;
+			position: relative;
+			vertical-align: baseline;
+		}
+
+		sub {
+			bottom: -0.25em;
+		}
+
+		sup {
+			top: -0.5em;
+		}
+
+		audio,
+		video {
+			display: inline-block;
+		}
+
+		audio:not([controls]) {
+			display: none;
+			height: 0;
+		}
+
+		img {
+			border-style: none;
+		}
+
+		svg:not(:root) {
+			overflow: hidden;
+		}
+
+		button,
+		input,
+		optgroup,
+		select,
+		textarea {
+			font-family: sans-serif;
+			font-size: 100%;
+			line-height: 1.15;
+			margin: 0;
+		}
+
+		button,
+		input {
+			overflow: visible;
+		}
+
+		button,
+		select {
+			text-transform: none;
+		}
+
+		button,
+		html [type="button"],
+		[type="reset"],
+		[type="submit"] {
+			appearance: button;
+		}
+
+		button::-moz-focus-inner,
+		[type="button"]::-moz-focus-inner,
+		[type="reset"]::-moz-focus-inner,
+		[type="submit"]::-moz-focus-inner {
+			border-style: none;
+			padding: 0;
+		}
+
+		button:-moz-focusring,
+		[type="button"]:-moz-focusring,
+		[type="reset"]:-moz-focusring,
+		[type="submit"]:-moz-focusring {
+			outline: 1px dotted ButtonText;
+		}
+
+		fieldset {
+			padding: 0.35em 0.75em 0.625em;
+		}
+
+		legend {
+			box-sizing: border-box;
+			color: inherit;
+			display: table;
+			max-width: 100%;
+			padding: 0;
+			white-space: normal;
+		}
+
+		progress {
+			display: inline-block;
+			vertical-align: baseline;
+		}
+
+		textarea {
+			overflow: auto;
+		}
+
+		[type="checkbox"],
+		[type="radio"] {
+			box-sizing: border-box;
+			padding: 0;
+		}
+
+		[type="number"]::-webkit-inner-spin-button,
+		[type="number"]::-webkit-outer-spin-button {
+			height: auto;
+		}
+
+		[type="search"] {
+			appearance: textfield;
+			outline-offset: -2px;
+		}
+
+		[type="search"]::-webkit-search-cancel-button,
+		[type="search"]::-webkit-search-decoration {
+			-webkit-appearance: none;
+		}
+
+		::-webkit-file-upload-button {
+			-webkit-appearance: button;
+			font: inherit;
+		}
+
+		details,
+		menu {
+			display: block;
+		}
+
+		summary {
+			display: list-item;
+		}
+
+		canvas {
+			display: inline-block;
+		}
+
+		template {
+			display: none;
+		}
+
+		[hidden] {
+			display: none;
+		}
+
+
+
+/*---------------------------------------------
+	NanumSquare
+---------------------------------------------*/
+		@font-face {
+			font-family: 'NanumSquare';
+			src: url('https://eilab.kr/datacenter/api/font/font/nanumsquare/nanumsquarel.eot');
+			src: url('https://eilab.kr/datacenter/api/font/font/nanumsquare/nanumsquarel.eot?#iefix') format('embedded-opentype'),
+				url('https://eilab.kr/datacenter/api/font/font/nanumsquare/nanumsquarel.woff') format('woff');
+			font-stretch: normal;
+			font-style: normal;
+			font-weight: 300;
+		}
+
+		@font-face {
+			font-family: 'NanumSquare';
+			src: url('https://eilab.kr/datacenter/api/font/font/nanumsquare/nanumsquarer.eot');
+			src: url('https://eilab.kr/datacenter/api/font/font/nanumsquare/nanumsquarer.eot?#iefix') format('embedded-opentype'),
+				url('https://eilab.kr/datacenter/api/font/font/nanumsquare/nanumsquarer.woff') format('woff');
+			font-stretch: normal;
+			font-style: normal;
+			font-weight: 400;
+		}
+
+		@font-face {
+			font-family: 'NanumSquare';
+			src: url('https://eilab.kr/datacenter/api/font/font/nanumsquare/nanumsquareb.eot');
+			src: url('https://eilab.kr/datacenter/api/font/font/nanumsquare/nanumsquareb.eot?#iefix') format('embedded-opentype'),
+				url('https://eilab.kr/datacenter/api/font/font/nanumsquare/nanumsquareb.woff') format('woff');
+			font-stretch: normal;
+			font-style: normal;
+			font-weight: 700;
+		}
+
+		@font-face {
+			font-family: 'NanumSquare';
+			src: url('https://eilab.kr/datacenter/api/font/font/nanumsquare/nanumsquareeb.eot');
+			src: url('https://eilab.kr/datacenter/api/font/font/nanumsquare/nanumsquareeb.eot?#iefix') format('embedded-opentype'),
+				url('https://eilab.kr/datacenter/api/font/font/nanumsquare/nanumsquareeb.woff') format('woff');
+			font-stretch: normal;
+			font-style: normal;
+			font-weight: 800;
+		}
+
+
+
+/* ##############################################################
+    Reset override #리셋 오버라이드
+############################################################## */
+body {
+    line-height: 1.5;
+    font-family: "SpoqaHanSansNeo", "malgun gothic", "sans-serif", "dotum";
+    font-size: 18px;
+    color: #303030;
+    letter-spacing: -0.025em;
+}
+
+button, input, textarea, select, a {
+    line-height: 1.5;
+    font-family: "SpoqaHanSansNeo", "malgun gothic", "sans-serif", "dotum";
+    font-size: 16px;
+    color: #303030;
+    letter-spacing: -0.025em;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+a, a:link, a:visited, a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, li, ol, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+*:-moz-focusring {
+    outline: 1px solid #303030;
+}
+
+/* body 스크롤 막기 */
+body.hidden {
+    overflow: hidden;
+}
+/* ##############################################################
+    button #버튼
+############################################################## */
+		/* reset */
+		.se-btn {
+			display: inline-block;
+			padding: 0;
+			appearance: none;
+			box-sizing: border-box;
+			text-decoration: none;
+			border: none;
+			background-color: transparent;
+			text-align: center;
+			vertical-align: middle;
+			font-weight: normal;
+			cursor: pointer;
+		}
+
+		.se-btn[disabled=disabled],
+		.se-btn:disabled,
+		.se-btn.disabled {
+			cursor: default;
+		}
+
+		/* main Button */
+		.se-btn.btn-main {
+			min-width: 120px;
+			padding: 13px 20px;
+			line-height: 26px;
+			font-size: 18px;
+			font-weight: 500;
+			border-radius: 8px;
+		}
+
+		/* main Button - Large */
+		.se-btn.btn-main.size-l {
+			min-width: 150px;
+			padding: 17px 20px;
+			font-size: 19px;
+			font-weight: 500;
+			border-radius: 10px;
+		}
+
+		/* main Button - bg */
+		.se-btn.btn-main.bg-negative {
+			color: #ffffff;
+			border: 2px solid transparent;
+			background-color: #c07f7f;
+		}
+
+		.se-btn.btn-main.bg-negative:hover {
+			background-color: #505050;
+		}
+
+		.se-btn.btn-main.bg-negative:active {
+			background-color: #202020;
+		}
+
+		.se-btn.btn-main.bg-negative:disabled,
+		.se-btn.btn-main.bg-negative[disabled=disabled] {
+			color: #A0A0A0;
+			background-color: #c8c8c8;
+		}
+
+		.se-btn.btn-main.bg-negative.disabled {
+			color: #A0A0A0;
+			background-color: #c8c8c8;
+		}
+
+		.se-btn.btn-main.bg-positive {
+			color: #1C1D43;
+			border: 2px solid transparent;
+			background-color: #6ADBC8;
+		}
+
+		.se-btn.btn-main.bg-positive:hover {
+			background-color: #7FE6D5;
+		}
+
+		.se-btn.btn-main.bg-positive:active {
+			background-color: #54CEB9;
+		}
+
+		.se-btn.btn-main.bg-positive:disabled,
+		.se-btn.btn-main.bg-positive[disabled=disabled] {
+			color: #A0A0A0;
+			background-color: #E6E6E6;
+		}
+
+		.se-btn.btn-main.bg-positive.disabled {
+			color: #A0A0A0;
+			background-color: #E6E6E6;
+		}
+
+		/* sl-modal */
+		.sl-modal {
+			z-index: 2000;
+			display: none;
+			background-color: rgba(0, 0, 0, 0.6);
+		}
+
+		.sl-modal.active {
+			display: block;
+		}
+
+		/*  animation */
+		.sl-modal[data-animation=off] {
+			transition: none;
+		}
+		.sl-modal[data-animation=off] .modal-layer {
+			transition: none;
+		}
+
+		.sl-modal.active[data-animation=off] {
+			opacity: 1;
+		}
+		.sl-modal.active[data-animation=off] .modal-layer {
+			opacity: 1;
+		}
+
+		/* modal-default */
+		.sl-modal.modal-default {
+			overflow: auto;
+			position: fixed;
+			top: 0px;
+			right: 0px;
+			bottom: 0px;
+			left: 0px;
+			font-size: 0px;
+			text-align: center;
+			margin: auto;
+			padding: 20px;
+			box-sizing: border-box;
+			white-space: nowrap;
+		}
+
+		.sl-modal.modal-default::before {
+			content: "";
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+		}
+
+		.sl-modal.modal-default .modal-layer {
+			overflow: hidden;
+			display: -webkit-inline-box;
+			display: -moz-inline-box;
+			display: inline-flex;
+			-webkit-box-direction: normal;
+			-moz-box-direction: normal;
+			flex-direction: column;
+			position: relative;
+			width: 500px;
+			height: 340px;
+			border-radius: 12px;
+			box-sizing: border-box;
+			background-color: #ffffff;
+			vertical-align: middle;
+			white-space: normal;
+		}
+
+		.sl-modal.modal-default .modal-layer .modal-header {
+			padding: 18px 50px 18px 30px;
+			border-bottom: 1px solid #f0f0f0;
+			box-sizing: border-box;
+		}
+
+		.sl-modal.modal-default .modal-layer .modal-header .modal-title {
+			font-size: 22px;
+			font-weight: bold;
+			text-align: left;
+		}
+
+		.sl-modal.modal-default .modal-layer .modal-container {
+			overflow: auto;
+			overflow: overlay;
+		}
+
+		.sl-modal.modal-default .modal-layer .modal-container::-webkit-scrollbar {
+			width: 18px;
+		}
+
+		.sl-modal.modal-default .modal-layer .modal-container::-webkit-scrollbar-thumb {
+			width: 6px;
+			border: 6px solid transparent;
+			border-radius: 8px;
+			background-color: #e2e2e2;
+			background-clip: content-box;
+		}
+
+		.sl-modal.modal-default .modal-layer .modal-container::-webkit-scrollbar-track {
+			background-color: transparent;
+		}
+
+		.sl-modal.modal-default .modal-layer .modal-container .modal-inner {
+			padding: 30px 40px 0;
+			box-sizing: border-box;
+			font-size: 16px;
+			text-align: left;
+		}
+
+		.sl-modal.modal-default .modal-layer .modal-footer {
+			margin-top: auto;
+			padding: 30px 40px;
+			box-sizing: border-box;
+		}
+
+		.sl-modal.modal-default .modal-layer .modal-footer .btn-wrap {
+			display: -webkit-box;
+			display: -moz-box;
+			display: flex;
+			-webkit-box-pack: end;
+			-moz-flex-pack: end;
+			justify-content: flex-end;
+		}
+
+		.sl-modal.modal-default .modal-layer .modal-footer .btn-wrap .se-btn.btn-main {
+			min-width: 110px;
+		}
+
+		.sl-modal.modal-default .modal-layer .modal-footer .btn-wrap .se-btn.btn-main+.se-btn.btn-main {
+			margin-left: 10px;
+		}
+
+		.sl-modal.modal-default .modal-layer .modal-control {
+			position: absolute;
+			top: 15px;
+			right: 15px;
+		}
+
+		.sl-modal.modal-default .modal-layer .modal-control .btn-modal-close {
+			position: relative;
+			width: 40px;
+			height: 40px;
+			/* background: url("../../image/uiux/component/btn_close.png") no-repeat center; */
+			background-size: 24px;
+		}
+		.sl-modal.modal-default .modal-layer .modal-control .btn-modal-close::before {
+			content: '';
+			display: block;
+			width: 40px; height: 2px; position: absolute; top: 50%; left: 0; transform: rotate(45deg) translateY(-50%); background-color: #000;
+		}
+		.sl-modal.modal-default .modal-layer .modal-control .btn-modal-close:after {
+			content: '';
+			display: block;
+			width: 40px; height: 2px; position: absolute; top: 50%; left: 0; transform: rotate(-45deg) translateY(-50%); background-color: #000;
+		}
+
+		/* modal-default - animation */
+		.sl-modal.modal-default {
+			opacity: 0;
+			transition: opacity 0.3s ease 0s;
+		}
+
+		.sl-modal.modal-default .modal-layer {
+			opacity: 0;
+			margin-top: 50px;
+			transition: opacity 0.3s ease 0s, margin-top 0.3s ease 0s;
+		}
+
+		.sl-modal.modal-default.ani {
+			opacity: 1;
+		}
+
+		.sl-modal.modal-default.ani .modal-layer {
+			opacity: 1;
+			margin-top: 0;
+		}
+
+		/* 히든텍스트(접근성처리) */
+		.hidden-txt {
+			overflow: hidden;
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			font-size: 1px;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			white-space: nowrap;
+			clip: rect(1px, 1px, 1px, 1px);
+			clip-path: inset(50%);
+		}
+	</style>
+
+
+</head>
+
+<body>
+	<section>
+		<h1>modal test</h1>
+
+		<p>tabindex test</p>
+	</section>
+
+	<article>
+		<button type="button" onclick="stModal.default.uiOn('#tempModal01')">Default 모달 호출</button>
+		<button type="button">Focus Test Button</button>
+
+		<div class="modal-wrap">
+			<div id="tempModal01" class="sl-modal modal-default"><!-- id : 퍼블확인용 임시ID, 개발에서필요한ID사용 -->
+				<div class="modal-layer" tabindex="0"><!-- 우선순위 지정 : style="z-index: 2000이상 숫자입력" -->
+					<div class="modal-header">
+						<h2 class="modal-title">타이틀</h2>
+					</div>
+					<div class="modal-container" tabindex="0">
+						<div class="modal-inner">
+							팝업내용<br>
+							팝업내용<br>
+							팝업내용<br>
+							팝업내용<br>
+							팝업내용<br>
+							팝업내용<br>
+							팝업내용
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class="btn-wrap">
+							<button type="button" class="se-btn btn-main bg-negative" onclick="stModal.default.uiOff($(this))">취소</button>
+							<button type="button" class="se-btn btn-main bg-positive" onclick="stModal.default.uiOff($(this))">확인</button>
+						</div>
+					</div>
+					<div class="modal-control">
+						<button type="button" class="se-btn btn-modal-close" onclick="stModal.default.uiOff($(this))">
+							<span class="hidden-txt" tabindex="0">닫기</span>
+						</button><!-- onclick="stModal.default.uiOff($this))" : 모달닫기 -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</article>
+
+	<script>
+
+		/** -------------------------------------------
+			BodyScroll #바디스크롤
+		---------------------------------------------*/
+		var stBodyScroll = (function(){
+			return {
+				offScroll: function(){
+					$('body').addClass('hidden');
+				},
+				onScroll: function(){
+					$('body').removeClass('hidden');
+				}
+			}
+		})();
+
+		/** -------------------------------------------
+			Modal #모달
+		---------------------------------------------*/
+		var stModal = (function(){
+			return {
+				default: {
+					uiOn: function(_target){
+						if ( $(_target).hasClass('active') ) return;
+						if ( $(_target).attr('data-animation') == 'off' ) {
+							$(_target).addClass('active');
+						} else {
+							$(_target).addClass('active');
+							setTimeout(function(){
+								$(_target).addClass('ani');
+							});
+						}
+
+						// 바디스크롤 제어
+						stBodyScroll.offScroll();
+
+						// 접근성 tab loop
+						$('.modal-container').focus();
+					},
+					uiOff: function(_target){
+						var $thisModal = $(_target).closest('.sl-modal');
+
+						if ( $thisModal.hasClass('modal-default') ) {
+							/* animation option */
+							// default
+							if ( $thisModal.attr('data-animation') == 'off' ) {
+								$thisModal.removeClass('active');
+								// 바디스크롤 제어
+								if ( $('body').find('.sl-modal.active').length == 0 ) stBodyScroll.onScroll();
+							} else {
+								// animation
+								$thisModal.removeClass('ani');
+								setTimeout(function(){
+									$thisModal.removeClass('active');
+									// 바디스크롤 제어
+									if ( $('body').find('.sl-modal.active').length == 0 ) stBodyScroll.onScroll();
+								}, 300); //.modal-layer의 transition-duration 만큼 값 넣어서 사용
+							}
+						}
+					}
+				}
+			}
+		})();
+
+		// 접근성 tab loop
+		$('.btn-modal-close .hidden-txt').on('focus', function() {
+			$('.modal-container').focus();
+		});
+		$('.modal-layer').on('focus', function() {
+			$('.btn-modal-close').focus();
+		});
+	</script>
+
+</body>
+
+</html>
