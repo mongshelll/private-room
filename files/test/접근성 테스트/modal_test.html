@@ -625,7 +625,17 @@ body.hidden {
 
 	<article>
 		<button type="button" onclick="stModal.default.uiOn('#tempModal01')">Default 모달 호출</button>
+		<button type="button" onclick="stModal.default.uiOn('#tempModal02')">Animation 제거 모달 호출</button>
+		<button type="button" onclick="stModal.default.uiOn('#tempModal11')">Default 모달 호출</button>
 		<button type="button">Focus Test Button</button>
+
+		<!-- <script>
+			$(document).ready(function(){
+				stModal.default.uiOn('#tempModal01');
+				stModal.default.uiOn('#tempModal02');
+				stModal.default.uiOn('#tempModal11');
+			})
+		</script> -->
 
 		<div class="modal-wrap">
 			<div id="tempModal01" class="sl-modal modal-default"><!-- id : 퍼블확인용 임시ID, 개발에서필요한ID사용 -->
@@ -635,6 +645,10 @@ body.hidden {
 					</div>
 					<div class="modal-container" tabindex="0">
 						<div class="modal-inner">
+							<input type="text">
+							<input type="text">
+							<input type="text">
+							<input type="text"><br>
 							팝업내용<br>
 							팝업내용<br>
 							팝업내용<br>
@@ -658,10 +672,75 @@ body.hidden {
 				</div>
 			</div>
 		</div>
+
+		<div class="modal-wrap">
+			<div id="tempModal02" class="sl-modal modal-default" data-animation="off"><!-- id : 퍼블확인용 임시ID, 개발에서필요한ID사용 / 애니메이션 제거 : data-animation="off" -->
+				<div class="modal-layer" tabindex="0"><!-- 우선순위 지정 : style="z-index: 2000이상 숫자입력" -->
+					<div class="modal-header">
+						<h2 class="modal-title">타이틀</h2>
+					</div>
+					<div class="modal-container" tabindex="0">
+						<div class="modal-inner">
+							팝업내용<br>
+							팝업내용<br>
+							팝업내용<br>
+							팝업내용<br>
+							팝업내용<br>
+							팝업내용<br>
+							팝업내용
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class="btn-wrap">
+							<button type="button" class="se-btn btn-main bg-negative">취소</button>
+							<button type="button" class="se-btn btn-main bg-positive">확인</button>
+						</div>
+					</div>
+					<div class="modal-control">
+						<button type="button" class="se-btn btn-modal-close" onclick="stModal.default.uiOff($(this))">
+							<span class="hidden-txt" tabindex="0">닫기</span>
+						</button><!-- onclick="stModal.default.uiOff($(this))" : 모달닫기 -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal-wrap">
+			<div id="tempModal11" class="sl-modal modal-default"><!-- id : 퍼블확인용 임시ID, 개발에서필요한ID사용 -->
+				<div class="modal-layer" tabindex="0" style="width: 800px; height: 800px;"><!-- 넓이, 높이, 우선순위 : style="width: **px; height: **px; z-index: 2000이상 숫자입력" -->
+					<div class="modal-header">
+						<h2 class="modal-title">타이틀</h2>
+					</div>
+					<div class="modal-container" tabindex="0">
+						<div class="modal-inner">
+							<div>
+								팝업내용<br>
+								팝업내용<br>
+								팝업내용<br>
+								팝업내용<br>
+								팝업내용<br>
+								팝업내용<br>
+								팝업내용
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class="btn-wrap">
+							<button type="button" class="se-btn btn-main bg-negative">취소</button>
+							<button type="button" class="se-btn btn-main bg-positive">확인</button>
+						</div>
+					</div>
+					<div class="modal-control">
+						<button type="button" class="se-btn btn-modal-close" onclick="stModal.default.uiOff($(this))">
+							<span class="hidden-txt" tabindex="0">닫기</span>
+						</button><!-- onclick="stModal.default.uiOff($(this))" : 모달닫기 -->
+					</div>
+				</div>
+			</div>
+		</div>
 	</article>
 
 	<script>
-
 		/** -------------------------------------------
 			BodyScroll #바디스크롤
 		---------------------------------------------*/
@@ -732,7 +811,6 @@ body.hidden {
 			$('.btn-modal-close').focus();
 		});
 	</script>
-
 </body>
 
 </html>
