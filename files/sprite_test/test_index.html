@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>스프라이트 애니메이션 테스트</title>
+
+	<style>
+		* { margin: 0; padding: 0; box-sizing: border-box; }
+		.wrap { display: flex; flex-wrap: wrap; gap: 30px; padding: 20px; }
+
+		/* steps(전체조각 갯수-1) */
+		.box1 { width: 132px; height: 286px; }
+		.right_ani { display: block; width: 100%; height: 100%; background-image: url('img/sp_person_right.png'); background-repeat: no-repeat; background-size: auto 100%; animation: sprite_ani 3s steps(94) infinite; }
+
+		.box2 { width: 160px; height: 187px; }
+		.left_ani { display: block; height: 100%; background-image: url('img/sp_person_left.png'); background-repeat: no-repeat; background-size: auto 100%; animation: sprite_ani 3s steps(94) infinite; }
+
+		.box3 { width: 265px; height: 398px; }
+		.coin_down { display: block; height: 100%; background-image: url('img/sprite-coin.png'); background-repeat: no-repeat; background-size: auto 100%; animation: sprite_ani 5s steps(141) infinite; }
+
+		.box4 { width: 250px; height: 160px; }
+		.visual_01 { display: block; height: 100%; background-image: url('img/1_sprite.png'); background-repeat: no-repeat; background-size: auto 100%; animation: sprite_ani 5s steps(67) infinite; }
+
+		.box5 { width: 250px; height: 250px; }
+		.visual_02 { display: block; height: 100%; background-image: url('img/2_sprite.png'); background-repeat: no-repeat; background-size: auto 100%; animation: sprite_ani 5s steps(65) infinite; }
+
+		.box6 { width: 260px; height: 200px; }
+		.visual_03 { display: block; height: 100%; background-image: url('img/3_sprite.png'); background-repeat: no-repeat; background-size: auto 100%; animation: sprite_ani 5s steps(66) infinite; }
+
+		@keyframes sprite_ani {
+			from {
+				background-position-x: 0%;
+			}
+			to {
+				background-position-x: 100%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="box1">
+			<span class="right_ani"></span>
+		</div>
+		<div class="box2">
+			<span class="left_ani"></span>
+		</div>
+		<div class="box3">
+			<span class="coin_down"></span>
+		</div>
+		<div class="box4">
+			<span class="visual_01"></span>
+		</div>
+		<div class="box5">
+			<span class="visual_02"></span>
+		</div>
+		<div class="box6">
+			<span class="visual_03"></span>
+		</div>
+	</div>
+</body>
+</html>
