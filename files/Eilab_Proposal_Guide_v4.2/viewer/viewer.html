@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<title>Proposal Guide v4.2</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=yes" />
+	<meta name="format-detection" content="telephone=no, address=no, email=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="shortcut icon" href="../favicon.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../favicon.png" />
+
+	<!-- Library -->
+	<script type="text/javascript" src="z_eilab/lib/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="z_eilab/lib/jquery-easing-1.3.js"></script>
+	<script type="text/javascript" src="z_eilab/lib/jquery-ui-1.11.4.min.js"></script>
+	<script type="text/javascript" src="z_eilab/lib/jquery-ui-touch-punch-0.2.3.min.js"></script>
+
+	<!-- Resource -->
+	<link type="text/css" rel="stylesheet" href="z_eilab/viewer.css" />
+	<script type="text/javascript" src="z_eilab/viewer.js"></script>
+
+</head>
+<body class="preload">
+
+<div id="layout">
+
+	<div class="logo_wrap">
+		<img class="logo_navy" src="../z_eilab/img/logo_eilab_navy.png" alt="" title="">
+		<img class="logo_white" src="../z_eilab/img/logo_eilab_white.png" alt="" title="">
+	</div>
+
+	<div class="logo_project">
+		<div class="logo"><img src="../z_eilab/img/logo.png" alt="" title=""></div>
+		<div class="big_title">TITLE</div>
+		<div class="mid_title">SUB TITLE</div>
+	</div>
+
+	<div class="title_group">
+		<div class="title_type type_ex_app">Type ex</div>
+		<div class="title_type type_a_app">Type A</div>
+		<div class="title_type type_b_app">Type B</div>
+	</div>
+
+	<div class="backdevice iphonex"></div>
+	
+	<div class="device_group"></div>
+
+	<div class="btn_wrap type_sty01 active">
+		<div class="go_area"></div>
+		<div class="shotcut_wrap" data-toggle="show">
+			<!-- data-toggle =" hide | show (-> default) " -->
+			<!-- data-device=" iphone4 | iphone6 | iphoneX | ipad | imac "-->
+			<!-- data-type=" app | mweb | pc "-->
+			<!-- data-mode=" single |  multi " -->		
+			<!-- data-custom=" omni_channel | ppt | zoom " -->
+
+			<!-- type_sty01 -->
+			<div class="shotcut_box">
+				<div class="type">Mobile</div>
+				<div class="list">
+					<div class="shotcut" data-name="type_ex_app" data-src="prototype/type_ex_app/index.html" data-device="iphonex" data-type="app" data-mode="single" data-custom="">sample</div>
+					<!-- <div class="shotcut" data-name="type_a_app" data-src="prototype/type_a_app/index.html" data-device="iphonex" data-type="app" data-mode="single" data-custom="">A</div> -->
+					<!-- <div class="shotcut" data-name="type_b_app" data-src="prototype/type_b_app/index.html" data-device="iphonex" data-type="app" data-mode="single" data-custom="">B</div> -->
+				</div>
+			</div>	
+
+			
+			<!-- <div class="shotcut" data-name="ppt" data-src="prototype/ppt/index.html" data-device="" data-type="" data-mode="single" data-custom="ppt">PPT</div>	-->	
+			<!-- <div class="shotcut" data-name="type_ex_app" data-src="prototype/type_ex_app/index.html" data-device="iphonex" data-type="app" data-mode="single" data-custom="">ex</div>		 -->
+			<!-- <div class="shotcut" data-name="type_a_app" data-src="prototype/type_a_app/index.html" data-device="iphonex" data-type="app" data-mode="single" data-custom="">A</div> -->
+			<!-- <div class="shotcut" data-name="type_a_pc" data-src="prototype/type_a_pc/index.html" data-device="imac" data-type="pc" data-mode="single" data-custom="">A PC</div>	 -->
+			<!-- <div class="shotcut" data-name="type_b_app" data-src="prototype/type_b_app/index.html" data-device="iphonex" data-type="app" data-mode="single" data-custom="omni_channel" >B</div> -->
+			<!-- <div class="shotcut" data-name="type_b_pc" data-src="prototype/type_b_pc/index.html" data-device="" data-type="pc" data-mode="single" data-custom="zoom">B PC</div>		 -->
+			<!-- <div class="shotcut" data-name="type_c_app" data-src="prototype/type_c_app/index.html" data-device="iphonex" data-type="app" data-mode="single" data-custom="omni_channel" >C</div>		 -->
+			<!-- <div class="shotcut" data-name="type_c_pc" data-src="prototype/type_c_pc/index.html" data-device="" data-type="pc" data-mode="single" data-custom="">C PC</div> -->
+			<!-- <div class="shotcut" data-name="qna" data-src="prototype/qna/index.html" data-device="" data-type="" data-mode="single" data-custom="ppt">Q&A</div>	-->
+		</div>
+		<div class="function_wrap">
+			<!-- data-mode=" single |  multi " 			
+			<div class="functioncut active" data-mode="single" ></div>	
+			<div class="functioncut" data-mode="multi"></div>
+			-->				
+		</div>
+	</div>
+
+</div>
+
+<script>
+	$(document).ready(function(){
+		shotcutPack();
+	});
+
+	function shotcutPack(){
+		var $btnWrap = $('.btn_wrap');
+		if($btnWrap.hasClass('type_sty01')){			
+			var $shotcutWrap = $btnWrap.find('.shotcut_wrap');
+			var $dataToggle = $shotcutWrap.attr('data-toggle');
+			var $shotcutBox = $shotcutWrap.find('.shotcut_box');
+			if(!$shotcutBox.hasClass('active')){
+				$shotcutBox.eq(0).addClass('active');
+			};
+			if($dataToggle == 'hide'){				
+				$shotcutBox.find('.list').addClass('active');
+				$shotcutBox.eq(0).find('.list').removeClass('active');
+			}else {
+				$shotcutBox.find('.list').removeClass('active');
+			};	
+		}			
+	};
+
+	$(document).on('click','.btn_wrap.type_sty01 .shotcut_wrap .shotcut',function(){
+		$(this).closest('.shotcut_box').addClass('active').siblings('.shotcut_box').removeClass('active');		
+	});
+
+	$(document).on('click','.btn_wrap.type_sty01 .shotcut_wrap .type',function(){
+		if(!$(this).siblings('.list').hasClass('active')){
+			$(this).siblings('.list').addClass('active');
+		}else {
+			$(this).siblings('.list').removeClass('active');
+		}
+	});	
+
+	
+</script>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+@charset "utf-8";
+/******************************************************
+	Default
+******************************************************/
+.device.iphonex .frame { background: #000; }
+.device.iphonex .contents { background: #000; }
+.scrolled { overflow: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+
+.frame .btn { position: absolute; } 
+.frame .ctrl { position: absolute; } 
+
+
+/******************************************************
+	iScroll
+******************************************************/
+.iScroll { height: 100%; }
+
+
+/******************************************************
+	인덱스 정의
+******************************************************/
+.btn { z-index: 1000; }
+.ctrl { z-index: 1000; }
+
+[data-type="home"] {}
+[data-type="shadow"] { z-index: 2000; }
+
+[data-type="page"] { z-index: 3000; }
+[data-type="intro"] { z-index: 4000; }
+[data-type="layer"] { z-index: 5000; }
+
+[data-type="camera"] { z-index: 6000; }
+[data-type="keypad"] { z-index: 6000; }
+[data-type="faceid"] { z-index: 6000; }
+
+.wslot-select { z-index: 6000; }
+
+
+/******************************************************
+	공통
+******************************************************/
+/* btn */
+.btn.hidden { display: none !important; transition: none !important; }
+
+/* page */
+[data-type="page"] { visibility: hidden; position: absolute; top: 0; left: 200%; width: 100%; height: 100%; box-sizing: border-box; background: #fff; }
+[data-type="page"].show { visibility: visible; left: 0; }
+
+/* home */
+[data-type="home"] { visibility: hidden; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+[data-type="home"].show { visibility: visible; }
+[data-type="home"] .bg_box { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+[data-type="home"] .bg_box img {}
+[data-type="home"] .app_box { position: absolute; top: 247px; left: 114px; }
+[data-type="home"] .app_box .icon_box { width: 60px; height: 60px; border-radius: 12px; overflow: hidden; }
+[data-type="home"] .app_box .icon_box img {}
+[data-type="home"] .app_box .name_box { width: 60px; margin: 4px 0 0 0; text-align: center; font-size: 11px; color: rgba(255, 255, 255, 0.7); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* shadow */
+[data-type="shadow"] { visibility: hidden; opacity: 0; overflow: hidden; position: absolute; top: 247px; left: 114px; width: 60px; height: 60px; border-radius: 14px; color: #fff; background: #000; transition: all 0.4s ease; }
+[data-type="shadow"].show { visibility: visible; opacity: 1; top: 0; left: 0; width: 100%; height: 100%; border-radius: 46px; }
+
+/* intro */
+[data-type="intro"] { visibility: hidden; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 46px; box-sizing: border-box; background: #dbe4ff; opacity: 0; transition: all 0.5s ease; }
+[data-type="intro"].show { visibility: visible; opacity: 1; }
+[data-type="intro"].show_animating {}
+[data-type="intro"].hide_animating {}
+
+/* faceid */
+[data-type="faceid"] { visibility: hidden; position: absolute; top: 330px; left: 85px; width: 205px; height: 169px; border-radius: 16px; color: #fff; background: #fff; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24); }
+[data-type="faceid"].show { visibility: visible; }
+[data-type="faceid"].show_animating {}
+[data-type="faceid"].hide_animating {}
+[data-type="faceid"] .img_box { position: absolute; top: 38px; left: 73px; width: 60px; height: 60px; background: url('../asset/img/faceid/faceid_img.png') no-repeat center; background-size: 100%; }
+[data-type="faceid"] .img_box img {}
+[data-type="faceid"] .txt_box { position: absolute; top: 110px; left: 73px; width: 60px; height: 13px; background: url('../asset/img/faceid/faceid_txt.png') no-repeat center; background-size: 100%; }
+
+/* keypad */
+[data-type="keypad"] { visibility: hidden; position: absolute; bottom: -322px; left: 0; width: 100%; height: 322px; box-sizing: border-box; color: #fff; background: #333; transition: all 0.5s ease; }
+[data-type="keypad"].show { visibility: visible; bottom: 0; }
+[data-type="keypad"].show_animating {}
+[data-type="keypad"].hide_animating {}
+[data-type="keypad"] .bg_box { width: 100%; height: 100%; }
+
+/* camera */
+[data-type="camera"] { visibility: hidden; overflow: hidden; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 46px; box-sizing: border-box; color: #fff; background: #343a40; opacity: 0; transform: scale(0.95); transition: all 0.4s ease; }
+[data-type="camera"].show { visibility: visible; opacity: 1; transform: scale(1); }
+[data-type="camera"].show_animating {}
+[data-type="camera"].hide_animating {}
+[data-type="camera"] .flash_box { visibility: hidden; opacity: 0; position: absolute; top: 116px; left: 0; width: 375px; height: 501px; box-sizing: border-box; background: #fff; }
+[data-type="camera"].flash .flash_box { visibility: visible; animation: ebCameraFlash 0.4s linear forwards; }
+[data-type="camera"] .bg_box { width: 100%; height: 100%; }
+
+@keyframes ebCameraFlash {
+    0% { opacity: 0; }
+    20% { opacity: 0; }
+    30% { opacity: 0.8; }
+    40% { opacity: 0; }
+    60% { opacity: 0; }
+    70% { opacity: 0.8; }
+    80% { opacity: 0; }
+}
+
+/* select-ios */
+[data-type="select-ios"],
+[data-type="select-ios"] * { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !important; font-size: 16px; }
+
+
+/******************************************************
+	WSlot
+******************************************************/
+/* selelct-ios style */
+.wslot-select div { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !important; font-size: 16px; }
+
+.wslot-select * { box-sizing: border-box; }
+.wslot-select [data-type="value"] { width: 100%; height: 100%; }
+.wslot-select .top { position: relative; background-color: #f0f1f2; border-top: 1px solid #95979a; }
+.wslot-select .select-confirm { position: absolute; top: 50%; right: 0; transform: translateY(-50%); padding: 12px 10px; font-weight: bold; font-size: 16px; color: #007bff; cursor: pointer; }
+
+.wslot-select { position: fixed; width: 100%; left: 0; }
+.wslot-select:after { z-index: -1; content: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
+.wslot-select.show .wslot-select:after { content: ''; }
+
+.wslot-select .wslot-container { position: relative; background: #d5d7dd; }
+.wslot-select .wslot-container:after { content: ''; z-index: 1; position: absolute; top: 50%; transform: translate(-50%, -50%); left: 50%; height: 35px; width: calc(100% - 20px); background-color: #c9ccd2; border-radius: 10px; }
+
+.wslot-select .options { z-index: 2; position: relative; width: 100%; text-align: center; }
+.wslot-select .options .wslot-item { color: #8a8c8f; font-size: 18px; }
+.wslot-select .options .wslot-item-selected { color: #333436; font-size: 22px; }
+
+/* select-ios size */
+.wslot-select { bottom: -260px; }
+.wslot-select .top { height: 45px; }
+.wslot-select .options { height: 215px; }
+
+/* select-ios transition*/
+.wslot-select { transition: bottom 0.5s ease; }
+.wslot-select.show { bottom: 0; }
+.wslot-select.show:after { content: ''; }

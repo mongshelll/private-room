@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<title>Type Demo App</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<!-- Library -->
+	<script type="text/javascript" src="../asset/asset.js"></script>
+	<script type="text/javascript" src="./res/plugin_countFunc-1.0.0.js"></script> <!-- 카운팅 플러그인 -->
+	
+	<!-- Project CSS  -->
+	<link type="text/css" rel="stylesheet" href="res/style.css" />
+	
+</head>
+<body class="preload">
+
+
+<!-- S : 진행포인트 -->
+<ul class="eilabPoint" data-fnTag="eilabPoint_wrap">
+	<li class="point active" data-fnTag="list" data-point="바탕화면">바탕화면</li>
+	<li class="point" data-fnTag="list" data-point="로그인페이지">로그인페이지</li>
+	<li class="point" data-fnTag="list" data-point="메인페이지">메인페이지</li>
+	<li class="point" data-fnTag="list" data-point="서브페이지">서브페이지</li>
+	<li class="point" data-fnTag="list" data-point="완료페이지">완료페이지</li>
+</ul>
+<!-- E : 진행포인트 -->
+
+
+<div id="layout">
+	
+	<div class="device">
+		
+		<!-- S : frame  -->
+		<div class="frame">				
+			<div class="indicator"></div>
+
+
+			<!-- S : 컨텐츠작업 -->
+			<div class="contents">
+
+
+				<!-- 페이스아이디 -->
+				<div class="" data-type="faceid" data-name="페이스아이디">
+					<span class="img_box"><img src="" alt="" /></span><!-- faceid gif -->
+					<span class="txt_box"></span>
+				</div>
+
+
+				<!-- 카메라 -->
+				<div class="" data-type="camera" data-name="카메라">
+					<div class="bg_box"><img src="res/img/camera.png" alt="" /></div>
+					<div class="flash_box"></div>
+					<div class="btn btn_flash" data-function="btnFlash">플래시</div>
+				</div>
+
+
+				<!-- 숫자키패드 -->
+				<div class="" data-type="keypad" data-name="숫자키패드">
+					<img src="res/img/keypad_num.png" alt="" />
+					<div class="btn btn_bottomlayer" data-function="btnBottomlayer">바텀레이어 열기</div>
+				</div>
+
+
+				<!-- 영문키패드 -->
+				<div class="" data-type="keypad" data-name="영문키패드">
+					<img src="res/img/keypad_en.png" alt="" />
+				</div>
+
+
+				<!-- 한글키패드 -->
+				<div class="" data-type="keypad" data-name="한글키패드">
+					<img src="res/img/keypad_ko.png" alt="" />
+				</div>
+
+				
+				<!-- 그림자 -->
+				<div class="" data-type="shadow" data-name="그림자"></div>
+
+
+				<!-- 홈 -->
+				<div class="show" data-type="home" data-name="홈">
+					<div class="bg_box"><img src="../asset/img/home/home.png" alt=""></div>
+					<div class="app_box">
+						<div class="icon_box"><img src="res/img/appicon.png" alt=""></div>
+						<div class="name_box">App Name</div>
+					</div>
+					<div class="btn btn_appstart" data-function="btnAppstart"></div>
+				</div>
+
+
+				<!-- 인트로 -->
+				<div class="" data-type="intro" data-name="인트로">
+					<div class="bg_box"><img src="res/img/intro.png" alt="" /></div>
+					<div class="btn btn_loginpage" data-function="btnLoginpage">로그인페이지로</div>
+				</div>
+
+
+				<!-- 로그인페이지 -->
+				<div class="" data-type="page" data-name="로그인페이지">
+					<div class="bg_box"><img src="res/img/page_login.png" alt="" /></div>
+					<div class="btn btn_faceid" data-function="btnFaceid">페이스아이디 켜기</div>
+				</div>
+
+
+				<!-- 메인페이지 -->
+				<div class="" data-type="page" data-name="메인페이지">
+					<div class="bg_box"><img src="res/img/page_main.png" alt="" /></div>
+					<div class="count_box">0</div>
+					<div class="ctrl ctrl_toplayer" data-function="ctrlToplayer">아래로 스와이프</div>
+					<div class="btn btn_camera" data-function="btnCamera">카메라 켜기</div>
+					<div class="btn btn_totalmenu" data-function="btnTotalmenu">전체메뉴 오토플레이</div>
+				</div>
+				
+
+				<!-- 레이어 -->
+				<div class="" data-type="layer" data-name="탑레이어">
+					<div class="bg_box"><img src="res/img/layer_top.png" alt="" /></div>
+					<div class="ctrl ctrl_toplayer_close" data-function="ctrlToplayerClose">위로 스와이프</div>
+				</div>
+
+
+				<!-- 레이어 -->
+				<div class="" data-type="layer" data-name="전체메뉴">
+					<div class="bg_box"><img src="res/img/layer_totalmenu.png" alt="" /></div>
+				</div>
+
+
+				<!-- 서브페이지 -->
+				<div class="" data-type="page" data-name="서브페이지">
+					<div class="iScroll iScroll01">
+						<div class="iScroll_inner">
+							<div class="bg_box"><img src="res/img/page_sub.png" alt="" /></div>
+							<div class="btn btn_keypad" data-function="btnKeypad">키패드 열기</div>
+							<div class="select_box" data-type="select-ios" data-name="셀렉트">
+								<div class="btn non_hide btn_select" data-type="value" data-function="btnSelect">셀렉트01</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- 레이어 -->
+				<div class="" data-type="layer" data-name="바텀레이어">
+					<div class="bg_box"><img src="res/img/layer_bottom.png" alt="" /></div>
+					<div class="btn btn_completepage" data-function="btnCompletepage">바텀레이어 닫기</div>
+				</div>
+
+
+				<!-- 완료페이지 -->
+				<div class="" data-type="page" data-name="완료페이지">
+					<div class="bg_box"><img src="res/img/page_complete.png" alt="" /></div>
+					<div class="btn btn_backtomain" data-function="btnBacktomain">메인으로 돌아가기</div>
+				</div>
+
+
+			</div>
+			<!-- E : 컨텐츠작업 -->
+
+
+		</div>
+		<!-- E : frame  -->
+
+	</div>
+
+</div>
+
+
+
+<!-- Project JS  -->
+<script type="text/javascript" src="res/script.js"></script>
+</body>
+</html>

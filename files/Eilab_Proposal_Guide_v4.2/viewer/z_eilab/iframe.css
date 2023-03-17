@@ -1,0 +1,218 @@
+@charset "utf-8";
+
+/******************************************************
+	Reset Css - normalize 6.0
+******************************************************/
+html { line-height: 1.15; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+article, aside, footer, header, nav, section { display: block; }
+h1 { font-size: 2em; margin: 0.67em 0; }
+figcaption, figure, main { display: block; }
+figure { margin: 1em 40px; }
+hr { box-sizing: content-box; height: 0; overflow: visible; }
+pre { font-family: monospace, monospace; font-size: 1em; }
+a { background-color: transparent; -webkit-text-decoration-skip: objects; }
+abbr[title] { border-bottom: none; text-decoration: underline; text-decoration: underline dotted; }
+b, strong { font-weight: inherit; }
+b, strong { font-weight: bolder;}
+code, kbd, samp { font-family: monospace, monospace; font-size: 1em; }
+dfn { font-style: italic; }
+mark { background-color: #ff0; color: #000; }
+small { font-size: 80%; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sub { bottom: -0.25em; }
+sup { top: -0.5em; }
+audio, video { display: inline-block; }
+audio:not([controls]) { display: none; height: 0;}
+img { border-style: none; }
+svg:not(:root) { overflow: hidden; }
+button, input, optgroup, select, textarea { margin: 0; }
+button, input { overflow: visible;}
+button, select { text-transform: none; }
+button, html [type="button"], [type="reset"], [type="submit"] { -webkit-appearance: button; background: none; outline: none; border: none; }
+button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner { border-style: none; padding: 0; }
+button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focusring, [type="submit"]:-moz-focusring { outline: 1px dotted ButtonText; }
+legend { box-sizing: border-box; color: inherit; display: table; max-width: 100%; padding: 0; white-space: normal; }
+progress { display: inline-block;  vertical-align: baseline; }
+textarea { overflow: auto; }
+[type="checkbox"],
+[type="radio"] { box-sizing: border-box; padding: 0; }
+[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button { height: auto; }
+[type="search"] { -webkit-appearance: textfield; outline-offset: -2px; }
+[type="search"]::-webkit-search-cancel-button, [type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+::-webkit-file-upload-button { -webkit-appearance: button; font: inherit; }
+menu { display: block; }
+summary { display: list-item; }
+canvas { display: inline-block; }
+template { display: none; }
+[hidden] { display: none; }
+
+
+/******************************************************
+	Eilab Css
+******************************************************/
+html { -webkit-text-size-adjust: none; -webkit-tap-highlight-color: rgba(0,0,0,0); }
+html, body, button, span, a, input, select, textarea, div, th, td, h1, h2, h3, h4, h5, h6, p { margin: 0; padding: 0; font-family: 'Dotum', '돋움', 'sans-serif', 'Apple Gothic'; font-size: 12px; color: #000000;}
+ul, li { margin: 0; padding: 0; list-style: none; }
+dl, dd, dt { margin: 0; padding: 0; list-style: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+li img { vertical-align: top; }
+textarea { resize: none; }
+fieldset { border: 0; border-style: none; }
+fieldset legend { display: none; }
+caption { display: none; }
+a, a:active, a:link, a:visited, a:hover { color: #000000; text-decoration: none; }
+th, td { box-sizing: border-box; font-weight: normal; vertical-align: middle; }
+h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; }
+img { vertical-align: top; }
+.btn { cursor: pointer }
+
+
+/******************************************************
+	override
+******************************************************/
+body.preload * {  -webkit-transition: none !important; -moz-transition: none !important; -ms-transition: none !important; -o-transition: none !important;  }
+
+/* 커서 */
+div.cursor { opacity: 0; z-index: 10000; position: absolute; margin-top: -12px; margin-left:-12px; width: 26px; height: 26px; border: 2px solid #fff; -webkit-box-sizing: border-box; box-sizing: border-box; border-radius: 50%; background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,.4) 100%); box-shadow: 0 0 17px rgba(0,0,0,.4); }
+@keyframes cursorhide {
+  0% { opacity: .9; transform: scale(1.5); }
+  50% { opacity: 1; transform: scale(.5); }
+  100% { opacity: 0;transform: scale(1.5); }
+}
+
+
+/******************************************************
+	Common Css
+******************************************************/
+/* Layout*/
+html, body { width: 100%; overflow: hidden }
+img { width: 100%; }
+.contents { z-index: 100; position: relative; overflow: hidden; }
+
+/* zoom 모드 */
+#layout.zoom { margin-top: 150px; zoom: 0.7115; }
+
+/* Helper */
+.eilabHelper { _display: none; z-index: 1000; position: fixed; top: 0px; right: 0px; }
+.eilabHelper .btn_go {  margin: 0 0 2px 0; height: 30px; padding: 0 10px; line-height: 30px; text-align: center; color: #ffffff;  background: #707070; text-align: left; }
+.eilabHelper .btn_go.active { background: #27568d; }
+.eilabHelper .btn_go.re_btn { margin-bottom: 10px; }
+.eilabHelper .btn_go.btn_sliding { background: #000; }
+.eilabHelper .btn_go.btn_layer { background: #0e13ae;; }
+
+/* 진행포인트 */
+.eilabPoint { position: absolute; bottom: 30px; right: 20px; }
+.eilabPoint .point { position: relative; display: inline-block; padding: 0 8px; margin-right: 4px; box-sizing: border-box; line-height: 23px; vertical-align: middle; border-radius: 5px; font-family: 'NanumSquare'; letter-spacing: 1px; font-size: 12px; color: #000; background: transparent; }
+.eilabPoint .point { transition: 1000ms cubic-bezier(0.19, 1, 0.22, 1); opacity: 1; }
+.eilabPoint .point + .point { margin-left: 28px; }
+.eilabPoint .point + .point:before { content: ''; position: absolute; left: -18px; top: 9px; width: 8px; height: 5px; background: url('./img/arrow_black.png') no-repeat center; background-size: 8px 5px; }
+.eilabPoint .point.active { color: #fff; background: #383838; }
+
+.eilabPoint.theme_wh .point { color: #fff; }
+.eilabPoint.theme_wh .point + .point:before { background: url('./img/arrow_white.png') no-repeat center; background-size: 8px 5px; }
+.eilabPoint.theme_wh .point.active { color: #010101; background: #c8c8c8; }
+
+
+/* BTN button guester */
+.contents .btn.btnact, .wrap .contents.btnact { border: none !important; }
+.contents .btn.btnact:before, .wrap .contents.btnact:before  { position: absolute; top: 80%; left: 50%; content: ''; width: 8px; height: 8px; margin-top: -4px; margin-left: -4px; background:#ff0000; opacity: 0; border-radius: 100%}
+.contents .btn.btnact:before, .wrap .contents.btnact:before  { animation: btn_action 3s infinite ease-in-out; }
+@keyframes btn_action {
+  0% { transform: scale(1) translateY(0); opacity: 0; }
+  50% { transform: scale(1) translateY(0); opacity: 0.4; }
+  100% { transform: scale(1) translateY(0); opacity: 0; }
+}
+
+/* ctrl ctrlture */
+.contents .ctrl.ctrlact, .wrap .contents.ctrlact { border: none !important; }
+.contents .ctrl.ctrlact:before, .wrap .contents.ctrlact:before  { position: absolute; top: 80%; left: 50%; content: ''; width: 8px; height: 8px; margin-top: -4px; margin-left: -4px; background:#0000ff; opacity: 0; border-radius: 100%}
+.contents .ctrl.ctrlact:before, .wrap .contents.ctrlact:before  { animation: btn_action 3s infinite ease-in-out; }
+@keyframes tch_action {
+  0% { transform: scale(1) translateY(0); opacity: 0; }
+  50% { transform: scale(1) translateY(0); opacity: 0.4; }
+  100% { transform: scale(1) translateY(0); opacity: 0; }
+}
+
+
+/******************************************************
+	Device Css
+******************************************************/
+
+/* 디바이스 종류 */
+.device {  }
+
+.device.mode { z-index: 1000; position: fixed; box-sizing: border-box; margin-left: 320px; }
+.device.mode.multi { margin-left: 0px; }
+.device .frame { position: relative; border: none; overflow: hidden; background: #ffffff; opacity: 0; transition: all 500ms; transform: scale(0.95); }
+.device .frame.active { opacity: 1; transform: scale(1); }
+.device .frame .indicator { z-index: 1000; position: absolute; top: 0px; left: 0px; width: 100%; height: 0px; }
+
+/* iphone4 */ 
+.device.iphone4 { top: calc(50% - 396px); left: calc(50% - 186px); width: 372.5px; height: 792px; padding: 114px 26px; background: url('img/device/iphone4/cover.png') no-repeat center center; background-size: 372.5px auto; }
+.device.iphone4 .frame { width: 320px; height: 568px; }
+.device.iphone4 .indicator { width: 320px; height: 20px; background: url('img/device/iphone4/indicator_black.png') no-repeat center center; background-size: cover; }
+.device.iphone4 .indicator.white { background: url('img/device/iphone4/indicator_white.png') no-repeat center center; background-size: cover; }
+
+/* iphone6 */
+.device.iphone6 { top: calc(50% - 433px); left: calc(50% - 206.5px); width: 413px; height: 866px; padding: 96px 18px; background: url('img/device/iphone6/cover.png') no-repeat center center; background-size: 413px auto; }
+.device.iphone6 .frame { width: 375px; height: 667px; }
+.device.iphone6 .indicator { width: 375px; height: 20px; background: url('img/device/iphone6/indicator_black.png') no-repeat center center; background-size: cover; }
+.device.iphone6 .indicator.white { background: url('img/device/iphone6/indicator_white.png') no-repeat center center; background-size: cover; }
+
+/* iphoneX */
+.device.iphonex { top: calc(50% - 439px); left: calc(50% - 220.5px); width: 441px; height: 878px; padding: 28px 33px; background: url('img/device/iphonex/cover.png') no-repeat center center; background-size: 441px auto; }
+.device.iphonex:before { z-index: 10000; content: ''; display: block; position: absolute; bottom: 46px; left: 50%; margin-left: -65px; width: 130px; height: 4px; background: rgba(0,0,0, 0.5); border-radius: 10px}
+.device.iphonex:after { z-index: 10000; content: ''; display: block; position: absolute; top: 28px; left: 50%; margin-left: -112.5px; width: 225px; height: 30px; background: url('img/device/iphonex/header.png') no-repeat center top; background-size: 100%; }
+.device.iphonex .frame { width: 375px; height: 812px; border-radius: 50px; }
+.device.iphonex .contents { border-radius: 50px; }
+.device.iphonex .indicator { width: 375px; height: 30px; background: url('img/device/iphonex/indicator_black.png') no-repeat center center; background-size: cover; }
+.device.iphonex .indicator.white { background: url('img/device/iphonex/indicator_white.png') no-repeat center center; background-size: cover; }
+
+/* pad */
+.device.ipad { top: calc(50% - 361px); left: calc(50% - 512px); width: 1024px; height: 722px; padding: 30px 84px 32px 60px; background: url('img/device/ipad/cover.png') no-repeat center center; background-size: 1024px auto; }
+.device.ipad .frame { width: 880px; height: 660px; }
+
+/* PC */
+.device.imac { top: calc(50% - 450px); left: calc(50% - 600px); margin-left: 0px; width: 1200px; height: 992px; padding: 38px 30px 37px 30px; background: url('img/device/imac/cover.png') no-repeat center center; background-size: 1200px auto; }
+.device.imac .frame { width: 1140px; height: 641px; }
+
+/* fake */
+.fake_frame  { width: 100%; height: 100%; }
+.fake_frame iframe { border: none; width: 100%; height: 100%; }
+
+
+/******************************************************
+	Custom Mod
+******************************************************/
+.transition {  transition: all 500ms; }
+
+/* 인디케이터타입 */
+.indicator .security_type { z-index: 100; position: absolute; top: 14px; left: 18px; width: 55px; height: 22px; background: url('img/mod/mod_security.png') no-repeat center center; background-size: cover; }
+
+/* OG DESK 모드*/
+.btn.usb_stick { z-index: 5000 !important; position: fixed; top: calc(50% + 110px); left: calc(50% - 80px);  width: 110px; height: 325px; background: url('img/mod/mod_ogdesk.png') no-repeat center center; background-size: cover; }
+.btn.usb_stick.z-idx { z-index: 1000 !important }
+.usb_actionarea { z-index: 5000 !important; position: absolute; bottom: -270px; left: 0px; width: 100%; height: 700px; }
+.usb_hole { position: absolute; bottom: 0px; left: calc(50% - 55px); width: 110px; height: 10px; }
+
+div[data-type="sliding"].og_insert_push { width: 100%; height: 200px; background: rgba(0, 0, 0, 0.9); }
+div[data-type="sliding"].og_remove_push { width: 100%; height: 200px; background: rgba(255, 255, 255, 0.9); }
+
+/* 미러링모드 */
+.btn.mirroring { position: absolute; top: -40px; left: 50%; margin-left: -170px; width: 50px; height: 30px; background: url('img/mod/mod_mirroring.png') no-repeat center center; background-size: cover; opacity: 0.3; }
+.btn.mirroring.active { opacity: 1 }
+
+.original_device { }
+.mirror_device { margin-left: -320px !important; }
+.device_off { transform: scale(0.9); opacity: 0; margin-left: -320px !important; }
+
+/* 옴니채널 */
+.btn.omni { position: absolute; bottom: 30px; right : 30px; min-width: 50px; height: 50px; padding: 0 10px; background: rgba(112, 112, 112, 0.5); border-radius: 10px; text-align: center;  color: #ffffff; cursor: pointer;  }
+.btn.omni:before { content: 'Device Change'; line-height: 50px; }
+.btn.omni.active { opacity: 1 }
+
+.first_frame { transform: translateX(200%)}
+.second_frame  { width: 100%; height: 100%; }
+.second_frame iframe { border: none; width: 100%; height: 100%; }
+.second_frame { transform: translateX(-100%) }
+.second_frame.pc_device { transform: translateX(0px) }

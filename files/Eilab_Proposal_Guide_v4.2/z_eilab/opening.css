@@ -1,0 +1,110 @@
+@charset "utf-8";
+
+/******************************************************
+	Reset Css - normalize 6.0
+******************************************************/
+html { line-height: 1.15; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+article, aside, footer, header, nav, section { display: block; }
+h1 { font-size: 2em; margin: 0.67em 0; }
+figcaption, figure, main { display: block; }
+figure { margin: 1em 40px; }
+hr { box-sizing: content-box; height: 0; overflow: visible; }
+pre { font-family: monospace, monospace; font-size: 1em; }
+a { background-color: transparent; -webkit-text-decoration-skip: objects; }
+abbr[title] { border-bottom: none; text-decoration: underline; text-decoration: underline dotted; }
+b, strong { font-weight: inherit; }
+b, strong { font-weight: bolder;}
+code, kbd, samp { font-family: monospace, monospace; font-size: 1em; }
+dfn { font-style: italic; }
+mark { background-color: #ff0; color: #000; }
+small { font-size: 80%; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sub { bottom: -0.25em; }
+sup { top: -0.5em; }
+audio, video { display: inline-block; }
+audio:not([controls]) { display: none; height: 0;}
+img { border-style: none; }
+svg:not(:root) { overflow: hidden; }
+button, input, optgroup, select, textarea { margin: 0; }
+button, input { overflow: visible;}
+button, select { text-transform: none; }
+button, html [type="button"], [type="reset"], [type="submit"] { -webkit-appearance: button; background: none; outline: none; border: none; }
+button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner { border-style: none; padding: 0; }
+button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focusring, [type="submit"]:-moz-focusring { outline: 1px dotted ButtonText; }
+legend { box-sizing: border-box; color: inherit; display: table; max-width: 100%; padding: 0; white-space: normal; }
+progress { display: inline-block;  vertical-align: baseline; }
+textarea { overflow: auto; }
+[type="checkbox"],
+[type="radio"] { box-sizing: border-box; padding: 0; }
+[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button { height: auto; }
+[type="search"] { -webkit-appearance: textfield; outline-offset: -2px; }
+[type="search"]::-webkit-search-cancel-button, [type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+::-webkit-file-upload-button { -webkit-appearance: button; font: inherit; }
+menu { display: block; }
+summary { display: list-item; }
+canvas { display: inline-block; }
+template { display: none; }
+[hidden] { display: none; }
+
+
+/******************************************************
+	Font Define
+******************************************************/
+/* 나눔스퀘어 - regular */
+@font-face {
+    font-family: 'NanumSquare';
+    src: url('font/nanumsquarer.eot');
+    src: url('font/nanumsquarer.eot?#iefix') format('embedded-opentype'),
+         url('font/nanumsquarer.woff') format('woff');
+    font-weight: normal;
+}
+
+/* 나눔스퀘어 - extrabold*/
+@font-face {
+    font-family: 'NanumSquare_extrabold';
+    src: url('font/nanumsquareeb.eot');
+    src: url('font/nanumsquareeb.eot?#iefix') format('embedded-opentype'),
+         url('font/nanumsquareeb.woff') format('woff');
+    font-weight: normal;
+}
+
+
+/******************************************************
+	Eilab Css
+******************************************************/
+html { -webkit-text-size-adjust: none; -webkit-tap-highlight-color: rgba(0,0,0,0); }
+html, body, button, span, a, input, select, textarea, div, th, td, h1, h2, h3, h4, h5, h6, p { margin: 0; padding: 0; font-family: 'NanumSquare', 'Dotum', '돋움', 'sans-serif', 'Apple Gothic'; font-size: 12px; color: #000000; };
+ul, li { margin: 0; padding: 0; list-style: none; }
+dl, dd, dt { margin: 0; padding: 0; list-style: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+li img { vertical-align: top; }
+textarea { resize: none; }
+fieldset { border: 0; border-style: none; }
+fieldset legend { display: none; }
+caption { display: none; }
+a, a:active, a:link, a:visited, a:hover { color: #000000; text-decoration: none; }
+th, td { box-sizing: border-box; font-weight: normal; vertical-align: middle; }
+h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; }
+img { vertical-align: top; }
+.btn { cursor: pointer }
+
+
+/******************************************************
+	override
+******************************************************/
+body { width: 100%; background: url('img/intro_bg.jpg') no-repeat; background-size: cover; overflow: hidden;  }
+
+
+/******************************************************
+	Intro Css
+******************************************************/
+.logo_wrap { position: fixed; top: 20px; left: 20px; }
+
+.project_wrap { position: fixed; top: 50%; left: 0%; width: 100%; padding: 0 0 50px 0; text-align: center; }
+.project_wrap .big_title { padding: 45px 0 30px 0; color: #1c1d43; font-size: 80px; font-weight: bold; font-family: 'NanumSquare_extrabold'; }
+.project_wrap .mid_title { color: #1c1d43; font-size: 50px; }
+
+.btn_wrap { position: fixed; bottom: 50px; width: 100%; text-align: center; }
+.btn_wrap .go_area { position: relative; display: inline-block; margin: 0 5px; width: 60px; height: 60px; border-radius: 60px; background: rgba(28, 29, 67, .1); cursor: pointer}
+.btn_wrap .go_area:before { content: ''; display: block; position: absolute; top: 50%; left: 27px; width: 18px; height: 1px; background: #1c1d43; transform: rotate(135deg); }
+.btn_wrap .go_area:after { content: ''; display: block; position: absolute; top: 50%; left: 15px; width: 18px; height: 1px; background: #1c1d43; transform: rotate(-135deg);}

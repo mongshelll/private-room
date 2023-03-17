@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+/******************************************************
+	layer
+******************************************************/
+/* layer - 탑레이어 */
+[data-type="layer"][data-name="탑레이어"] { overflow: hidden; position: absolute; top: -400px; left: 0; width: 375px; height: 400px; border-radius: 0 0 16px 16px; transition: top 0.7s ease; }
+[data-type="layer"][data-name="탑레이어"].show { top: 0; }
+
+/* layer - 바텀레이어 */
+[data-type="layer"][data-name="바텀레이어"] { overflow: hidden; position: absolute; bottom: -750px; left: 0; width: 375px; border-radius: 16px 16px 0 0; transition: bottom 0.7s ease; }
+[data-type="layer"][data-name="바텀레이어"].show { bottom: 0; }
+
+/* layer - 전체메뉴 */
+[data-type="layer"][data-name="전체메뉴"] { overflow: hidden; position: absolute; top: 0; left: 375px; width: 375px; height: 812px; border-radius: 46px 0 0 46px; transition: left 0.5s ease; }
+[data-type="layer"][data-name="전체메뉴"].show { left: 0; }
+
+
+/******************************************************
+	btn
+******************************************************/
+.frame .btn { font-size: 14px; text-align: center; }
+
+.btn.btn_appstart { top: 247px; left: 115px; width: 60px; height: 60px; outline: 2px solid magenta; }
+.btn.btn_loginpage { top: 400px; left: 10px; right: 10px; bottom: 10px; outline: 2px solid magenta; }
+.btn.btn_faceid { top: 400px; left: 10px; right: 10px; bottom: 10px; outline: 2px solid magenta; }
+.btn.btn_camera { top: 500px; left: 10px; right: 10px; bottom: 10px; outline: 2px solid magenta; }
+.btn.btn_totalmenu { top: 100px; right: 10px; width: 60px; height: 60px; outline: 2px solid magenta; }
+.btn.btn_flash { top: 620px; left: 10px; right: 10px; bottom: 10px; outline: 2px solid magenta; padding-top: 120px; color: #fff; }
+.btn.btn_keypad { top: 500px; left: 10px; right: 10px; height: 302px; outline: 2px solid magenta; }
+.btn.btn_bottomlayer { top: 10px; left: 10px; right: 10px; bottom: 10px; outline: 2px solid magenta; }
+.btn.btn_completepage { top: 400px; left: 10px; right: 10px; bottom: 10px; outline: 2px solid magenta; }
+.btn.btn_backtomain { top: 400px; left: 10px; right: 10px; bottom: 10px; outline: 2px solid magenta; }
+
+
+/******************************************************
+	ctrl
+******************************************************/
+.frame .ctrl { font-size: 14px; text-align: center; }
+
+.ctrl.ctrl_toplayer { top: 330px; left: 10px; right: 10px; height: 150px; outline: 2px solid blue; }
+.ctrl.ctrl_toplayer_close { top: 200px; left: 10px; right: 10px; bottom: 20px; outline: 2px solid blue; }
+
+
+/******************************************************
+	etc
+******************************************************/
+.count_box { position: absolute; top: 200px; left: 10px; right: 10px; height: 60px; outline: 2px solid lime; font-size: 14px; }
+.select_box { position: absolute; top: 400px; left: 10px; right: 10px; height: 60px; }
+.select_box .btn_select { width: 100%; height: 100%; outline: 2px solid magenta; } 
+

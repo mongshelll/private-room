@@ -1,0 +1,206 @@
+@charset "utf-8";
+
+/******************************************************
+	Reset Css - normalize 6.0
+******************************************************/
+html { line-height: 1.15; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+article, aside, footer, header, nav, section { display: block; }
+h1 { font-size: 2em; margin: 0.67em 0; }
+figcaption, figure, main { display: block; }
+figure { margin: 1em 40px; }
+hr { box-sizing: content-box; height: 0; overflow: visible; }
+pre { font-family: monospace, monospace; font-size: 1em; }
+a { background-color: transparent; -webkit-text-decoration-skip: objects; }
+abbr[title] { border-bottom: none; text-decoration: underline; text-decoration: underline dotted; }
+b, strong { font-weight: inherit; }
+b, strong { font-weight: bolder;}
+code, kbd, samp { font-family: monospace, monospace; font-size: 1em; }
+dfn { font-style: italic; }
+mark { background-color: #ff0; color: #000; }
+small { font-size: 80%; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sub { bottom: -0.25em; }
+sup { top: -0.5em; }
+audio, video { display: inline-block; }
+audio:not([controls]) { display: none; height: 0;}
+img { border-style: none; }
+svg:not(:root) { overflow: hidden; }
+button, input, optgroup, select, textarea { margin: 0; }
+button, input { overflow: visible;}
+button, select { text-transform: none; }
+button, html [type="button"], [type="reset"], [type="submit"] { -webkit-appearance: button; background: none; outline: none; border: none; }
+button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner { border-style: none; padding: 0; }
+button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focusring, [type="submit"]:-moz-focusring { outline: 1px dotted ButtonText; }
+legend { box-sizing: border-box; color: inherit; display: table; max-width: 100%; padding: 0; white-space: normal; }
+progress { display: inline-block;  vertical-align: baseline; }
+textarea { overflow: auto; }
+[type="checkbox"],
+[type="radio"] { box-sizing: border-box; padding: 0; }
+[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button { height: auto; }
+[type="search"] { -webkit-appearance: textfield; outline-offset: -2px; }
+[type="search"]::-webkit-search-cancel-button, [type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+::-webkit-file-upload-button { -webkit-appearance: button; font: inherit; }
+menu { display: block; }
+summary { display: list-item; }
+canvas { display: inline-block; }
+template { display: none; }
+[hidden] { display: none; }
+
+
+/******************************************************
+	Font Define
+******************************************************/
+/* 나눔스퀘어 - regular */
+@font-face {
+    font-family: 'NanumSquare';
+    src: url('../../z_eilab/font/nanumsquarer.eot');
+    src: url('../../z_eilab/font/nanumsquarer.eot?#iefix') format('embedded-opentype'),
+         url('../../z_eilab/font/nanumsquarer.woff') format('woff');
+    font-weight: normal;
+}
+
+/* 나눔스퀘어 - extrabold*/
+@font-face {
+    font-family: 'NanumSquare_extrabold';
+    src: url('../../z_eilab/font/nanumsquareeb.eot');
+    src: url('../../z_eilab/font/nanumsquareeb.eot?#iefix') format('embedded-opentype'),
+         url('../../z_eilab/font/nanumsquareeb.woff') format('woff');
+    font-weight: normal;
+}
+
+
+/******************************************************
+	Eilab Css
+******************************************************/
+html { -webkit-text-size-adjust: none; -webkit-tap-highlight-color: rgba(0,0,0,0); }
+html, body, button, span, a, input, select, textarea, div, th, td, h1, h2, h3, h4, h5, h6, p { margin: 0; padding: 0; font-family: 'NanumSquare', 'Dotum', '돋움', 'sans-serif', 'Apple Gothic'; font-size: 12px; color: #000000;  }
+ul, li { margin: 0; padding: 0; list-style: none; }
+dl, dd, dt { margin: 0; padding: 0; list-style: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+li img { vertical-align: top; }
+textarea { resize: none; }
+fieldset { border: 0; border-style: none; }
+fieldset legend { display: none; }
+caption { display: none; }
+a, a:active, a:link, a:visited, a:hover { color: #000000; text-decoration: none; }
+th, td { box-sizing: border-box; font-weight: normal; vertical-align: middle; }
+h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; }
+img { vertical-align: top; }
+.btn { cursor: pointer }
+
+
+/******************************************************
+	override
+******************************************************/
+
+
+/******************************************************
+	Layout Css
+******************************************************/
+body { width: 100%; height: 100%; overflow: hidden; }
+#layout { position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; background: #e7ebef url('img/bg.jpg') no-repeat left bottom fixed; background-size: 650px 500px; overflow: hidden; }
+
+/* PPT 모드 */
+#layout.ppt { background: none; }
+#layout.ppt .logo_project, 
+#layout.ppt .logo_wrap,
+#layout.ppt .backdevice { opacity: 0 }
+
+/* zoom 모드 */
+#layout.zoom { background: #000; }
+#layout.zoom .logo_project, 
+#layout.zoom .backdevice { opacity: 0 }
+#layout.zoom .logo_wrap { top: 55px; left: 30px; }
+#layout.zoom .logo_wrap .logo_white { opacity: 1; }
+#layout.zoom .logo_wrap .logo_navy { opacity: 0; }
+
+.logo_wrap { z-index: 10000; position: fixed; top: 20px; left: 20px; cursor: pointer; }
+.logo_wrap > img { position: absolute; top: 0; left: 0; }
+.logo_wrap .logo_white { opacity: 0; }
+
+.logo_project { position: fixed; top: 180px; left: 150px; cursor: pointer;}
+.logo_project .logo { padding: 0 0 0 3px;}
+.logo_project .big_title { padding: 20px 0 0 0; color: #000000; font-size: 40px; font-family: 'NanumSquare_extrabold';  }
+.logo_project .mid_title { padding: 0 0 0 1px; color: #000000; font-size: 30px; }
+
+.title_group { position: fixed; top: 350px; left: 150px; }
+.title_type { position: absolute; top: 0px; left: -1000px; width: 500px; color: #000; font-size: 70px; font-family: 'NanumSquare_extrabold'; line-height: 90%; transition: all 500ms }
+.title_type.active { left: 0px; }
+
+
+/******************************************************
+	List Btn Css
+******************************************************/
+.btn_wrap { position: fixed; z-index: 10000; bottom: 30px; left: 30px; width: 500px;  }
+.btn_wrap .go_area { position: relative; width: 45px; height: 45px; border-radius: 50%; background: rgba(112, 112, 112, .5); cursor: pointer}
+.btn_wrap .go_area:before { content: ''; display: block; position: absolute; top: 50%; left: 50%; margin-left: -12px; width: 24px; height: 1px; background: #ffffff; transform: rotate(90deg); transition: all 500ms }
+.btn_wrap .go_area:after { content: ''; display: block; position: absolute; top: 50%; left: 50%; margin-left: -12px; width: 24px; height: 1px; background: #ffffff; transform: rotate(0deg); transition: all 500ms }
+.btn_wrap.active .go_area:before { transform: rotate(180deg); }
+.btn_wrap.active .go_area:after { transform: rotate(-180deg); }
+
+.shotcut_wrap {  position: absolute; top: 0px; left: -800px; transition: all 500ms; }
+.shotcut_wrap .shotcut { float: left; position: relative; margin-right: 10px; min-width: 45px; height: 45px; background: rgba(112, 112, 112, 0.5); border-radius: 50%; text-align: center; line-height: 45px; font-size: 20px; color: #ffffff; cursor: pointer; }
+.shotcut_wrap .shotcut.active { background: rgba(215, 25, 32, 0.8); }
+
+/* btn 묶음타입 */
+.btn_wrap.type_sty01 { width: 1000px; }
+.btn_wrap.type_sty01 .shotcut_wrap { width: auto; left: -1200px; }
+.btn_wrap.type_sty01 .shotcut_wrap .shotcut_box { display: inline-block; height: 45px; line-height: 45px; margin-right: 10px; margin-bottom: 10px; background: rgba(112, 112, 112, 0.5); border-radius: 45px; }
+.btn_wrap.type_sty01 .shotcut_wrap .shotcut_box .type { display: inline-block; min-width: 45px; padding: 0 15px; box-sizing: border-box; text-align: center; font-size: 20px; color: #ffffff; vertical-align: top; cursor: pointer; }
+.btn_wrap.type_sty01 .shotcut_wrap .shotcut_box .list { display: inline-block; vertical-align: top; }
+.btn_wrap.type_sty01 .shotcut_wrap .shotcut_box .shotcut { min-width: 35px; margin: 0 5px; border-radius: 0; background: none; text-align: center; transition: 0.1s min-width; }
+.btn_wrap.type_sty01 .shotcut_wrap .shotcut_box .shotcut + .shotcut { position: relative; }
+.btn_wrap.type_sty01 .shotcut_wrap .shotcut_box .shotcut + .shotcut:before { content: ''; position: absolute; top: 14px; left: -5px; width: 1px; height: 16px; background: #fff; }
+.btn_wrap.type_sty01 .shotcut_wrap .shotcut_box.active { background: rgba(215, 25, 32, 0.8); }
+.btn_wrap.type_sty01 .shotcut_wrap .shotcut_box .list.active .shotcut { width: 0; min-width: 0; margin: 0; font-size: 0; transition: 0.1s margin; }
+.btn_wrap.type_sty01 .shotcut_wrap .shotcut_box .list.active .shotcut:before { content: none; }
+.btn_wrap.type_sty01 .shotcut_wrap .shotcut_box .shotcut.active { background: none; text-shadow: 0 0 2px rgba(255,255,255,0.6); font-weight: bold; }
+
+.function_wrap { position: absolute; bottom: -500px; left: 0px; transition: all 500ms;  }
+.function_wrap > .functioncut { position: relative; margin-bottom: 10px; min-width: 45px; height: 45px; background: rgba(112, 112, 112, 0.5); border-radius: 50%; text-align: center;  color: #ffffff; cursor: pointer; }
+.function_wrap > .functioncut[data-mode="single"]:before  { content: ''; display: block; position: absolute; top: 50%; left: 50%; margin-top: -11px; margin-left: -8px; width: 16px; height: 22px; border: solid 2px rgba(255, 255, 255, 0.5); border-radius: 2px; box-sizing: border-box;  }
+.function_wrap > .functioncut[data-mode="multi"]:before  { content: ''; display: block; position: absolute; top: 50%; left: 50%; margin-top: -13px; margin-left: -10px; width: 16px; height: 22px; border: solid 2px rgba(255, 255, 255, 0.5); border-radius: 2px; box-sizing: border-box;  }
+.function_wrap > .functioncut[data-mode="multi"]:after  { content: ''; display: block; position: absolute; top: 50%; left: 50%; margin-top: -9px; margin-left: -6px; width: 16px; height: 22px; border: solid 2px rgba(255, 255, 255, 0.5); border-radius: 2px; box-sizing: border-box;  }
+.function_wrap > .functioncut.active { background: rgba(215, 25, 32, 0.8); }
+
+.btn_wrap.active { }
+.btn_wrap.active .shotcut_wrap { display: block; left: 60px; }
+.btn_wrap.active .function_wrap {display: block; bottom: 50px; }
+
+
+/******************************************************
+	Device Css
+******************************************************/
+/* Single View Back Device */
+.backdevice { position: fixed; margin-left: 320px}
+.backdevice.iphone4 { top: calc(50% - 396px - 114px); left: calc(50% - 186px - 26px); width: 372.5px; height: 792px; padding: 114px 26px; background: url('img/device/iphone4/cover.png') no-repeat center center; background-size: 372.5px auto; }
+.backdevice.iphone6 { top: calc(50% - 433px - 96px); left: calc(50% - 206.5px - 18px); width: 413px; height: 866px; padding: 96px 18px; background: url('img/device/iphone6/cover.png') no-repeat center center; background-size: 413px auto; }
+.backdevice.iphonex { top: calc(50% - 439px - 33px); left: calc(50% - 253px); width: 441px; height: 878px; padding: 33px; background: url('img/device/iphonex/cover.png') no-repeat center center; background-size: 441px auto; }
+.backdevice.ipad { top: calc(50% - 361px - 31px); left: calc(50% - 512px - 72px); width: 1024px; height: 722px; padding: 31px 84px 31px 60px; background: url('img/device/ipad/cover.png') no-repeat center center; background-size: 1024px auto; }
+.backdevice.imac { top: calc(50% - 450px - 31px); left: calc(50% - 600px - 350px); width: 1200px; height: 992px; padding: 30px 30px 30px 30px; background: url('img/device/imac/cover.png') no-repeat center center; background-size: 1200px auto; }
+
+/* Multi View Device */
+.device { position: fixed; top: 0px; width: 100%; height:100%; }
+.device iframe { border: none; width: 100%; height: 100%; }
+.device .widget_wrap { display: none; position: absolute; top: 50px; right: 20px; }
+.device .widget_wrap .widget { position: relative; float: left; margin-left: 10px; min-width: 50px; height: 50px; background: rgba(112, 112, 112, 0.5); border-radius: 50%; text-align: center;  color: #ffffff; cursor: pointer; }
+.device .widget_wrap .widget.widget_delete:before { content: ''; display: block; position: absolute; top: 50%; left: 50%; margin-left: -12px; width: 24px; height: 1px; background: #ffffff; transform: rotate(135deg);  }
+.device .widget_wrap .widget.widget_delete:after { content: ''; display: block; position: absolute; top: 50%; left: 50%; margin-left: -12px; width: 24px; height: 1px; background: #ffffff; transform: rotate(45deg);  }
+
+/* Multi View Frame */
+.device.multi { top: 0px; margin-left: 320px; padding: 100px 0 0 0; transition: all 500ms}
+.device.multi.iphone4 { top: calc(50% - 396px - 100px); left: calc(50% - 186px); width: 372.5px; height: 792px; }
+.device.multi.iphone6 { top: calc(50% - 433px - 100px); left: calc(50% - 206.5px); width: 413px; height: 866px; }
+.device.multi.iphonex { top: calc(50% - 439px - 100px); left: calc(50% - 220.5px); width: 441px; height: 878px; }
+.device.multi.ipad { top: calc(50% - 361px - 100px); left: calc(50% - 512px); width: 1024px; height: 722px; }
+.device.multi .widget_wrap { display: block; }
+
+/* Multi View Position */
+.device.multi.device2_1 { left: -200px; }
+.device.multi.device3_1 { left: -310px; }
+.device.multi.device3_2 { left: 140px; }
+.device.multi.device3_3 { left: 590px; }
+
+/* Multi View Function */
+.device.dragging { transform: scale(1.02); opacity: 0.9; transition: all 0ms }
+.device.clicking { z-index: 2000; }

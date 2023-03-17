@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>proposal guide</title>
+
+    <link rel="stylesheet" href="asset/highlight.pack.js">
+    <link rel="stylesheet" href="asset/styles/vs2015.css">
+    <link rel="stylesheet" href="viewer/prototype/asset/common.css">
+
+    <script src="z_eilab/lib/jquery-1.12.4.min.js"></script>
+    <script src="asset/highlight.pack.js"></script>
+    <script src="viewer/prototype/asset/lib/plugin_jQuery.WSlot_custom.js"></script>
+    <script src="viewer/prototype/asset/common.js"></script>
+
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- 하이라이트.js용 함수 -->
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- 하이라이트.js용 함수 -->
+
+    <style>
+        /* 가이드 스타일 */
+        body { margin: 10px 10px 200px 10px; font-family: 'Noto Sans KR', sans-serif; }
+        button { font-family: 'Noto Sans KR', sans-serif; }
+        li { line-height: 1.7;}
+        h2, h3, h4 { font-weight: normal; }
+        b { color: rgb(216, 0, 0); }
+        u { background-color: lightgoldenrodyellow; }
+        h3 b { background-color: lightgoldenrodyellow; }
+        article { position: relative; display: inline-block; margin-top: 10px; width: 200px; height: 200px; border: 1px solid black; box-sizing: border-box; }
+        article:after { position: absolute; bottom: -1px; right: -1px; padding: 3px; border: 1px solid black; background-color: #fff; font-size: 12px; }
+        article.arti0:after { content: 'sample 1'}
+        article.arti1:after { content: 'sample 2'}
+        article.arti2:after { content: 'sample 3'}
+        article.arti3:after { content: 'sample 4'}
+        pre { margin: 10px 0; }
+        aside { display: inline-block; }
+        aside + aside { margin-left: 6px; }
+        section { border: 1px dashed black; box-sizing: border-box; padding: 30px; position: relative; }
+        section:after { content: '결과'; position: absolute; top: 0; right: 0; background-color: lightgreen; color: black; padding: 3px; }
+        section > .group { display: inline-block; vertical-align: top; }
+        section > .group + .group { margin-left: 6px; }
+        aside + div { margin-top: 10px; }
+        dd { margin: 0; }
+        script + ul { margin-top: 80px; }
+        pre + h2,
+        script + h2,
+        script + h3 { margin-top: 200px; padding-top: 190px; border-top: 1px solid lightgray; }
+
+        .html, .css, .javascript { position: relative; font-family: 'Source Code Pro', monospace; font-size: 14px; }
+        .html:after, .css:after, .javascript:after { position: absolute; top: 0; right: 0; background-color: lightgray; color: black; padding: 3px; }
+        .html:after { content: 'html'; }
+        .css:after { content: 'css'; }
+        .javascript:after { content: 'script'; }
+        .hljs-comment { font-style: normal; }
+    </style>
+</head>
+
+<body class="only_guide">
+<h2>마크업</h2>
+<ul>
+    <li>기존의 작업 방식과 동일</li>
+    <li>data-type : 분류용</li>
+    <li>data-name : 한글 ID</li>
+    <li>data-function : 해당 이름을 가진 클릭 이벤트로 연결 - btn 클래스가 있어야 작동</li>
+</ul>
+<pre><code class="html">
+&lt;!-- 버튼 --&gt;
+&lt;div class="btn" data-function="test01"&gt;&lt;/div&gt;
+
+&lt;!-- sample --&gt;
+&lt;div class="" data-type="test" data-name="약관"&gt;
+    콘텐츠 작성
+&lt;/div&gt;
+
+</code></pre>
+
+<pre><code class="javascript">
+function test01(){
+    $('[data-name="약관"]').addClass('blueviolet')
+}
+
+</code></pre>
+<!--**********************************************
+                   html 샘플 시작
+********************************************** -->
+<!-- css 시작 -->
+<style>
+    .blueviolet { background-color: blueviolet; }
+</style>
+<!-- css 끝 -->
+
+<!-- html 시작 -->
+<section>
+    <div>
+        <button class="btn" data-function="test01">테스트</button>
+    </div>
+    <aside>
+        <article>
+            <div data-type="test" data-name="약관">콘텐츠 작성</div>
+        </article>
+    </aside>
+</section>
+<!-- html 끝 -->
+
+<!-- script 시작 -->
+<script>
+    var transitionEndEventName = getTransitionEndEventName();
+    btnEvent();
+    function test01(){
+        $('[data-name="약관"]').addClass('blueviolet')
+    }
+</script>
+<!-- script 끝 -->
+<!--**********************************************
+                   html 샘플 끝
+********************************************** -->
+
+
+
+
+
+<h2>메소드</h2>
+<!--////////////////////////////////////////////
+////      ////////  ////////////////        ////
+//  //////  //      //////////////  ////////  //
+//  //////  //////  //////////////  ////////////
+//  //////  //////  ////////////////    ////////
+//  //////  //////  ////////////////////    ////
+//  //////  //////  ////////////////////////  //
+//  //////  //////  //////////////  ////////  //
+////      ////////  ////////////////        ////
+/////////////////////////////////////////////-->
+<h3>selector<b>.ebShow();</b></h3>
+<ul>
+    <li>특정 요소를 보여줄 때 사용하는 메소드</li>
+    <li>셀렉터에 .show라는 클래스가 없어야만 실행 가능</li>
+    <li>
+        <dl>
+            <dt>개요</dt>
+            <dd>
+                <ul>
+                    <li>메소드 실행 시 셀렉터에 <b>.show</b> 클래스가 자동으로 붙음</li>
+                    <li>애니메이션 관련된 기본 css가 없으므로, <u>애니메이션이 필요할 경우 .show 클래스를 이용한 transition을 직접 입력해야 함</u></li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+</ul>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 시작
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<pre><code class="html">
+&lt;!-- 버튼 --&gt;
+&lt;button class="btn btn01" data-function="btn01"&gt;show테스트02, show테스트04 ebShow() 실행&lt;/button&gt;
+
+&lt;!-- sample 1 --&gt;
+&lt;div data-type="show-test" data-name="show테스트01"&gt;
+    show테스트01
+&lt;/div&gt;
+&lt;div data-type="show-test" data-name="show테스트02"&gt;
+    show테스트02
+&lt;/div&gt;
+
+&lt;!-- sample 2 --&gt;
+&lt;div data-type="show-test" data-name="show테스트03"&gt;
+    show테스트03
+&lt;/div&gt;
+&lt;div data-type="show-test" data-name="show테스트04"&gt;
+    show테스트04
+&lt;/div&gt;
+    
+</code></pre>
+
+<pre><code class="css">
+[data-name="show테스트01"],
+[data-name="show테스트03"] { width: 100%; height: 100%; background-color: aqua; }
+[data-name="show테스트02"],
+[data-name="show테스트04"] { opacity: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: slateblue; }
+
+/* .show 클래스가 붙을 때 opacity 변경 */
+[data-name="show테스트02"].show,
+[data-name="show테스트04"].show { opacity: 1; }
+
+/* show테스트04에 transition 추가 */
+[data-name="show테스트04"] { transition: all 1s ease; }
+    
+</code></pre>
+
+<pre><code class="javascript">
+function btn01(){
+    $('[data-name="show테스트02"]').ebShow();
+    $('[data-name="show테스트04"]').ebShow();
+}
+    
+</code></pre>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 끝
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+<!--**********************************************
+                   html 샘플 시작
+********************************************** -->
+<!-- css 시작 -->
+<style>
+    [data-name="show테스트01"],
+    [data-name="show테스트03"] { width: 100%; height: 100%; background-color: aqua; }
+    [data-name="show테스트02"],
+    [data-name="show테스트04"] { opacity: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: slateblue; }
+
+    /* .show 클래스가 붙을 때 opacity 변경 */
+    [data-name="show테스트02"].show,
+    [data-name="show테스트04"].show { opacity: 1; }
+
+    /* show테스트04에 transition 추가 */
+    [data-name="show테스트04"] { transition: all 1s ease; }
+</style>
+<!-- css 끝 -->
+
+<!-- html 시작 -->
+<section>
+    <div>
+        <button class="btn btn01" data-function="btn01">show테스트02, show테스트04 ebShow() 실행</button>
+    </div>
+    <aside>
+        <article>
+            <div data-type="show-test" data-name="show테스트01">show테스트01</div>
+            <div data-type="show-test" data-name="show테스트02">show테스트02</div>
+        </article>
+    </aside>
+    <aside>
+        <article>
+            <div data-type="show-test" data-name="show테스트03">show테스트03</div>
+            <div data-type="show-test" data-name="show테스트04">show테스트04</div>
+        </article>
+    </aside>
+</section>
+<!-- html 끝 -->
+
+<!-- script 시작 -->
+<script>
+    var transitionEndEventName = getTransitionEndEventName();
+    btnEvent();
+    function btn01(){
+        $('.btn01').attr('disabled', true);
+        $('[data-name="show테스트02"]').ebShow();
+        $('[data-name="show테스트04"]').ebShow();
+    }
+</script>
+<!-- script 끝 -->
+<!--**********************************************
+                   html 샘플 끝
+********************************************** -->
+
+<ul>
+    <li>
+        <dl>
+            <dt><b>.show_animating</b></dt>
+            <dd>
+                <ul>
+                    <li>transition이 발동되는 동안만 붙는 클래스</li>
+                    <li>transition이 종료되면 바로 해당 클래스 제거됨</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+</ul>
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 시작
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<pre><code class="html">
+&lt;!-- 버튼 --&gt;
+&lt;button class="btn btn02" data-function="btn02"&gt;show테스트06 show&lt;/button&gt;
+&lt;button class="btn btn03" data-function="btn03"&gt;show테스트06 active&lt;/button&gt;
+
+&lt;!-- sample 1 --&gt;
+&lt;div data-type="show-test" data-name="show테스트05"&gt;
+    show테스트05
+&lt;/div&gt;
+&lt;div data-type="show-test" data-name="show테스트06"&gt;
+    show테스트06
+&lt;/div&gt;
+    
+</code></pre>
+
+<pre><code class="css">
+[data-name="show테스트05"] { width: 100%; height: 100%; background-color: aqua; }
+[data-name="show테스트06"] { opacity: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: slateblue; }
+
+/* .show 클래스가 붙을 때 opacity 변경 */
+[data-name="show테스트06"].show { opacity: 1; }
+
+/* .show_animating이 붙을 때만 transition */
+[data-name="show테스트06"].show_animating { transition: all 1s ease; }
+
+/* .active 붙을 시 배경색상 변경 */
+[data-name="show테스트06"].active { background-color: mediumaquamarine; }
+    
+</code></pre>
+
+<pre><code class="javascript">
+function btn02(){
+    $('[data-name="show테스트06"]').ebShow();
+};
+function btn03(){
+    $('[data-name="show테스트06"]').addClass('active');
+}
+    
+</code></pre>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 끝
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+<!--**********************************************
+                   html 샘플 시작
+********************************************** -->
+<!-- css 시작 -->
+<style>
+    [data-name="show테스트05"] { width: 100%; height: 100%; background-color: aqua; }
+    [data-name="show테스트06"] { opacity: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: slateblue; }
+
+    /* .show 클래스가 붙을 때 opacity 변경 */
+    [data-name="show테스트06"].show { opacity: 1; }
+
+    /* .show_animating이 붙을 때만 transition */
+    [data-name="show테스트06"].show_animating { transition: all 1s ease; }
+
+    /* .active 붙을 시 배경색상 변경 */
+    [data-name="show테스트06"].active { background-color: mediumaquamarine; }
+</style>
+<!-- css 끝 -->
+
+<!-- html 시작 -->
+<section>
+    <div>
+        <button class="btn btn02" data-function="btn02">show테스트06 show</button>
+        <button class="btn btn03" data-function="btn03" disabled>show테스트06 active</button>
+    </div>
+    <aside>
+        <article>
+            <div data-type="show-test" data-name="show테스트05">show테스트05</div>
+            <div data-type="show-test" data-name="show테스트06">show테스트06</div>
+        </article>
+    </aside>
+    <div>
+        <button class="btn reset" data-function="reset05">초기화</button>
+    </div>
+</section>
+<!-- html 끝 -->
+
+<!-- script 시작 -->
+<script>
+    var transitionEndEventName = getTransitionEndEventName();
+    btnEvent();
+    function btn02(){
+        $('[data-name="show테스트06"]').ebShow();
+        setTimeout(function(){
+            $('.btn02').attr('disabled', true);
+            $('.btn03').attr('disabled', false);
+        },1000)
+    };
+    function btn03(){
+        $('[data-name="show테스트06"]').addClass('active');
+    }
+
+    // 초기화
+    function reset05(){
+        $('[data-name="show테스트06"]').ebHide();
+        $('[data-name="show테스트06"]').removeClass('active');
+        $('.btn02').attr('disabled', false);
+        $('.btn03').attr('disabled', true);
+    }
+</script>
+<!-- script 끝 -->
+<!--**********************************************
+                   html 샘플 끝
+********************************************** -->
+
+<ul>
+    <li>
+        <dl>
+            <dt><b>onBeforeShow</b></dt>
+            <dd>
+                <ul>
+                    <li>show가 되기 전에 실행할 함수</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+    <li>
+        <dl>
+            <dt><b>onShow</b></dt>
+            <dd>
+                <ul>
+                    <li>show가 되는 동안 실행할 함수</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+    <li>
+        <dl>
+            <dt><b>onAfterShow</b></dt>
+            <dd>
+                <ul>
+                    <li>show가 끝나면(=.show_animating 클래스가 제거되면) 실행할 함수</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+    
+</ul>
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 시작
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<pre><code class="html">
+&lt;!-- 버튼 --&gt;
+&lt;button class="btn btn04" data-function="btn04"&gt;show테스트07 show&lt;/button&gt;
+
+&lt;!-- sample 1 --&gt;
+&lt;div data-type="show-test" data-name="show테스트07"&gt;
+    show테스트05
+&lt;/div&gt;
+    
+</code></pre>
+
+<pre><code class="css">
+[data-name="show테스트07"] { width: 100%; height: 100%; background-color: aqua; border: 10px solid red; box-sizing: border-box; }
+[data-name="show테스트07"].show_animating { transition: all 1s ease; }
+    
+</code></pre>
+
+<pre><code class="javascript">
+function btn04(){
+    $('[data-name="show테스트07"]').ebShow({
+        onBeforeShow: function(){
+            $('[data-name="show테스트07"]').css('border', 'none');
+        },
+        onShow: function(){
+            $('[data-name="show테스트07"]').css('background', 'slateblue');
+        },
+        onAfterShow: function(){
+            $('[data-name="show테스트07"]').css('border', '20px solid yellow');
+        }
+    })
+}
+    
+</code></pre>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 끝
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+<!--**********************************************
+                   html 샘플 시작
+********************************************** -->
+<!-- css 시작 -->
+<style>
+    [data-name="show테스트07"] { width: 100%; height: 100%; background-color: aqua; border: 10px solid red; box-sizing: border-box; }
+    [data-name="show테스트07"].show_animating { transition: all 1s ease; }
+</style>
+<!-- css 끝 -->
+
+<!-- html 시작 -->
+<section>
+    <div>
+        <button class="btn btn04" data-function="btn04">show테스트07 show</button>
+    </div>
+    <aside>
+        <article>
+            <div data-type="show-test" data-name="show테스트07">show테스트07</div>
+        </article>
+    </aside>
+    <div>
+        <button class="btn reset" data-function="reset07">초기화</button>
+    </div>
+</section>
+<!-- html 끝 -->
+
+<!-- script 시작 -->
+<script>
+    var transitionEndEventName = getTransitionEndEventName();
+    btnEvent();
+    function btn04(){
+        $('[data-name="show테스트07"]').ebShow({
+            onBeforeShow: function(){
+                $('[data-name="show테스트07"]').css('border', 'none');
+            },
+            onShow: function(){
+                $('[data-name="show테스트07"]').css('background', 'slateblue');
+            },
+            onAfterShow: function(){
+                $('[data-name="show테스트07"]').css('border', '20px solid yellow');
+                $('.btn04').attr('disabled', true);
+            }
+        })
+    }
+
+    // 초기화
+    function reset07(){
+        $('.btn04').attr('disabled', false);
+        $('[data-name="show테스트07"]').ebHide();
+        $('[data-name="show테스트07"]').attr('style', '')
+    }
+</script>
+<!-- script 끝 -->
+<!--**********************************************
+                   html 샘플 끝
+********************************************** -->
+<!--//////////////////////////////////////////
+////      ////////  //////////////          //
+//  //////  //      //////////////  //////////
+//  //////  //////  //////////////  //////////
+//  //////  //////  //////////////          //
+//  //////  //////  //////////////  //////////
+//  //////  //////  //////////////  //////////
+//  //////  //////  //////////////  //////////
+////      ////////  //////////////          //
+///////////////////////////////////////////-->
+
+
+
+
+
+<!--////////////////////////////////////////////
+////      //////      //////////////        ////
+//  //////  //  //////  //////////  ////////  //
+//  //////  //  //////  //////////  ////////////
+//  //////  ////////  //////////////    ////////
+//  //////  //////  ////////////////////    ////
+//  //////  ////  //////////////////////////  //
+//  //////  //  //////////////////  ////////  //
+////      ////          ////////////        ////
+/////////////////////////////////////////////-->
+<h3>selector<b>.ebHide();</b></h3>
+<ul>
+    <li>특정 요소를 숨길 때 사용하는 메소드</li>
+    <li>셀렉터에 .show라는 클래스가 있어야만 실행 가능</li>
+    <li>
+        <dl>
+            <dt>개요</dt>
+            <dd>
+                <ul>
+                    <li>메소드 실행 시 셀렉터에 <b>.show 클래스가 자동으로 제거</b></li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+</ul>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 시작
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<pre><code class="html">
+&lt;div data-type="hide-test" data-name="hide테스트01"&gt;
+    hide테스트01
+&lt;/div&gt;
+&lt;div class="show" data-type="hide-test" data-name="hide테스트02"&gt;
+    hide테스트02
+&lt;/div&gt;
+
+&lt;div class="show" data-type="hide-test" data-name="hide테스트03"&gt;
+    hide테스트03
+&lt;/div&gt;
+&lt;div data-type="hide-test" data-name="hide테스트04"&gt;
+    hide테스트04
+&lt;/div&gt;
+
+&lt;div class="show" data-type="show-hide" data-name="show-hide테스트01"&gt;
+    show-hide테스트01
+&lt;/div&gt;
+&lt;div data-type="show-hide" data-name="show-hide테스트02"&gt;
+    show-hide테스트02
+&lt;/div&gt;
+    
+</code></pre>
+
+<pre><code class="css">
+[data-name="hide테스트01"],
+[data-name="hide테스트03"],
+[data-name="show-hide테스트01"] { width: 100%; height: 100%; background-color: aqua; }
+[data-name="hide테스트02"],
+[data-name="hide테스트04"],
+[data-name="show-hide테스트02"] { opacity: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: slateblue; }
+
+/* .show 클래스가 붙을 때 opacity 변경 */
+[data-name="hide테스트02"].show,
+[data-name="hide테스트04"].show,
+[data-name="show-hide테스트02"].show { opacity: 1; }
+
+/* hide테스트04에 transition 추가 */
+[data-name="hide테스트04"] { transition: all 1s ease; }
+    
+</code></pre>
+
+<pre><code class="javascript">
+$('.btn05').on('click', function(){
+    $('[data-name="hide테스트02"]').ebHide();
+    $('[data-name="hide테스트04"]').ebHide();
+})
+
+$('.btn06').on('click', function(){
+    $('[data-name="show-hide테스트02"]').ebShow();
+});
+$('.btn07').on('click', function(){
+    $('[data-name="show-hide테스트02"]').ebHide();
+});
+    
+</code></pre>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 끝
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--**********************************************
+                   html 샘플 시작
+********************************************** -->
+<!-- css 시작 -->
+<style>
+    [data-name="hide테스트01"],
+    [data-name="hide테스트03"],
+    [data-name="show-hide테스트01"] { width: 100%; height: 100%; background-color: aqua; }
+    [data-name="hide테스트02"],
+    [data-name="hide테스트04"],
+    [data-name="show-hide테스트02"] { opacity: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: slateblue; }
+
+    /* .show 클래스가 붙을 때 opacity 변경 */
+    [data-name="hide테스트02"].show,
+    [data-name="hide테스트04"].show,
+    [data-name="show-hide테스트02"].show { opacity: 1; }
+
+    /* hide테스트04에 transition 추가 */
+    [data-name="hide테스트04"] { transition: all 1s ease; }
+</style>
+<!-- css 끝 -->
+
+<!-- html 시작 -->
+<section>
+    <div class="group">
+        <div>
+            <button class="btn btn05" data-function="btn05">hide테스트02, hide테스트04 ebHide() 실행</button>
+        </div>
+        <aside>
+            <article>
+                <div data-type="hide-test" data-name="hide테스트01">hide테스트01</div>
+                <div class="show" data-type="hide-test" data-name="hide테스트02">hide테스트02</div>
+            </article>
+        </aside>
+        <aside>
+            <article>
+                <div data-type="hide-test" data-name="hide테스트03">hide테스트03</div>
+                <div class="show" data-type="hide-test" data-name="hide테스트04">hide테스트04</div>
+            </article>
+        </aside>
+    </div>
+    <div class="group">
+        <div>
+            <button class="btn btn06" data-function="btn06">show-hide테스트02 ebShow() 실행</button>
+            <button class="btn btn07" data-function="btn07" disabled>show-hide테스트02 ebHide() 실행</button>
+        </div>
+        <aside>
+            <article>
+                <div data-type="show-hide" data-name="show-hide테스트01">show-hide테스트01</div>
+                <div data-type="show-hide" data-name="show-hide테스트02">show-hide테스트02</div>
+            </article>
+        </aside>
+    </div>
+    <div style="margin-top: 10px;">
+        <button class="btn reset" data-function="reset03">초기화</button>
+    </div>
+</section>
+<!-- html 끝 -->
+
+<!-- script 시작 -->
+<script>
+    var transitionEndEventName = getTransitionEndEventName();
+    btnEvent();
+    function btn05(){
+        $('[data-name="hide테스트02"]').ebHide();
+        $('[data-name="hide테스트04"]').ebHide();
+        $('.btn05').attr('disabled', true);
+    }
+    function btn06(){
+        $('[data-name="show-hide테스트02"]').ebShow();
+        $('.btn07').attr('disabled', false);
+        $('.btn06').attr('disabled', true);
+    }
+    function btn07(){
+        $('[data-name="show-hide테스트02"]').ebHide();
+        $('.btn07').attr('disabled', true);
+        $('.btn06').attr('disabled', false);
+    }
+    
+    // 초기화
+    function reset03(){
+        $('.btn05').attr('disabled', false);
+        $('[data-name="hide테스트02"]').addClass('show');
+        $('[data-name="hide테스트04"]').addClass('show');
+        $('[data-name="hide테스트04"]').css('transition', 'none');
+        setTimeout(function(){
+            $('[data-name="hide테스트04"]').attr('style', '');
+        },50)
+    }
+</script>
+<!-- script 끝 -->
+<!--**********************************************
+                   html 샘플 끝
+********************************************** -->
+<ul>
+    <li>
+        <dl>
+            <dt><b>.hide_animating</b></dt>
+            <dd>
+                <ul>
+                    <li>transition이 발동되는 동안만 붙는 클래스</li>
+                    <li>transition이 종료되면 바로 해당 클래스 제거됨</li>
+                    <li>.show_animating과는 다른 클래스인 점 유의할 것</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+</ul>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 시작
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<pre><code class="html">
+&lt;!-- 실행 버튼 --&gt;
+&lt;button class="btn btn08" data-function="btn08"&gt;hide테스트06 / hide테스트08 ebShow()&lt;/button&gt;
+&lt;button class="btn btn09" data-function="btn09"&gt;hide테스트06 / hide테스트08 ebHide()&lt;/button&gt;
+
+&lt;!-- sample 1 --&gt;
+&lt;div data-type="hide-test" data-name="hide테스트05"&gt;
+    hide테스트05
+&lt;/div&gt;
+&lt;div data-type="hide-test" data-name="hide테스트06"&gt;
+    hide테스트06
+&lt;/div&gt;
+
+&lt;!-- sample 2 --&gt;
+&lt;div data-type="hide-test" data-name="hide테스트07"&gt;
+    hide테스트07
+&lt;/div&gt;
+&lt;div data-type="hide-test" data-name="hide테스트08"&gt;
+    hide테스트08
+&lt;/div&gt;
+    
+</code></pre>
+
+<pre><code class="css">
+[data-name="hide테스트05"],
+[data-name="hide테스트07"] { width: 100%; height: 100%; background-color: aqua; }
+[data-name="hide테스트06"],
+[data-name="hide테스트08"] { opacity: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: slateblue; }
+
+/* .show 클래스가 붙을 때 opacity 변경 */
+[data-name="hide테스트06"].show,
+[data-name="hide테스트08"].show { opacity: 1; }
+
+/* .hide_animating이 붙을 때만 transition */
+[data-name="hide테스트08"].hide_animating { transition: all 1s ease; }
+    
+</code></pre>
+
+<pre><code class="javascript">
+function btn08(){
+    $('[data-name="hide테스트06"]').ebShow();
+    $('[data-name="hide테스트08"]').ebShow();
+}
+function btn09(){
+    $('[data-name="hide테스트06"]').ebHide();
+    $('[data-name="hide테스트08"]').ebHide();
+}
+    
+</code></pre>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 끝
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--**********************************************
+                   html 샘플 시작
+********************************************** -->
+<!-- css 시작 -->
+<style>
+    [data-name="hide테스트05"],
+    [data-name="hide테스트07"] { width: 100%; height: 100%; background-color: aqua; }
+    [data-name="hide테스트06"],
+    [data-name="hide테스트08"] { opacity: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: slateblue; }
+
+    /* .show 클래스가 붙을 때 opacity 변경 */
+    [data-name="hide테스트06"].show,
+    [data-name="hide테스트08"].show { opacity: 1; }
+
+    /* .show_animating이 붙을 때만 transition */
+    [data-name="hide테스트08"].hide_animating { transition: all 1s ease; }
+</style>
+<!-- css 끝 -->
+
+<!-- html 시작 -->
+<section>
+    <div>
+        <button class="btn btn08" data-function="btn08">hide테스트06 / hide테스트08 ebShow()</button>
+        <button class="btn btn09" data-function="btn09" disabled>hide테스트06 / hide테스트08 ebHide()</button>
+    </div>
+    <div class="group">
+        <aside>
+            <article>
+                <div data-type="hide-test" data-name="hide테스트05">hide테스트05</div>
+                <div data-type="hide-test" data-name="hide테스트06">hide테스트06</div>
+            </article>
+        </aside>
+    </div>
+    <div class="group">
+        <aside>
+            <article>
+                <div data-type="hide-test" data-name="hide테스트07">hide테스트07</div>
+                <div data-type="hide-test" data-name="hide테스트08">hide테스트08</div>
+            </article>
+        </aside>
+    </div>
+</section>
+<!-- html 끝 -->
+
+<!-- script 시작 -->
+<script>
+    var transitionEndEventName = getTransitionEndEventName();
+    btnEvent();
+    function btn08(){
+        $('[data-name="hide테스트06"]').ebShow();
+        $('[data-name="hide테스트08"]').ebShow();
+        $('.btn08').attr('disabled', true);
+        $('.btn09').attr('disabled', false);
+    }
+    function btn09(){
+        $('[data-name="hide테스트06"]').ebHide();
+        $('[data-name="hide테스트08"]').ebHide();
+        setTimeout(function(){
+            $('.btn08').attr('disabled', false);
+            $('.btn09').attr('disabled', true);
+        },1000)
+    }
+</script>
+<!-- script 끝 -->
+<!--**********************************************
+                   html 샘플 끝
+********************************************** -->
+<ul>
+    <li>
+        <dl>
+            <dt><b>onBeforeHide</b></dt>
+            <dd>
+                <ul>
+                    <li>hide가 되기 전에 실행할 함수</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+    <li>
+        <dl>
+            <dt><b>onHide</b></dt>
+            <dd>
+                <ul>
+                    <li>hide가 되는 동안 실행할 함수</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+    <li>
+        <dl>
+            <dt><b>onAfterHide</b></dt>
+            <dd>
+                <ul>
+                    <li>Hide가 끝나면(=.hide_animating 클래스가 제거되면) 실행할 함수</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+    
+</ul>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 시작
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<pre><code class="html">
+&lt;!-- 버튼 --&gt;
+&lt;button class="btn btn10" data-function="btn10"&gt;hide테스트09 show&lt;/button&gt;
+&lt;button class="btn btn11" data-function="btn11"&gt;hide테스트10 hide&lt;/button&gt;
+
+&lt;!-- sample 1 --&gt;
+&lt;div data-type="hide-test" data-name="hide테스트09"&gt;
+    hide테스트09
+&lt;/div&gt;
+&lt;div data-type="hide-test" data-name="hide테스트10"&gt;
+    hide테스트10
+&lt;/div&gt;
+
+</code></pre>
+
+<pre><code class="css">
+[data-name="hide테스트09"] { width: 100%; height: 100%; background-color: aqua; }
+[data-name="hide테스트10"] { opacity: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: burlywood; border: 50px solid red; box-sizing: border-box; }
+
+[data-name="hide테스트10"].show { opacity: 1; }
+[data-name="hide테스트10"].hide_animating { transition: all 5s ease; }
+    
+</code></pre>
+
+<pre><code class="javascript">
+function btn10(){
+    $('[data-name="hide테스트10"]').ebShow();
+}
+function btn11(){
+    $('[data-name="hide테스트10"]').ebHide({
+        onBeforeHide: function(){
+            $('[data-name="hide테스트10"]').css('border', 'none');
+        },
+        onHide: function(){
+            $('[data-name="hide테스트10"]').css('background', 'slateblue');
+        },
+        onAfterHide: function(){
+            $('[data-name="hide테스트09"]').css('background', 'yellow');
+        }
+    })
+}
+    
+</code></pre>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 끝
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--**********************************************
+                   html 샘플 시작
+********************************************** -->
+<!-- css 시작 -->
+<style>
+    [data-name="hide테스트09"] { width: 100%; height: 100%; background-color: aqua; }
+    [data-name="hide테스트10"] { opacity: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: burlywood; border: 50px solid red; box-sizing: border-box; }
+    
+    [data-name="hide테스트10"].show { opacity: 1; }
+    [data-name="hide테스트10"].hide_animating { transition: all 5s ease; }
+</style>
+<!-- css 끝 -->
+
+<!-- html 시작 -->
+<section>
+    <div>
+        <button class="btn btn10" data-function="btn10">hide테스트10 show</button>
+        <button class="btn btn11" data-function="btn11" disabled>hide테스트10 hide</button>
+    </div>
+    <aside>
+        <article>
+            <div data-type="hide-test" data-name="hide테스트09">hide테스트09</div>
+            <div data-type="hide-test" data-name="hide테스트10">hide테스트10</div>
+        </article>
+    </aside>
+    <div>
+        <button class="btn reset" data-function="reset10">초기화</button>
+    </div>
+</section>
+<!-- html 끝 -->
+
+<!-- script 시작 -->
+<script>
+    var transitionEndEventName = getTransitionEndEventName();
+    btnEvent();
+    function btn10(){
+        $('[data-name="hide테스트10"]').ebShow();
+        $('.btn10').attr('disabled', true);
+        $('.btn11').attr('disabled', false);
+    }
+    function btn11(){
+        $('[data-name="hide테스트10"]').ebHide({
+            onBeforeHide: function(){
+                $('[data-name="hide테스트10"]').css('border', 'none');
+            },
+            onHide: function(){
+                $('[data-name="hide테스트10"]').css('background', 'slateblue');
+            },
+            onAfterHide: function(){
+                $('[data-name="hide테스트09"]').css('background', 'yellow');
+                $('.btn10').attr('disabled', true);
+                $('.btn11').attr('disabled', true);
+            }
+        })
+    }
+
+    // 초기화
+    function reset10(){
+        $('.btn10').attr('disabled', false);
+        $('[data-name="hide테스트09"]').attr('style', '');
+        $('[data-name="hide테스트10"]').attr('style', '');
+        $('[data-name="hide테스트10"]').ebHide();
+    }
+</script>
+<!-- script 끝 -->
+<!--**********************************************
+                   html 샘플 끝
+********************************************** -->
+<ul>
+    <li>
+        selector.ebHide(<b>{removeChildrenClass: 'classname1 classname2 ...'}</b>)
+    </li>
+    <li>
+        <dl>
+            <dt>개요</dt>
+            <dd>
+                <ul>
+                    hide 시 셀렉터의 자식들의 클래스를 제거해 줌
+                </ul>
+            </dd>
+        </dl>
+    </li>
+    
+</ul>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 시작
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<pre><code class="html">
+&lt;!-- 버튼 --&gt;
+&lt;button class="btn btn12" data-function="btn12"&gt;hide테스트11 show&lt;/button&gt;
+&lt;button class="btn btn13" data-function="btn13"&gt;hide테스트11 자식 클래스 붙이기&lt;/button&gt;
+&lt;button class="btn btn14" data-function="btn14"&gt;hide테스트11 hide&lt;/button&gt;
+
+&lt;!-- sample 1 --&gt;
+&lt;div data-type="hide-test" data-name="hide테스트11"&gt;
+    &lt;div class="row_box row01"&gt;
+        rowbox
+    &lt;/div&gt;
+
+    &lt;div class="row_box row02"&gt;
+        rowbox&lt;br&gt;
+        &lt;div class="col_box col01"&gt;
+            colbox 1
+        &lt;/div&gt;
+        &lt;div class="col_box col02"&gt;
+            colbox 2
+        &lt;/div&gt;
+        &lt;div class="col_box col03"&gt;
+            colbox 3
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+</code></pre>
+
+<pre><code class="css">
+[data-name="hide테스트11"] { opacity: 0; width: 100%; height: 100%; padding: 10px; box-sizing: border-box; background-color: floralwhite; }
+[data-name="hide테스트11"].show { opacity: 1; }
+.row_box, .col_box { border: 1px solid gray; font-size: 12px; padding: 10px; box-sizing: border-box; }
+
+.orange { background-color: orange; }
+.skyblue { background-color: skyblue; }
+.cyan { background-color: cyan; }
+.yellowgreen { background-color: yellowgreen; }
+.bold { font-weight: bold; }
+    
+</code></pre>
+
+<pre><code class="javascript">
+function btn12(){
+    $('[data-name="hide테스트11"]').ebShow();
+}
+function btn13(){
+    $('.row01').addClass('orange');
+    $('.row02').addClass('cyan');
+    $('.col01').addClass('skyblue');
+    $('.col02').addClass('yellowgreen bold');
+    $('.col03').addClass('orange bold');
+}
+function btn14(){
+    $('[data-name="hide테스트11"]').ebHide({removeChildrenClass: 'orange skyblue bold yellowgreen'});
+}
+    
+</code></pre>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 끝
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--**********************************************
+                   html 샘플 시작
+********************************************** -->
+<!-- css 시작 -->
+<style>
+    [data-name="hide테스트11"] { opacity: 0; width: 100%; height: 100%; padding: 10px; box-sizing: border-box; background-color: floralwhite; }
+    [data-name="hide테스트11"].show { opacity: 1; }
+    .row_box, .col_box { border: 1px solid gray; font-size: 12px; padding: 10px; box-sizing: border-box; }
+
+    .row_box + .row_box { margin-top: 10px; }
+    .col_box { display: inline-block; }
+
+    .orange { background-color: orange; }
+    .skyblue { background-color: skyblue; }
+    .cyan { background-color: cyan; }
+    .yellowgreen { background-color: yellowgreen; }
+    .bold { font-weight: bold; }
+</style>
+<!-- css 끝 -->
+
+<!-- html 시작 -->
+<section>
+    <div>
+        <button class="btn btn12" data-function="btn12">hide테스트11 show</button>
+        <button class="btn btn13" data-function="btn13" disabled>hide테스트11 자식 클래스 붙이기</button>
+        <button class="btn btn14" data-function="btn14" disabled>hide테스트11 hide</button>
+    </div>
+    <aside>
+        <article>
+            <div data-type="hide-test" data-name="hide테스트11">
+                <div class="row_box row01">
+                    rowbox
+                </div>
+
+                <div class="row_box row02">
+                    rowbox<br>
+                    <div class="col_box col01">
+                        colbox 1
+                    </div>
+                    <div class="col_box col02">
+                        colbox 2
+                    </div>
+                    <div class="col_box col03">
+                        colbox 3
+                    </div>
+                </div>
+            </div>
+        </article>
+    </aside>
+    <div>
+        <button class="btn reset" data-function="reset12">초기화</button>
+    </div>
+</section>
+<!-- html 끝 -->
+
+<!-- script 시작 -->
+<script>
+    var transitionEndEventName = getTransitionEndEventName();
+    btnEvent();
+    function btn12(){
+        $('[data-name="hide테스트11"]').ebShow();
+
+        $('.btn12').attr('disabled', true);
+        $('.btn13').attr('disabled', false);
+        $('.btn14').attr('disabled', true);
+    }
+    function btn13(){
+        $('.row01').addClass('orange');
+        $('.row02').addClass('cyan');
+        $('.col01').addClass('skyblue');
+        $('.col02').addClass('yellowgreen bold');
+        $('.col03').addClass('orange bold');
+
+        $('.btn12').attr('disabled', true);
+        $('.btn13').attr('disabled', true);
+        $('.btn14').attr('disabled', false);
+    }
+    function btn14(){
+        $('[data-name="hide테스트11"]').ebHide({removeChildrenClass: 'orange skyblue bold yellowgreen'});
+
+        $('.btn12').attr('disabled', false);
+        $('.btn13').attr('disabled', true);
+        $('.btn14').attr('disabled', true);
+    }
+
+    // 초기화
+    function reset12(){
+        $('.btn12').attr('disabled', false);
+        $('.btn13').attr('disabled', true);
+        $('.btn14').attr('disabled', true);
+        $('[data-name="hide테스트11"]').ebHide({removeChildrenClass: 'orange skyblue bold yellowgreen cyan'});
+    }
+</script>
+<!-- script 끝 -->
+<!--**********************************************
+                   html 샘플 끝
+********************************************** -->
+<!--//////////////////////////////////////////
+////      //////      ////////////          //
+//  //////  //  //////  //////////  //////////
+//  //////  //  //////  //////////  //////////
+//  //////  ////////  ////////////          //
+//  //////  //////  //////////////  //////////
+//  //////  ////  ////////////////  //////////
+//  //////  //  //////////////////  //////////
+////      ////          //////////          //
+///////////////////////////////////////////-->
+
+
+
+
+
+<!--////////////////////////////////////////////
+////      //////      //////////////        ////
+//  //////  //  //////  //////////  ////////  //
+//  //////  //////////  //////////  ////////////
+//  //////  ////      //////////////    ////////
+//  //////  //////////  ////////////////    ////
+//  //////  //////////  ////////////////////  //
+//  //////  //  //////  //////////  ////////  //
+////      //////      //////////////        ////
+/////////////////////////////////////////////-->
+<h3>selector<b>.ebAutoPlay(delay);</b></h3>
+<ul>
+    <li>셀럭터를 자동으로 show 하고 delay초 후에 hide함</li>
+    <li>
+        <dl>
+            <dt><b>주의할 점</b></dt>
+            <dd>
+                <ul>
+                    <li>셀렉터에 transition이 걸려있는 경우: delay에 설정한 시간보다 show에 소요되는 시간이 길다면 애니메이션이 중간에 끊김</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+</ul>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 시작
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<pre><code class="html">
+&lt;!-- 버튼 --&gt;
+&lt;button class="btn btn15" data-function="btn15"&gt;오토플레이&lt;/button&gt;
+
+&lt;!-- sample 1 --&gt;
+&lt;div data-type="autoplay-test" data-name="오토플레이01"&gt;오토플레이01&lt;/div&gt;
+
+&lt;!-- sample 2 --&gt;
+&lt;div data-type="autoplay-test" data-name="오토플레이02"&gt;오토플레이02&lt;/div&gt;
+
+</code></pre>
+
+<pre><code class="css">
+[data-name="오토플레이01"],
+[data-name="오토플레이02"] { opacity: 0; width: 100%; height: 100%; background-color: aqua; }
+[data-name="오토플레이01"].show,
+[data-name="오토플레이02"].show { opacity: 1; }
+
+/* transition 속도 */
+[data-name="오토플레이01"] { transition: 0.5s all linear; }
+[data-name="오토플레이02"] { transition: 5s all linear; }
+    
+</code></pre>
+
+<pre><code class="javascript">
+function btn15(){
+    $('[data-name="오토플레이01"]').ebAutoplay(500);
+    $('[data-name="오토플레이02"]').ebAutoplay(500);
+}
+    
+</code></pre>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 끝
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--**********************************************
+                    html 샘플 시작
+********************************************** -->
+<!-- css 시작 -->
+<style>
+    [data-name="오토플레이01"],
+    [data-name="오토플레이02"] { opacity: 0; width: 100%; height: 100%; background-color: aqua; }
+    [data-name="오토플레이01"].show,
+    [data-name="오토플레이02"].show { opacity: 1; }
+
+    /* transition 속도 */
+    [data-name="오토플레이01"] { transition: 0.5s all linear; }
+    [data-name="오토플레이02"] { transition: 5s all linear; }
+</style>
+<!-- css 끝 -->
+
+<!-- html 시작 -->
+<section>
+    <div>
+        <button class="btn btn15" data-function="btn15">오토플레이</button>
+    </div>
+    <aside>
+        <article>
+            <div data-type="autoplay-test" data-name="오토플레이01">오토플레이01</div>
+        </article>
+        <article>
+            <div data-type="autoplay-test" data-name="오토플레이02">오토플레이02</div>
+        </article>
+    </aside>
+</section>
+<!-- html 끝 -->
+
+<!-- script 시작 -->
+<script>
+    var transitionEndEventName = getTransitionEndEventName();
+    btnEvent();
+    function btn15(){
+        $('[data-name="오토플레이01"]').ebAutoplay(500);
+        $('[data-name="오토플레이02"]').ebAutoplay(500);
+        $('.btn15').attr('disabled', true);
+        setTimeout(function(){
+            $('.btn15').attr('disabled', false);
+        },1000)
+    }
+</script>
+<!-- script 끝 -->
+<!--**********************************************
+                    html 샘플 끝
+********************************************** -->
+<!--//////////////////////////////////////////
+////      //////      ////////////          //
+//  //////  //  //////  //////////  //////////
+//  //////  //////////  //////////  //////////
+//  //////  ////      ////////////          //
+//  //////  //////////  //////////  //////////
+//  //////  //////////  //////////  //////////
+//  //////  //  //////  //////////  //////////
+////      //////      ////////////          //
+///////////////////////////////////////////-->
+
+
+
+
+
+<!--////////////////////////////////////////////
+////      ////////    //////////////        ////
+//  //////  //////    ////////////  ////////  //
+//  //////  ////  //  ////////////  ////////////
+//  //////  ////  //  //////////////    ////////
+//  //////  //  ////  //////////////////    ////
+//  //////  //          ////////////////////  //
+//  //////  ////////  ////////////  ////////  //
+////      //////////  //////////////        ////
+/////////////////////////////////////////////-->
+<h3>
+    selector<b>.ebPlayFaceid();</b><br>
+    selector<b>.ebResetFaceid();</b>
+</h3>
+<ul>
+    <li>face id 연동 화면을 재생</li>
+    <li>기본 html/관련 css 템플릿 제공</li>
+    <li>
+        <dl>
+            <dt><b>ebPlayFaceid()</b></dt>
+            <dd>
+                <ul>
+                    <li>커스텀하여 사용하고 싶을 경우 <u>asset/img/faceid</u> 폴더 안에 있는 faceid_img gif를 교체</li>
+                    <li>ebPlayFaceid 함수 자체는 face id gif 재생에 관련된 함수기에 face id가 포함된 화면의 제어(ex. 보이기/닫기/dim...)는 별도로 작업해야 함(아래 예시 참고)</li>
+                </ul>
+            </dd>
+            <dt><b>ebPlayFaceid(<u>{onAfterPlay</u>})</b></dt>
+            <dd>
+                <ul>
+                    <li>face id 플레이가 완료된 후 실행할 함수</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+    <li>
+        <dl>
+            <dt><b>ebResetFaceid()</b></dt>
+            <dd>
+                <ul> 
+                    <li>재생된 face id를 리셋시켜주는 함수</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+</ul>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 시작
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<pre><code class="html">
+&lt;!-- 버튼 --&gt;
+&lt;button class="btn btn16" data-function="btn16"&gt;face id 실행&lt;/button&gt;
+
+&lt;!-- face id 템플릿 --&gt;
+&lt;div class="" data-type="faceid" data-name="페이스아이디"&gt;
+    &lt;span class="img_box"&gt;&lt;img src="" alt="" /&gt;&lt;/span&gt;&lt;!-- faceid gif --&gt;
+    &lt;span class="txt_box"&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+</code></pre>
+
+<pre><code class="javascript">
+function btn16(){
+    $('[data-name="페이스아이디"]').ebShow({
+        onAfterShow: function() {
+            $('[data-name=페이스아이디]').ebPlayFaceid({
+                onAfterPlay: function() {
+                    $('[data-name=페이스아이디]').ebHide({
+                        onAfterHide: function() {
+                            $('[data-name=페이스아이디]').ebResetFaceid();
+                        }
+                    })
+                }
+            })
+        }
+    })
+}
+    
+</code></pre>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 끝
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--**********************************************
+                    html 샘플 시작
+********************************************** -->
+<!-- css 시작 -->
+<style>
+    [data-name="페이스아이디"] { top: 0; left: 0; }
+</style>
+<!-- css 끝 -->
+
+<!-- html 시작 -->
+<section>
+    <div>
+        <button class="btn btn16" data-function="btn16">face id 실행</button>
+    </div>
+    <aside>
+        <article>
+            <div class="" data-type="faceid" data-name="페이스아이디">
+                <span class="img_box"><img src="" alt="" /></span><!-- faceid gif -->
+                <span class="txt_box"></span>
+            </div>
+        </article>
+    </aside>
+</section>
+<!-- html 끝 -->
+
+<!-- script 시작 -->
+<script>
+    var transitionEndEventName = getTransitionEndEventName();
+    btnEvent();
+    function btn16(){
+        $('[data-name="페이스아이디"]').ebShow({
+            onAfterShow: function() {
+                $('.btn16').attr('disabled', true);
+                $('[data-name=페이스아이디]').ebPlayFaceid({
+                    onAfterPlay: function() {
+                        $('[data-name=페이스아이디]').ebHide({
+                            onAfterHide: function() {
+                                $('[data-name=페이스아이디]').ebResetFaceid();
+                                $('.btn16').attr('disabled', false);
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    }
+</script>
+<!-- script 끝 -->
+<!--**********************************************
+                    html 샘플 끝
+********************************************** -->
+<!--//////////////////////////////////////////
+////      ////////    ////////////          //
+//  //////  //////    ////////////  //////////
+//  //////  ////  //  ////////////  //////////
+//  //////  ////  //  ////////////          //
+//  //////  //  ////  ////////////  //////////
+//  //////  //          //////////  //////////
+//  //////  ////////  ////////////  //////////
+////      //////////  ////////////          //
+///////////////////////////////////////////-->
+
+
+
+
+
+<!--////////////////////////////////////////////
+////      ////          ////////////        ////
+//  //////  //  //////////////////  ////////  //
+//  //////  //  //////////////////  ////////////
+//  //////  //        //////////////    ////////
+//  //////  //////////  ////////////////    ////
+//  //////  //////////  ////////////////////  //
+//  //////  //  //////  //////////  ////////  //
+////      //////      //////////////        ////
+/////////////////////////////////////////////-->
+<h3>
+    selector<b>.ebCameraFlash();</b><br>
+</h3>
+<ul>
+    <li>카메라 플래시를 터트리는 효과</li>
+    <li>기본 html/관련 css 템플릿 제공</li>
+    <li>
+        <dl>
+            <dt><b>onBeforeFlash()</b></dt>
+            <dd>
+                <ul>
+                    <li>플래시 애니메이션을 발동하기 전 실행할 함수</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+    <li>
+        <dl>
+            <dt><b>onFlash()</b></dt>
+            <dd>
+                <ul>
+                    <li>플래시 애니메이션이 발동하는 동안 실행할 함수</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+    <li>
+        <dl>
+            <dt><b>onAfterFlash()</b></dt>
+            <dd>
+                <ul>
+                    <li>플래시 애니메이션을 발동한 후 실행할 함수</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+</ul>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 시작
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<pre><code class="html">
+&lt;!-- 버튼 --&gt;
+&lt;button class="btn btn17" data-function="btn17"&gt;카메라 열기&lt;/button&gt;
+&lt;button class="btn btn18" data-function="btn18"&gt;사진 찍기&lt;/button&gt;
+
+&lt;!-- sample 1 --&gt;
+&lt;div class="" data-type="camera" data-name="카메라"&gt;
+    &lt;div class="bg_box"&gt;&lt;/div&gt;
+    &lt;div class="flash_box"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div data-name="사진"&gt;사진&lt;/div&gt;
+
+</code></pre>
+
+<pre><code class="javascript">
+function btn17(){
+    $('[data-name="카메라"]').ebShow();
+}
+function btn18(){
+    $('[data-name="카메라"]').ebCameraFlash({
+        onAfterFlash: function() {
+            $('[data-name="사진"]').ebShow();
+            $('[data-name="카메라"]').ebHide();
+        }
+    });
+}
+
+</code></pre>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 끝
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--**********************************************
+                    html 샘플 시작
+********************************************** -->
+<!-- css 시작 -->
+<style>
+[data-name="사진"] { opacity: 0; width: 100%; height: 100%; background-color: aqua; }
+[data-name="사진"].show { opacity: 1; }
+
+.bg_box { width: 100%; height: 100%; background-color: black; }
+[data-type="camera"] { z-index: auto; }
+[data-type="camera"] .flash_box { top: 0; }
+</style>
+<!-- css 끝 -->
+
+<!-- html 시작 -->
+<section>
+    <div>
+        <button class="btn btn17" data-function="btn17">카메라 열기</button>
+        <button class="btn btn18" data-function="btn18" disabled>사진 찍기</button>
+    </div>
+    <aside>
+        <article>
+            <div class="" data-type="camera" data-name="카메라">
+                <div class="bg_box"></div>
+                <div class="flash_box"></div>
+            </div>
+            <div data-name="사진">사진</div>
+        </article>
+    </aside>
+    <div>
+        <button class="btn reset" data-function="reset17">초기화</button>
+    </div>
+</section>
+<!-- html 끝 -->
+
+<!-- script 시작 -->
+<script>
+    var transitionEndEventName = getTransitionEndEventName();
+    btnEvent();
+    function btn17(){
+        $('[data-name="카메라"]').ebShow();
+        $('.btn17').attr('disabled', true);
+        $('.btn18').attr('disabled', false);
+    }
+    function btn18(){
+        $('[data-name="카메라"]').ebCameraFlash({
+            onAfterFlash: function() {
+                $('[data-name="사진"]').ebShow();
+                $('[data-name="카메라"]').ebHide();
+                $('.btn18').attr('disabled', true);
+            }
+        });
+    }
+
+    // 초기화
+    function reset17(){
+        $('.btn17').attr('disabled', false);
+        $('.btn18').attr('disabled', true);
+        $('[data-name="카메라"]').ebHide();
+        $('[data-name="카메라"]').css('transition', 'none');
+        setTimeout(function(){
+            $('[data-name="카메라"]').attr('style', '')
+        },50)
+        $('[data-name="사진"]').ebHide();
+    }
+</script>
+<!-- script 끝 -->
+<!--**********************************************
+                    html 샘플 끝
+********************************************** -->
+<!--//////////////////////////////////////////
+////      ////          //////////          //
+//  //////  //  //////////////////  //////////
+//  //////  //  //////////////////  //////////
+//  //////  //        ////////////          //
+//  //////  //////////  //////////  //////////
+//  //////  //////////  //////////  //////////
+//  //////  //  //////  //////////  //////////
+////      //////      ////////////          //
+///////////////////////////////////////////-->
+
+
+
+
+
+<!--////////////////////////////////////////////
+////      //////      //////////////        ////
+//  //////  //  //////  //////////  ////////  //
+//  //////  //  //////////////////  ////////////
+//  //////  //        //////////////    ////////
+//  //////  //  //////  ////////////////    ////
+//  //////  //  //////  ////////////////////  //
+//  //////  //  //////  //////////  ////////  //
+////      //////      //////////////        ////
+/////////////////////////////////////////////-->
+<h3>
+    selector<b>.ebTimer(startText, sec, endText);</b><br>
+</h3>
+<ul>
+    <li>
+        <b>startText</b>가 나온 후 타이머 재생<br>
+        <u>html의 타이머 마크업에도 startText에 입력한 값과 동일한 텍스트 입력해야 함</u>
+    </li>
+    <li>함수 실행 시 <b>sec</b>에 설정한 시간 만큼 역순으로 타이머 재생</li>
+    <li>타이머가 다 돌아가면 <b>endText</b> 출력(default: 인증 시간이 만료되었습니다.)</li>
+    <li>
+        <dl>
+            <dt>counting</dt>
+            <dd>
+                <ul>
+                    <li>카운터가 돌아가는 동안 붙는 클래스</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+    <li>
+        <dl>
+            <dt>end</dt>
+            <dd>
+                <ul>
+                    <li>카운터가 완료되면 붙는 클래스</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+</ul>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 시작
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<pre><code class="html">
+&lt;!-- 버튼 --&gt;
+&lt;button class="btn btn19" data-function="btn19"&gt;타이머 재생&lt;/button&gt;
+
+&lt;!-- sample 1 --&gt;
+&lt;div class="timer" data-type="timer" data-name="타이머"&gt;00:03&lt;/div&gt;
+
+</code></pre>
+
+<pre><code class="css">
+[data-name="타이머"].counting { background-color: skyblue; }
+[data-name="타이머"].end { background-color: pink; }
+    
+</code></pre>
+
+<pre><code class="javascript">
+function btn19(){
+    $('[data-name="타이머"]').ebTimer('00:03', 3, '끝');
+}
+
+</code></pre>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 끝
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--**********************************************
+                    html 샘플 시작
+********************************************** -->
+<!-- css 시작 -->
+<style>
+    [data-name="타이머"].counting { background-color: skyblue; }
+    [data-name="타이머"].end { background-color: pink; }
+</style>
+<!-- css 끝 -->
+
+<!-- html 시작 -->
+<section>
+    <div>
+        <button class="btn btn19" data-function="btn19">타이머 재생</button>
+    </div>
+    <aside>
+        <article>
+            <div class="timer" data-type="timer" data-name="타이머">00:03</div>
+        </article>
+    </aside>
+</section>
+<!-- html 끝 -->
+
+<!-- script 시작 -->
+<script>
+    var transitionEndEventName = getTransitionEndEventName();
+    btnEvent();
+    function btn19(){
+        $('[data-name="타이머"]').ebTimer('00:03', 3, '끝');
+        $('.btn19').attr('disabled', true);
+
+        setTimeout(function(){
+            $('.btn19').attr('disabled', false);
+        },4000)
+    }
+</script>
+<!-- script 끝 -->
+<!--**********************************************
+                    html 샘플 끝
+********************************************** -->
+<!--//////////////////////////////////////////
+////      //////      ////////////          //
+//  //////  //  //////  //////////  //////////
+//  //////  //  //////////////////  //////////
+//  //////  //        ////////////          //
+//  //////  //  //////  //////////  //////////
+//  //////  //  //////  //////////  //////////
+//  //////  //  //////  //////////  //////////
+////      //////      ////////////          //
+///////////////////////////////////////////-->
+
+
+
+
+
+<!--////////////////////////////////////////////
+////      ////          ////////////        ////
+//  //////  //////////  //////////  ////////  //
+//  //////  ////////  ////////////  ////////////
+//  //////  ////////  //////////////    ////////
+//  //////  ////////  //////////////////    ////
+//  //////  //////  ////////////////////////  //
+//  //////  //////  //////////////  ////////  //
+////      ////////  ////////////////        ////
+/////////////////////////////////////////////-->
+<h3>
+    selector.<b>WSlot();</b><br>
+</h3>
+<ul>
+    <li>ios 스타일로 커스텀 된 select를 불러오는 함수. 기존에 있던 WSlot 플러그인을 제안 형태에 맞게 커스텀함.</li>
+    <li>선택된 value가 들어가는 마크업만 있으면 셀렉트 리스트는 자동으로 append 됨.</li>
+    <li>
+        <dl>
+            <dt>순서</dt>
+            <dd>
+                <ol>
+                    <li>items로 셀렉트 리스트 생성</li>
+                    <li><b>WSlot('show')</b>: 셀렉트 열기</li>
+                    <li>셀렉트의 '확인'을 누르면 셀렉트가 닫히며 선택된 셀렉트로 value 변경</li>
+                </ol>
+            </dd>
+        </dl>
+    </li>
+    <li>
+        <dl>
+            <dt>셀렉터</dt>
+            <dd>
+                <ul>
+                    <li>data-type="select-ios"<b>data-name="셀렉트 이름"</b>: value 영역</li>
+                    <li><b>data-type="value"</b>: 선택된 셀렉트 옵션이 출력되는 곳. 기본 값 임력 필요</li>
+                    <li><b>data-select-name</b>: ios 스타일의 셀렉트 마크업 이름. <b>data-name="셀렉트 이름"</b>와 동일</li>
+                    <li><b>.select-confirm</b>: 리스트 속 확인 버튼. append로 생성한 마크업이기에 클래스 변경 불가</li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+    <li>
+        <dl>
+            <dt>옵션</dt>
+            <dd>
+                <ul>
+                    <li>
+                        <dl>
+                            <dt><b>WSlot('show')</b></dt>
+                            <dd>셀렉트 리스트 열기</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt><b>WSlot('hide')</b></dt>
+                            <dd>셀렉트 리스트 닫기</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt><b>WSlot('clear')</b></dt>
+                            <dd>data-value에 입력된 값을 초기값으로 되돌리기</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt><b>WSlot('get')</b></dt>
+                            <dd>현재 선택된 항목의 index 가져오기</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt><b>WSlot('getText')</b></dt>
+                            <dd>현재 선택된 항목의 텍스트 가져오기</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt><b>WSlot('rollTo', index)</b></dt>
+                            <dd>적힌 순번으로 셀렉트 이동시킴</dd>
+                            <dd><b style="color: blue">주의사항</b>: index 기입 시 첫번째 index는 -1, 두번째 부터 1,2,3.. 으로 인식함(0이 존재하지 않음)</dd>
+                        </dl>
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+    <li>
+        <dl>
+            <dt>유의사항</dt>
+            <dd>
+                <ul>
+                    <li>ios 스타일이 입혀진 셀렉트 리스트를 변경하고 싶을 경우 css 직접 수정</li>
+                    <li><b>data-type="select-ios" data-name="셀렉트 이름"</b>은 value가 들어갈 영역이며 html 작성 필요,<br><b>data-select-name="셀렉트 이름"</b>은 자동으로 생성되는 마크업. 필요에 따라 셀렉터를 정확하게 지정할 것</li>
+                    <li><b>.select-confirm</b>을 누르고 나서의 함수를 지정할 경우 : 셀렉트 리스트는 마크업이 append되는 형태이므로 <u>윈도우가 로드 된 후</u>에 작성해야 함</li>
+                    <li>셀렉트 리스트가 열리는 순간, 다른 오브젝트의 클릭을 방지하기 위해 셀렉트 위에 투명한 레이어가 after로 덮어씌워져 있음</li>
+                    <li>기타 플러그인 참고사항 : <a href="http://danartinho.github.io/WSlot/">http://danartinho.github.io/WSlot/</a></li>
+                </ul>
+            </dd>
+        </dl>
+    </li>
+</ul>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 시작
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<pre><code class="html">
+&lt;!-- 버튼 --&gt;
+&lt;button class="btn btn20" data-function="btn20"&gt;셀렉트 열기&lt;/button&gt;
+&lt;button class="btn btn21" data-function="btn21"&gt;셀렉트 닫기&lt;/button&gt;
+&lt;button class="btn btn22" data-function="btn22"&gt;셀렉트 2번째로 이동&lt;/button&gt;
+&lt;button class="btn btn23" data-function="btn23"&gt;셀렉트 1번째로 이동&lt;/button&gt;
+&lt;button class="btn selectReset" data-function="selectReset"&gt;셀렉트 초기화&lt;/button&gt;
+
+&lt;!-- sample 1 --&gt;
+&lt;div data-type="select-ios" data-name="셀렉트01"&gt;
+    &lt;div data-type="value"&gt;옵션&lt;/div&gt;
+&lt;/div&gt;
+
+</code></pre>
+
+<pre><code class="css">
+.greenyellow { background-color: greenyellow; } 
+    
+</code></pre>
+
+<pre><code class="javascript">
+select();
+// 셀렉트 리스트 생성
+function select(){
+    $('[data-name="셀렉트01"]').WSlot({
+        items:['select01','select02','select03','select04','select05'], // 셀렉트 리스트
+        center: 4  // 처음 선택될 index
+    });
+}
+// 셀렉트 열기
+function btn20(){
+    $('[data-name="셀렉트01"]').WSlot('show');
+};
+// 셀렉트 닫기
+function btn21(){
+    $('[data-name="셀렉트01"]').WSlot('hide');
+};
+// 셀렉트 2번째로 이동
+function btn22(){
+    $('[data-name="셀렉트01"]').WSlot('rollTo', 1);
+}
+// 셀렉트 1번째로 이동
+function btn23(){
+    $('[data-name="셀렉트01"]').WSlot('rollTo', -1);
+}
+// 셀렉트 초기화
+function selectReset(){
+    $('[data-select-name="셀렉트01"]').remove();
+    $('[data-name="셀렉트01"]').WSlot({
+        items:['select01','select02','select03','select04','select05'], // 셀렉트 리스트
+        center: 4  // 처음 선택될 index
+    });
+    $('[data-name="셀렉트01"]').WSlot('clear');
+};
+// 확인 버튼 눌렀을 때
+$(window).on('load', function(){
+    $('[data-select-name="셀렉트01"] .select-confirm').on('click', function(){
+        $('[data-name="셀렉트01"] [data-type="value"]').addClass('greenyellow');
+    })
+})
+
+</code></pre>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    코드샘플 끝
+@!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--**********************************************
+                    html 샘플 시작
+********************************************** -->
+<!-- css 시작 -->
+<style>
+    .wslot-select.show:after { content: none; }
+    .greenyellow { background-color: greenyellow; } 
+</style>
+<!-- css 끝 -->
+
+<!-- html 시작 -->
+<section>
+    <div>
+        <button class="btn btn20" data-function="btn20">셀렉트 열기</button>
+        <button class="btn btn21" data-function="btn21">셀렉트 닫기</button>
+        <button class="btn btn22" data-function="btn22">셀렉트 2번째로 이동</button>
+        <button class="btn btn23" data-function="btn23">셀렉트 1번째로 이동</button>
+        <button class="btn selectReset" data-function="selectReset">셀렉트 초기화</button>
+    </div>
+    <aside>
+        <article>
+            <div class="frame">
+                <div class="contents">
+                    <div data-type="select-ios" data-name="셀렉트01">
+                        <div data-type="value">옵션</div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </aside>
+</section>
+<!-- html 끝 -->
+
+<!-- script 시작 -->
+<script>
+    var transitionEndEventName = getTransitionEndEventName();
+    btnEvent();
+    select();
+    // 셀렉트 리스트 생성
+    function select(){
+        $('[data-name="셀렉트01"]').WSlot({
+            items:['select01','select02','select03','select04','select05'],
+            center: 4  // 처음 선택될 index
+        });
+    }
+    // 셀렉트 열기
+    function btn20(){
+        $('[data-name="셀렉트01"]').WSlot('show');
+    };
+    // 셀렉트 닫기
+    function btn21(){
+        $('[data-name="셀렉트01"]').WSlot('hide');
+    };
+    // 셀렉트 2번째로 이동
+    function btn22(){
+        $('[data-name="셀렉트01"]').WSlot('rollTo', 1)
+    }
+    // 셀렉트 1번째로 이동
+     function btn23(){
+        $('[data-name="셀렉트01"]').WSlot('rollTo', -1)
+    }
+    // 셀렉트 초기화
+    function selectReset(){
+        $('[data-select-name="셀렉트01"]').remove();
+        $('[data-name="셀렉트01"]').WSlot({
+            items:['select01','select02','select03','select04','select05'],
+            center: 4  // 처음 선택될 index
+        });
+        $('[data-name="셀렉트01"]').WSlot('clear');
+    };
+    // 확인 버튼 눌렀을 때
+    $(window).on('load', function(){
+        $('[data-select-name="셀렉트01"] .select-confirm').on('click', function(){
+            $('[data-name="셀렉트01"] [data-type="value"]').addClass('greenyellow');
+        })
+    })
+</script>
+<!-- script 끝 -->
+<!--**********************************************
+                    html 샘플 끝
+********************************************** -->
+<!--//////////////////////////////////////////
+////      ////          //////////          //
+//  //////  //////////  //////////  //////////
+//  //////  ////////  ////////////  //////////
+//  //////  ////////  ////////////          //
+//  //////  ////////  ////////////  //////////
+//  //////  //////  //////////////  //////////
+//  //////  //////  //////////////  //////////
+////      ////////  //////////////          //
+///////////////////////////////////////////-->
+
+<script>
+    var section = $(document).find('section');
+    for ( var i = 0; i < section.length; i++ ){
+        for ( var j = 0; j < section.eq(i).find('article').length; j++ ){
+            section.eq(i).find('article').eq(j).addClass('arti'+j+'');
+        }
+    }
+</script>
+</body>
+
+</html>
