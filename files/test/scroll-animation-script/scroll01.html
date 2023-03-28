@@ -242,6 +242,8 @@ const lazyLoading = (function(){
 				// rootMargin: '200px 0px',
 				threshold: 0.8
 			}
+
+			// 한번에 작성하는 방법
 			// IntersectionObserver 를 등록한다.
 			const io = new IntersectionObserver(entries => {
 				entries.forEach(el => {
@@ -257,6 +259,25 @@ const lazyLoading = (function(){
 					}
 				})
 			}, options)
+
+
+			// 콜백을 따로 빼서 작성하기
+			// const callback = (entries => {
+			// 	entries.forEach(el => {
+			// 		// 관찰 대상이 viewport 안에 들어온 경우 toggle
+			// 		// el.target.classList.toggle('ani-on', el.isIntersecting);
+
+			// 		// 관찰 대상이 viewport 안에 들어온 경우 addClass
+			// 		if (el.isIntersecting) {
+			// 			el.target.classList.add('ani-on')
+			// 			console.log(el.isIntersecting);
+			// 		} else {
+			// 			el.target.classList.remove('ani-on')
+			// 		}
+			// 	})
+			// })
+
+			// const io = new IntersectionObserver(callback, options)
 
 			// 관찰할 대상을 선언하고, 해당 속성을 관찰시킨다.
 			frames.forEach(el => io.observe(el));
