@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+
+//*****공통 전역변수*****//
+// $variable : value;
+
+
+//*****공통 mixin*****//
+// 1줄 말줄임처리(예시)
+@mixin ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
