@@ -1,0 +1,130 @@
+@charset "UTF-8";
+/****************************************************
+	컬러(background-color, color, border)
+/***************************************************/
+/* 헤더 - 카테고리 버튼 ,링크 버튼  */
+.category-btn,
+.link-btn { background-color: #1C1D43; color: #fff; }
+
+.view-calc-btn { background: url('map/images/btn_calc.png') no-repeat center / 10px; background-color: #e0e0e0; }
+.view-calc-btn.on { background-color: #6ADBC8; }
+.active-page-btn { background: url('map/images/btn_active_page.png') no-repeat center / 20px; background-color: #e0e0e0; }
+.reduce-map-btn { background: url('map/images/btn_reduce.png') no-repeat center / 18px; background-color: #e0e0e0; }
+.reduce-map-btn.on { background-color: #6ADBC8; }
+
+/* 헤더 - 카테고리,링크 버튼 액티브 */
+.header .row button.active { background-color: #6ADBC8; color: #303030; }
+
+/* 헤더 - 프로젝트 */
+.header .info .project img { width: 25px; }
+
+/* 진척률 영역 */
+.calc > * { color: #fff; border: none; }
+.category-btn .calc > *,
+.link-btn .calc > * { min-width: 20px; }
+.category-btn .calc > .per,
+.link-btn .calc > .per { background-color: #eee; color: #303030; }
+.category-btn .calc.end > .per,
+.link-btn .calc.end > .per { background-color: #6ADBC8; }
+.category-btn.active .calc.end > .per,
+.link-btn.active .calc.end > .per { background-color: #fff; }
+.category-btn.active .calc > .length,
+.link-btn.active .calc > .length { color: #303030; }
+
+/* wrap - title-calc */
+.title-calc { background-color: #606979; color: #fff; }
+
+/* wrap.just-depth - title-calc */
+.just-depth .title-calc { background-color: #4B515D; }
+
+/* .wrap - path */
+.path { background-color: #DCDEE2; }
+
+/* 수정내역 검색 */
+.page .row-modify > li.show { background-color: #6ADBC8; }
+
+/* 페이지 클릭 */
+.page.active > .row,
+.page.active > .row-modify,
+.page.active > .row-notice { background-color: rgba(106,219,200,0.3) !important; }
+
+/* 카테고리 기본 */
+.map .category .big-title { color: #fff; background-color: #1C1D43; }
+
+/* 카테고리 기타 */
+.map .category.clr01 .big-title { background-color: #000; }
+.map .category.clr02 .big-title { background-color: green; }
+.map .category.clr03 .big-title { background-color: violet; }
+
+/* 태그 기본 */
+.tag { border: 1px solid #707070; background-color: #424242; color: #fff; }
+
+/* 태그 기타 */
+.tag.common { background-color: #10653f; }
+.tag.alert { background-color: #ca0000; }
+.tag.modal { background-color: #0000a2; }
+.tag.full { background-color: #359af8; }
+.tag.bottom { background-color: #178882; }
+.tag.layer { background-color: #d46428; }
+.tag.tab { background-color: lightseagreen; }
+
+/* 릴리즈 state */
+.page .state { border: 1px solid #7b7b7b; background-color: #fff; }
+.page.release-now .state { background-color: #6ADBC8; }
+.page.release-completed .state { background-color: lightgray; }
+
+/* modify - 릴리즈 당일 - 버튼 강조 */
+.page.modify-now > .row.file > .modi-len button span { color: #EC4852; }
+
+/* modify - 릴리즈 당일 - 수정 이력 날짜 강조 */
+.page > .row-modify > li:before { background-color: #1C1D43; }
+.page.modify-now > .row-modify > li.today:before { background-color: #EC4852; }
+
+/* 진척률보기 모드 on */
+.category.view-on .wrap .calc > * { border: none; color: #fff; }
+.category.view-on .wrap .calc.end > * { color: #6ADBC8; }
+.category.view-on .wrap { border-top: 1px solid #7b7b7b; }
+
+/* 페이지 삭제 */
+.page.delete > .row.name .page-name { color: #EC4852; }
+
+/* 퍼블리싱 공지사항 */
+.pub-notice { background-color: #eee; }
+
+
+
+/****************************************************
+	폰트 사이즈, 기타 스타일(bold ..)
+/***************************************************/
+body, a, input, select, button { font-size: 13px; }
+
+/* 헤더 - category, link */
+.link-btn,
+.category-btn { font-size: 13px; }
+
+/* 진척률 */
+.calc { font-size: 13px; }
+
+/* 카테고리명 */
+.map .category .big-title { font-size: 18px; }
+
+/* 페이지삭제 */
+.page.delete > .row.name .page-name { text-decoration: line-through; }
+.page.delete > .row.name .state { text-decoration: line-through; }
+
+/* 수정이력 */
+.page > .row-modify { font-size: 11px; }
+
+/* 공지사항 */
+.page > .row-notice { font-size: 11px; }
+
+/* 태그 */
+.tag { font-size: 11px; letter-spacing: -1px; }
+
+/* 수정 갯수 버튼 */
+.modi-len button span { font-weight: bold; }
+
+/* 퍼블리싱 공지사항 */
+.pub-notice .title { font-size: 15px; }
+.pub-notice .title .date,
+.pub-notice .title .ver { font-weight: bold; }
