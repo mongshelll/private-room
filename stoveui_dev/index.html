@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="shortcut icon" href="z_stoveviewer/favicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="z_stoveviewer/favicon.png">
+
+	<title>Stove UI</title>
+
+	<!-- CSS -->
+	<link type="text/css" rel="stylesheet" href="https://eilab.kr/api/font/font.css">
+
+	<style type="text/css">
+		* { margin: 0; padding: 0; box-sizing: border-box; }
+		ul,li { list-style: none; }
+		html,body { height: 100%; font-family: "sans-serif", "SpoqaHanSansNeo"; }
+
+		.layout { position: relative; width: 100%; height: 100%; padding: 71px 90px; box-sizing: border-box; background: url('z_stoveviewer/image/bg.png') no-repeat center; background-size: cover; }
+		h1 { position: absolute; bottom: 80px; left: 90px; font-size: 0; }
+		h1 img { width: 178px }
+		h2 { font-size: 72px; font-weight: 900; color: #fff; }
+
+		ul { display: -webkit-box; display: flex; position: absolute; top: 211px; left: 90px; }
+		ul li + li { margin-left: 3px; }
+		ul li a { display: -webkit-box; display: flex; justify-content: center; -webkit-box-align: center; -moz-box-align: center; align-items: center; width: 200px; height: 70px; font-size: 20px; font-weight: 900; color: #fff; background-color: rgba(255, 255, 255, 0.1); text-decoration: none; }
+		ul li:first-child a { border-radius: 12px 0 0 12px; }
+		ul li:last-child a { border-radius:  0 12px 12px 0; }
+		ul li:first-child:last-child a { border-radius:  12px; }
+
+		@media (max-width: 768px) { /* 모바일 */
+			.layout { padding: 35px 30px; }
+			h1 { bottom: 40px; left: 30px; }
+			h1 img { width: 120px }
+			h2 { font-size: 36px; }
+
+			ul { -webkit-box-direction: normal; -moz-box-direction: normal; flex-direction: column; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+			ul li + li { margin-top: 3px; margin-left: 0; }
+			ul li a { font-size: 18px; }
+			ul li:first-child a { border-radius: 12px 12px 0 0; }
+			ul li:last-child a { border-radius:  0 0 12px 12px; }
+		}
+	</style>
+</head>
+
+
+<body>
+
+
+	<div class="layout">
+		<h1>
+			<img src="z_stoveviewer/image/logo.png" alt="EiLAB Envisioning Interaction">
+		</h1>
+		<h2>Stove UI</h2>
+		<ul>
+			<li>
+				<a href="pc/htmlguide/stoveui.html" target="_blank" title="PC stoveUI 새창열림">PC</a>
+			</li>
+			<li>
+				<a href="mobile/htmlguide/stoveui.html" target="_blank" title="Mobile stoveUI 새창열림">Mobile</a>
+			</li>
+		</ul>
+	</div>
+
+
+<body>
+</html>

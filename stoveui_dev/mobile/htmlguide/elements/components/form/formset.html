@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<title>Form Set</title>
+
+	<!-- CSS -->
+	<link type="text/css" rel="stylesheet" href="../../../z_stoveui/stoveui.css">
+
+	<!-- JS -->
+	<script type="text/javascript" src="../../asset.js"></script>
+	<script type="text/javascript" src="../../../z_stoveui/stoveui.js"></script>
+</head>
+
+
+<body>
+
+
+<!-- S : Guide Layout -->
+<div class="guide_layout">
+
+<!-- <div class="example_wrap">
+	<div class="example_title">대분류</div>
+	<div class="example_box">
+		<div class="ex_title">
+			<div class="title">중분류</div>
+			<div class="info">주요 참고내용</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">소분류</span><span class="class_name">셀렉터명</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<div class="etc_info_wrap">기타설명(필요할 경우)</div>
+			<div class="source_code">
+소스코드(좌우상하 공백없이 작성)
+			</div>
+		</div>
+	</div>
+</div> -->
+
+
+<div class="example_wrap">
+	<div class="example_title">ID card number</div>
+	<div class="example_box">
+		<div class="ex_title">
+			<div class="title">Box - ID card number 1</div>
+			<!-- <div class="info">주요 참고내용</div> -->
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">default</span><span class="class_name">.sp-formset.formset-idcard1</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-idcard1">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" placeholder="앞 6자리" title="주민등록번호 앞 6자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" placeholder="뒤 7자리" title="주민등록번호 뒤 7자리">
+			<span class="textfield-border"></span>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">readonly</span><span class="class_name">.sp-formset.formset-idcard1</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-idcard1">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" placeholder="앞 6자리" value="960107" title="주민등록번호 앞 6자리" readonly>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" placeholder="뒤 7자리" value="0000000" title="주민등록번호 뒤 7자리" readonly>
+			<span class="textfield-border"></span>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">disabled</span><span class="class_name">.sp-formset.formset-idcard1</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-idcard1">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" placeholder="앞 6자리" value="960107" title="주민등록번호 앞 6자리" disabled>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" placeholder="뒤 7자리" value="0000000" title="주민등록번호 뒤 7자리" disabled>
+			<span class="textfield-border"></span>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">error</span><span class="class_name">.sp-formset.formset-idcard1 .se-textfield.has-error</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-idcard1">
+	<div class="sp-formgrid">
+		<div class="se-textfield has-error">
+			<input type="number" placeholder="앞 6자리" value="960107" title="주민등록번호 앞 6자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" placeholder="뒤 7자리" value="0000000" title="주민등록번호 뒤 7자리">
+			<span class="textfield-border"></span>
+		</div>
+	</div>
+	<p class="p-msg error">오류메세지입니다.</p>
+</div>
+			</div>
+		</div>
+	</div>
+	<div class="example_box">
+		<div class="ex_title">
+			<div class="title">Box - ID card number 2</div>
+			<!-- <div class="info">주요 참고내용</div> -->
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">default</span><span class="class_name">.sp-formset.formset-idcard2</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-idcard2">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" placeholder="앞 6자리" title="주민등록번호 앞 6자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" title="주민등록번호 뒤 첫번째 자리">
+			<span class="textfield-border"></span>
+			<div class="e-masking">
+				<span class="sign"></span>
+				<span class="sign"></span>
+				<span class="sign"></span>
+				<span class="sign"></span>
+				<span class="sign"></span>
+				<span class="sign"></span>
+			</div>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">readonly</span><span class="class_name">.sp-formset.formset-idcard2</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-idcard2">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" placeholder="앞 6자리" value="960107" title="주민등록번호 앞 6자리" readonly>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" value="1" title="주민등록번호 뒤 첫번째 자리" readonly>
+			<span class="textfield-border"></span>
+			<div class="e-masking">
+				<span class="sign"></span>
+				<span class="sign"></span>
+				<span class="sign"></span>
+				<span class="sign"></span>
+				<span class="sign"></span>
+				<span class="sign"></span>
+			</div>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">disabled</span><span class="class_name">.sp-formset.formset-idcard2</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-idcard2">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" placeholder="앞 6자리" value="960107" title="주민등록번호 앞 6자리" disabled>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" value="1" title="주민등록번호 뒤 첫번째 자리" disabled>
+			<span class="textfield-border"></span>
+			<div class="e-masking">
+				<span class="sign"></span>
+				<span class="sign"></span>
+				<span class="sign"></span>
+				<span class="sign"></span>
+				<span class="sign"></span>
+				<span class="sign"></span>
+			</div>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">error</span><span class="class_name">.sp-formset.formset-idcard2 .se-textfield.has-error</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-idcard2">
+	<div class="sp-formgrid">
+		<div class="se-textfield has-error">
+			<input type="number" placeholder="앞 6자리" value="960107" title="주민등록번호 앞 6자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" value="1" title="주민등록번호 뒤 첫번째 자리">
+			<span class="textfield-border"></span>
+			<div class="e-masking">
+				<span class="sign"></span>
+				<span class="sign"></span>
+				<span class="sign"></span>
+				<span class="sign"></span>
+				<span class="sign"></span>
+				<span class="sign"></span>
+			</div>
+		</div>
+	</div>
+	<p class="p-msg error">오류메세지입니다.</p>
+</div>
+			</div>
+		</div>
+	</div>
+	<div class="example_box">
+		<div class="ex_title">
+			<div class="title">Box - ID card number 3</div>
+			<!-- <div class="info">주요 참고내용</div> -->
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">default</span><span class="class_name">.sp-formset-full.formset-idcard3</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset-full formset-idcard3">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" placeholder="주민등록번호를 입력해주세요" title="주민등록번호 앞 6자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" title="주민등록번호 뒤 7자리">
+			<span class="textfield-border"></span>
+			<div class="back">
+				<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+			</div>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">readonly</span><span class="class_name">.sp-formset-full.formset-idcard3</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset-full formset-idcard3">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" placeholder="주민등록번호를 입력해주세요" title="주민등록번호 앞 6자리" value="960107" readonly>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" title="주민등록번호 뒤 7자리" value="0000000" readonly>
+			<span class="textfield-border"></span>
+			<div class="back">
+				<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+			</div>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">disabled</span><span class="class_name">.sp-formset-full.formset-idcard3</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset-full formset-idcard3">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" placeholder="주민등록번호를 입력해주세요" title="주민등록번호 앞 6자리" value="960107" disabled>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" title="주민등록번호 뒤 7자리" value="0000000" disabled>
+			<span class="textfield-border"></span>
+			<div class="back">
+				<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+			</div>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">error</span><span class="class_name">.sp-formset-full.formset-idcard3 .se-textfield.has-error</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<div class="etc_info_wrap">sp-formset-full의 경우 모든 se-textfield에 has-error 클래스 추가</div>
+			<div class="source_code">
+<div class="sp-formset-full formset-idcard3">
+	<div class="sp-formgrid">
+		<div class="se-textfield has-error">
+			<input type="number" placeholder="주민등록번호를 입력해주세요" title="주민등록번호 앞 6자리" value="960107">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield has-error">
+			<input type="password" title="주민등록번호 뒤 7자리" value="0000000">
+			<span class="textfield-border"></span>
+			<div class="back">
+				<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+			</div>
+		</div>
+	</div>
+	<p class="p-msg error">오류메세지입니다.</p>
+</div>
+			</div>
+		</div>
+	</div>
+	<div class="example_box">
+		<div class="ex_title">
+			<div class="title">Box - Box - ID card number 4</div>
+			<!-- <div class="info">주요 참고내용</div> -->
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">default</span><span class="class_name">.sp-formset-full.formset-idcard4</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset-full formset-idcard4">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="text" placeholder="앞 6자리" title="주민등록번호 앞 6자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" placeholder="******" title="주민등록번호 뒤 7자리">
+			<span class="textfield-border"></span>
+			<div class="back">
+				<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+			</div>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">readonly</span><span class="class_name">.sp-formset-full.formset-idcard4</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset-full formset-idcard4">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" placeholder="앞 6자리" title="주민등록번호 앞 6자리" value="960107" readonly>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" placeholder="******" title="주민등록번호 뒤 7자리" value="0000000" readonly>
+			<span class="textfield-border"></span>
+			<div class="back">
+				<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+			</div>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">disabled</span><span class="class_name">.sp-formset-full.formset-idcard4</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset-full formset-idcard4">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" placeholder="앞 6자리" title="주민등록번호 앞 6자리" value="960107" disabled>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" placeholder="******" title="주민등록번호 뒤 7자리" value="0000000" disabled>
+			<span class="textfield-border"></span>
+			<div class="back">
+				<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+			</div>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">error</span><span class="class_name">.sp-formset-full.formset-idcard4 .se-textfield.has-error</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<div class="etc_info_wrap">sp-formset-full의 경우 모든 se-textfield에 has-error 클래스 추가</div>
+			<div class="source_code">
+<div class="sp-formset-full formset-idcard4">
+	<div class="sp-formgrid">
+		<div class="se-textfield has-error">
+			<input type="number" placeholder="앞 6자리" title="주민등록번호 앞 6자리" value="960107">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield has-error">
+			<input type="password" placeholder="******" title="주민등록번호 뒤 7자리" value="0000000">
+			<span class="textfield-border"></span>
+			<div class="back">
+				<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+			</div>
+		</div>
+	</div>
+	<p class="p-msg error">오류메세지입니다.</p>
+</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="example_wrap">
+	<div class="example_title">Credit card number</div>
+	<div class="example_box">
+		<div class="ex_title">
+			<div class="title">Box - Credit card number 1</div>
+			<!-- <div class="info">주요 참고내용</div> -->
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">default</span><span class="class_name">.sp-formset.formset-creditcard1</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-creditcard1">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" class="tac" placeholder="입력" title="카드번호 첫번째 4자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" class="tac" placeholder="입력" title="카드번호 두번째 4자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" class="tac" placeholder="입력" title="카드번호 세번째 4자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" class="tac" placeholder="입력" title="카드번호 네번째 4자리">
+			<span class="textfield-border"></span>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">readonly</span><span class="class_name">.sp-formset.formset-creditcard1</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" class="tac" placeholder="입력" value="1234" title="카드번호 첫번째 4자리" readonly>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" class="tac" placeholder="입력" value="1234" title="카드번호 두번째 4자리" readonly>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" class="tac" placeholder="입력" value="1234" title="카드번호 세번째 4자리" readonly>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" class="tac" placeholder="입력" value="1234" title="카드번호 네번째 4자리" readonly>
+			<span class="textfield-border"></span>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">disabled</span><span class="class_name">.sp-formset.formset-creditcard1</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" class="tac" placeholder="입력" value="1234" title="카드번호 첫번째 4자리" disabled>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" class="tac" placeholder="입력" value="1234" title="카드번호 두번째 4자리" disabled>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" class="tac" placeholder="입력" value="1234" title="카드번호 세번째 4자리" disabled>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" class="tac" placeholder="입력" value="1234" title="카드번호 네번째 4자리" disabled>
+			<span class="textfield-border"></span>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">error</span><span class="class_name">.sp-formset.formset-creditcard1 .se-textfield.has-error</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset">
+	<div class="sp-formgrid">
+		<div class="se-textfield has-error">
+			<input type="number" class="tac" placeholder="입력" value="1234" title="카드번호 첫번째 4자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" class="tac" placeholder="입력" value="1234" title="카드번호 두번째 4자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="password" class="tac" placeholder="입력" value="1234" title="카드번호 세번째 4자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" class="tac" placeholder="입력" value="1234" title="카드번호 네번째 4자리">
+			<span class="textfield-border"></span>
+		</div>
+	</div>
+	<p class="p-msg error">오류메세지입니다.</p>
+</div>
+			</div>
+		</div>
+	</div>
+	<div class="example_box">
+		<div class="ex_title">
+			<div class="title">Box - Credit card number 3</div>
+			<!-- <div class="info">주요 참고내용</div> -->
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">default</span><span class="class_name">.se-textfield.ty-creditcard</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset-full formset-creditcard3">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" placeholder="4자리" title="카드번호 첫번째 4자리">
+			<span class="textfield-border"></span>
+		</div>
+		<div class="se-textfield">
+			<input type="password" placeholder="****" title="카드번호 두번째 4자리">
+			<span class="textfield-border"></span>
+		</div>
+		<div class="se-textfield">
+			<input type="password" placeholder="****" title="카드번호 세번째 4자리">
+			<span class="textfield-border"></span>
+		</div>
+		<div class="se-textfield">
+			<input type="number" placeholder="4자리" title="카드번호 네번째 4자리">
+			<span class="textfield-border"></span>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">readonly</span><span class="class_name">.se-textfield.ty-creditcard3</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset-full formset-creditcard3">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" placeholder="4자리" value="1234" title="카드번호 첫번째 4자리" readonly>
+			<span class="textfield-border"></span>
+		</div>
+		<div class="se-textfield">
+			<input type="password" placeholder="****" value="1234" title="카드번호 두번째 4자리" readonly>
+			<span class="textfield-border"></span>
+		</div>
+		<div class="se-textfield">
+			<input type="password" placeholder="****" value="1234" title="카드번호 세번째 4자리" readonly>
+			<span class="textfield-border"></span>
+		</div>
+		<div class="se-textfield">
+			<input type="number" placeholder="4자리" value="1234" title="카드번호 네번째 4자리" readonly>
+			<span class="textfield-border"></span>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">disabled</span><span class="class_name">.se-textfield.ty-creditcard3</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset-full formset-creditcard3">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" placeholder="4자리" value="1234" title="카드번호 첫번째 4자리" disabled>
+			<span class="textfield-border"></span>
+		</div>
+		<div class="se-textfield">
+			<input type="password" placeholder="****" value="1234" title="카드번호 두번째 4자리" disabled>
+			<span class="textfield-border"></span>
+		</div>
+		<div class="se-textfield">
+			<input type="password" placeholder="****" value="1234" title="카드번호 세번째 4자리" disabled>
+			<span class="textfield-border"></span>
+		</div>
+		<div class="se-textfield">
+			<input type="number" placeholder="4자리" value="1234" title="카드번호 네번째 4자리" disabled>
+			<span class="textfield-border"></span>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">error</span><span class="class_name">.sp-formset.formset-creditcard3 .se-textfield.has-error</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<div class="etc_info_wrap">sp-formset-full의 경우 모든 se-textfield에 has-error 클래스 추가</div>
+			<div class="source_code">
+<div class="sp-formset-full formset-creditcard3">
+	<div class="sp-formgrid">
+		<div class="se-textfield has-error">
+			<input type="number" placeholder="4자리" value="1234" title="카드번호 첫번째 4자리">
+			<span class="textfield-border"></span>
+		</div>
+		<div class="se-textfield has-error">
+			<input type="password" placeholder="****" value="1234" title="카드번호 두번째 4자리">
+			<span class="textfield-border"></span>
+		</div>
+		<div class="se-textfield has-error">
+			<input type="password" placeholder="****" value="1234" title="카드번호 세번째 4자리">
+			<span class="textfield-border"></span>
+		</div>
+		<div class="se-textfield has-error">
+			<input type="number" placeholder="4자리" value="1234" title="카드번호 네번째 4자리">
+			<span class="textfield-border"></span>
+		</div>
+	</div>
+	<p class="p-msg error">오류메세지입니다.</p>
+</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="example_wrap">
+	<div class="example_title">Phone number</div>
+	<div class="example_box">
+		<div class="ex_title">
+			<div class="title">Box - Phone number 3</div>
+			<!-- <div class="info">주요 참고내용</div> -->
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">default</span><span class="class_name">.sp-formset.formset-phonenum3</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-phonenum3">
+	<div class="sp-formgrid">
+		<div class="se-select">
+			<select title="휴대폰번호 앞자리" required>
+				<option value="" hidden>선택</option>
+				<option value="">010</option>
+				<option value="">option 02</option>
+				<option value="">option 03</option>
+			</select>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" placeholder="입력" title="휴대폰번호 중간자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" placeholder="입력" title="휴대폰번호 뒷자리">
+			<span class="textfield-border"></span>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">readonly</span><span class="class_name">.sp-formset.formset-phonenum3</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-phonenum3">
+	<div class="sp-formgrid">
+		<div class="se-select">
+			<select title="휴대폰번호 앞자리" required disabled>
+				<option value="" hidden>선택</option>
+				<option value="" selected>010</option>
+				<option value="">option 02</option>
+				<option value="">option 03</option>
+			</select>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" placeholder="입력" value="1234" title="휴대폰번호 중간자리" readonly>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" placeholder="입력" value="1234" title="휴대폰번호 뒷자리" readonly>
+			<span class="textfield-border"></span>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">disabled</span><span class="class_name">.sp-formset.formset-phonenum3</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-phonenum3">
+	<div class="sp-formgrid">
+		<div class="se-select">
+			<select title="휴대폰번호 앞자리" disabled>
+				<option value="" hidden>선택</option>
+				<option value="" selected>010</option>
+				<option value="">option 02</option>
+				<option value="">option 03</option>
+			</select>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" placeholder="입력" value="1234" title="휴대폰번호 중간자리" disabled>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" placeholder="입력" value="1234" title="휴대폰번호 뒷자리" disabled>
+			<span class="textfield-border"></span>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">error</span><span class="class_name">.sp-formset.formset-phonenum3 .se-textfield.has-error</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-phonenum3">
+	<div class="sp-formgrid">
+		<div class="se-select">
+			<select title="휴대폰번호 앞자리" required>
+				<option value="" hidden>선택</option>
+				<option value="" selected>010</option>
+				<option value="">option 02</option>
+				<option value="">option 03</option>
+			</select>
+		</div>
+		<i>-</i>
+		<div class="se-textfield has-error">
+			<input type="number" placeholder="입력" value="1234" title="휴대폰번호 중간자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" placeholder="입력" value="1234" title="휴대폰번호 뒷자리">
+			<span class="textfield-border"></span>
+		</div>
+	</div>
+	<p class="p-msg error">오류메세지입니다.</p>
+</div>
+			</div>
+		</div>
+	</div>
+	<div class="example_box">
+		<div class="ex_title">
+			<div class="title">Box - Phone number 4</div>
+			<!-- <div class="info">주요 참고내용</div> -->
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">default</span><span class="class_name">.sp-formset-full.formset-phonenum4</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset-full formset-phonenum4">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" placeholder="010" title="휴대폰번호 앞자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" placeholder="1234" title="휴대폰번호 중간자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" placeholder="5678" title="휴대폰번호 뒷자리">
+			<span class="textfield-border"></span>
+			<div class="back">
+				<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+			</div>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">readonly</span><span class="class_name">.sp-formset-full.formset-phonenum4</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset-full formset-phonenum4">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" placeholder="010" value="010" title="휴대폰번호 앞자리" readonly>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" placeholder="1234" value="1234" title="휴대폰번호 중간자리" readonly>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" placeholder="5678" value="1234" title="휴대폰번호 뒷자리" readonly>
+			<span class="textfield-border"></span>
+			<div class="back">
+				<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+			</div>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">disabled</span><span class="class_name">.sp-formset-full.formset-phonenum4</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset-full formset-phonenum4">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="number" placeholder="010" value="010" title="휴대폰번호 앞자리" disabled>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" placeholder="1234" value="1234" title="휴대폰번호 중간자리" disabled>
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield">
+			<input type="number" placeholder="5678" value="1234" title="휴대폰번호 뒷자리" disabled>
+			<span class="textfield-border"></span>
+			<div class="back">
+				<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+			</div>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">error</span><span class="class_name">.sp-formset-full.formset-phonenum4 .se-textfield.has-error</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<div class="etc_info_wrap">sp-formset-full의 경우 모든 se-textfield에 has-error 클래스 추가</div>
+			<div class="source_code">
+<div class="sp-formset-full formset-phonenum4">
+	<div class="sp-formgrid">
+		<div class="se-textfield has-error">
+			<input type="number" placeholder="010" value="010" title="휴대폰번호 앞자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield has-error">
+			<input type="number" placeholder="1234" value="1234" title="휴대폰번호 중간자리">
+			<span class="textfield-border"></span>
+		</div>
+		<i>-</i>
+		<div class="se-textfield has-error">
+			<input type="number" placeholder="5678" value="1234" title="휴대폰번호 뒷자리">
+			<span class="textfield-border"></span>
+			<div class="back">
+				<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+			</div>
+		</div>
+	</div>
+	<p class="p-msg error">오류메세지입니다.</p>
+</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="example_wrap">
+	<div class="example_title">E-mail</div>
+	<div class="example_box">
+		<div class="ex_title">
+			<div class="title">Box - E-mail 2</div>
+			<!-- <div class="info">주요 참고내용</div> -->
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">default</span><span class="class_name">.sp-formset.formset-email2</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-email2">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="text" placeholder="입력" title="E-mail 아이디">
+			<span class="textfield-border"></span>
+		</div>
+		<i>@</i>
+		<div class="se-select">
+			<select title="E-mail 주소" required>
+				<option value="" hidden>선택</option>
+				<option value="">직접입력</option>
+				<option value="">option 02</option>
+				<option value="">option 03</option>
+			</select>
+		</div>
+		<!-- 직접 입력 선택 시 노출 -->
+		<div class="se-textfield">
+			<input type="text" title="E-mail 주소">
+			<span class="textfield-border"></span>
+		</div>
+		<!-- //직접 입력 선택 시 노출 -->
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">readonly</span><span class="class_name">.sp-formset.formset-email2</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-email2">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="text" placeholder="입력" value="abcd1234" title="E-mail 아이디" readonly>
+			<span class="textfield-border"></span>
+		</div>
+		<i>@</i>
+		<div class="se-select">
+			<select title="E-mail 주소" required disabled>
+				<option value="" hidden>선택</option>
+				<option value="" selected>직접입력</option>
+				<option value="">option 02</option>
+				<option value="">option 03</option>
+			</select>
+		</div>
+		<!-- 직접 입력 선택 시 노출 -->
+		<div class="se-textfield">
+			<input type="text" value="naver.com" title="E-mail 주소" readonly>
+			<span class="textfield-border"></span>
+		</div>
+		<!-- //직접 입력 선택 시 노출 -->
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">disabled</span><span class="class_name">.sp-formset.formset-email2</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-email2">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="text" placeholder="입력" value="abcd1234" title="E-mail 아이디" disabled>
+			<span class="textfield-border"></span>
+		</div>
+		<i>@</i>
+		<div class="se-select">
+			<select title="E-mail 주소" required disabled>
+				<option value="" hidden>선택</option>
+				<option value="" selected>직접입력</option>
+				<option value="">option 02</option>
+				<option value="">option 03</option>
+			</select>
+		</div>
+		<!-- 직접 입력 선택 시 노출 -->
+		<div class="se-textfield">
+			<input type="text" value="naver.com" title="E-mail 주소" disabled>
+			<span class="textfield-border"></span>
+		</div>
+		<!-- //직접 입력 선택 시 노출 -->
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">error</span><span class="class_name">.sp-formset.formset-email2 .se-textfield.has-error</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-email2">
+	<div class="sp-formgrid">
+		<div class="se-textfield has-error">
+			<input type="text" placeholder="입력" value="abcd1234" title="E-mail 아이디">
+			<span class="textfield-border"></span>
+		</div>
+		<i>@</i>
+		<div class="se-select">
+			<select title="E-mail 주소" required>
+				<option value="" hidden>선택</option>
+				<option value="" selected>직접입력</option>
+				<option value="">option 02</option>
+				<option value="">option 03</option>
+			</select>
+		</div>
+		<!-- 직접 입력 선택 시 노출 -->
+		<div class="se-textfield">
+			<input type="text" value="naver.com" title="E-mail 주소">
+			<span class="textfield-border"></span>
+		</div>
+		<!-- //직접 입력 선택 시 노출 -->
+	</div>
+	<p class="p-msg error">오류메세지입니다.</p>
+</div>
+			</div>
+		</div>
+	</div>
+	<div class="example_box">
+		<div class="ex_title">
+			<div class="title">Box - E-mail 3 (직접입력 선택 시 Selectbox -> Text Field로 변경)</div>
+			<!-- <div class="info">주요 참고내용</div> -->
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">default</span><span class="class_name">.sp-formset.formset-email3</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-email3">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="text" placeholder="입력" title="E-mail 아이디">
+			<span class="textfield-border"></span>
+		</div>
+		<i>@</i>
+		<div class="se-select">
+			<!-- 직접 입력 선택 시 노출 -->
+			<input type="text" title="E-mail 주소" style="display: none;">
+
+			<select title="E-mail 주소" required>
+				<option value="" hidden>선택</option>
+				<option value="">직접입력</option>
+				<option value="">option 02</option>
+				<option value="">option 03</option>
+			</select>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">readonly</span><span class="class_name">.sp-formset.formset-email3</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-email3">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="text" placeholder="입력" value="abcd1234" title="E-mail 아이디" readonly>
+			<span class="textfield-border"></span>
+		</div>
+		<i>@</i>
+		<div class="se-select">
+			<!-- 직접 입력 선택 시 노출 -->
+			<input type="text" title="E-mail 주소" value="naver.com" readonly style="display: none;">
+
+			<select title="E-mail 주소" required disabled>
+				<option value="" hidden>선택</option>
+				<option value="">직접입력</option>
+				<option value="" selected>naver.com</option>
+				<option value="">option 03</option>
+			</select>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">disabled</span><span class="class_name">.sp-formset.formset-email3</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-email3">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="text" placeholder="입력" value="abcd1234" title="E-mail 아이디" disabled>
+			<span class="textfield-border"></span>
+		</div>
+		<i>@</i>
+		<div class="se-select">
+			<!-- 직접 입력 선택 시 노출 -->
+			<input type="text" title="E-mail 주소" value="naver.com" disabled style="display: none;">
+
+			<select title="E-mail 주소" required disabled>
+				<option value="" hidden>선택</option>
+				<option value="">직접입력</option>
+				<option value="" selected>naver.com</option>
+				<option value="">option 03</option>
+			</select>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">error</span><span class="class_name">.sp-formset.formset-email3 .se-textfield.has-error</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset formset-email3">
+	<div class="sp-formgrid">
+		<div class="se-textfield has-error">
+			<input type="text" placeholder="입력" value="abcd1234" title="E-mail 아이디">
+			<span class="textfield-border"></span>
+		</div>
+		<i>@</i>
+		<div class="se-select">
+			<!-- 직접 입력 선택 시 노출 -->
+			<input type="text" title="E-mail 주소" style="display: none;">
+
+			<select title="E-mail 주소" required>
+				<option value="" hidden>선택</option>
+				<option value="">직접입력</option>
+				<option value="" selected>naver.com</option>
+				<option value="">option 03</option>
+			</select>
+		</div>
+	</div>
+	<p class="p-msg error">오류메세지입니다.</p>
+</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="example_wrap">
+	<div class="example_title">Text Field + Button</div>
+	<div class="example_box">
+		<div class="ex_title">
+			<div class="title">Default</div>
+			<!-- <div class="info">주요 참고내용</div> -->
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">default</span><span class="class_name">.sp-formset</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="text" placeholder="입력해주세요" title="타이틀">
+			<span class="textfield-border"></span>
+			<div class="back">
+				<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+			</div>
+		</div>
+		<button type="button" class="se-btn btn-sub line-normal">버튼</button>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">readonly</span><span class="class_name">.sp-formset</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="text" placeholder="입력해주세요" value="읽기전용" title="타이틀" readonly>
+			<span class="textfield-border"></span>
+			<div class="back">
+				<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+			</div>
+		</div>
+		<button type="button" class="se-btn btn-sub line-normal" disabled>버튼</button>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">disabled</span><span class="class_name">.sp-formset</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset">
+	<div class="sp-formgrid">
+		<div class="se-textfield">
+			<input type="text" placeholder="입력해주세요" value="입력불가" title="타이틀" disabled>
+			<span class="textfield-border"></span>
+			<div class="back">
+				<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+			</div>
+		</div>
+		<button type="button" class="se-btn btn-sub line-normal" disabled>버튼</button>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">error</span><span class="class_name">.sp-formset .se-textfield.has-error</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset">
+	<div class="sp-formgrid">
+		<div class="se-textfield has-error">
+			<input type="text" placeholder="입력해주세요" value="입력오류" title="타이틀">
+			<span class="textfield-border"></span>
+			<div class="back">
+				<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+			</div>
+		</div>
+		<button type="button" class="se-btn btn-sub line-normal">버튼</button>
+	</div>
+	<p class="p-msg error">오류메세지입니다.</p>
+</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="example_wrap">
+	<div class="example_title">Text Field + Checkbox</div>
+	<div class="example_box">
+		<div class="ex_title">
+			<div class="title">Default</div>
+			<!-- <div class="info">주요 참고내용</div> -->
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">default</span><span class="class_name">.sp-formset</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset">
+	<div class="se-textfield">
+		<input type="text" placeholder="입력해주세요" title="타이틀">
+		<span class="textfield-border"></span>
+		<div class="back">
+			<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+		</div>
+	</div>
+	<div class="se-checkbox">
+		<input type="checkbox" id="chk1-1">
+		<label for="chk1-1">Unselect</label>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">readonly</span><span class="class_name">.sp-formset</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset">
+	<div class="se-textfield">
+		<input type="text" placeholder="입력해주세요" value="읽기전용" title="타이틀" readonly>
+		<span class="textfield-border"></span>
+		<div class="back">
+			<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+		</div>
+	</div>
+	<div class="se-checkbox">
+		<input type="checkbox" id="chk1-2" disabled>
+		<label for="chk1-2">Disabled</label>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">disabled</span><span class="class_name">.sp-formset</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset">
+	<div class="se-textfield">
+		<input type="text" placeholder="입력해주세요" value="입력불가" title="타이틀" disabled>
+		<span class="textfield-border"></span>
+		<div class="back">
+			<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+		</div>
+	</div>
+	<div class="se-checkbox">
+		<input type="checkbox" id="chk1-3" disabled>
+		<label for="chk1-3">Disabled</label>
+	</div>
+</div>
+			</div>
+		</div>
+		<div class="ex_type">
+			<div class="ex_info_wrap"><span class="name">error</span><span class="class_name">.sp-formset .se-textfield.has-error</span><button type="button" class="source">html</button><button type="button" class="copy">copy</button></div>
+			<!-- <div class="etc_info_wrap">기타설명(필요할 경우)</div> -->
+			<div class="source_code">
+<div class="sp-formset">
+	<div class="se-textfield has-error">
+		<input type="text" placeholder="입력해주세요" value="입력오류" title="타이틀">
+		<span class="textfield-border"></span>
+		<div class="back">
+			<button type="button" class="se-btn textfield-clear"><span class="hidden-txt">문구삭제</span></button>
+		</div>
+	</div>
+	<p class="p-msg error">오류메세지입니다.</p>
+	<div class="se-checkbox">
+		<input type="checkbox" id="chk1-4">
+		<label for="chk1-4">Unselect</label>
+	</div>
+</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+</div>
+<!-- E : Guide Layout -->
+
+
+</body>
+</html>

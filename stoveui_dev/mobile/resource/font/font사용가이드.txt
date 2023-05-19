@@ -1,0 +1,11 @@
+※ font 사용가이드 ※
+
+fontface 선언 위치 : scss
+
+◆ st.pub 
+- 웹서버 폰트파일 호출해서 사용(cdn)
+- 웹서버 경로 : eilab-nas > web > api > font
+
+◆ 프로젝트
+- 프로젝트에서 사용할 폰트파일 현재위치에 가져와 사용
+- 웹서버 폰트선언 변경 : 프로젝트 폰트로 선언(ui_common.scss, stoveui.css)

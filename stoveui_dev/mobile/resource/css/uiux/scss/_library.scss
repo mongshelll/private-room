@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+//*****공통 전역변수*****//
+//색상
+$color-primary : #1C1D43;
+$color-point : #6ADBC8;
+$color-basic1 : #111111;
+$color-basic2 : #ffffff;
+
+$color-01 : #F6F7FA;
+$color-02 : #EBEBED;
+$color-03 : #DCDEE2;
+$color-04 : #6D7786;
+$color-05 : #606979;
+$color-06 : #4B515D;
+
+$color-10 : #f8f8f8;
+$color-11 : #f0f0f0;
+$color-12 : #e6e6e6;
+$color-13 : #909090;
+$color-14 : #707070;
+$color-15 : #303030;
+
+$color-error : #EC4852;
+
+//이미지 경로
+$path-component : '../../image/uiux/component';
+
+
+//*****공통 mixin*****//
+//히든텍스트(접근성처리)
+@mixin hiddentxt {
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	font-size: 1px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	white-space: nowrap;
+	clip: rect(1px,1px,1px,1px);
+	clip-path: inset(50%);
+}
+
+
+//1줄 말줄임처리
+@mixin ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
