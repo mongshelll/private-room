@@ -2041,7 +2041,7 @@ h4.se-title {
 ############################################################## */
 /* sl-modal */
 .sl-modal {
-    /* z-index: 2000; */
+    z-index: 2000;
     display: none;
     /* background-color: rgba(0, 0, 0, 0.6); */
 }
