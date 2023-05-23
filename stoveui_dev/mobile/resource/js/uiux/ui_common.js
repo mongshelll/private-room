@@ -453,7 +453,7 @@ var stCustomSelect = (function(){
 
 			$activeSelect.focus();
 		},
-		closeAll: function() {
+		closeAll : function() {
 			$('.se-custom-select').removeClass('active');
 			$('.se-custom-select').removeClass('fixed top');
 			$('.se-custom-select').find('.btn-select').attr('aria-expanded', false);
@@ -682,7 +682,7 @@ var stModal = (function(){
 				if ( $thisModal.hasClass('modal-default') ) {
 					/* animation option */
 					// default
-					if( $thisModal.attr('data-animation') == 'off' ) {
+					if ( $thisModal.attr('data-animation') == 'off' ) {
 						$thisModal.removeClass('active');
 						// 바디스크롤 제어
 						if ( $('body').find('.sl-modal.active').length == 0 ) stBodyScroll.onScroll();
@@ -961,7 +961,7 @@ $(document).on('touchend', '.se-btn.btn-modal-panning', function(_event){
 
 
 /** -------------------------------------------
-	toast #토스트
+	Toast #토스트
 ---------------------------------------------*/
 /* 함수 */
 var stToast = (function() {
@@ -991,7 +991,7 @@ var stToast = (function() {
 
 
 /** -------------------------------------------
-	snackbar #스낵바
+	Snackbar #스낵바
 ---------------------------------------------*/
 /* 함수 */
 var stSnackbar = (function() {
@@ -1053,7 +1053,7 @@ var stToolip = (function(){
 				},3000)
 			}
 
-			if ( $btn.closest('.modal-container').length ) { //modal 안에 툴팁 있는 경우
+			if ( $btn.closest('.modal-container').length ) { // modal 안에 툴팁 있는 경우
 				var $modal = $btn.closest('.modal-layer'),
 					$modalHeader = $modal.find('.modal-header'),
 					$modalContainer = $modal.find('.modal-container');
@@ -1063,7 +1063,7 @@ var stToolip = (function(){
 				var layerL = $btn.offset().left - $modal.offset().left - layoutSpace;
 				var tooltipTopH = $tooltip.offset().top - ($modal.offset().top + $modalHeader.outerHeight());
 				var tooltipBottomH = $modalContainer.outerHeight() -tooltipTopH;
-			} else { //container 안에 툴팁 있는 경우
+			} else { // container 안에 툴팁 있는 경우
 				var layoutSpace = 25; // 레이아웃 기본 좌우 여백
 				var layerW = $(window).outerWidth() - layoutSpace*2;
 				var layerL = $btn.offset().left - layoutSpace;
@@ -1130,7 +1130,6 @@ var stTab = (function(){
 				$tabBtn.attr('title','선택됨');
 				$tabList.siblings('li').find('.se-btn').removeAttr('title');
 
-
 				// 탭컨텐츠활성화
 				$('.se-tab-conts[data-tab-target="'+tabId+'"]').find('div').eq(tabIndex).addClass('active').siblings().removeClass('active');
 			}
@@ -1191,6 +1190,3 @@ $(document).on('click', '.btn-accordion-open', function(e) {
 $(document).on('click', '.sp-accordion a.p-title', function() {
 	stAccordion.toggle( $(this) );
 });
-
-
-

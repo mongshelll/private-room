@@ -47,7 +47,7 @@ var stInput = (function(){
 	return {
 		init : function() {
 			$('.se-textfield').each(function(){
-				//value 확인
+				// value 확인
 				if ( $(this).find('input').val().length > 0 ) {
 					$(this).addClass('has-value');
 				}
@@ -95,7 +95,6 @@ var stInput = (function(){
 
 			if ( $input.val().length > 0 ) {
 				$inputP.addClass('has-value');
-
 			} else {
 				$inputP.removeClass('has-value');
 			}
@@ -178,7 +177,7 @@ var stRange = (function(){
 						'max': Number(range[i].getAttribute('data-max'))
 					},
 					start: Number(range[i].getAttribute('data-start')), // 초기핸들 위치
-					step: Number(range[i].getAttribute('data-step')), // 변경간격,
+					step: Number(range[i].getAttribute('data-step')) // 변경간격
 				});
 
 				// 이벤트
@@ -257,7 +256,7 @@ var stRange = (function(){
 		numberWithCommas : function( _n ) {
 			var n = Math.floor(_n);
 			return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		},
+		}
 	}
 })();
 
@@ -274,7 +273,6 @@ var stDatepicker = (function(){
 
 	return {
 		init : function() {
-
 			/* 날짜 선택 */
 			var $datepicker = $('[data-datepicker="el"] input');
 
@@ -508,7 +506,7 @@ var stCustomSelect = (function(){
 						bottom: bottom,
 						left: $slt.offset().left,
 						width: $slt.outerWidth(),
-					})
+					});
 				} else {
 					if ( sltBottomH <= optsH ) {
 						$slt.addClass('top');
@@ -627,7 +625,7 @@ $(document).on('mousedown', '.se-custom-select .select-options li', function(e) 
 $(document).on('click', function(e){
 	var $target = $('.se-custom-select');
 
-	if ( !($target.has(e.target).length) ){
+	if ( !($target.has(e.target).length) ) {
 		stCustomSelect.closeAll();
 	}
 });
@@ -869,6 +867,7 @@ var stModal = (function(){
 		alert: {
 			uiOn: function(_target){
 				if ( $(_target).hasClass('active') ) return;
+
 				if ( $(_target).attr('data-animation') == 'off' ) {
 					$(_target).addClass('active');
 				} else {
@@ -922,7 +921,7 @@ var stModal = (function(){
 				alertZindex--;
 
 				/* dim 관리 */
-				// 닫히는 모달 얼럿 제거
+				// 닫히는 얼럿 배열에서 제거
 				activeAlert.shift();
 
 				// 모든 딤 제거하고 활성화 되어 있는 모달 확인해서 딤 추가
