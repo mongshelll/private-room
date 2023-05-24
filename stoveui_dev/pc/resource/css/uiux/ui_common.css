@@ -2211,7 +2211,9 @@ h4.se-title {
 .sl-modal {
     z-index: 2000;
     display: none;
-    /* background-color: rgba(0, 0, 0, 0.6); */
+}
+.sl-modal .modal-layer {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.09);
 }
 
 /* 활성화 */
@@ -2221,10 +2223,6 @@ h4.se-title {
 
 .sl-modal.dim {
     background-color: rgba(0, 0, 0, 0.6);
-}
-
-.sl-modal .modal-layer {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.09);
 }
 
 /*  animation */
@@ -2244,7 +2242,6 @@ h4.se-title {
 
 /* modal-alert */
 .sl-modal.modal-alert {
-    /* z-index: 3000; */
     overflow: auto;
     position: fixed;
     top: 0px;

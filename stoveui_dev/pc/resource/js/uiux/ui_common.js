@@ -725,7 +725,7 @@ var stModal = (function(){
 
 	return {
 		common: {
-			dimCtrl:  function(){
+			dimCtrl: function(){
 				if ( activeAlert.length > 0 ) {
 					// 전체 딤 제거
 					// 얼럿배열[0]에 딤 적용
@@ -733,17 +733,14 @@ var stModal = (function(){
 						activeModal[i].removeClass('dim');
 					}
 					for( var b = 0; b < activeAlert.length; b++ ) {
-						activeAlert[i].removeClass('dim');
+						activeAlert[b].removeClass('dim');
 					}
-					activeAlert[0].addClss('dim');
+					activeAlert[0].addClass('dim');
 				} else {
 					// 전체 딤제거
 					// 얼럿 이외 모달배열[0]에 딤 적용
 					for ( var i = 0; i < activeModal.length; i++ ) {
 						activeModal[i].removeClass('dim');
-					}
-					for( var b = 0; b < activeAlert.length; b++ ) {
-						activeAlert[i].removeClass('dim');
 					}
 
 					if ( activeModal.length > 0 ) {
@@ -759,13 +756,15 @@ var stModal = (function(){
 					var lastElementIndex = focusableElements.length - 1;
 
 					if (e.shiftKey) { // Shift키와 함께 눌렸을 때, 역순으로 탐색
-						if (focusedIndex === 0) {
+						if ( focusedIndex === 0 ) {
 							focusableElements.eq(lastElementIndex).focus();
 							e.preventDefault();
 						}
-					} else if (focusedIndex === lastElementIndex) { // Shift키 없이 눌렸을 때, 순방향으로 탐색
-						focusableElements.eq(0).focus();
-						e.preventDefault();
+					} else {
+						if ( focusedIndex === lastElementIndex ) { // Shift키 없이 눌렸을 때, 순방향으로 탐색
+							focusableElements.eq(0).focus();
+							e.preventDefault();
+						}
 					}
 				}
 			},
@@ -777,7 +776,7 @@ var stModal = (function(){
 					nextFocusTarget[0].focus();
 
 					// 중복모달 내에 이전 닫힌 모달의 호출 요소가 있다면 포커스 후 활성화 포커스 배열에서 제거
-					if(activeModal[0].find(focusTarget[0])) {
+					if( activeModal[0].find(focusTarget[0]) ) {
 						focusTarget[0].focus();
 						focusTarget.shift();
 					} else {
@@ -785,15 +784,17 @@ var stModal = (function(){
 						focusTarget.shift();
 					}
 				} else {
-					// 호출 전 포커스요소 확인하여 포커스 유지
-					focusTarget[0].focus();
-					focusTarget.shift();
+					if (focusTarget.length > 0) {
+						// 호출 전 포커스요소 확인하여 포커스 유지
+						focusTarget[0].focus();
+						focusTarget.shift();
+					}
 				}
 			}
 		},
 		default: {
 			uiOn: function(_target){
-				if ( $(_target).hasClass('active') ) return;
+				if ( $(_target).hasClass('active') || $(_target).length <= 0 ) return;
 				if ( $(_target).attr('data-animation') == 'off' ) {
 					$(_target).addClass('active');
 				} else {
@@ -806,16 +807,18 @@ var stModal = (function(){
 				// 바디스크롤 제어
 				stBodyScroll.offScroll();
 
+				/* stModal.common 관리 */
 				// z-index 관리
 				$(_target).css('z-index', modalZIndex++);
 
-				/* dim 관리 */
+				// dim 관리
 				// 활성화 모달 배열 앞에 넣기
 				activeModal.unshift($(_target));
+
 				// 배열 활용해서 dim 처리
 				stModal.common.dimCtrl();
 
-				/* 포커스 관리 */
+				// 포커스 관리
 				// 호출시 이전 포커스 확인
 				focusTarget.unshift(document.activeElement);
 
@@ -834,39 +837,40 @@ var stModal = (function(){
 					/* animation option */
 					// default
 					if ( $thisModal.attr('data-animation') == 'off' ) {
-						$thisModal.removeClass('active');
+						$thisModal.removeClass('active dim');
 						// 바디스크롤 제어
 						if ( $('body').find('.sl-modal.active').length == 0 ) stBodyScroll.onScroll();
 					} else {
 						// animation
 						$thisModal.removeClass('ani');
 						setTimeout(function(){
-							$thisModal.removeClass('active');
+							$thisModal.removeClass('active dim');
 							// 바디스크롤 제어
 							if ( $('body').find('.sl-modal.active').length == 0 ) stBodyScroll.onScroll();
 						}, 300); //.modal-layer의 transition-duration 만큼 값 넣어서 사용
 					}
 				}
 
+				/* stModal.common 관리 */
 				// z-index 관리
 				$thisModal.css('z-index', '');
 				modalZIndex--;
 
-				/* dim 관리 */
+				// dim 관리
 				// 닫히는 모달 배열에서 제거
 				activeModal.shift();
 
 				// 모든 딤 제거하고 활성화 되어 있는 모달 확인해서 딤 추가
 				stModal.common.dimCtrl();
 
-				/* 포커스 관리 */
+				// 포커스 관리
 				// 모닫 off후 포커스 관리
 				stModal.common.offFocusCtrl();
 			}
 		},
 		alert: {
 			uiOn: function(_target){
-				if ( $(_target).hasClass('active') ) return;
+				if ( $(_target).hasClass('active') || $(_target).length <= 0 ) return;
 
 				if ( $(_target).attr('data-animation') == 'off' ) {
 					$(_target).addClass('active');
@@ -880,10 +884,18 @@ var stModal = (function(){
 				// 바디스크롤 제어
 				stBodyScroll.offScroll();
 
+				/* stModal.common 관리 */
 				// z-index 관리
 				$(_target).css('z-index', alertZindex++);
 
-				/* 포커스 관리 */
+				// dim 관리
+				// 활성화 얼럿 배열 앞에 넣기
+				activeAlert.unshift($(_target));
+
+				// 배열 활용해서 dim 처리
+				stModal.common.dimCtrl();
+
+				// 포커스 관리
 				// 호출시 이전 포커스 확인
 				focusTarget.unshift(document.activeElement);
 
@@ -902,32 +914,33 @@ var stModal = (function(){
 					/* animation option */
 					// default
 					if ( $thisModal.attr('data-animation') == 'off' ) {
-						$thisModal.removeClass('active');
+						$thisModal.removeClass('active dim');
 						// 바디스크롤 제어
 						if ( $('body').find('.sl-modal.active').length == 0 ) stBodyScroll.onScroll();
 					} else {
 						// animation
 						$thisModal.removeClass('ani');
 						setTimeout(function(){
-							$thisModal.removeClass('active');
+							$thisModal.removeClass('active dim');
 							// 바디스크롤 제어
 							if ( $('body').find('.sl-modal.active').length == 0 ) stBodyScroll.onScroll();
 						}, 300); //.modal-layer의 transition-duration 만큼 값 넣어서 사용
 					}
 				}
 
+				/* stModal.common 관리 */
 				// z-index 관리
 				$thisModal.css('z-index', '');
 				alertZindex--;
 
-				/* dim 관리 */
+				// dim 관리
 				// 닫히는 얼럿 배열에서 제거
 				activeAlert.shift();
 
 				// 모든 딤 제거하고 활성화 되어 있는 모달 확인해서 딤 추가
 				stModal.common.dimCtrl();
 
-				/* 포커스 관리 */
+				// 포커스 관리
 				// 얼럿 off후 포커스 관리
 				stModal.common.offFocusCtrl();
 			}
@@ -949,7 +962,7 @@ $(document).on('keydown', '.modal-wrap', function(e) {
 var stToast = (function() {
 	return {
 		uiOn: function(_target, _position){
-			if ( $(_target).hasClass('active') ) return;
+			if ( $(_target).hasClass('active') || $(_target).length <= 0 ) return;
 			$(_target).addClass('active').attr('data-position', _position);
 			$(_target).addClass('active');
 			setTimeout(function(){
@@ -980,7 +993,7 @@ var stToast = (function() {
 var stSnackbar = (function() {
 	return {
 		uiOn: function(_target, _position){
-			if ( $(_target).hasClass('active') ) return;
+			if ( $(_target).hasClass('active') || $(_target).length <= 0 ) return;
 			$(_target).addClass('active').attr('data-position', _position);
 			$(_target).addClass('active');
 			setTimeout(function(){

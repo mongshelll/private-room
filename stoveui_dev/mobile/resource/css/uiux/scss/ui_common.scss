@@ -779,8 +779,8 @@ h4.se-title {
 
 	// 읽기전용
 	&:read-only {
-	   border-color: #f5f5f5;
-	   background-color: #f5f5f5;
+		border-color: #f5f5f5;
+		background-color: #f5f5f5;
 	}
 
 	// 비활성화
@@ -1913,7 +1913,6 @@ h4.se-title {
 .sl-modal {
 	z-index: 2000;
 	display: none;
-	// background-color: rgba(0, 0, 0, 0.6);
 
 	.modal-layer {
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.09);
@@ -2144,9 +2143,9 @@ h4.se-title {
 		}
 
 		.modal-footer {
+			margin-top: auto;
 			padding: 30px 20px 20px;
 			box-sizing: border-box;
-			margin-top: auto;
 
 			.btn-wrap {
 				display: -webkit-box;
@@ -2278,6 +2277,7 @@ h4.se-title {
 
 		.modal-footer {
 			z-index: 10;
+			margin-top: auto;
 			padding: 0 25px 20px;
 			box-sizing: border-box;
 			box-shadow: 0 -10px 10px #fff;
@@ -2426,7 +2426,6 @@ h4.se-title {
 /* modal-bottom - animation */
 // modal-bottom .modal-layer의 bottom값은 script로 높이값 확인해서 조절함 stModal.bottom().modalHeight();
 .sl-modal.modal-bottom.active[data-animation=off] {
-	// background-color: rgba(0, 0, 0, 0.6);
 	transition: none;
 
 	.modal-layer {
@@ -2435,8 +2434,8 @@ h4.se-title {
 }
 
 .sl-modal.modal-bottom {
-	// background-color: rgba(0, 0, 0, 0);
-	transition: background-color 0.3s ease 0s;
+	opacity: 0;
+    transition: opacity 0.3s ease 0s;
 
 	.modal-layer{
 		transition: bottom 0.3s ease 0s;
@@ -2444,7 +2443,7 @@ h4.se-title {
 }
 
 .sl-modal.modal-bottom.ani {
-	// background-color: rgba(0, 0, 0, 0.6);
+	opacity: 1;
 }
 
 /* modal list */
