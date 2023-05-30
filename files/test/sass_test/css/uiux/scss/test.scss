@@ -1,0 +1,45 @@
+@charset "utf-8";
+@use "color_test" as a;
+@use "var_test" as b;
+// 점차적으로 @import를 @use로 대체한다고 함
+// @use사용시 @import보다 상단에 선언해줘야 사용이 가능함.
+// 2019년 10월 2일 블로그 글 참고
+// https://sass-lang.com/blog/the-module-system-is-launched
+// dart-sass 1.59.0 업데이트 내용참고 (2023년 3월 11일 릴리즈)
+// https://github.com/sass/dart-sass/releases/tag/1.59.0
+// 올해 릴리즈에 해당 연급 있으니 @use를 사용해야 하지 않을까 하는 생각
+// @use 사용법 익힐 필요성 있음
+// 블로그 내용보면 1 ~ 2년 안에 적용가능성 있음
+
+//July 2022: In light of the fact that LibSass was deprecated before ever adding support for the new module system, the timeline for deprecating and removing has been pushed back. We now intend to wait until 80% of users are using Dart Sass (measured by npm downloads) before deprecating , and wait at least a year after that and likely more before removing it entirely.@import@import
+//2022년 7월: 새로운 모듈 시스템에 대한 지원을 추가하기 전에 LibSass가 지원 중단되었다는 사실에 비추어 지원 중단 및 제거 일정이 뒤로 연기되었습니다. 이제 지원 중단하기 전에 사용자의 80%가 Dart Sass(npm 다운로드로 측정)를 사용할 때까지 기다렸다가 완전히 제거하기 전에는 그 후 최소 1년 이상 기다릴 계획입니다.@import@import
+
+// 230530 기준으로 컴파일러 dart-sass 1.61.0 버전임
+
+.cont-box {
+	position: relative;
+	background-color: a.$red;
+}
+.test {
+	font-size: 20px;
+	font-size: b.$font;
+	@include b.test_mixin;
+	display: flex;
+
+}
+
+
+$font-size-test: 30px;
+
+.test2 {
+	font-size: $font-size-test; //30px
+}
+
+.test3 {
+	font-size: $font_size_test; //30px
+}
+
+// 주석테스트
+/*
+	주석 테스트
+*/

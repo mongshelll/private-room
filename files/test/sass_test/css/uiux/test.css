@@ -1,14 +1,13 @@
 @charset "UTF-8";
 .cont-box {
     position: relative;
+    background-color: green;
 }
 
 .test {
     font-size: 20px;
     font-size: 40px;
     font-weight: bold;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
 }
 
