@@ -775,12 +775,12 @@ var stModal = (function(){
 					// 중복모달의 첫 번째 포커스 요소에 포커스
 					nextFocusTarget[0].focus();
 
-					// 중복모달 내에 이전 닫힌 모달의 호출 요소가 있다면 포커스 후 활성화 포커스 배열에서 제거
+					// 중복모달 내에 이전에 닫힌 모달의 호출요소가 있다면 포커스 후 활성화 포커스 배열에서 제거
 					if( activeModal[0].find(focusTarget[0]) ) {
 						focusTarget[0].focus();
 						focusTarget.shift();
 					} else {
-						// 기존 후출요소 없는경우 body가 추가되므로 배열내 추가된 body 제거
+						// 기존 호출요소 없는경우 body가 추가되므로 배열내 추가된 body 제거
 						focusTarget.shift();
 					}
 				} else {
