@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>스크롤 테스트</title>
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script src="app_check.js"></script>
+
+	<style>
+		body { margin: 0; }
+		.wrap { position: relative; overflow-y: overlay; margin: 0 auto; width: 300px; height: 100vh; padding: 0 25px 40px;}
+		.wrap > div { position: relative; padding-top: 30px; width: 100%; height: 1000px; display: flex; justify-content: center; align-items: baseline; background-color: #ddd; }
+		.input_set:first-child { margin-top: 30px; }
+		.input_set + .input_set { margin-top: 20px; }
+	</style>
+</head>
+
+<body>
+
+	<div class="wrap">
+		<div>
+			<div class="input_wrap">
+				<div class="input_set" data-focusID="input01">
+					<label for="foo">test01</label>
+					<input type="text" id="foo"><br>
+					<button type="button" onclick="goFocus('input06')">text button</button>
+				</div>
+				<div class="input_set" data-focusID="input02">
+					<label for="foo2">test02</label>
+					<input type="text" id="foo2"><br>
+					<!-- <button type="button" onclick="goFocus('input03')">text button</button> -->
+					<button type="button" onclick="goFocus('input01')">text button</button>
+				</div>
+				<div class="input_set" data-focusID="input03">
+					<label for="foo3">test03</label>
+					<input type="text" id="foo3"><br>
+					<!-- <button type="button" onclick="goFocus('input04')">text button</button> -->
+					<button type="button" onclick="goFocus('input02')">text button</button>
+				</div>
+				<div class="input_set" data-focusID="input04">
+					<label for="foo4">test04</label>
+					<input type="text" id="foo4"><br>
+					<!-- <button type="button" onclick="goFocus('input05')">text button</button> -->
+					<button type="button" onclick="goFocus('input03')">text button</button>
+				</div>
+				<div class="input_set" data-focusID="input05">
+					<label for="foo5">test05</label>
+					<input type="text" id="foo5"><br>
+					<!-- <button type="button" onclick="goFocus('input06')">text button</button> -->
+					<button type="button" onclick="goFocus('input04')">text button</button>
+				</div>
+				<div class="input_set" data-focusID="input06">
+					<label for="foo6">test06</label>
+					<input type="text" id="foo6"><br>
+					<button type="button" onclick="goFocus('input01')">text button</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function goFocus(targetID){
+			$('[data-focusID="'+targetID+'"]').attr('tabindex','-1').focus();
+		}
+
+		const focusFn = (_target) => {
+			// _target.attr('tabindex', -1).focus()
+			_target.focus()
+
+			console.log('focus')
+		}
+
+		const mvoeFocusPos = function (_target) {
+			let targetYPos = $(_target).offset().top;
+			// let targetYPos = _target.offsetTop // position: releative 상태의 부모 높이 or 부모가 position: fixed인 경우 상단고정이므로 getBoundingClientRect().top 값과 같은 값이 나옴
+			// let targetYPos = _target.getBoundingClientRect().top // viewport 절대좌표
+
+			// console.log(_target);
+			// console.log(targetYPos);
+
+			console.log('move')
+			$(".wrap").stop().animate({scrollTop:targetYPos}, 500, function(){
+				focusFn(_target)
+			});
+		}
+
+		// 포커스 요소로 포커스하는 경우 스크롤 이동
+		$("input, textarea").on("focusin",function(e){
+			let tarH = ($(this).offset().top) + $(".wrap").scrollTop() - 50; //높이여백 수치값 변경
+			$(".wrap").stop().animate({scrollTop:tarH}, 500, function(){
+				$(this).focus();
+			});
+		});
+	</script>
+
+</body>
+
+</html>

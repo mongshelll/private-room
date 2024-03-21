@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Swiper demo</title>
+
+	<link rel="stylesheet" href="style.css" />
+	<!-- Link Swiper's CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+	<!-- <script src="jquery-2.2.4.min.js"></script> -->
+	<!-- <script src="jquery-3.6.1.min.js"></script> -->
+	<script src="jquery-3.7.0.min.js"></script>
+	<script src="jquery-ui.min.js"></script>
+
+	<!-- Swiper JS -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+	<script src="commom.js"></script>
+	<!-- Demo styles -->
+	<style>
+		.rolling-wrap { position: relative; display: flex; width: 100%; height: 200px; }
+		.rolling-wrap::after { content: ''; z-index: 1; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 50px; border-radius: 9px; background-color: rgba(204, 204, 204, 0.3);  pointer-events: none; }
+
+		.swiper, .swiper-container { margin-left: 0; margin-right: 0; }
+		.swiper-wrapper { height: auto; }
+		.roll-first-wrap,
+		.roll-second-wrap { overflow: hidden; width: 50%; }
+		.roll-second-wrap .swiper { display: block; }
+		.roll-second-wrap .swiper.hidden { display: none; }
+		.swiper { width: 100%; height: 100%; }
+		.swiper-slide { height: 50px; text-align: center; font-size: 18px; color: #ccc; display: flex; justify-content: center; align-items: center; transition-property: all; }
+		.swiper-slide-active { color: #000; }
+	</style>
+</head>
+
+<body>
+<div class="modal-wrap">
+	<div id="tempBottom01" class="sl-modal modal-bottom"><!-- id : 퍼블확인용 임시ID, 개발에서 필요한 ID사용 -->
+		<div class="modal-layer">
+			<div class="modal-header">
+				<h2 class="modal-title" tabindex="0">타이틀</h2>
+			</div>
+			<div class="modal-container">
+				<div class="modal-inner" tabindex="0">
+
+					<div class="rolling-wrap">
+						<div class="roll-first-wrap">
+							<div class="swiper mySwiper1">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">매월</div>
+									<div class="swiper-slide">매주</div>
+									<div class="swiper-slide">매일</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="roll-second-wrap">
+							<div class="swiper mySwiper2">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">01</div>
+									<div class="swiper-slide">02</div>
+									<div class="swiper-slide">03</div>
+									<div class="swiper-slide">04</div>
+									<div class="swiper-slide">05</div>
+									<div class="swiper-slide">06</div>
+									<div class="swiper-slide">07</div>
+									<div class="swiper-slide">08</div>
+									<div class="swiper-slide">09</div>
+									<div class="swiper-slide">10</div>
+									<div class="swiper-slide">11</div>
+									<div class="swiper-slide">12</div>
+								</div>
+							</div>
+							<div class="swiper mySwiper3">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">월</div>
+									<div class="swiper-slide">화</div>
+									<div class="swiper-slide">수</div>
+									<div class="swiper-slide">목</div>
+									<div class="swiper-slide">금</div>
+									<div class="swiper-slide">토</div>
+									<div class="swiper-slide">일</div>
+								</div>
+							</div>
+							<div class="swiper mySwiper4">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">매일</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="btn-wrap">
+					<button type="button" class="se-btn btn-main bg-negative">버튼</button>
+					<button type="button" class="se-btn btn-main bg-positive">확인</button>
+				</div>
+			</div>
+			<div class="modal-control">
+				<button type="button" class="se-btn btn-modal-close" onclick="stModal.bottom.uiOff($(this))"><span class="hidden-txt">닫기</span></button><!-- onclick="stModal.bottom.uiOff($(this))" : 모달닫기 -->
+			</div>
+		</div>
+	</div>
+</div>
+
+
+	<!-- Swiper JS -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> -->
+
+	<!-- Initialize Swiper -->
+	<script>
+		$(document).ready(function(){
+			ebSwiper.rollingSwiper();
+
+			console.log('$(document).ready(function(){} : dom생성시 호출');
+		});
+
+		$(window).on('load',function(){
+			// ebSwiper.rollingSwiper();
+
+			// 호출순서 왜 바뀌는지 모르겠음 span이나 p, div 텍스트 채운거 추가하면 또 호출순서 정상으로 나옴..
+			// jquery 1, 2 버전은 정상 호출됨 3버전은 ready가 가장 나중에 호출
+			console.log('$(window).on("load",function(){}) : 동일 이미지포함 요소들 로드시 호출, 버전 3이전에는 가장 나중에 호출됨');
+		});
+
+
+		var ebSwiper = (function(){
+			var swiper1,
+			swiper2,
+			swiper3,
+			swiper4;
+
+			return {
+				rollingSwiper : function(){
+					var swiperOption = {
+						effect: "coverflow",
+						direction: "vertical",
+						slidesPerView: "auto",
+						spaceBetween: 0,
+						centeredSlides: true,
+						mousewheel: true,
+						slideToClickedSlide: true,
+						coverflowEffect: {
+							rotate: -40,
+							stretch: 0,
+							depth: 100,
+							modifier: 0.7,
+							slideShadows: false,
+						},
+						// observe: true,
+						// observeParents: true,
+						// observeSlideChildren: true,
+					}
+
+					var swiper1 = new Swiper(".mySwiper1", swiperOption);
+					var swiper2 = new Swiper(".mySwiper2", swiperOption);
+					var swiper3 = new Swiper(".mySwiper3", swiperOption);
+					var swiper4 = new Swiper(".mySwiper4", swiperOption);
+
+					// swiper1.on("slideChange", ebSwiper.activeSlide);
+					swiper1.on("activeIndexChange", ebSwiper.activeSlide);
+				},
+				activeSlide : function(){
+					var first = $('.roll-first-wrap .swiper-slide');
+					var second = $('.roll-second-wrap .swiper');
+					var index = this.realIndex;
+
+					second.eq(index).removeClass('hidden').siblings().addClass('hidden');
+				}
+			}
+		})();
+
+
+
+	</script>
+
+
+</body>
+</html>

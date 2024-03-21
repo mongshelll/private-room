@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>아코디언</title>
+	<script src="jQuery/jquery-3.7.1.min.js"></script>
+
+	<style>
+		body { background-color: #ddd; }
+		li { list-style: none; }
+		button { cursor: pointer; }
+		/* 기본으로 display: none;으로 처리, aria-expanded="true"인 경우 자동으로 block 처리가 됨 */
+		[data-role="accordion"][aria-expanded="false"] + [data-role="accordion-panel"] { display: none; }
+	</style>
+</head>
+<body>
+
+<progress class="ebstepper" value="4" max="7"></progress>
+
+<ul class="accordion-list">
+	<li>
+		<button class="accordion-header" data-role="accordion" aria-expanded="true">트리거 1</button>
+		<div class="accordion-content" data-role="accordion-panel">내용 1</div>
+	</li>
+	<li>
+		<button class="accordion-header" data-role="accordion" aria-expanded="false">트리거 2</button>
+		<div class="accordion-content" data-role="accordion-panel">내용 2</div>
+	</li>
+	<li>
+		<button class="accordion-header" data-role="accordion" aria-expanded="false">트리거 3</button>
+		<div class="accordion-content" data-role="accordion-panel">내용 3</div>
+	</li>
+</ul>
+
+<script>
+
+stepper();
+
+function stepper() {
+	let target = document.querySelectorAll('.ebstepper');
+
+	if (target.length) {
+		let _value, _max;
+		target.forEach(el => {
+
+			_value = el.getAttribute('value');
+			_max = el.getAttribute('max');
+			
+			el.setAttribute('aria-valuetext', `${_max}단계 중 ${_value}단계`)
+		});
+	}
+}
+
+// s: vanilla
+// document.querySelectorAll("ul.accordion-list > li").forEach( item => {
+// 	const $header = item.querySelector("[data-role='accordion']");
+// 	$header.addEventListener("click", (e) => {
+// 		const isExpanded = $header.getAttribute("aria-expanded") == "true";  // aria-expanded="true"값으로 트리거의 상태 확인 (문자열로 넣어야 함)
+// 		$header.setAttribute("aria-expanded", !isExpanded);  // 트리거 상태의 반대값 넣기 "true"는 "!true"(false), "false"는 "!false" (true)
+// 	});
+// });
+// e: vanilla
+
+// s: jQuery
+// $(document).on("click", "[data-role='accordion']", (e) => {
+// 	const $this = $(e.currentTarget);
+// 	const isExpanded = $this.attr("aria-expanded") == "true"; // aria-expanded="true"값으로 트리거의 상태 확인 (문자열로 넣어야 함)
+// 	$this.attr("aria-expanded", !isExpanded); // 트리거 상태의 반대값 넣기 "true"는 "!true"(false), "false"는 "!false" (true)
+// })
+// e: jQuery
+
+
+// 함수화 테스트
+
+const accordianFn = (() => {
+	return {
+		common : (e) => {
+			const $this = $(e.currentTarget);
+			const isExpanded = $this.attr("aria-expanded") == "true"; // aria-expanded="true"값으로 트리거의 상태 확인 (문자열로 넣어야 함)
+			$this.attr("aria-expanded", !isExpanded); // 트리거 상태의 반대값 넣기 "true"는 "!true"(false), "false"는 "!false" (true)
+
+			$this.closest('li').siblings().find("[data-role='accordion']").attr("aria-expanded", isExpanded) // 
+		},
+		alone : (e) => {
+			const $this = $(e.currentTarget);
+			const isExpanded = $this.attr("aria-expanded") == "true";
+
+			if($this.attr("aria-expanded") == "true") {
+				// 열려있는 경우
+				$this.siblings("[data-role='accordion-panel']").stop().slideUp(300); // 클릭한 트리거
+				setTimeout(()=> {
+					$this.attr("aria-expanded", !isExpanded);
+				})
+
+				console.log('열림 > 접힘');
+			} else {
+				// 접혀있는 경우
+				$this.siblings("[data-role='accordion-panel']").stop().slideDown(300); // 클릭한 트리거
+
+				// 형제 아코디언
+				$this.closest('li').siblings().find("[data-role='accordion-panel']").stop().slideUp(300);
+				// $this.closest('li').siblings().find("[data-role='accordion-panel']").stop().slideUp(300).siblings("[data-role='accordion']").attr("aria-expanded", isExpanded);
+
+				setTimeout(function(){
+					$this.closest('li').siblings().find("[data-role='accordion']").attr("aria-expanded", isExpanded) // 트리거
+				}, 300)
+
+				console.log('접힘 > 열림');
+				$this.attr("aria-expanded", !isExpanded);
+			}
+				// $this.attr("aria-expanded", !isExpanded);
+		}
+	}
+})()
+
+$(document).on("click", "[data-role='accordion']", (e) => {
+	// accordianFn.common(e);
+	accordianFn.alone(e);
+})
+</script>
+
+</body>
+</html>

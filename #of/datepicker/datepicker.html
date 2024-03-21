@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DatePicker Test</title>
+
+	<link rel="stylesheet" href="commom.css">
+
+	<script src="https://eilab.kr/datacenter/api/jquery/jquery-3.6.1.min.js"></script>
+	<script src="https://eilab.kr/datacenter/api/jquery/jquery-ui-1.13.2.min.js"></script>
+</head>
+<body>
+
+	<div class="se-date" data-datepicker="el">
+		<input type="text" placeholder="선택해주세요" title="타이틀">
+		<span class="textfield-border"></span>
+	</div>
+
+	<div class="se-date" data-datepicker="el">
+		<input type="text" placeholder="선택해주세요" value="2023-01-31" title="타이틀" readonly>
+		<span class="textfield-border"></span>
+	</div>
+
+	<div class="se-date" data-datepicker="el">
+		<input type="text" placeholder="선택해주세요" value="2023-01-31" title="타이틀" disabled>
+		<span class="textfield-border"></span>
+	</div>
+
+	<div class="sp-formset">
+		<div class="se-date has-error" data-datepicker="el">
+			<input type="text" placeholder="선택해주세요" value="2023-01-31" title="타이틀">
+			<span class="textfield-border"></span>
+		</div>
+		<p class="p-msg error">오류메세지입니다.</p>
+	</div>
+
+
+	<div class="se-date" data-datepicker="range">
+		<input type="text" placeholder="선택해주세요" title="타이틀">
+		<span class="textfield-border"></span>
+	</div>
+
+	<div class="se-date" data-datepicker="range">
+		<input type="text" placeholder="선택해주세요" value="2023-01-31 ~ 2023-03-03" title="타이틀" readonly>
+		<span class="textfield-border"></span>
+	</div>
+
+	<div class="se-date" data-datepicker="range">
+		<input type="text" placeholder="선택해주세요" value="2023-01-31 ~ 2023-03-03" title="타이틀" disabled>
+		<span class="textfield-border"></span>
+	</div>
+
+	<div class="sp-formset">
+		<div class="se-date has-error" data-datepicker="range">
+			<input type="text" placeholder="선택해주세요" value="2023-01-31 ~ 2023-03-03" title="타이틀">
+			<span class="textfield-border"></span>
+		</div>
+		<p class="p-msg error">오류메세지입니다.</p>
+	</div>
+
+
+	<div class="modal-wrap">
+		<div id="tempBottom01" class="sl-modal modal-bottom modal-datepicker"><!-- id : 퍼블확인용 임시ID, 개발에서 필요한 ID사용 -->
+			<div class="modal-layer">
+				<div class="modal-header">
+					<h2 class="modal-title" tabindex="0">타이틀</h2>
+				</div>
+				<div class="modal-container">
+					<div class="modal-inner" tabindex="0"></div>
+				</div>
+				<div class="modal-control">
+					<button type="button" class="se-btn btn-modal-close" onclick="stModal.bottom.uiOff($(this))"><span class="hidden-txt">닫기</span></button><!-- onclick="stModal.bottom.uiOff($(this))" : 모달닫기 -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script>
+$(window).on('load', function(){
+	stDatepicker.init();
+	$('.datepicker').datepicker()
+})
+
+$(document).ready(function(){
+
+})
+/** -------------------------------------------
+	BodyScroll #바디스크롤
+---------------------------------------------*/
+var stBodyScroll = (function(){
+	return {
+		offScroll: function(){
+			$('body').addClass('hidden');
+		},
+		onScroll: function(){
+			$('body').removeClass('hidden');
+		}
+	}
+})();
+
+
+
+/** -------------------------------------------
+    Date Picker #데이트피커
+---------------------------------------------*/
+/* 함수 */
+var stDatepicker = (function(){
+	var cur = -1, prv = -1;
+	var d1, d2;
+	var start = '', end = '';
+
+	return {
+		init : function() {
+
+			/* 날짜 선택 */
+			var $datepicker = $('[data-datepicker="el"] input');
+			var nowYear = new Date(),
+				setYear = nowYear.getFullYear()-50;
+
+			$datepicker.each(function(){
+				var $this = $(this);
+
+				if ( $this.attr('readonly') || $this.attr('disabled') ) return;
+
+				// option 설정
+				var options = {
+					dateFormat : 'yy-mm-dd', // 날짜 표시 형식
+					showOtherMonths: true, // 다른 월 날짜 표시
+					showMonthAfterYear: true, // 년도 먼저 표시
+					yearSuffix: "년", // 달력의 년도 부분 뒤에 붙는 텍스트
+					dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], // 달력의 요일 텍스트
+					monthNames : ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], // 달력의 월 부분 텍스트
+					monthNamesShort : ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], // 달력의 월 부분 Tooltip 텍스트
+					nextText: '다음 달', // next 링크에 표시할 텍스트
+					prevText: '이전 달', // prev 링크에 표시할 텍스트
+					changeYear: true,
+					changeMonth: true,
+					yearRange: setYear+":",
+					beforeShow : function(){
+
+						$(document).on('keydown.datepicker', function(e) {
+							if (e.keyCode === 27) { // 27은 'esc' 키의 키 코드입니다.
+								$.datepicker._hideDatepicker();
+								$(document).off('keydown.datepicker'); // 이벤트 핸들러를 제거합니다.
+							}
+						});
+
+						changeYearBtn();
+					}, // 달력생성 전 처리할 일
+
+					onChangeMonthYear: function(){
+						changeYearBtn();
+					}, // 년 또는 월 변경시
+					onClose: function(){
+						stModal.bottom.uiOff($('body').find('.modal-datepicker'));
+					}
+				}
+				var changeYearBtn = function(){
+					setTimeout(function(){
+						var widgetHeader = $this.datepicker("widget").find(".ui-datepicker-header");
+						var prevYrBtn = $('<a class="prev-year" title="이전 년도"></a>');
+						prevYrBtn.on("click", function(){
+							$.datepicker._adjustDate($this, -1, 'Y');
+						});
+						var nextYrBtn = $('<a class="next-year" title="다음 년도"></a>');
+						nextYrBtn.on("click", function(){
+							$.datepicker._adjustDate($this, +1, 'Y');
+						});
+						nextYrBtn.prependTo(widgetHeader);
+						prevYrBtn.prependTo(widgetHeader);
+
+						$('.ui-datepicker-prev').attr('tabindex', 0);
+						$('.ui-datepicker-next').attr('tabindex', 0);
+						$('.prev-year').attr('tabindex', 0);
+						$('.next-year').attr('tabindex', 0);
+					}, 1);
+				};
+
+				$this.datepicker(options)
+			});
+
+			/* 기간 선택 */
+			var $rangepicker = $('[data-datepicker="range"] input');
+
+			$rangepicker.each(function(){
+				var $this = $(this);
+
+				if ( $this.attr('readonly') || $this.attr('disabled') ) return;
+
+				// option 설정
+				var options = {
+					dateFormat : 'yy-mm-dd', // 날짜 표시 형식
+					showOtherMonths: true, // 다른 월 날짜 표시
+					showMonthAfterYear: true, // 년도 먼저 표시
+					yearSuffix: "년", // 달력의 년도 부분 뒤에 붙는 텍스트
+					dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], // 달력의 요일 텍스트
+					monthNames : ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], // 달력의 월 부분 텍스트
+					monthNamesShort : ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], // 달력의 월 부분 Tooltip 텍스트
+					nextText: '다음 달', // next 링크에 표시할 텍스트
+					prevText: '이전 달', // prev 링크에 표시할 텍스트
+					changeYear: true,
+					changeMonth: true,
+					yearRange: setYear+":",
+					beforeShow : function(){
+
+						$(document).on('keydown.datepicker', function(e) {
+							if (e.keyCode === 27) { // 27은 'esc' 키의 키 코드입니다.
+								$.datepicker._hideDatepicker();
+								$(document).off('keydown.datepicker'); // 이벤트 핸들러를 제거합니다.
+							}
+						});
+
+						changeYearBtn();
+					}, // 달력생성 전 처리할 일
+
+					onChangeMonthYear: function(){
+						changeYearBtn();
+					}, // 년 또는 월 변경시
+
+					beforeShowDay: function ( _date ) {
+						start = d1;
+						end = d2;
+
+						if ( $this.datepicker('getDate') == null ) {
+							return [true, ''];
+						}
+						if ( _date.getTime() == Math.max(prv, cur) ) {
+							return [true, 'ui-state-range-from'];
+						}
+						if ( _date.getTime() == Math.min(prv, cur) ) {
+							return [true, 'ui-state-range-to'];
+						}
+						if ( _date.getTime() > Math.min(prv, cur) && _date.getTime() < Math.max(prv, cur) ) {
+							return [true, 'ui-state-range'];
+						} else {
+							return [true, ''];
+						}
+					},
+					onSelect: function ( _dateText, _inst, el ) {
+						prv = cur;
+						cur = (new Date(_inst.selectedYear, _inst.selectedMonth, _inst.selectedDay)).getTime();
+						if ( prv == -1 ) { // 한개 선택
+							prv = cur;
+							$this.val( _dateText );
+							_inst.inline = true;
+						} else { // 두개선택
+
+							if ( d1 != '' && d1 != d2 ) { //기간 변경 시
+								$(this).datepicker('setDate', $.datepicker.formatDate( 'yy-mm-dd', new Date(cur), {}));
+								d1 = $.datepicker.formatDate( 'yy-mm-dd', new Date(cur), {} );
+								d2 = $.datepicker.formatDate( 'yy-mm-dd', new Date(cur), {} );
+
+								$this.val( d1 );
+								_inst.inline = true;
+							}
+							else {
+								d1 = $.datepicker.formatDate( 'yy-mm-dd', new Date(Math.min(prv,cur)), {} );
+								d2 = $.datepicker.formatDate( 'yy-mm-dd', new Date(Math.max(prv,cur)), {} );
+
+								$this.val( d1+' ~ '+d2 );
+								_inst.inline = false;
+							}
+						}
+					},
+					onClose : function(_date, _inst) {
+						_inst.inline = false;
+						stModal.bottom.uiOff($('body').find('.modal-datepicker'));
+					}
+				}
+
+				var changeYearBtn = function(){
+					setTimeout(function(){
+						var widgetHeader = $this.datepicker("widget").find(".ui-datepicker-header");
+						var prevYrBtn = $('<a class="prev-year" title="이전 년도"></a>');
+						prevYrBtn.on("click", function(){
+							$.datepicker._adjustDate($this, -1, 'Y');
+						});
+						var nextYrBtn = $('<a class="next-year" title="다음 년도"></a>');
+						nextYrBtn.on("click", function(){
+							$.datepicker._adjustDate($this, +1, 'Y');
+						});
+						nextYrBtn.prependTo(widgetHeader);
+						prevYrBtn.prependTo(widgetHeader);
+
+						$('.ui-datepicker-prev').attr('tabindex', 0);
+						$('.ui-datepicker-next').attr('tabindex', 0);
+						$('.prev-year').attr('tabindex', 0);
+						$('.next-year').attr('tabindex', 0);
+					}, 1);
+				};
+
+				$this.datepicker(options)
+			});
+			// 이벤트
+			$(document).on('focus','[data-datepicker="range"] input', function(e){
+				var v = this.value,
+					d;
+
+				try {
+					if ( v.indexOf(' ~ ') > -1 ) {
+						d = v.split(' ~ ');
+
+						prv = $.datepicker.parseDate( 'yy-mm-dd', d[0] ).getTime();
+						cur = $.datepicker.parseDate( 'yy-mm-dd', d[1] ).getTime();
+
+					} else if ( v.length > 0 ) {
+						prv = cur = $.datepicker.parseDate( 'yy-mm-dd', v ).getTime();
+					}
+				} catch ( e ) {
+					cur = prv = -1;
+				}
+			});
+		},
+	}
+})();
+
+
+
+/** -------------------------------------------
+	Modal #모달
+---------------------------------------------*/
+/* 함수 */
+var stModal = (function(){
+	// 기본 z-index
+	var modalZIndex = 2000;
+
+	// 호출 이전 포커스
+	var focusTarget = [];
+
+	// 딤 적용 모달 체크
+	var activeModal = [],
+		activeAlert = [];
+
+	return {
+		common: {
+			dimCtrl: function(){
+				if ( activeAlert.length > 0 ) {
+					// 전체 딤 제거
+					// 얼럿배열[0]에 딤 적용
+					for ( var i = 0; i < activeModal.length; i++ ) {
+						activeModal[i].removeClass('dim');
+					}
+					for( var b = 0; b < activeAlert.length; b++ ) {
+						activeAlert[b].removeClass('dim');
+					}
+					activeAlert[0].addClass('dim');
+				} else {
+					// 전체 딤제거
+					// 얼럿 이외 모달배열[0]에 딤 적용
+					for ( var i = 0; i < activeModal.length; i++ ) {
+						activeModal[i].removeClass('dim');
+					}
+
+					if ( activeModal.length > 0 ) {
+						activeModal[0].addClass('dim');
+					}
+				}
+			},
+			tabLoop: function(e){
+				var keyCode = e.keyCode;
+				if (keyCode === 9) { // 탭 키의 키 코드는 9입니다.
+					var focusableElements = $(e.currentTarget).find(':focusable');
+					var focusedIndex = focusableElements.index($(document.activeElement));
+					var lastElementIndex = focusableElements.length - 1;
+
+					if (e.shiftKey) { // Shift키와 함께 눌렸을 때, 역순으로 탐색
+						if ( focusedIndex === 0 ) {
+							focusableElements.eq(lastElementIndex).focus();
+							e.preventDefault();
+						}
+					} else {
+						if ( focusedIndex === lastElementIndex ) { // Shift키 없이 눌렸을 때, 순방향으로 탐색
+							focusableElements.eq(0).focus();
+							e.preventDefault();
+						}
+					}
+				}
+			},
+			offFocusCtrl: function(){
+				if ( activeModal.length > 0 ) {
+					var nextFocusTarget = activeModal[0].find(':focusable');
+
+					// 중복모달의 첫 번째 포커스 요소에 포커스
+					nextFocusTarget[0].focus();
+
+					// 중복모달 내에 이전 닫힌 모달의 호출 요소가 있다면 포커스 후 활성화 포커스 배열에서 제거
+					if( activeModal[0].find(focusTarget[0]) ) {
+						focusTarget[0].focus();
+						focusTarget.shift();
+					} else {
+						// 기존 후출요소 없는경우 body가 추가되므로 배열내 추가된 body 제거
+						focusTarget.shift();
+					}
+				} else {
+					if ( focusTarget.length > 0 ) {
+						// 호출 전 포커스요소 확인하여 포커스 유지
+						focusTarget[0].focus();
+						focusTarget.shift();
+					}
+				}
+			},
+			innerDatePicker: function(_target){
+				var $targetDatePicker = $('#ui-datepicker-div');
+
+				$targetDatePicker.appendTo($(_target).find('.modal-layer .modal-inner'));
+				setTimeout(function(){
+					$targetDatePicker.css({
+						position: 'relative',
+						top: 0
+					})
+				})
+			}
+		},
+		bottom: {
+			uiOn: function(_target){
+				var $thisModal = $(_target).closest('.sl-modal'),
+					$modalLayer = $thisModal.find('.modal-layer');
+
+				if ( $(_target).hasClass('active') || $(_target).length <= 0 ) return;
+				if ( $(_target).attr('data-animation') == 'off' ) {
+					$(_target).addClass('active');
+					$modalLayer.css('bottom', -stModal.bottom.modalHeight(_target));
+					setTimeout(function(){
+						$modalLayer.css('bottom', 0);
+					});
+				} else {
+					$(_target).addClass('active');
+					$modalLayer.css('bottom', -stModal.bottom.modalHeight(_target));
+					setTimeout(function(){
+						$modalLayer.css('bottom', 0);
+						$(_target).addClass('ani');
+					});
+				}
+
+				// 바디스크롤 제어
+				stBodyScroll.offScroll();
+
+				/* stModal.common 관리 */
+				// z-index 관리
+				$(_target).css('z-index', modalZIndex++);
+
+				// dim 관리
+				// 활성화 모달 배열 앞에 넣기
+				activeModal.unshift($(_target));
+
+				// 배열 활용해서 dim 처리
+				stModal.common.dimCtrl();
+
+				// 포커스 관리
+				// 호출시 이전 포커스 확인
+				focusTarget.unshift(document.activeElement);
+
+				setTimeout(function(){
+					// 호출 후 첫 번째 포커스 확인
+					var newfocus = $(_target).find(':focusable')[0];
+
+					// 호출 후 포커스 이동
+					newfocus.focus();
+				});
+
+				if ($(_target).hasClass('modal-datepicker')) {
+					stModal.common.innerDatePicker(_target);
+				}
+			},
+			uiOff: function(_target){
+				var $thisModal = $(_target).closest('.sl-modal'),
+					$modalLayer = $thisModal.find('.modal-layer');
+
+				if ( $thisModal.hasClass('modal-bottom') ) {
+					/* animation option */
+					// default
+					if ( $thisModal.attr('data-animation') == 'off' ) {
+						$modalLayer.css('bottom', -stModal.bottom.modalHeight(_target));
+						$thisModal.removeClass('active dim on');
+						// 바디스크롤 제어
+						if ( $('body').find('.sl-modal.active').length == 0 ) stBodyScroll.onScroll();
+					} else {
+						// animation
+						$thisModal.removeClass('ani');
+						$modalLayer.css('bottom', -stModal.bottom.modalHeight(_target));
+						setTimeout(function(){
+							$thisModal.removeClass('active dim on');
+							// 바디스크롤 제어
+							if ( $('body').find('.sl-modal.active').length == 0 ) stBodyScroll.onScroll();
+						}, 300); //.modal-layer의 transition-duration 만큼 값 넣어서 사용
+					}
+				}
+
+				/* stModal.common 관리 */
+				// z-index 관리
+				$thisModal.css('z-index', '');
+				modalZIndex--;
+
+				// dim 관리
+				// 닫히는 모달 배열에서 제거
+				activeModal.shift();
+
+				// 모든 딤 제거하고 활성화 되어 있는 모달 확인해서 딤 추가
+				stModal.common.dimCtrl();
+
+				// 포커스 관리
+				// 모닫 off후 포커스 관리
+				stModal.common.offFocusCtrl();
+			},
+			modalHeight: function(_target){
+				/**
+				*  커스텀 셀렉트를 사용 할 경우 애니메이션을 transform으로 조절하면
+					modal-layer에 있는 overflow: hidden; 으로 인해서
+					모달 바깥 커스텀 셀렉트 영역이 안보이는 현상이 있음.
+					그러므로 modla-bottom을 transition으로 이용해 조절하기 위해 필요한 함수
+				*/
+				var $thisModal = $(_target).closest('.sl-modal');
+				var modalH = $thisModal.find('.modal-layer').outerHeight();
+
+				return modalH;
+			}
+		}
+	}
+})();
+
+
+$(document).on('keydown', '.modal-wrap', function(e) {
+
+	stModal.common.tabLoop(e);
+
+	// var keyCode = e.keyCode;
+	// if (keyCode === 9) { // 탭 키의 키 코드는 9입니다.
+	// 	var focusableElements = $(this).find(':focusable');
+	// 	var focusedIndex = focusableElements.index($(document.activeElement));
+	// 	var lastElementIndex = focusableElements.length - 1;
+
+	// 	if (e.shiftKey) { // Shift키와 함께 눌렸을 때, 역순으로 탐색
+	// 		if (focusedIndex === 0) {
+	// 			focusableElements.eq(lastElementIndex).focus();
+	// 			e.preventDefault();
+	// 		}
+	// 	} else { // Shift키 없이 눌렸을 때, 순방향으로 탐색
+	// 		if (focusedIndex === lastElementIndex) {
+	// 			focusableElements.eq(0).focus();
+	// 			e.preventDefault();
+	// 		}
+	// 	}
+	// }
+});
+
+$(document).on('click, focusin', '.se-date', function() {
+	if(!$(this).children().attr('readonly')) {
+		stModal.bottom.uiOn('#tempBottom01');
+	}
+})
+
+
+	</script>
+</body>
+</html>

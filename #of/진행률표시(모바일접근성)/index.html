@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>진행률 표시기(접근성)</title>
+	
+	<script src="../jquery/jquery-3.7.1.min.js"></script>
+	<script defer src="js/ui.js"></script>
+
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+	<div class="ebstep02 fixed">
+		<progress class="ebprogress" value="2" max="50"></progress> <!-- value = "현재 단계" / max = "전체 단계" -->
+	</div>
+
+	<script>
+		const addValue = (_num)=> {
+			const target = document.querySelector('.ebprogress');
+
+			target.value = _num
+		}
+		// 로드시 모든 progress에 애니메이션 강제한다면 변수에 지금 value값 넣고 value 0으로 초기화하고 반복문이나 인터벌로 value값 +하면서 넣어야 될 듯
+	</script>
+	<button type="button" onclick="addValue(40)">value 넣기</button>
+</body>
+</html>

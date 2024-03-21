@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>localStorage TEST</title>
+
+	<style>
+		body { background-color: darkgreen; }
+	</style>
+</head>
+<body>
+	<div class="login-set">
+		<input type="text" id="user" value="">
+		<input type="password" name="" id="pw1" value="">
+	</div>
+
+	<div class="btn-wrap">
+		<button type="button" id="btnAdd">add localStorage</button>
+		<button type="button" id="btnRemove">remove localStorage</button>
+	</div>
+
+	<script>
+		const btnAdd = document.querySelector('#btnAdd');
+		const btnRemove = document.querySelector('#btnRemove')
+
+		const target01 = document.querySelector('#user');
+		const target02 = document.querySelector('#pw1');
+
+		let userValue;
+		let pwValue;
+		let userInfo;
+
+		const addLocalStorage = ()=> {
+			userValue = target01.value;
+			pwValue = target02.value;
+			userInfo = { id: userValue, pw: pwValue }
+
+			localStorage.setItem('userInfo', JSON.stringify(userInfo));
+
+			console.log(localStorage.userInfo);
+			console.log(JSON.parse(localStorage.userInfo));
+		}
+
+		btnAdd.addEventListener("click", addLocalStorage)
+		btnRemove.addEventListener("click", ()=> { localStorage.clear(); })
+
+		if(localStorage.getItem('userInfo')){ console.log(true);} else {console.log(false);}
+	</script>
+</body>
+</html>

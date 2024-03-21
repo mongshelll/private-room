@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+ul {
+	& li {
+		a {
+			color: red;
+			&:hover {
+				background-color: blue;
+			}
+		}
+		&:nth-child(2) {
+			a {
+				color: black;
+			}
+		}
+	}
+}

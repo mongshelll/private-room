@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>eval() 대체하는 방법</title>
+
+	<script src="../jQuery/jquery-3.7.1.min.js"></script>
+	<style>
+		.btn { 
+			display: flex; justify-content: center; align-items: center; padding: 0 10px; box-sizing: border-box; width: 150px; height: 30px; border: 2px solid salmon; border-radius: 9px; cursor: pointer; text-align: center;
+			&:hover { background-color: #ccc; }
+		}
+	</style>
+</head>
+<body>
+	<div class="btn" data-function="runFn">가짜 버튼</div>
+
+	<script>
+		// eval() 대체방법 eval() 보안이슈가 있음. new Function() 이용하여 함수 생성가능
+
+		function runFn() {
+			console.log('함수 실행');
+		}
+
+		$('.btn').each(function(){
+			const $this = $(this);
+			const fn = $this.attr('data-function');
+
+			// $this.on("click", eval(fn))
+
+			$this.on("click", function() {
+				new Function(`return ${fn}()`)()
+			})
+
+			// $this.on("click", () => {
+			// 	new Function(`return ${fn}()`)()
+			// })
+
+			// $this.on("click", () => new Function(`return ${fn}()`)())
+		})
+	</script>
+</body>
+</html>

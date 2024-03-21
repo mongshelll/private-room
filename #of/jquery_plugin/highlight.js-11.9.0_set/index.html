@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<!-- <link rel="stylesheet" href="styles/default.min.css"> -->
+	<link rel="stylesheet" href="styles/atom-one-dark.css">
+	<script src="highlight.min.js"></script>
+
+	<style>
+		pre code.hljs {
+			display: block;
+			overflow-x: auto;
+			padding: 1em;
+		}
+	</style>
+</head>
+<body>
+	<pre><code class="language-html">
+		<ul>
+			<li>asdasdf1</li>
+			<li>asdasdf2</li>
+			<li>asdasdf3</li>
+			<li>asdasdf4</li>
+			<li>asdasdf5</li>
+		</ul>
+	</code></pre>
+
+
+	<pre><code class="language-css">
+		div { width: 300px; }
+		ul, li { list-decoration: none; }
+	</code></pre>
+
+	<pre><code class="language-js">
+		function codeReplace(){
+			document.querySelectorAll('.language-html').forEach(function(element) {
+				element.innerHTML = element.innerHTML.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+			});
+		}
+	</code></pre>
+
+
+	<script>
+		hljs.highlightAll();
+
+		/* 소스영역치환 */
+		function codeReplace(){
+			document.querySelectorAll('.language-html').forEach(function(element) {
+				element.innerHTML = element.innerHTML.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+			});
+		}
+		codeReplace();
+	</script>
+</body>
+</html>

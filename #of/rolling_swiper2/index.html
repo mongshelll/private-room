@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>rolling_swiper2</title>
+
+	<link rel="stylesheet" href="ui_plugin.css">
+	<link rel="stylesheet" href="ui_common.css">
+
+	<script src="jquery-3.7.0.min.js"></script>
+	<script src="jquery-ui.min.js"></script>
+	<script src="swiper-9.3.2.min.js"></script>
+	<script src="ui_common.js"></script>
+
+
+</head>
+<body>
+	<button type="button" onclick="stModal.bottom.uiOn('#tempBottom01')">BottomSlide 모달 호출</button>
+
+
+	<div class="modal-wrap">
+		<div id="tempBottom01" class="sl-modal modal-bottom"><!-- id : 퍼블확인용 임시ID, 개발에서 필요한 ID사용 -->
+			<div class="modal-layer">
+
+				<div class="modal-header">
+					<h2 class="modal-title" tabindex="0">타이틀</h2>
+				</div>
+				<div class="modal-container">
+					<div class="modal-inner" tabindex="0">
+
+						<div class="rolling-wrap">
+							<div class="roll-first-wrap">
+								<div class="swiper mySwiper1">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<button type="button">매월</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">매주</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">매일</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="roll-second-wrap">
+								<div class="swiper mySwiper2">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<button type="button">01</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">02</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">03</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">04</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">05</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">06</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">07</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">08</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">09</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">10</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">11</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">12</button>
+										</div>
+									</div>
+								</div>
+								<div class="swiper mySwiper3">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<button type="button">월</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">화</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">수</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">목</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">금</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">토</button>
+										</div>
+										<div class="swiper-slide">
+											<button type="button">일</button>
+										</div>
+									</div>
+								</div>
+								<div class="swiper mySwiper4">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<button type="button">매일</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="btn-wrap">
+						<button type="button" class="se-btn btn-main bg-negative">버튼</button>
+						<button type="button" class="se-btn btn-main bg-positive">확인</button>
+					</div>
+				</div>
+				<div class="modal-control">
+					<button type="button" class="se-btn btn-modal-close" onclick="stModal.bottom.uiOff($(this))"><span class="hidden-txt">닫기</span></button><!-- onclick="stModal.bottom.uiOff($(this))" : 모달닫기 -->
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

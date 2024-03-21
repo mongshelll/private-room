@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>스프라이트 애니메이션 테스트</title>
+
+	<style>
+		* { margin: 0; padding: 0; box-sizing: border-box; }
+		.wrap { display: flex; flex-wrap: wrap; gap: 30px; padding: 20px; background-color: rgba(0, 0, 0, 0.2); }
+
+		/* steps(전체조각 갯수-1) */
+		.box1 { width: 132px; height: 286px; }
+		.right_ani { display: block; width: inherit; height: 100%; background-image: url('img/sp_person_right.png'); background-repeat: no-repeat; background-size: auto 100%; animation: sprite_ani 3s steps(94) infinite; }
+
+		.box2 { width: 160px; height: 187px; }
+		.left_ani { display: block; width: inherit; height: 100%; background-image: url('img/sp_person_left.png'); background-repeat: no-repeat; background-size: auto 100%; animation: sprite_ani 3s steps(94) infinite; }
+
+		.box3 { width: 265px; height: 398px; }
+		.coin_down { display: block; width: inherit; height: 100%; background-image: url('img/sprite-coin.png'); background-repeat: no-repeat; background-size: auto 100%; animation: sprite_ani 5s steps(141) infinite; }
+
+		.box4 { width: 250px; height: 160px; }
+		.visual_01 { display: block; width: inherit; height: 100%; background-image: url('img/1_sprite.png'); background-repeat: no-repeat; background-size: auto 100%; animation: sprite_ani 5s steps(67) infinite; }
+
+		.box5 { width: 250px; height: 250px; }
+		.visual_02 { display: block; width: inherit; height: 100%; background-image: url('img/2_sprite.png'); background-repeat: no-repeat; background-size: auto 100%; animation: sprite_ani 5s steps(65) infinite; }
+
+		.box6 { width: 260px; height: 200px; }
+		.visual_03 { display: block; width: inherit; height: 100%; background-image: url('img/3_sprite.png'); background-repeat: no-repeat; background-size: auto 100%; animation: sprite_ani 5s steps(66) infinite; }
+
+		.box7 { width: 300px; height: 300px; }
+		.event01 { display: block; width: inherit; height: 100%; background-image: url('img/event01.png'); background-repeat: no-repeat; background-size: auto 100%; animation: sprite_ani 2s steps(89) infinite; }
+
+		.box8 { width: 500px; height: 500px; }
+		.event01-01 { display: block; width: inherit; height: 100%; background-image: url('img/event01-01.png'); background-repeat: no-repeat; background-size: auto 100%; animation: sprite_ani 2s steps(89) infinite; }
+
+		.box9 { width: 500px; height: 500px; }
+		.event01-02 { display: block; width: inherit; height: 100%; background-image: url('img/event01-02.gif'); background-repeat: no-repeat; background-size: auto 100%; }
+
+		@keyframes sprite_ani {
+			from {
+				background-position-x: 0%;
+			}
+			to {
+				background-position-x: 100%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!--
+		한화생명 asis 모션 구현
+		pc
+		https://mymo.hanwhasbank.com/
+
+		mobile
+		https://mymo.hanwhasbank.com/MAI/MWMAI00000001B.hsb
+		https://mymo.hanwhasbank.com/SJI/MWSJI01010001B/P000000034.hsb
+		https://mymo.hanwhasbank.com/SJI/MWSJI01010001B/P000000019.hsb
+
+		스프라이트 이미지로 구현함
+		animation-timing-function: steps() 값으로 조절하여 구현했음
+
+		네이버 지식인에도 동일 기술로 구현 되어있음
+		https://kin.naver.com/roulette/home.nhn
+
+		장점: gif의 색상저하, 테두리 픽셀 깨짐 문제 해소
+	-->
+	<div class="wrap">
+		<div class="box1">
+			<span class="right_ani"></span>
+		</div>
+		<div class="box2">
+			<span class="left_ani"></span>
+		</div>
+		<div class="box3">
+			<span class="coin_down"></span>
+		</div>
+		<div class="box4">
+			<span class="visual_01"></span>
+		</div>
+		<div class="box5">
+			<span class="visual_02"></span>
+		</div>
+		<div class="box6">
+			<span class="visual_03"></span>
+		</div>
+		<div class="box7">
+			<span class="event01"></span>
+		</div>
+		<div class="box8">
+			<span class="event01-01"></span>
+		</div>
+		<div class="box9">
+			<span class="event01-02"></span>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+<!--
+
+스프라이트 관련 링크
+
+
+스프라이트 만들기 스크립트 파일링크 (Sprite-Sheet-Creator-v2.jsx)
+https://github.com/advename/Photoshop-Sprite-Sheet-Creator
+
+포토샵으로 스프라이트 만드는 방법
+https://netpilgrim.net/2597
+https://blog.naver.com/tnghks2504/222143468599
+
+포토샵 원본 가로세로 최대 30,000px 미만이어야 save for web 버튼이 활성화 됨
+https://lifenourish.tistory.com/730
+
+웹용 문서 최대 크기 8192px 넘어가는 경우 이미지 저장하는 방법
+https://lifenourish.tistory.com/945
+
+30000px이상 이미지 스프라이트 만들기
+아래 링크에서 제작 가능
+https://www.toptal.com/developers/css/sprite-generator
+
+-->

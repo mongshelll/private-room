@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>modal test</title>
+	<style>
+		html, body { margin: 0; padding: 0; }
+		.modal { display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 300px; min-height: 200px; border: 1px solid #333; border-radius: 12px; background-color: #fff; }
+		.modal.on { display: block; }
+		.modal2 { display: none; position: absolute; top: 50%; left: 50%; transform: translate(-20%, -50%); max-width: 500px; max-height: 600px; border: 1px solid #333; border-radius: 12px; background-color: #fff; }
+		.modal2.on { display: block; }
+		.modal-close { position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; font-size: 12px; }
+
+	</style>
+</head>
+<body>
+	<button type="button" class="btn-modal-open" data-modal="modal01">modal open</button>
+	<button type="button" class="btn-modal-open" data-modal="modal02">modal open</button>
+
+	<button type="button" class="dumy1">1</button>
+	<button type="button" class="dumy2">2</button>
+	<button type="button" class="dumy3">3</button>
+
+	<div class="modal" data-id="modal01" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
+		<div class="modal-inner" role="document">
+			<div class="modal-header" id="modalTitle">
+				<h1>modal title</h1>
+			</div>
+			<div class="modal-content">
+				modal content
+			</div>
+			<button type="button" class="modal-close" data-btn="close">닫기</button>
+		</div>
+	</div>
+
+	<div class="modal" data-id="modal02" role="dialog" aria-labelledby="modalTitle" aria-modal="true" style="transform: translate(-10%, -40%);">
+		<div class="modal-inner" role="document">
+			<div class="modal-header" id="modalTitle">
+				<h1>modal title</h1>
+			</div>
+			<div class="modal-content">
+				modal content
+			</div>
+			<button type="button" class="modal-close" data-btn="close">닫기</button>
+		</div>
+	</div>
+
+	<script>
+		const triggerBtn = document.querySelectorAll('[data-modal]');
+		const closeBtn = document.querySelectorAll('[data-btn=close]');
+		let btnTarget = [];
+
+		const modalOpen = (targetModal, btn) => {
+			let modal = document.querySelectorAll('[data-id]');
+			let target = targetModal.dataset.id;
+
+			modal.forEach((el, i)=> {
+				if (!el.classList.contains('on')) {
+					document.querySelector(`[data-id=${target}]`).classList.add('on');
+				}
+			})
+			btnTarget.unshift(btn);
+		}
+
+		const modalClose = (targetModal) => {
+			if(targetModal.closest('.modal').classList.contains('on')) {
+				targetModal.closest('.modal').classList.remove('on');
+				setTimeout(()=>{
+					btnTarget[0].focus();
+					btnTarget.shift();
+				}, 100)
+			}
+		}
+
+		triggerBtn.forEach((el, i)=> {
+			let targetModa = document.querySelector(`[data-id=${el.dataset.modal}]`);
+			el.addEventListener("click", (e) => {
+				modalOpen(targetModa, el);
+			});
+		})
+
+		closeBtn.forEach((el, i)=> {
+			el.addEventListener("click", (e) => { modalClose(e.target); } );
+		})
+	</script>
+</body>
+</html>

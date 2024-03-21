@@ -1,0 +1,313 @@
+<html lang="ko"><head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>HTML Sample</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../../../resource/css/sourceguide.css">
+	<link rel="stylesheet" href="../../../resource/css/atom-one-dark.min.css">
+
+	<!-- JS -->
+	<script src="../../../../z_micro_interaction/library/jquery-3.6.0.min.js"></script>
+	<script src="../../../resource/js/highlight.min.js"></script>
+
+	<!-- 구현 SCSS 코드작성 -->
+	<!-- <script id="scss">
+		var style = `
+
+		`;
+	</script> -->
+	<!-- //구현 SCSS 코드작성 -->
+
+	<!-- 구현 CSS 코드작성 -->
+	<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+ul, li { list-style: none; }
+button { border: none; outline: none; background: none; cursor: pointer; }
+
+.menu {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    filter: url('#goo');
+    margin: auto;
+}
+
+.menu-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.btn-menu {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    margin-left: -30px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #fff;
+    background-color: #393E46;
+    transform: translate(0,-10px);
+    transition-timing-function:cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    transition-duration: 400ms;
+}
+
+.menu.active .menu-list > li:nth-child(1) .btn-menu { transform: translate(-80px, -70px); }
+.menu.active .menu-list > li:nth-child(2) .btn-menu { transform: translate(0, -100px); transition-delay: 100ms; }
+.menu.active .menu-list > li:nth-child(3) .btn-menu { transform: translate(80px, -70px); transition-delay: 150ms; }
+
+.btn-menu-toggle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -40px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: #fff;
+    background-color: #393E46;
+    transform: scale(1,1) rotate(0);
+    transition: transform 400ms ease-out;
+}
+
+.menu.active .btn-menu-toggle { transform: scale(0.75, 0.75) rotate(-45deg); }
+	</style>
+	<!-- //구현 CSS 코드작성 -->
+</head>
+<body>
+	<div id="layout">
+		<!-- 구현 HTML 코드작성 -->
+		<!-- 요소 가운데정렬 해제하고 싶으면 .align-center 제거 -->
+		<div id="codeResult" class="align-center">
+<div class="menu">
+	<div class="menu-wrapper">
+		<ul class="menu-list">
+			<li>
+				<button type="button" class="btn-menu">1</button>
+			</li>
+			<li>
+				<button type="button" class="btn-menu">2</button>
+			</li>
+			<li>
+				<button type="button" class="btn-menu">3</button>
+			</li>
+		</ul>
+		<button type="button" class="btn-menu-toggle">+</button>
+	</div>
+</div>
+<svg width="0" height="0">
+	<defs>
+		<filter id="goo">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+			<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"></feColorMatrix>
+			<feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+		</filter>
+	</defs>
+</svg>
+		</div>
+		<!-- //구현 HTML 코드작성 -->
+	<div id="codesWrap"><div class="nav">
+					<button type="button" class="nav-btn on">HTML</button>
+					<button type="button" class="nav-btn">CSS</button>
+					<button type="button" class="nav-btn">JS</button>
+				</div>
+
+				<div class="area-codes">
+					<article class="area-html on">
+						<div class="btns">
+							<button type="button" class="copy">복사</button>
+						</div>
+						<aside>
+							<pre><code class="language-html hljs language-xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"menu"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"menu-wrapper"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"menu-list"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-menu"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-menu"</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-menu"</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-menu-toggle"</span>&gt;</span>+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"0"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">defs</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">filter</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"goo"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">feGaussianBlur</span> <span class="hljs-attr">in</span>=<span class="hljs-string">"SourceGraphic"</span> <span class="hljs-attr">stdDeviation</span>=<span class="hljs-string">"10"</span> <span class="hljs-attr">result</span>=<span class="hljs-string">"blur"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">feGaussianBlur</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">feColorMatrix</span> <span class="hljs-attr">in</span>=<span class="hljs-string">"blur"</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"matrix"</span> <span class="hljs-attr">values</span>=<span class="hljs-string">"1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"</span> <span class="hljs-attr">result</span>=<span class="hljs-string">"goo"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">feColorMatrix</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">feComposite</span> <span class="hljs-attr">in</span>=<span class="hljs-string">"SourceGraphic"</span> <span class="hljs-attr">in2</span>=<span class="hljs-string">"goo"</span> <span class="hljs-attr">operator</span>=<span class="hljs-string">"atop"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">feComposite</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">filter</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">defs</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+		</code></pre>
+						</aside>
+					</article>
+					<article class="area-css">
+						<div class="btns">
+							<button type="button" class="copy">복사</button>
+						</div>
+						<aside>
+							<pre><code class="language-css hljs">
+* { <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>; <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>; <span class="hljs-attribute">box-sizing</span>: border-box; }
+<span class="hljs-selector-tag">ul</span>, <span class="hljs-selector-tag">li</span> { <span class="hljs-attribute">list-style</span>: none; }
+<span class="hljs-selector-tag">button</span> { <span class="hljs-attribute">border</span>: none; <span class="hljs-attribute">outline</span>: none; <span class="hljs-attribute">background</span>: none; <span class="hljs-attribute">cursor</span>: pointer; }
+
+<span class="hljs-selector-class">.menu</span> {
+    <span class="hljs-attribute">position</span>: relative;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;
+    <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">'#goo'</span>);
+    <span class="hljs-attribute">margin</span>: auto;
+}
+
+<span class="hljs-selector-class">.menu-wrapper</span> {
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate</span>(-<span class="hljs-number">50%</span>);
+}
+
+<span class="hljs-selector-class">.btn-menu</span> {
+	<span class="hljs-attribute">display</span>: flex;
+	<span class="hljs-attribute">justify-content</span>: center;
+	<span class="hljs-attribute">align-items</span>: center;
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">60px</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">60px</span>;
+    <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">30px</span>;
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">20px</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#393E46</span>;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate</span>(<span class="hljs-number">0</span>,-<span class="hljs-number">10px</span>);
+    <span class="hljs-attribute">transition-timing-function</span>:<span class="hljs-built_in">cubic-bezier</span>(<span class="hljs-number">0.175</span>, <span class="hljs-number">0.885</span>, <span class="hljs-number">0.320</span>, <span class="hljs-number">1.275</span>);
+    <span class="hljs-attribute">transition-duration</span>: <span class="hljs-number">400ms</span>;
+}
+
+<span class="hljs-selector-class">.menu</span><span class="hljs-selector-class">.active</span> <span class="hljs-selector-class">.menu-list</span> &gt; <span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:nth-child</span>(<span class="hljs-number">1</span>) <span class="hljs-selector-class">.btn-menu</span> { <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate</span>(-<span class="hljs-number">80px</span>, -<span class="hljs-number">70px</span>); }
+<span class="hljs-selector-class">.menu</span><span class="hljs-selector-class">.active</span> <span class="hljs-selector-class">.menu-list</span> &gt; <span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:nth-child</span>(<span class="hljs-number">2</span>) <span class="hljs-selector-class">.btn-menu</span> { <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate</span>(<span class="hljs-number">0</span>, -<span class="hljs-number">100px</span>); <span class="hljs-attribute">transition-delay</span>: <span class="hljs-number">100ms</span>; }
+<span class="hljs-selector-class">.menu</span><span class="hljs-selector-class">.active</span> <span class="hljs-selector-class">.menu-list</span> &gt; <span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:nth-child</span>(<span class="hljs-number">3</span>) <span class="hljs-selector-class">.btn-menu</span> { <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate</span>(<span class="hljs-number">80px</span>, -<span class="hljs-number">70px</span>); <span class="hljs-attribute">transition-delay</span>: <span class="hljs-number">150ms</span>; }
+
+<span class="hljs-selector-class">.btn-menu-toggle</span> {
+	<span class="hljs-attribute">display</span>: flex;
+	<span class="hljs-attribute">justify-content</span>: center;
+	<span class="hljs-attribute">align-items</span>: center;
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">40px</span>;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">80px</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">80px</span>;
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">40px</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#393E46</span>;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>) <span class="hljs-built_in">rotate</span>(<span class="hljs-number">0</span>);
+    <span class="hljs-attribute">transition</span>: transform <span class="hljs-number">400ms</span> ease-out;
+}
+
+<span class="hljs-selector-class">.menu</span><span class="hljs-selector-class">.active</span> <span class="hljs-selector-class">.btn-menu-toggle</span> { <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">0.75</span>, <span class="hljs-number">0.75</span>) <span class="hljs-built_in">rotate</span>(-<span class="hljs-number">45deg</span>); }
+	</code></pre>
+						</aside>
+					</article>
+					<article class="area-js">
+						<div class="btns">
+							<button type="button" class="copy">복사</button>
+						</div>
+						<aside>
+							<pre><code class="language-js hljs language-javascript">
+<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">"DOMContentLoaded"</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">'click'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) {
+        <span class="hljs-keyword">if</span>( !e.<span class="hljs-property">target</span>.<span class="hljs-title function_">matches</span>(<span class="hljs-string">'.btn-menu-toggle'</span>)) <span class="hljs-keyword">return</span>;
+        <span class="hljs-keyword">if</span>( <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByClassName</span>(<span class="hljs-string">'menu'</span>)[<span class="hljs-number">0</span>].<span class="hljs-property">classList</span>.<span class="hljs-title function_">contains</span>(<span class="hljs-string">'active'</span>) ) {
+            <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByClassName</span>(<span class="hljs-string">'menu'</span>)[<span class="hljs-number">0</span>].<span class="hljs-property">classList</span>.<span class="hljs-title function_">remove</span>(<span class="hljs-string">'active'</span>)
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByClassName</span>(<span class="hljs-string">'menu'</span>)[<span class="hljs-number">0</span>].<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">'active'</span>)
+        }
+    });
+})
+	</code></pre>
+						</aside>
+					</article>
+				</div></div></div>
+
+	<!-- 구현 JS 코드작성 -->
+	<script id="script">
+document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener('click', function(e) {
+        if( !e.target.matches('.btn-menu-toggle')) return;
+        if( document.getElementsByClassName('menu')[0].classList.contains('active') ) {
+            document.getElementsByClassName('menu')[0].classList.remove('active')
+        } else {
+            document.getElementsByClassName('menu')[0].classList.add('active')
+        }
+    });
+})
+	</script>
+	<!-- //구현 JS 코드작성 -->
+
+	<!-- 필수 script -->
+	<script src="../../../resource/js/sourceguide.js"></script>
+	<script>hljs.highlightAll();</script>
+	<!-- 필수 script -->
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>

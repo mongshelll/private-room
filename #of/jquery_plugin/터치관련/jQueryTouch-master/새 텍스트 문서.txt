@@ -1,0 +1,3 @@
+jQueryTouch
+
+기존버전 jquery에서 터치이벤트 감지하는 플러그인

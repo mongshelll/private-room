@@ -1,0 +1,5 @@
+jquery v3
+jquery-easing-1.4.1 사용
+
+jquery v3 이전은 
+jquery-easing-1.3 사용

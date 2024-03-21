@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>호출 타이밍 태스트</title>
+
+	<!-- <script src="../jQuery/jquery-1.12.4.min.js"></script>
+	<script src="../jQuery/jquery-2.2.4.min.js"></script>
+	<script src="../jQuery/jquery-3.6.4.min.js"></script>
+	<script src="../jQuery/jquery-3.7.1.min.js"></script> -->
+	<script src="../jQuery/jquery-4.0.0.min-beta.js"></script>
+
+	<script defer src="test01.js"></script>
+	<script defer src="call_timing_test.js"></script>
+	<script defer src="test02.js"></script>
+</head>
+<body style="background-color: #ddd;">
+<script>
+let _target = document.querySelector('script'),
+	_targetSrc = _target.getAttribute('src');
+
+document.querySelector('body').append(_targetSrc);
+console.log(_targetSrc);
+
+// v3부터 변경점
+// $( handler )
+// $( document ).ready( handler )
+// $( "document" ).ready( handler )
+// $( "img" ).ready( handler )
+// $().ready( handler )
+// v3부터 첫 번째 구문만 권장함 => 다른 구문은 사용가능 하지만 더 이상 사용안한다고 함
+// $(document).on( "ready", handler ) => 1.8부터 제거됨
+
+// ex 아래 3가지 모두 같은 의미
+$(document).ready(function() {init01()}) // aa
+$(document).ready(()=>{init02()}) // bb
+$(()=>{init03()}) // cc
+
+let init01 = ()=> {console.log('aa')}
+let init02 = ()=> {console.log('bb')}
+let init03 = ()=> {console.log('cc')}
+/*
+	호출 타이밍 테스트
+*/
+
+console.log('넘버링 기준은 v3 (이전, 이후, 4beta)호출순서 test$$는 외부 스크립트 defer 연결시 console.log');
+console.log('로컬파일 실행시 기준이며, 서버에서 실행시 호출순서가 다른 부분이 있음');
+
+/* 함수 */
+function fn01() {
+	console.log(1, 1, 1, 'fn01 스크립트 내부함수');
+}
+
+
+/* 실행 */
+fn01();
+
+(() => {
+	console.log(2, 2, 2, 'IIFE : 스크립트 내부에서 실행함수 즉시실행함수도 순차적으로 실행');
+})();
+
+
+$(document).ready(function(){
+	console.log(4, 6, 9, '$(document).ready(function(){}) : dom생성시');
+})
+
+// 중복실행 가능
+$(window).on('load', function(){
+	console.log(8, 8, 6, '$(window).on("load",function(){}) : 이미지포함 요소들 로드시 호출');
+})
+
+// 3버전 이후 삭제
+// $(window).load(function (){
+// 	console.log('$(window).load(function (){}');
+// });
+
+// window.onload는 뒤에 선언된 하나만 실행 됨 중복시 앞에껀 실행 안됨
+// window.onload = function(){
+// 	console.log(5, 'window.onload = function(){} : 이미지포함 요소들 로드시');
+// }
+// 아래 코드로 중복사용 가능
+window.addEventListener('load', function(){
+	console.log(10, 10, 8, 'window.addEventListener("load", function(){}) 항상 마지막');
+})
+
+document.addEventListener('DOMContentLoaded', function(){
+	console.log(6, 4, 4 ,'document.addEventListener("DOMContentLoaded", function(){}) : dom생성시');
+})
+
+</script>
+<script src="test03.js"></script>
+<script defer src="test04.js"></script>
+</body>
+</html>
