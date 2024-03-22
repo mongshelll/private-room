@@ -6,10 +6,9 @@
 	<title>modal test</title>
 	<style>
 		html, body { margin: 0; padding: 0; }
-		.modal { display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 300px; min-height: 200px; border: 1px solid #333; border-radius: 12px; background-color: #fff; }
-		.modal.on { display: block; }
-		.modal2 { display: none; position: absolute; top: 50%; left: 50%; transform: translate(-20%, -50%); max-width: 500px; max-height: 600px; border: 1px solid #333; border-radius: 12px; background-color: #fff; }
-		.modal2.on { display: block; }
+		.modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; justify-content: center; align-items: center; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(1px); }
+		.modal .modal-inner { position: relative; min-width: 300px; min-height: 200px; border: 1px solid #333; border-radius: 12px; background-color: #fff; }
+		.modal.on { display: flex; }
 		.modal-close { position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; font-size: 12px; }
 
 	</style>
@@ -24,20 +23,21 @@
 		<button type="button" class="dumy3">3</button>
 	</div>
 
-	<div class="modal" data-id="modal01" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
-		<div class="modal-inner" role="document">
-			<div class="modal-header" id="modalTitle">
+	<div class="modal" data-id="modal01">
+		<div class="modal-inner" role="document" tabindex="0">
+			<div class="modal-header" id="modalTitle" tabindex="0">
 				<h1>modal title</h1>
 			</div>
 			<div class="modal-content">
 				modal content
+				<button type="button">sss</button>
 			</div>
 			<button type="button" class="modal-close" data-btn="close">닫기</button>
 		</div>
 	</div>
 
-	<div class="modal" data-id="modal02" role="dialog" aria-labelledby="modalTitle" aria-modal="true" style="transform: translate(-10%, -40%);">
-		<div class="modal-inner" role="document">
+	<div class="modal" data-id="modal02">
+		<div class="modal-inner" role="document" tabindex="0">
 			<div class="modal-header" id="modalTitle">
 				<h1>modal title</h1>
 			</div>
@@ -49,17 +49,45 @@
 	</div>
 
 	<script>
+		let modal = document.querySelectorAll('[data-id]');
 		const triggerBtn = document.querySelectorAll('[data-modal]');
 		const closeBtn = document.querySelectorAll('[data-btn=close]');
 		let btnTarget = [];
 
-		const modalOpen = (targetModal, btn) => {
-			let modal = document.querySelectorAll('[data-id]');
-			let target = targetModal.dataset.id;
+		// Vanilla JavaScript
+		// Tab Loop
+		const modalTabLoop = (e) => {
+			let keyCode = e.keyCode;
+			if (keyCode === 9) { // 탭 키 입력시
+				let focusableElements = Array.from(e.currentTarget.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [tabindex]:not([tabindex="-1"]), [contenteditable]')); // 포커스가 가능한 요소확인
+				let focusedIndex = focusableElements.indexOf(document.activeElement); // 포커스된 요소의 인덱스를 가져옵니다.
+				let lastElementIndex = focusableElements.length - 1; // 마지막 포커스 요소의 인덱스를 가져옵니다.
+			
+				if (e.shiftKey) { // Shift 키와 함께 눌렸을 때, 역순으로 탐색합니다.
+					if (focusedIndex === 0) { // 첫번째 포커스 요소인 경우
+						focusableElements[lastElementIndex].focus(); // 마지막 요소로 포커스를 이동합니다.
+						e.preventDefault();
+					}
+				} else { // Shift 키 없이 눌렸을 때, 순방향으로 탐색하며 마지막 요소에 포커스된 경우
+					if (focusedIndex === lastElementIndex) {
+						focusableElements[0].focus(); // 첫번째 요소로 포커스를 이동합니다.
+						e.preventDefault();
+					}
+				}
+			}
+		}
+		modal.forEach((el)=> {
+			el.addEventListener("keydown", (e) => {
+				modalTabLoop(e);
+			})
+		})
 
+		const modalOpen = (targetModal, btn) => {
+			let target = targetModal.dataset.id;
 			modal.forEach((el, i)=> {
 				if (!el.classList.contains('on')) {
 					document.querySelector(`[data-id=${target}]`).classList.add('on');
+					el.querySelector('.modal-inner').focus();
 				}
 			})
 			btnTarget.unshift(btn);
