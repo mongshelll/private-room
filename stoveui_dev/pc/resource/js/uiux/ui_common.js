@@ -767,6 +767,26 @@ var stModal = (function(){
 						}
 					}
 				}
+
+				// Vanilla JavaScript
+				// let keyCode = e.keyCode;
+				// if (keyCode === 9) { // 탭 키 입력시
+				// 	let focusableElements = Array.from(e.currentTarget.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [tabindex]:not([tabindex="-1"]), [contenteditable]')); // 포커스가 가능한 요소확인
+				// 	let focusedIndex = focusableElements.indexOf(document.activeElement); // 포커스된 요소의 인덱스를 가져옵니다.
+				// 	let lastElementIndex = focusableElements.length - 1; // 마지막 포커스 요소의 인덱스를 가져옵니다.
+
+				// 	if (e.shiftKey) { // Shift 키와 함께 눌렸을 때, 역순으로 탐색합니다.
+				// 		if (focusedIndex === 0) { // 첫번째 포커스 요소인 경우
+				// 			focusableElements[lastElementIndex].focus(); // 마지막 요소로 포커스를 이동합니다.
+				// 			e.preventDefault();
+				// 		}
+				// 	} else { // Shift 키 없이 눌렸을 때, 순방향으로 탐색하며 마지막 요소에 포커스된 경우
+				// 		if (focusedIndex === lastElementIndex) {
+				// 			focusableElements[0].focus(); // 첫번째 요소로 포커스를 이동합니다.
+				// 			e.preventDefault();
+				// 		}
+				// 	}
+				// }
 			},
 			offFocusCtrl: function(){
 				if ( activeModal.length > 0 ) {
