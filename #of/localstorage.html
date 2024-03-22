@@ -6,7 +6,7 @@
 	<title>localStorage TEST</title>
 
 	<style>
-		body { background-color: darkgreen; }
+		body { padding-top: 100px; background-color: darkgreen; text-align: right; }
 	</style>
 </head>
 <body>
@@ -27,25 +27,54 @@
 		const target01 = document.querySelector('#user');
 		const target02 = document.querySelector('#pw1');
 
-		let userValue;
-		let pwValue;
-		let userInfo;
+		let userValue,
+			pwValue,
+			userInfo,
+			keyName;
+		let num = 0;
 
 		const addLocalStorage = ()=> {
 			userValue = target01.value;
 			pwValue = target02.value;
 			userInfo = { id: userValue, pw: pwValue }
 
-			localStorage.setItem('userInfo', JSON.stringify(userInfo));
+			if(localStorage.length > 0) {
+				num = localStorage.length;
+			}
 
-			console.log(localStorage.userInfo);
-			console.log(JSON.parse(localStorage.userInfo));
+			num = ++num;
+			keyName = ['UserInfo'+num]
+
+			localStorage.setItem(keyName, JSON.stringify(userInfo));
+
+
+			// console.log(localStorage.getItem(keyName));
+			// console.log(localStorage.userInfo1);
+			// console.log(JSON.parse(localStorage.userInfo1));
 		}
 
-		btnAdd.addEventListener("click", addLocalStorage)
-		btnRemove.addEventListener("click", ()=> { localStorage.clear(); })
+		const resetValue = () => {
+			target01.value = "";
+			target02.value = "";
+		}
 
-		if(localStorage.getItem('userInfo')){ console.log(true);} else {console.log(false);}
+
+		btnAdd.addEventListener("click", () => {
+			addLocalStorage();
+			resetValue();
+		})
+		btnRemove.addEventListener("click", ()=> {
+			localStorage.clear(); num = 0;
+		})
+
+		target02.addEventListener("keydown", (e) => {
+			if( e.keyCode == 13 ) {
+				btnAdd.click();
+				target01.focus();
+			}
+		})
+
+		if(localStorage.length){ console.log(true);} else {console.log(false);}
 	</script>
 </body>
 </html>
