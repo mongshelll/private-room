@@ -74,7 +74,27 @@
 			}
 		})
 
-		if(localStorage.length){ console.log(true);} else {console.log(false);}
+		if ( localStorage.length ) { console.log(true); } else { console.log(false); }
+
+
+
+
+
+let textFn = `const fnUserInfo = function() {
+	const $target01 = document.querySelector('#id');
+	const $target02 = document.querySelector('#pw');
+	const _id = $target01.value;
+	const _pw = $target02.value;
+
+	let value00 = { id: _id, pw: _pw }
+	localStorage.setItem('userInfo', JSON.stringify(value00));
+};
+
+document.querySelector('#pw').addEventListener("keydown", fnUserInfo);`
+localStorage.setItem('userInfo', textFn);
+
+
+
 	</script>
 </body>
 </html>
