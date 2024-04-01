@@ -17,25 +17,20 @@
 		section.container { width: 100%; }
 		footer.footer { display: flex; justify-content: center; align-items: center; height: 100px; background-color: blanchedalmond; }
 
+		body.mobile header.header .header-wrap { min-width: 100%; }
+		body.mobile header.header .header-inner { width: 100%; }
 
-		header.header .header-wrap { z-index: 1000; position: fixed; top: 0; left: 0; display: flex; justify-content: center; align-items: center; width: 100%; min-width: 1140px; height: 100px; background-color: rgba(255, 255, 255, 0.6); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); box-shadow: 1px 0px 10px #33333323; }
-		header.header .header-inner { position: relative; display: flex; justify-content: space-between; align-items: center; width: 1100px; height: 100%; }
-		header.header .ebstep02{ position: absolute; bottom: 0; left: 0; }
+		header.header .header-wrap { z-index: 1000; position: fixed; top: 0; left: 0; display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; min-width: 1140px; height: 100px; background-color: rgba(255, 255, 255, 0.6); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); box-shadow: 1px 0px 10px #33333323; }
+		header.header .header-inner { position: relative; display: flex; justify-content: space-between; align-items: center; width: 1100px; height: 95px; }
 
 		.gnb > ul { display: flex; }
 
-		.ebstep02 { overflow: hidden; width: 100%; height: 5px; background-color: #fff; }
+		.ebstep02 { position: relative; overflow: hidden; width: 100%; height: 5px; background-color: #fff; }
 		.ebprogress { position: absolute; top: 0; left: 0; width: calc(100% + 5px); height: 5px; border: none; -moz-appearance : none; -webkit-appearance: none; appearance: none; background-color: transparent; }
-		.ebstep02::before { content: ''; z-index: -1; position: absolute; top: 2px; left: 0; width: 100%; height: 1px; background-color: #949494; }
+		.ebstep02::before { content: ''; position: absolute; top: 2px; left: 0; width: 100%; height: 1px; background-color: #949494; }
 		.ebprogress::-webkit-progress-bar { height: 5px; background-color: transparent; }
 		.ebprogress::-moz-progress-bar { height: 5px; box-shadow: 2px 0 #fff; background-color: #FD403D; border-radius: 0 10px 10px 0; }
 		.ebprogress::-webkit-progress-value { box-shadow: 2px 0 #fff; background-color: #FD403D; border-radius: 0 10px 10px 0; }
-
-		/* fixed */
-		.ebstep02.fixed { z-index: 600; position: fixed; top: 55px; left: 0; min-width: 320px; }
-
-
-
 
 		.cont { width: 300px; }
 	</style>
@@ -59,6 +54,7 @@
 						</ul>
 					</nav>
 				</div>
+
 				<div class="ebstep02">
 					<progress class="ebprogress" value="0" max="100"></progress> <!-- value = "현재 단계" / max = "전체 단계" -->
 				</div>
@@ -68,6 +64,7 @@
 		<section class="container">
 			<div class="inner">
 				<div class="content">
+					<!-- <output class="output">0</output> -->
 					<div class="cont">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, explicabo! Itaque cupiditate natus, sapiente porro nostrum beatae molestiae doloremque perspiciatis expedita iste. Iusto dolorem nostrum minus architecto molestiae ducimus animi, inventore iure asperiores veritatis voluptate optio, doloremque ut commodi voluptates deserunt fugit reprehenderit perspiciatis! Quam blanditiis rem dolorum consectetur voluptate maxime reiciendis sequi at voluptatum aspernatur explicabo, soluta non mollitia aliquid illum deserunt officia dignissimos. Tenetur, ipsum nesciunt mollitia culpa eveniet in laborum corrupti est asperiores impedit vitae aliquid corporis sint non ducimus perferendis eaque, nihil architecto illo aliquam nam! Veritatis illum earum magni rem minima ipsa nihil sint vero? Unde facere explicabo nemo modi non? Praesentium ipsa nam quidem qui molestiae laboriosam neque reiciendis culpa itaque eaque magnam rem minima, officiis officia dolores facere sint ea alias corrupti placeat sequi veniam expedita dignissimos! Molestiae ullam nostrum voluptatibus enim nobis assumenda, harum, voluptas veritatis deserunt nam saepe aperiam excepturi, minus aliquid aspernatur tempora perspiciatis odit. Ut suscipit nulla id cum dignissimos delectus deleniti necessitatibus nesciunt fuga. Quisquam cum ut facilis? Voluptatum non, temporibus similique facilis vitae adipisci animi dolore ad id libero cupiditate esse officia et, blanditiis modi ullam incidunt fuga excepturi quod. Est fuga, sequi reprehenderit quasi suscipit ipsam aperiam possimus commodi optio ullam veritatis ipsa laboriosam sint enim, iste quod? Animi maxime reprehenderit, perspiciatis nam porro voluptatem error modi! Alias culpa quos, molestiae sed esse qui. Cumque ab quos libero debitis sunt laborum totam exercitationem quam accusantium, iste illo tenetur nisi omnis officiis facere vero voluptate? Quas corrupti perferendis reprehenderit quibusdam vero vitae, voluptatem, sequi, nobis ad commodi alias quis error eaque repellat quae quod odit. Similique debitis odio non optio qui? Aspernatur molestias doloremque quo ab commodi distinctio velit minima animi quisquam suscipit esse asperiores nemo repellendus, eos numquam vero, modi ipsam. Laudantium sint animi eligendi possimus quo maiores, doloremque magnam dolor eos cumque excepturi, quae, vel aut ab dolores repellendus voluptate itaque ex eius! Voluptas, aliquam fuga! Nulla asperiores dolorum veritatis. Ratione, culpa dolorem deserunt cumque neque quaerat voluptate quasi necessitatibus saepe, beatae mollitia eos non modi, id nisi praesentium magnam dolores! Sed eveniet ex ut incidunt sapiente nulla possimus neque minus. Enim vero fugiat quia, id, cum, maxime quisquam molestiae accusamus minus dolore voluptatem reprehenderit velit illum praesentium a! Ea obcaecati, commodi quibusdam vel nemo sint explicabo laboriosam hic ut tempore minus eaque molestias sapiente officia necessitatibus, excepturi nulla! Ipsa odio consequuntur debitis deserunt tenetur sint velit expedita earum, alias doloremque voluptatem vitae neque nobis beatae! Numquam, optio sunt atque dolorem, non ea quidem obcaecati ex facilis rerum quas voluptates. Cum saepe neque maxime. Impedit ex rem soluta vero, odio necessitatibus, consequuntur perferendis ullam tempora pariatur ea quod quasi, consectetur consequatur placeat tenetur neque? Culpa, delectus nobis? Impedit quas assumenda omnis cupiditate alias provident reprehenderit, explicabo nihil sequi pariatur voluptatem facilis? Aperiam fugit rem eaque libero consequatur voluptatibus dolor at atque accusantium consequuntur quaerat, quos enim voluptas tempora sequi laudantium dignissimos veritatis nostrum dolore nam, cupiditate obcaecati quisquam esse. Quos rerum dicta accusamus necessitatibus sequi expedita quas, adipisci autem sed voluptatem, velit iure libero neque voluptatibus maiores, repellendus aspernatur ipsum totam delectus magnam tenetur debitis! Perferendis reiciendis reprehenderit quia debitis doloribus repudiandae atque, saepe corrupti ea accusamus minima incidunt, nam hic ratione expedita rerum eveniet! Molestiae doloribus cum pariatur eaque obcaecati ipsa, nisi, facere iure quas sequi veniam dignissimos sapiente aliquid qui vitae tenetur, aliquam quisquam recusandae. Provident commodi praesentium laudantium labore totam pariatur itaque a quis expedita similique qui, odio atque aliquam nobis est ratione, quaerat iusto obcaecati. Ipsam ullam sapiente, inventore iusto cupiditate praesentium quidem culpa voluptatibus ut provident a, rem quos corrupti voluptatem quam in nostrum perferendis. Eligendi quis facilis repellat voluptas sunt. Similique nobis magni incidunt nulla ratione! Cumque porro esse quos optio, incidunt odit, nobis eum odio minima aliquam laudantium distinctio officiis, rem ipsam voluptates. Nulla eius molestias dicta, quis natus ab aliquid repudiandae ipsum tempora dolore maiores odio illum ut quasi provident, soluta quae sint. Nihil esse unde quibusdam rem praesentium, autem distinctio magni tempora quas commodi laudantium cum consequatur quos, ab et exercitationem, iusto nam. Voluptatem architecto possimus deserunt pariatur dolorum natus consequatur. Earum mollitia, nam fuga facilis accusamus quam rem aut qui, quo vero aliquam magnam corporis praesentium, suscipit ex! Modi, aliquid id. Quo quaerat dolores eius alias quos repellat corrupti illo accusamus incidunt maiores cum, quod est iure ipsam impedit aspernatur molestias. Quod, veniam quas non ducimus blanditiis ex autem aliquid reiciendis doloribus deserunt praesentium eveniet nostrum architecto in libero, delectus doloremque, porro neque? Facilis nostrum ratione nihil porro vitae facere fugiat quam sint aperiam cupiditate? Ut excepturi aliquam mollitia ex distinctio at obcaecati accusamus ipsa inventore adipisci asperiores error sit itaque, neque rem necessitatibus. Nesciunt voluptatum atque aut neque, doloremque ab ducimus tempora sapiente adipisci deserunt impedit est quidem sequi dolorem consequatur animi corrupti illum commodi harum! Officiis, rem error et accusantium neque voluptatibus molestiae, delectus blanditiis facilis dolorum hic voluptatem beatae, eveniet assumenda. Tempore, accusantium. Doloremque amet labore corporis dolorem ex debitis saepe odit laboriosam expedita hic temporibus minima quo ab perferendis cum, iure voluptate molestias at cupiditate ullam eius excepturi fuga velit? Ab, impedit optio qui animi iusto pariatur culpa. Nobis velit dignissimos molestiae facilis possimus mollitia iste eos atque voluptas. Adipisci quo illum est quam eligendi tenetur, sunt voluptate, reiciendis perspiciatis inventore corporis nam delectus quisquam corrupti! Maiores aperiam magni harum officiis quibusdam pariatur soluta ipsum commodi aspernatur earum odit neque dignissimos, iure animi facere ducimus voluptate nulla nam aliquid provident? Sint vero neque ad dolorum veritatis accusantium voluptatem eos in magnam sapiente illum dicta molestiae ratione doloremque natus aliquid omnis odio consequuntur illo id magni, fugit aliquam! Quidem reprehenderit quaerat asperiores eius soluta obcaecati ex molestias a doloremque ducimus inventore similique debitis labore sequi quis voluptatem iure accusamus provident, quod est molestiae ad quam enim magni? Autem dolorem quas soluta necessitatibus aperiam odit deserunt maiores molestias non, sint, totam beatae? Eligendi harum tempora non magni excepturi qui delectus, perferendis sint! Quia deleniti explicabo culpa blanditiis cupiditate! Excepturi voluptatibus hic ad culpa?
 					</div>
@@ -82,6 +79,18 @@
 	
 
 	<script>
+
+		const ua = navigator.userAgent; //UA
+
+		//OS 체크
+		function osCheck() {
+			if (/android/i.test(ua) || /iphone/i.test(ua) || /ios/i.test(ua) || /ipad/i.test(ua) || /ipod/i.test(ua)) {
+				document.querySelector('body').classList.add('mobile')
+			} else if ( document.querySelector('body').classList.contains('mobile') ) {
+				document.querySelector('body').classList.remove('mobile')
+			}
+		}
+
 		const addValue = (_num)=> {
 			const target = document.querySelector('.ebprogress');
 
@@ -109,7 +118,8 @@
 				let innerHeight = window.innerHeight;
 				let scrollHeight = document.querySelector('body').scrollHeight;
 				let scrollPercent = (scrY / (scrollHeight - innerHeight)) * 100;
-				let scrollValue = Math.round(scrollPercent * 100)/100; // 소수점 2자리까지 받기
+				let scrollValue = parseInt(scrollPercent);
+				// let scrollValue = Math.round(scrollPercent * 100)/100; // 소수점 2자리까지 받기
 
 				// 진행률 값 넣기
 				addValue(scrollValue)
@@ -128,9 +138,10 @@
 
 
 
-		// window.addEventListener('load',()=>{
-		// 	ebstepFn2();
-		// });
+		window.addEventListener('load', () => {
+			osCheck();
+			ebstepFn2();
+		});
 	</script>
 </body>
 </html>
