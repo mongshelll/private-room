@@ -20,8 +20,8 @@
 		body.mobile header.header .header-wrap { min-width: 100%; }
 		body.mobile header.header .header-inner { width: 100%; }
 
-		header.header .header-wrap { z-index: 1000; position: fixed; top: 0; left: 0; display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; min-width: 1140px; height: 100px; background-color: rgba(255, 255, 255, 0.6); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); box-shadow: 1px 0px 10px #33333323; }
-		header.header .header-inner { position: relative; display: flex; justify-content: space-between; align-items: center; width: 1100px; height: 95px; }
+		header.header .header-wrap { z-index: 1000; position: fixed; top: 0; left: 0; display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; _min-width: 1140px; height: 100px; background-color: rgba(255, 255, 255, 0.6); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); box-shadow: 1px 0px 10px #33333323; }
+		header.header .header-inner { position: relative; display: flex; justify-content: space-between; align-items: center; _width: 1100px; height: 95px; }
 
 		.gnb > ul { display: flex; }
 
@@ -103,9 +103,10 @@
 			if (target.length) {
 				target.forEach(el => {
 					let _value = el.getAttribute('value');
+					let _inValue = parseInt(_value);
 					let _max = el.getAttribute('max');
 
-					el.setAttribute('aria-valuetext', `${_value}% 진행중`);
+					el.setAttribute('aria-valuetext', `${_inValue}% 진행중`);
 				});
 			}
 		}
@@ -118,7 +119,8 @@
 				let innerHeight = window.innerHeight;
 				let scrollHeight = document.querySelector('body').scrollHeight;
 				let scrollPercent = (scrY / (scrollHeight - innerHeight)) * 100;
-				let scrollValue = parseInt(scrollPercent);
+				// let scrollValue = parseInt(scrollPercent);
+				let scrollValue = Math.round(scrollPercent * 10000)/10000; // 소수점 4자리까지 받기
 				// let scrollValue = Math.round(scrollPercent * 100)/100; // 소수점 2자리까지 받기
 
 				// 진행률 값 넣기
