@@ -116,7 +116,8 @@
 			const $target = $header.querySelector('.ebstep02');
 			if($target) {
 				let scrY = window.scrollY;
-				let innerHeight = window.innerHeight;
+				// let innerHeight = window.innerHeight; // 스크롤바 영역크기도 포함하는 값을 구함 가로스크롤바가 생기는 경우 스크롤이 끝나기 전에 프로그레스바가 100%가 됨
+				let innerHeight = document.querySelector('body').clientHeight; // 스크롤바 영역 제외
 				let scrollHeight = document.querySelector('body').scrollHeight;
 				let scrollPercent = (scrY / (scrollHeight - innerHeight)) * 100;
 				// let scrollValue = parseInt(scrollPercent);
