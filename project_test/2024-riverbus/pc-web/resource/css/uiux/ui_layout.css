@@ -1,0 +1,80 @@
+@charset "UTF-8";
+/* v0.1 | 2024-04-16 */
+/*
+	※ 주석가이드
+	대분류간 빈 줄: 3줄
+	중분류간 빈 줄: 2줄
+	소분류간 빈 줄: 1줄
+*/
+/* ##############################################################
+	대분류
+############################################################## */
+/* 중분류 */
+/* 소분류 */
+
+
+
+/* ##############################################################
+	z-index
+############################################################## */
+.ebmodal { z-index: 1000; }
+
+
+
+/* ##############################################################
+	layout
+############################################################## */
+/* layout */
+.layout { height: 100%; }
+
+/* 비율 확인용 */
+.layout.test { min-width: 3840px; max-width: 7680px; min-height: 1080px; height: 100%; max-height: 2160px; }
+/* .layout.test02 { min-width: 1920px; max-width: 3840px; min-height: 1080px; height: 100%; max-height: 2160px; } */
+/* .layout.test { transform-origin: top left; transform: scale(0.5); } */
+/* .layout.test .maps-area { transform-origin: top left; transform: scale(0.5); } */
+/* .layout.test { zoom: 0.5; } */
+/* .maps-area { zoom: 0.5; } */
+/* //비율 확인용 */
+
+
+
+/* container */
+.container { height: 100%; }
+.container .container-wrap { height: 100%; }
+.container .container-wrap .content { height: 100%; }
+
+/* 관제실 대시보드 */
+.container .container-wrap .content.contol-room { display: flex; }
+.container .content.contol-room .left-contnet { flex: 1 1 25%; background-color: lightblue; }
+.container .content.contol-room .center-contnet { flex: 2 1 50%; background-color: lightsalmon; }
+.container .content.contol-room .right-contnet { flex: 1 1 25%; background-color: lightgreen; }
+
+
+
+
+
+
+
+/* ##############################################################
+	dashboard
+############################################################## */
+/* left-contnet */
+.container-wrap .left-contnet { display: flex; flex-direction: column; }
+
+/* 선박정보 */
+.container-wrap .left-contnet .upper-aera { flex: 1; }
+
+/* 이벤트 영역 */
+.container-wrap .left-contnet .lower-aera { flex: 1; }
+
+/* map */
+.img-area img { width: 100%; vertical-align: top; }
+
+/* right-contnet */
+.container-wrap .right-contnet { display: flex; flex-direction: column; }
+
+/* 선박정보 */
+.container-wrap .right-contnet .upper-aera { flex: 1; }
+
+/* 이벤트 영역 */
+.container-wrap .right-contnet .lower-aera { flex: 1; }

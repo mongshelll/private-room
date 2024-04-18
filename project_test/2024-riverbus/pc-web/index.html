@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" href="./z_eilab/index/images/favicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="./z_eilab/index/images/favicon.ico">
+
+	<!-- Library -->
+	<link rel="stylesheet" href="z_eilab/library/jquery-ui.css">
+	<script src="z_eilab/library/jquery-3.7.1.min.js"></script>
+	<script src="z_eilab/library/jquery-ui-1.13.2.min.js"></script>
+
+	<!-- Resources -->
+	<link rel="stylesheet" href="z_eilab/index/index.css">
+	<script src="z_eilab/index/index.js"></script>
+
+	<title>HTML뷰어 - 리버버스 통합관제시스템</title>
+
+	<style>
+		.frame > *:first-child { width: 430px; }
+	</style>
+</head>
+<body>
+	<div class="frame">
+		<div class="frame-list">
+			<iframe src="map.html" name="frameList" id="frameList" title="frameList" width="100%" height="100%"></iframe>
+		</div>
+		<div class="frame-view">
+			<iframe src="z_eilab/guide/guide.html" name="frameView" id="frameView" title="frameView" width="100%" height="100%"></iframe>
+		</div>
+	</div>
+</body>
+
+</html>

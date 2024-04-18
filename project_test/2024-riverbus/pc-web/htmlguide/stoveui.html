@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expire" content="-1">
+	<link rel="shortcut icon" href="z_stoveui/favicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="z_stoveui/favicon.png">
+
+	<title>Stove UI - PC</title>
+
+	<!-- JS -->
+	<script src="z_stoveui/library/jquery-3.7.1.min.js"></script>
+	<script src="z_stoveui/library/jquery-ui-1.13.2.min.js"></script>
+
+	<!-- Guide  -->
+	<link type="text/css" rel="stylesheet" href="z_stoveui/stoveui.css">
+	<script src="z_stoveui/stoveui.js"></script>
+
+</head>
+
+
+<body>
+
+
+<div class="framework">
+	<div class="header">
+		<div class="info_wrap">
+			<div class="logo"><img src="z_stoveui/image/logo_eilab.png" alt="EiLAB 로고"></div>
+			<div class="info title">Stove UI<span>for</span>PC</div>
+			<div class="info version">v 0.3</div>
+			<div class="info date">2024-04-16</div>
+			<div class="info design">based on Design System v 0.2</div>
+		</div>
+		<!-- <div class="app_wrap">
+			<div class="app active">
+				<a href="#" target="frameViewer">
+					<span class="app_title">타이틀</span>
+					<div class="active_bar"></div>
+				</a>
+			</div>
+		</div> -->
+	</div>
+
+	<div class="mainviewer">
+		<div class="layout">
+
+			<div class="lnb">
+				<div class="header">
+					<div class="info_wrap">
+						<div class="title">UI Components</div>
+					</div>
+					<div class="menu_ctrl_wrap">
+						<button type="button" class="btn btn_menu_ctrl"><span>전체 닫기</span></button>
+					</div>
+				</div>
+
+				<div class="container">
+
+					<div class="menu" data-menu="wrap">
+						<!--
+							※ 메뉴 가이드
+							- depth는 기본 닫힘 상태. 기본 열림상태로 변경시 active 클래스 추가필요.
+							<div class="depth active" data-menu="depth" data-depthTitle="폴더명">
+								<div class="depth active" data-menu="depth" data-depthTitle="댑스명">
+									<div class="page" data-menu="page" data-name="항목명" data-pageId="id" data-dir="경로"></div>
+								</div>
+							</div>
+						-->
+
+						<div class="depth active" data-menu="depth" data-depthTitle="Typography">
+							<div class="page" data-menu="page" data-name="typography" data-pageId="typography" data-dir="elements/components/typography/typography.html"></div>
+						</div>
+
+						<div class="depth active" data-menu="depth" data-depthTitle="Button">
+							<div class="page" data-menu="page" data-name="button" data-pageId="button" data-dir="elements/components/button/button.html"></div>
+						</div>
+
+						<div class="depth active" data-menu="depth" data-depthTitle="Form">
+							<div class="page" data-menu="page" data-name="text field" data-pageId="textfield" data-dir="elements/components/form/textfield.html"></div>
+							<div class="page" data-menu="page" data-name="checkbox" data-pageId="checkbox" data-dir="elements/components/form/checkbox.html"></div>
+							<div class="page" data-menu="page" data-name="radio" data-pageId="radio" data-dir="elements/components/form/radio.html"></div>
+							<div class="page" data-menu="page" data-name="switch" data-pageId="switch" data-dir="elements/components/form/switch.html"></div>
+							<div class="page" data-menu="page" data-name="range" data-pageId="range" data-dir="elements/components/form/range.html"></div>
+							<div class="page" data-menu="page" data-name="date picker" data-pageId="datepicker" data-dir="elements/components/form/datepicker.html"></div>
+							<div class="page" data-menu="page" data-name="select" data-pageId="select" data-dir="elements/components/form/select.html"></div>
+							<div class="page" data-menu="page" data-name="form set" data-pageId="formset" data-dir="elements/components/form/formset.html"></div>
+						</div>
+
+						<div class="depth active" data-menu="depth" data-depthTitle="Navigation">
+							<div class="page" data-menu="page" data-name="breadcrumbs" data-pageId="breadcrumbs" data-dir="elements/components/navigation/breadcrumbs.html"></div>
+							<div class="page" data-menu="page" data-name="pagination" data-pageId="pagination" data-dir="elements/components/navigation/pagination.html"></div>
+							<div class="page" data-menu="page" data-name="stepper" data-pageId="stepper" data-dir="elements/components/navigation/stepper.html"></div>
+						</div>
+
+						<div class="depth active" data-menu="depth" data-depthTitle="Label">
+							<div class="page" data-menu="page" data-name="badge" data-pageId="badge" data-dir="elements/components/label/badge.html"></div>
+							<div class="page" data-menu="page" data-name="tag" data-pageId="tag" data-dir="elements/components/label/tag.html"></div>
+						</div>
+
+						<div class="depth active" data-menu="depth" data-depthTitle="Modal">
+							<div class="page" data-menu="page" data-name="alert" data-pageId="alert" data-dir="elements/components/modal/modal-alert.html"></div>
+							<div class="page" data-menu="page" data-name="default" data-pageId="default" data-dir="elements/components/modal/modal-default.html"></div>
+							<div class="page" data-menu="page" data-name="toast" data-pageId="toast" data-dir="elements/components/modal/toast.html"></div>
+							<div class="page" data-menu="page" data-name="snackbar" data-pageId="snackbar" data-dir="elements/components/modal/snackbar.html"></div>
+							<div class="page" data-menu="page" data-name="tooltip" data-pageId="tooltip" data-dir="elements/components/modal/tooltip.html"></div>
+							<div class="page" data-menu="page" data-name="banner" data-pageId="banner" data-dir="elements/components/modal/banner.html"></div>
+						</div>
+
+						<div class="depth active" data-menu="depth" data-depthTitle="Contents">
+							<div class="page" data-menu="page" data-name="table" data-pageId="table" data-dir="elements/components/contents/table.html"></div>
+							<div class="page" data-menu="page" data-name="tab" data-pageId="tab" data-dir="elements/components/contents/tab.html"></div>
+							<div class="page" data-menu="page" data-name="accordion" data-pageId="accordion" data-dir="elements/components/contents/accordion.html"></div>
+							<div class="page" data-menu="page" data-name="file upload" data-pageId="fileupload" data-dir="elements/components/contents/fileupload.html"></div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+			<div class="viewer" data-viewer="viewer">
+				<div class="tablist_wrap">
+					<button type="button" class="btn btn_urlcopy" data-urlCopy="copy" title="주소복사"></button>
+					<div class="container" data-tab="listWrap">
+						<div class="scrollwrap">
+							<div class="scrollarea"></div>
+						</div>
+					</div>
+					<div class="page_dir_wrap">
+						<button type="button" class="btn btn_refresh" data-tabCtrl="refresh"><img src="z_stoveui/image/btn_refresh.png" alt="새로고침"></button>
+						<button type="button" class="btn btn_copydir" data-dirCopy="copy"><img src="z_stoveui/image/btn_copy.png" alt="폴더경로복사"></button>
+						<div class="input_dir"><input class="dir" value="" readonly></div>
+					</div>
+				</div>
+
+				<div class="tabconts_wrap">
+					<div class="container" data-tab="contWrap">
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>
