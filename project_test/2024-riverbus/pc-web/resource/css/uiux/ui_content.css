@@ -44,7 +44,8 @@
 	조타실
 ############################################################## */
 .content.pilothouse { overflow: hidden; }
-.content.pilothouse .img-area { transform: scale(1); transition: transform 0.5s; }
+.content.pilothouse .img-area { position: relative; transform: scale(1); transition: transform 0.5s; }
 
 
-.test_target { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 150px; height: 50px; outline: 1px solid red; color: #fff; }
+.test_target { position: absolute; width: 150px; height: 50px; outline: 1px solid red; color: #fff; }
+.ships { position: absolute; width: 10px; height: 10px; background-color: red; border-radius: 50%; color: #fff; }
