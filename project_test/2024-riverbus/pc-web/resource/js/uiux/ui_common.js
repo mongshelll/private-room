@@ -101,11 +101,11 @@ const mapMarkerControlFn = (function() {
 	const mapsLongitudeRange = [126.809416, 127.076583];
 	const mapsLatitudeRange = [37.476828, 37.592293];
 
-		// 지도 이미지 기준점
-		// 37.592293, 126.809416 좌상단
-		// 37.592293, 127.076583 우상단
-		// 37.476828, 126.809416 좌하단
-		// 37.476828, 127.076583 좌하단
+	// 지도 이미지 기준점
+	// 37.592293, 126.809416 좌상단
+	// 37.592293, 127.076583 우상단
+	// 37.476828, 126.809416 좌하단
+	// 37.476828, 127.076583 우하단
 
 	let markers = [];
 	let gpsData;
@@ -117,11 +117,11 @@ const mapMarkerControlFn = (function() {
 
 			gpsData.forEach(data => {
 				const { title, lat, lng } = data;
+				const existingMarker = markers.find(marker => marker.title === title);
 
 				// GPS 좌표가 지도 범위 내에 있는지 확인
 				if (lat >= mapsLatitudeRange[0] && lat <= mapsLatitudeRange[1] && lng >= mapsLongitudeRange[0] && lng <= mapsLongitudeRange[1]) {
 					// 기존 마커가 있는지 확인하고, 있으면 위치만 업데이트
-					const existingMarker = markers.find(marker => marker.title === title);
 					if (existingMarker) {
 						const { element } = existingMarker;
 						const xPosition = (lng - mapsLongitudeRange[0]) / (mapsLongitudeRange[1] - mapsLongitudeRange[0]) * imageWidth;
@@ -151,38 +151,14 @@ const mapMarkerControlFn = (function() {
 
 			console.log('add marker or update');
 		},
-		updateMarkers: function(gpsData) {
-			const mapArea = document.querySelector('[data-target="zoomTarget"]');
-			const imageWidth = mapArea.offsetWidth;
-			const imageHeight = mapArea.offsetHeight;
-
-			gpsData.forEach(data => {
-				const { title, lat, lng } = data;
-				const existingMarker = markers.find(marker => marker.title === title);
-				if (existingMarker) {
-					// 이미 존재하는 마커의 경우 위치 업데이트
-					const { element } = existingMarker;
-					const xPosition = (lng - mapsLongitudeRange[0]) / (mapsLongitudeRange[1] - mapsLongitudeRange[0]) * imageWidth;
-					const yPosition = (mapsLatitudeRange[1] - lat) / (mapsLatitudeRange[1] - mapsLatitudeRange[0]) * imageHeight;
-					const xPositionPercent = (xPosition / imageWidth) * 100;
-					const yPositionPercent = (yPosition / imageHeight) * 100;
-					element.style.left = `${xPositionPercent}%`;
-					element.style.top = `${yPositionPercent}%`;
-					existingMarker.lat = lat;
-					existingMarker.lng = lng;
-				}
-			});
-		},
 		fetchGPSData: function() {
+			// JSON으로 데이터 받아서 처리
 			fetch('http://192.168.0.106:81/workspace/project/2024-riverbus/pc-web/resource/js/uiux/gpsData.json') // autoset 경로
 			// fetch('http://127.0.0.1:5500/pc-web/resource/js/uiux/gpsData.json') // 라이브서버 경로
 				.then(response => response.json())
 				.then(data => {
 					// 가져온 데이터를 변수에 할당
 					gpsData = data;
-
-					// 가져온 데이터를 이용하여 마커 업데이트
-					mapMarkerControlFn.updateMarkers(gpsData);
 					mapMarkerControlFn.addMarkers(gpsData);
 
 					console.log(gpsData[0]);
@@ -195,9 +171,14 @@ const mapMarkerControlFn = (function() {
 })()
 
 window.addEventListener('load', () => {
-	mapMarkerControlFn.fetchGPSData();
-	// 일정한 간격으로 데이터를 다시 가져오기
-	setInterval(mapMarkerControlFn.fetchGPSData, 2000);
+
+	// 조타실 확인하여 실행
+	const isPilothouse = document.querySelector('.content.pilothouse');
+	if ( isPilothouse ) {
+		mapMarkerControlFn.fetchGPSData();
+		// 일정한 간격으로 데이터를 다시 가져오기
+		setInterval(mapMarkerControlFn.fetchGPSData, 2000);
+	}
 });
 
 
