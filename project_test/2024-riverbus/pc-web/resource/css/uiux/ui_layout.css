@@ -29,7 +29,7 @@
 
 /* 비율 확인용 */
 .layout.test { min-width: 3840px; max-width: 7680px; min-height: 1080px; height: 100%; max-height: 2160px; }
-.layout.test02 { max-width: 1920px; height: 100%; max-height: 1080px; }
+/* .layout.test02 { max-width: 1920px; height: 100%; max-height: 1080px; } */
 /* .layout.test02 { min-width: 1920px; max-width: 3840px; min-height: 1080px; height: 100%; max-height: 2160px; } */
 /* .layout.test { transform-origin: top left; transform: scale(0.5); } */
 /* .layout.test .maps-area { transform-origin: top left; transform: scale(0.5); } */
