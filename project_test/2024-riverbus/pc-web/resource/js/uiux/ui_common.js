@@ -151,8 +151,9 @@ const mapMakerFn = (function() {
 	// 37.482061, 126.838017 좌하단
 	// 37.482061, 127.089881 좌하단
 
-	// const jsonURL = 'http://192.168.0.106:81/workspace/project/2024-riverbus/pc-web/resource/js/uiux/gpsData.json' // autoset 경로
+	// const jsonURL = 'http://192.168.0.106:81/workspace/project/2024-riverbus/pc-web/resource/js/uiux/gpsData.json' // autoset 경로 // 위치확인 권한허용이 안됨
 	const jsonURL = 'http://127.0.0.1:5500/pc-web/resource/js/uiux/gpsData.json' // 라이브서버 경로
+	// const jsonURL = 'https://eilab.kr/datacenter/user/ljs1898/project_test/2024-riverbus/pc-web/resource/js/uiux/gpsData.json' // NAS 경로
 
 	let markers = [];
 	let gpsData;
@@ -307,13 +308,14 @@ const currentLocation = () => {
 	let currentLat, currentLng;
 
 	/* 현재위치 좌표 업데이트 */
-	navigator.geolocation.getCurrentPosition( (position) => {
+	navigator.geolocation.watchPosition( (position) => {
 		currentLat = position.coords.latitude;
 		currentLng = position.coords.longitude;
 		targetLat.innerHTML = currentLat + ` &#176;`;
 		targetLng.innerHTML = currentLng + ` &#176;`;
 	})
 }
+
 
 
 /** -------------------------------------------
@@ -330,10 +332,12 @@ window.addEventListener('load', () => {
 	const isPilothouse = document.querySelector('.content.pilothouse');
 	if ( isPilothouse ) {
 		mapMakerFn.fetchGPSData();
+
+		currentLocation(); // 현재 좌표확인 및 업데이트
+
 		// 일정한 간격으로 데이터를 다시 가져오기
 		gpsUpdate = setInterval( () => {
 			mapMakerFn.fetchGPSData() // 맵 생성 및 업데이트
-			currentLocation(); // 현재 좌표확인 및 업데이트
 		}, 2000);
 	}
 });
