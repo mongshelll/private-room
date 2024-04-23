@@ -46,14 +46,28 @@
 .content.pilothouse { overflow: hidden; }
 .content.pilothouse .img-area { position: relative; transform: scale(1); transition: transform 0.5s; }
 
-
 .ships { position: absolute; width: 10px; height: 10px; background-color: red; border-radius: 50%; color: #fff; }
 .ships .ship-name { position: absolute; left: -50px; top: 0; }
 
-
 /* 상행, 하행 구분 */
-.ships.right-direction::before { content: "→"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; }
-.ships.left-direction::before { content: "←"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; }
+/* 최초 기본상태 */
+.ships::before { content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; background: url('../../images/uiux/icon_boat_01.png') no-repeat center; background-size: contain; }
+/* 업데이트 이후 */
+.ships.right-direction::before { background-image: url('../../images/uiux/icon_boat_01.png') }
+.ships.left-direction::before { background-image: url('../../images/uiux/icon_boat_01_01.png'); }
+
+/* 선박 상태 */
+/* 최초 기본상태 */
+.ships[data-state="state01"]::before { background-image: url('../../images/uiux/icon_boat_02.png'); }
+.ships[data-state="state02"]::before { background-image: url('../../images/uiux/icon_boat_03.png'); }
+/* 업데이트 이후 */
+.ships.right-direction[data-state="state01"]::before { background-image: url('../../images/uiux/icon_boat_02.png'); }
+.ships.left-direction[data-state="state01"]::before { background-image: url('../../images/uiux/icon_boat_02_01.png'); }
+.ships.right-direction[data-state="state02"]::before { background-image: url('../../images/uiux/icon_boat_03.png'); }
+.ships.left-direction[data-state="state02"]::before { background-image: url('../../images/uiux/icon_boat_03_01.png'); }
+
+
+
 
 /* 배 기울기 변경 */
 .ships.rotate-minus::before { transform: translate(-50%, -50%) rotate(-45deg); }
