@@ -6,19 +6,10 @@
 // 기타설명
 
 
-window.addEventListener('load', () => {
-	// 윈도우 로드시 실행할 메소드 작성
 
-	/* 맵 줌 기능 함수 */
-	mapZoomFn.init();
-});
-
-window.addEventListener('scroll', () => {
- 	// 윈도우 스크롤시 실행할 메소드 작성
-
-});
-
-
+/** -------------------------------------------
+    함수
+---------------------------------------------*/
 /**
  * 맵 줌 기능 함수
  */
@@ -88,6 +79,8 @@ const mapZoomFn = (() => {
 	}
 })()
 
+
+
 // 로컬 테스트용 선박 위치 데이터
 const gpsDataLocal = [
 	{
@@ -147,7 +140,7 @@ let gpsUpdate;
  * 서버 환경에서 테스트 진행
  * gps값을 fetch() 사용하여 데이터 JSON으로 받고 설정한 주기(현재 2초)로 위치값 업데이트
  */
-const mapMarkerControlFn = (function() {
+const mapMakerFn = (function() {
 	// 기준 지도 경도, 위도 범위
 	const mapsLongitudeRange = [126.838017, 127.089881];
 	const mapsLatitudeRange = [37.482061, 37.593417];
@@ -158,14 +151,14 @@ const mapMarkerControlFn = (function() {
 	// 37.482061, 126.838017 좌하단
 	// 37.482061, 127.089881 좌하단
 
-	const jsonURL = 'http://192.168.0.106:81/workspace/project/2024-riverbus/pc-web/resource/js/uiux/gpsData.json' // autoset 경로
-	// const jsonURL = 'http://127.0.0.1:5500/pc-web/resource/js/uiux/gpsData.json' // 라이브서버 경로
+	// const jsonURL = 'http://192.168.0.106:81/workspace/project/2024-riverbus/pc-web/resource/js/uiux/gpsData.json' // autoset 경로
+	const jsonURL = 'http://127.0.0.1:5500/pc-web/resource/js/uiux/gpsData.json' // 라이브서버 경로
 
 	let markers = [];
 	let gpsData;
 
 	return {
-		markerControl: function(gpsData) {
+		mapControl: function(gpsData) {
 			const mapArea = document.querySelector('[data-target="zoomTarget"]');
 			const imageWidth = mapArea.offsetWidth;
 			const imageHeight = mapArea.offsetHeight;
@@ -178,13 +171,35 @@ const mapMarkerControlFn = (function() {
 				// if (lat >= mapsLatitudeRange[0] && lat <= mapsLatitudeRange[1] && lng >= mapsLongitudeRange[0] && lng <= mapsLongitudeRange[1]) {
 				// }
 
-				/* 기존 마커가 있는지 확인하고, 업데이트(위치, 상태, 진행 방향) */
-				if (existingMarker) {
+				if (!existingMarker) {
+					/* 최초 마커 추가 */
+					// 기존 마커가 없으면 새로 추가
+					const xPosition = (lng - mapsLongitudeRange[0]) / (mapsLongitudeRange[1] - mapsLongitudeRange[0]) * imageWidth;
+					const yPosition = (mapsLatitudeRange[1] - lat) / (mapsLatitudeRange[1] - mapsLatitudeRange[0]) * imageHeight;
+					const xPositionPercent = (xPosition / imageWidth) * 100;
+					const yPositionPercent = (yPosition / imageHeight) * 100;
+					const marker = document.createElement('div');
+					const markerText = document.createElement('span');
+					marker.className = `ships ${title}`;
+					marker.style.left = `${xPositionPercent}%`;
+					marker.style.top = `${yPositionPercent}%`;
+
+					marker.appendChild(markerText);
+					markerText.textContent = title;
+					markerText.className = `ship-name`
+
+					mapArea.appendChild(marker);
+					markers.push({ title, element: marker, lat, lng, state });
+				} else {
+					/* 맵 업데이트 */
+					// 위치, 상태, 진행 방향, 현재좌표
 					const { element, lng: prevLng } = existingMarker;
 					const xPosition = (lng - mapsLongitudeRange[0]) / (mapsLongitudeRange[1] - mapsLongitudeRange[0]) * imageWidth;
 					const yPosition = (mapsLatitudeRange[1] - lat) / (mapsLatitudeRange[1] - mapsLatitudeRange[0]) * imageHeight;
 					const xPositionPercent = (xPosition / imageWidth) * 100;
 					const yPositionPercent = (yPosition / imageHeight) * 100;
+
+
 
 					/* 선박 위치 업데이트 */
 					element.style.left = `${xPositionPercent}%`;
@@ -214,7 +229,7 @@ const mapMarkerControlFn = (function() {
 
 					/* 선박 경도 데이터 변경에 따른 진행방향 업데이트 */
 					// 경도 비교해서 이미지 클래스 부여
-					const direction = mapMarkerControlFn.checkDirection(prevLng, lng);
+					const direction = mapMakerFn.checkDirection(prevLng, lng);
 					if (direction === 'right') {
 						// 좌측에서 우측으로 이동하는 경우 클래스 추가
 						element.classList.add('right-direction');
@@ -224,25 +239,6 @@ const mapMarkerControlFn = (function() {
 						element.classList.add('left-direction');
 						element.classList.remove('right-direction');
 					}
-				} else {
-					/* 최초 마커 추가 */
-					// 기존 마커가 없으면 새로 추가
-					const xPosition = (lng - mapsLongitudeRange[0]) / (mapsLongitudeRange[1] - mapsLongitudeRange[0]) * imageWidth;
-					const yPosition = (mapsLatitudeRange[1] - lat) / (mapsLatitudeRange[1] - mapsLatitudeRange[0]) * imageHeight;
-					const xPositionPercent = (xPosition / imageWidth) * 100;
-					const yPositionPercent = (yPosition / imageHeight) * 100;
-					const marker = document.createElement('div');
-					const markerText = document.createElement('span');
-					marker.className = `ships ${title}`;
-					marker.style.left = `${xPositionPercent}%`;
-					marker.style.top = `${yPositionPercent}%`;
-
-					marker.appendChild(markerText);
-					markerText.textContent = title;
-					markerText.className = `ship-name`
-
-					mapArea.appendChild(marker);
-					markers.push({ title, element: marker, lat, lng, state });
 				}
 			});
 
@@ -275,7 +271,7 @@ const mapMarkerControlFn = (function() {
 				.then(data => {
 					// 가져온 데이터를 변수에 할당
 					gpsData = data;
-					mapMarkerControlFn.markerControl(gpsData);
+					mapMakerFn.mapControl(gpsData);
 
 					console.log(gpsData[0].title);
 					console.log(gpsData[0].lng);
@@ -287,25 +283,62 @@ const mapMarkerControlFn = (function() {
 					console.log('로컬에서 테스트용 데이터 사용 / 업데이트 불가');
 					gpsData = gpsDataLocal;
 					// 최초 맵 생성
-					mapMarkerControlFn.markerControl(gpsData);
+					mapMakerFn.mapControl(gpsData);
 
 					// 데이터 업데이트 중지
 					clearInterval(gpsUpdate);
 					// 업데이트
-					mapMarkerControlFn.markerControl(gpsData);
+					mapMakerFn.mapControl(gpsData);
 					// //테스트 영역
 				});
 		}
 	}
 })()
 
+
+
+/**
+ * 현재좌표 확인
+ */
+const currentLocation = () => {
+	const targetLat = document.querySelector('.current-location .upper .deg');
+	const targetLng = document.querySelector('.current-location .lower .deg');
+
+	let currentLat, currentLng;
+
+	/* 현재위치 좌표 업데이트 */
+	navigator.geolocation.getCurrentPosition( (position) => {
+		currentLat = position.coords.latitude;
+		currentLng = position.coords.longitude;
+		targetLat.innerHTML = currentLat + ` &#176;`;
+		targetLng.innerHTML = currentLng + ` &#176;`;
+	})
+}
+
+
+/** -------------------------------------------
+    이벤트
+---------------------------------------------*/
 window.addEventListener('load', () => {
+	// 윈도우 로드시 실행할 메소드 작성
+
+	/* 맵 줌 기능 함수 */
+	mapZoomFn.init();
+
+	/* 조타실 맵 마커 컨트롤 함수 */
 	// 조타실 확인하여 실행
 	const isPilothouse = document.querySelector('.content.pilothouse');
 	if ( isPilothouse ) {
-		mapMarkerControlFn.fetchGPSData();
+		mapMakerFn.fetchGPSData();
 		// 일정한 간격으로 데이터를 다시 가져오기
-		gpsUpdate = setInterval(mapMarkerControlFn.fetchGPSData, 2000);
+		gpsUpdate = setInterval( () => {
+			mapMakerFn.fetchGPSData() // 맵 생성 및 업데이트
+			currentLocation(); // 현재 좌표확인 및 업데이트
+		}, 2000);
 	}
 });
 
+window.addEventListener('scroll', () => {
+ 	// 윈도우 스크롤시 실행할 메소드 작성
+
+});
