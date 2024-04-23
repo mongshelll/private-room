@@ -47,12 +47,14 @@
 .content.pilothouse .img-area { position: relative; transform: scale(1); transition: transform 0.5s; }
 
 
-.test_target { position: absolute; width: 150px; height: 50px; outline: 1px solid red; color: #fff; }
 .ships { position: absolute; width: 10px; height: 10px; background-color: red; border-radius: 50%; color: #fff; }
+.ships .ship-name { position: absolute; left: -50px; top: 0; }
+
 
 /* 상행, 하행 구분 */
-.ships.right-direction::before { content: "→"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; border: 1px solid red; }
-.ships.left-direction::before { content: "←"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; border: 1px solid red; }
+.ships.right-direction::before { content: "→"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; }
+.ships.left-direction::before { content: "←"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; }
 
 /* 배 기울기 변경 */
-/* .ships.rotate- */
+.ships.rotate-minus::before { transform: translate(-50%, -50%) rotate(-45deg); }
+.ships.rotate-plus::before { transform: translate(-50%, -50%) rotate(45deg); }
