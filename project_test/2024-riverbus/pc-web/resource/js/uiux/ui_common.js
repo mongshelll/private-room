@@ -98,17 +98,21 @@ const mapZoomFn = (() => {
  */
 const mapMarkerControlFn = (function() {
 	// 기준 지도 경도, 위도 범위
-	const mapsLongitudeRange = [126.809416, 127.076583];
-	const mapsLatitudeRange = [37.476828, 37.592293];
+	const mapsLongitudeRange = [126.838017, 127.089881];
+	const mapsLatitudeRange = [37.482061, 37.593417];
 
 	// 지도 이미지 기준점
-	// 37.592293, 126.809416 좌상단
-	// 37.592293, 127.076583 우상단
-	// 37.476828, 126.809416 좌하단
-	// 37.476828, 127.076583 우하단
+	// 37.593417, 126.838017 좌상단
+	// 37.593417, 127.089881 우상단
+	// 37.482061, 126.838017 좌하단
+	// 37.482061, 127.089881 좌하단
+
+	const jsonURL = 'http://192.168.0.106:81/workspace/project/2024-riverbus/pc-web/resource/js/uiux/gpsData.json' // autoset 경로
+	// const jsonURL = 'http://127.0.0.1:5500/pc-web/resource/js/uiux/gpsData.json' // 라이브서버 경로
 
 	let markers = [];
 	let gpsData;
+
 	return {
 		addMarkers: function(gpsData) {
 			const mapArea = document.querySelector('[data-target="zoomTarget"]');
@@ -123,7 +127,7 @@ const mapMarkerControlFn = (function() {
 				if (lat >= mapsLatitudeRange[0] && lat <= mapsLatitudeRange[1] && lng >= mapsLongitudeRange[0] && lng <= mapsLongitudeRange[1]) {
 					// 기존 마커가 있는지 확인하고, 있으면 위치만 업데이트
 					if (existingMarker) {
-						const { element } = existingMarker;
+						const { element, lng: prevLng } = existingMarker;
 						const xPosition = (lng - mapsLongitudeRange[0]) / (mapsLongitudeRange[1] - mapsLongitudeRange[0]) * imageWidth;
 						const yPosition = (mapsLatitudeRange[1] - lat) / (mapsLatitudeRange[1] - mapsLatitudeRange[0]) * imageHeight;
 						const xPositionPercent = (xPosition / imageWidth) * 100;
@@ -132,6 +136,26 @@ const mapMarkerControlFn = (function() {
 						element.style.top = `${yPositionPercent}%`;
 						existingMarker.lat = lat;
 						existingMarker.lng = lng;
+
+						// 경도에 따른 배 이미지 기울기 조절 -45, 45 2가지 방향 클래스, 0 클래스 제거
+						// 각도가 변경되는 기준점 경도좌표를 정하고
+
+
+						// 상행/하행 구분해서 모양 바꾸기
+						// 변경전 경도값 저장하고 변경된 경도값 비교해서 +-로 상행, 하행 비교
+						// 이전 데이터와 현재 데이터의 이동 방향 판별
+						// prevLng : 기존 데이터
+						// lng : 업데이트 데이터
+						const direction = mapMarkerControlFn.checkDirection(prevLng, lng);
+						if (direction === 'right') {
+							// 좌측에서 우측으로 이동하는 경우 클래스 추가
+							element.classList.add('right-direction');
+							element.classList.remove('left-direction');
+						} else if (direction === 'left') {
+							// 우측에서 좌측으로 이동하는 경우 클래스 제거
+							element.classList.add('left-direction');
+							element.classList.remove('right-direction');
+						}
 					} else {
 						// 기존 마커가 없으면 새로 추가
 						const xPosition = (lng - mapsLongitudeRange[0]) / (mapsLongitudeRange[1] - mapsLongitudeRange[0]) * imageWidth;
@@ -151,10 +175,21 @@ const mapMarkerControlFn = (function() {
 
 			console.log('add marker or update');
 		},
+		checkDirection: function(prevLng, currentLng) {
+			if (prevLng === undefined || prevLng === null) {
+				return null; // 이전 데이터가 없는 경우 방향을 판별할 수 없음
+			}
+			if (currentLng > prevLng) {
+				return 'right'; // 좌측에서 우측으로 이동
+			} else if (currentLng < prevLng) {
+				return 'left'; // 우측에서 좌측으로 이동
+			} else {
+				return 'same'; // 이동하지 않음
+			}
+		},
 		fetchGPSData: function() {
 			// JSON으로 데이터 받아서 처리
-			fetch('http://192.168.0.106:81/workspace/project/2024-riverbus/pc-web/resource/js/uiux/gpsData.json') // autoset 경로
-			// fetch('http://127.0.0.1:5500/pc-web/resource/js/uiux/gpsData.json') // 라이브서버 경로
+			fetch(jsonURL)
 				.then(response => response.json())
 				.then(data => {
 					// 가져온 데이터를 변수에 할당
@@ -171,7 +206,6 @@ const mapMarkerControlFn = (function() {
 })()
 
 window.addEventListener('load', () => {
-
 	// 조타실 확인하여 실행
 	const isPilothouse = document.querySelector('.content.pilothouse');
 	if ( isPilothouse ) {
