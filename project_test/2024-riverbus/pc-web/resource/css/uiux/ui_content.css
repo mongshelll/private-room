@@ -70,7 +70,6 @@
 .ships.rotate-minus::before { transform: translate(-50%, -50%) rotate(-45deg); }
 .ships.rotate-plus::before { transform: translate(-50%, -50%) rotate(45deg); }
 
-
 /* 현재 위치 */
 .content.pilothouse .current-location { position: absolute; left: 0; bottom: 0; }
 .content.pilothouse .current-location .lower { margin-top: 16px; }
