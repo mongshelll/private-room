@@ -15,22 +15,22 @@
  */
 const mapZoomFn = (() => {
 	const defaultScale = 1; // 기본 확대 배율
+	const scaleAmount = 2.5 // 확대 배율 정의 - (임의의 배율 2.5 배 확대)
 	let isZoomed = false;
 
 	return {
 		init: () => {
-			const screen =  document.querySelector('.content.pilothouse');
-			const mapArea = document.querySelector('[data-target="zoomTarget"]');
+			const container =  document.querySelector('.content.pilothouse');
+			const zoomTarget = document.querySelector('[data-target="zoomTarget"]');
 
-			if(screen || mapArea) {
+			if(container && zoomTarget) {
 				mapZoomFn.preventZoom();
-
-				mapZoomFn.activeZoom(screen, mapArea)
+				mapZoomFn.activeZoom(container, zoomTarget)
 			}
 		},
-		activeZoom: (screen, target) => {
+		activeZoom: (container, target) => {
 			target.addEventListener('click', (event) => {
-				const boundingRect = screen.getBoundingClientRect();
+				const boundingRect = container.getBoundingClientRect();
 				const posX = event.clientX - boundingRect.left;
 				const posY = event.clientY - boundingRect.top;
 
@@ -38,9 +38,6 @@ const mapZoomFn = (() => {
 				const imageHeight = target.offsetHeight;
 
 				if (!isZoomed) {
-					// 클릭한 위치를 기준으로 확대할 배율 계산
-					const scaleAmount = 2.5 // 임의의 배율 (2배 확대)
-
 					// 클릭한 위치를 중심으로 이미지를 확대하기 위한 transform origin 계산
 					const originX = (posX / imageWidth) * 100;
 					const originY = (posY / imageHeight) * 100;
@@ -323,20 +320,17 @@ const currentLocation = () => {
 window.addEventListener('load', () => {
 	// 윈도우 로드시 실행할 메소드 작성
 
-	/* 맵 줌 기능 함수 */
-	mapZoomFn.init();
-
 	/* 조타실 맵 마커 컨트롤 함수 */
 	// 조타실 확인하여 실행
 	const isPilothouse = document.querySelector('.content.pilothouse');
 	if ( isPilothouse ) {
-		mapMakerFn.fetchGPSData();
-
+		mapZoomFn.init(); // 맵 줌 기능 함수
+		mapMakerFn.fetchGPSData(); // 최초 맵에 마커 생성
 		currentLocation(); // 현재 좌표확인 및 업데이트
 
 		// 일정한 간격으로 데이터를 다시 가져오기
 		gpsUpdate = setInterval( () => {
-			mapMakerFn.fetchGPSData() // 맵 생성 및 업데이트
+			mapMakerFn.fetchGPSData() // 마커에 업데이트 반영
 		}, 2000);
 	}
 });
