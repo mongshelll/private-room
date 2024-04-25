@@ -22,7 +22,6 @@ const mapZoomFn = (() => {
 			const screen =  document.querySelector('.content.pilothouse');
 			const mapArea = document.querySelector('[data-target="zoomTarget"]');
 
-
 			if(screen || mapArea) {
 				mapZoomFn.preventZoom();
 
@@ -30,7 +29,7 @@ const mapZoomFn = (() => {
 			}
 		},
 		activeZoom: (screen, target) => {
-			screen.addEventListener('click', (event) => {
+			target.addEventListener('click', (event) => {
 				const boundingRect = screen.getBoundingClientRect();
 				const posX = event.clientX - boundingRect.left;
 				const posY = event.clientY - boundingRect.top;
