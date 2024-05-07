@@ -67,7 +67,7 @@ const mapZoomFn = (() => {
 			};
 
 			// touchmove event에서 passive가 기본적으로 true이기 때문에 false처리
-			// default는 false지만 wheel, mousewheel, touchstart, touchmove event는 default가 true임.
+			// default는 false지만 wheel, mousewheel, touchstart, touchmove event는 default가 true
 			// passive: true일 경우 preventDefault()를 절대 호출하지 않음.
 			// scroll은 취소불가능 이벤트로 passive옵션을 고려하지 않음.(preventDefault() 사용불가)
 			document.addEventListener('touchmove', touchEventCheck, { passive: false });
@@ -77,7 +77,7 @@ const mapZoomFn = (() => {
 
 
 
-// 로컬 테스트용 선박 위치 데이터
+// 테스트 영역 로컬 테스트용 선박 위치 데이터
 const gpsDataLocal = [
 	{
 		"title": "ship01",
@@ -128,6 +128,7 @@ const gpsDataLocal = [
 		"state": ""
 	}
 ]
+// // 테스트 영역 로컬 테스트용 선박 위치 데이터
 
 // setInterval 사용을 위한 변수
 let gpsUpdate;
@@ -139,7 +140,7 @@ let gpsUpdate;
 const mapMakerFn = (function() {
 	// 기준 지도 경도, 위도 범위
 	const mapsLongitudeRange = [126.838017, 127.089881];
-	const mapsLatitudeRange = [37.482061, 37.593417];
+	const mapsLatitudeRange  = [37.482061, 37.593417];
 
 	// 지도 이미지 기준점
 	// 37.593417, 126.838017 좌상단
@@ -195,8 +196,6 @@ const mapMakerFn = (function() {
 					const yPosition = (mapsLatitudeRange[1] - lat) / (mapsLatitudeRange[1] - mapsLatitudeRange[0]) * imageHeight;
 					const xPositionPercent = (xPosition / imageWidth) * 100;
 					const yPositionPercent = (yPosition / imageHeight) * 100;
-
-
 
 					/* 선박 위치 업데이트 */
 					element.style.left = `${xPositionPercent}%`;
@@ -279,13 +278,11 @@ const mapMakerFn = (function() {
 					// 테스트 영역
 					console.log('로컬에서 테스트용 데이터 사용 / 업데이트 불가');
 					gpsData = gpsDataLocal;
-					// 최초 맵 생성
+					// 맵 생성 및 업데이트
 					mapMakerFn.mapControl(gpsData);
 
 					// 데이터 업데이트 중지
 					clearInterval(gpsUpdate);
-					// 업데이트
-					mapMakerFn.mapControl(gpsData);
 					// //테스트 영역
 				});
 		}
