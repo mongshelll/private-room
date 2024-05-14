@@ -35,7 +35,7 @@
 		iframe.width = '100%';
 		iframe.onload = function () {
 			var doc = iframe.contentDocument,
-					list = doc.getElementById('listWithHandle');
+				list = doc.getElementById('listWithHandle');
 
 			Sortable.create(list, {group: 'shared'});
 		};
