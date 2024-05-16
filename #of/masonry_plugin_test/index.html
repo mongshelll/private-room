@@ -15,77 +15,44 @@
 	<h1>Masonry - gutter, margin bottom</h1>
 
 	<div class="btn-wrap">
-		<button type="button" data-target="reset">category reset</button>
-		<button type="button" data-target="cate01">category01</button>
-		<button type="button" data-target="cate02">category02</button>
-		<button type="button" data-target="cate03">category03</button>
+		<button type="button" data-target="all">category all</button>
+		<button type="button" data-target="category01">category01</button>
+		<button type="button" data-target="category02">category02</button>
+		<button type="button" data-target="category03">category03</button>
 	</div>
 
 	<div class="cont-wrap">
 		<div class="grid" data-target="masonry">
 			<div class="grid-sizer"></div>
-			<div class="grid-item" data-cate="cate01">1</div>
-			<div class="grid-item grid-item--height2" data-cate="cate02">2</div>
-			<div class="grid-item grid-item--height3" data-cate="cate03">3</div>
-			<div class="grid-item grid-item--height2" data-cate="cate02">4</div>
-			<div class="grid-item" data-cate="cate01">5</div>
-			<div class="grid-item" data-cate="cate01">6</div>
-			<div class="grid-item" data-cate="cate03">7</div>
-			<div class="grid-item grid-item--height2" data-cate="cate02">8</div>
-			<div class="grid-item grid-item--height3" data-cate="cate03">9</div>
-			<div class="grid-item" data-cate="cate01">10</div>
-			<div class="grid-item grid-item--height2" data-cate="cate02">11</div>
-			<div class="grid-item" data-cate="cate01">12</div>
-			<div class="grid-item grid-item--height2" data-cate="cate02">13</div>
-			<div class="grid-item grid-item--height2" data-cate="cate02">14</div>
-			<div class="grid-item" data-cate="cate03">15</div>
-			<div class="grid-item grid-item--height2" data-cate="cate03">16</div>
-			<div class="grid-item" data-cate="cate03">17</div>
-			<div class="grid-item grid-item--height2" data-cate="cate03">18</div>
-			<div class="grid-item" data-cate="cate02">19</div>
-			<div class="grid-item grid-item--height2" data-cate="cate03">20</div>
-			<div class="grid-item" data-cate="cate02">21</div>
-			<div class="grid-item" data-cate="cate03">22</div>
-			<div class="grid-item grid-item--height2" data-cate="cate03">23</div>
+			<div class="grid-item" data-category="category01">1</div>
+			<div class="grid-item grid-item--height2" data-category="category02">2</div>
+			<div class="grid-item grid-item--height3" data-category="category03">3</div>
+			<div class="grid-item grid-item--height2" data-category="category02">4</div>
+			<div class="grid-item" data-category="category01">5</div>
+			<div class="grid-item" data-category="category01">6</div>
+			<div class="grid-item" data-category="category03">7</div>
+			<div class="grid-item grid-item--height2" data-category="category02">8</div>
+			<div class="grid-item grid-item--height3" data-category="category03">9</div>
+			<div class="grid-item" data-category="category01">10</div>
+			<div class="grid-item grid-item--height2" data-category="category02">11</div>
+			<div class="grid-item" data-category="category01">12</div>
+			<div class="grid-item grid-item--height2" data-category="category02">13</div>
+			<div class="grid-item grid-item--height2" data-category="category02">14</div>
+			<div class="grid-item" data-category="category03">15</div>
+			<div class="grid-item grid-item--height2" data-category="category03">16</div>
+			<div class="grid-item" data-category="category03">17</div>
+			<div class="grid-item grid-item--height2" data-category="category03">18</div>
+			<div class="grid-item" data-category="category02">19</div>
+			<div class="grid-item grid-item--height2" data-category="category03">20</div>
+			<div class="grid-item" data-category="category02">21</div>
+			<div class="grid-item" data-category="category03">22</div>
+			<div class="grid-item grid-item--height2" data-category="category03">23</div>
 		</div>
-		<!-- <div class="grid" data-target="masonry">
-			<div class="grid-sizer"></div>
-			<div class="grid-item">1</div>
-			<div class="grid-item grid-item--width2 grid-item--height2">2</div>
-			<div class="grid-item grid-item--height3">3</div>
-			<div class="grid-item grid-item--height2">4</div>
-			<div class="grid-item grid-item--width3">5</div>
-			<div class="grid-item">6</div>
-			<div class="grid-item">7</div>
-			<div class="grid-item grid-item--height2">8</div>
-			<div class="grid-item grid-item--width2 grid-item--height3">9</div>
-			<div class="grid-item">10</div>
-			<div class="grid-item grid-item--height2">11</div>
-			<div class="grid-item">12</div>
-			<div class="grid-item grid-item--width2 grid-item--height2">13</div>
-			<div class="grid-item grid-item--width2">14</div>
-			<div class="grid-item">15</div>
-			<div class="grid-item grid-item--height2">16</div>
-			<div class="grid-item">17</div>
-			<div class="grid-item">18</div>
-			<div class="grid-item grid-item--height3">19</div>
-			<div class="grid-item grid-item--height2">20</div>
-			<div class="grid-item">21</div>
-			<div class="grid-item">22</div>
-			<div class="grid-item grid-item--height2">23</div>
-		</div> -->
 	</div>
 
 	<script>
-		// const $target = document.querySelector('.grid');
-		// var msnry = new Masonry( $target, {
-		// 	// options
-		// 	itemSelector: '.grid-item',
-		// 	columnWidth: 160,
-		// 	gutter: 20
-		// });
-
-		const msnry = new Masonry("[data-target = masonry]", {
+		const $gridContainer = document.querySelector('.grid');
+		const msnry = new Masonry( $gridContainer, {
 			// options
 			itemSelector: '.grid-item',
 			columnWidth: '.grid-sizer',
@@ -96,31 +63,34 @@
 
 
 		/* filter 기능 */
-		const $filteringBtn = document.querySelector('.btn-wrap');
-
-		const grid_fillter = triggerBtn => {
-			const $grid = document.querySelector('.grid');
-			const $target = $grid.querySelectorAll("[data-cate]");
-			if ( triggerBtn.dataset.target ) {
-				$target.forEach( items => {
-					if( items.dataset.cate === triggerBtn.dataset.target ) {
-						items.style.display = "block";
-					} else if( triggerBtn.dataset.target === "reset" ) {
-						items.style.display = "block";
-						msnry.layout();
-					} else {
-						items.style.display = "none";
-						msnry.layout();
-					}
-				})
-			}
+		const filterGrid = triggerBtn => {
+			const $gridItem = $gridContainer.querySelectorAll("[data-category]");
+			if ( !triggerBtn.dataset.target ) return;
+			$gridItem.forEach( items => {
+				const isVisible = triggerBtn.dataset.target === "all" || items.dataset.category === triggerBtn.dataset.target;
+				items.classList.toggle('is-hidden', !isVisible);
+			})
+			msnry.layout();
 		};
 
-		$filteringBtn.addEventListener("click", (e) => {
-			grid_fillter(e.target);
+		// const filterGrid = triggerBtn => {
+		// 	const $gridItem = $gridContainer.querySelectorAll("[data-category]");
+		// 	if ( triggerBtn.dataset.target ) {
+		// 		$gridItem.forEach( items => {
+		// 			if( triggerBtn.dataset.target === "all" || items.dataset.category === triggerBtn.dataset.target ) {
+		// 				items.classList.remove('is-hidden');
+		// 			} else {
+		// 				items.classList.add('is-hidden');
+		// 			}
+		// 		})
+		// 		msnry.layout();
+		// 	}
+		// };
+
+		const $filterBtnWrap = document.querySelector('.btn-wrap');
+		$filterBtnWrap.addEventListener("click", (e) => {
+			filterGrid(e.target);
 		})
-
-
 	</script>
 </body>
 </html>

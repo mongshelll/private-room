@@ -129,6 +129,10 @@ h1 { margin-bottom: 15px; }
 
 .grid { padding: 0 20px; }
 
+
+/* btn-wrap */
+.btn-wrap { margin-bottom: 15px; }
+
 /* ---- grid-item ---- */
 .grid-sizer,
 .grid-item { width: 160px; }
@@ -141,3 +145,5 @@ h1 { margin-bottom: 15px; }
 .grid-item--height2 { height: 200px; }
 .grid-item--height3 { height: 260px; }
 .grid-item--height4 { height: 360px; }
+
+.is-hidden { display: none; }
