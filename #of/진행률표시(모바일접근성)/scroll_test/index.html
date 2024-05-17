@@ -54,7 +54,7 @@
 				</div>
 
 				<div class="ebstep02">
-					<progress class="ebprogress" role="progressbar" value="0" max="100" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0% 진행중" aria-live="polite"></progress> <!-- value = "현재 단계" / max = "전체 단계" -->
+					<progress class="ebprogress" value="0" max="100" aria-valuetext="0% 진행중"></progress> <!-- value = "현재 단계" / max = "전체 단계" -->
 				</div>
 			</div>
 		</header>
@@ -104,7 +104,6 @@
 					let _inValue = parseInt(_value);
 					let _max = el.getAttribute('max');
 
-					el.setAttribute('aria-valuenow', _inValue);
 					el.setAttribute('aria-valuetext', `${_inValue}% 진행중`);
 				});
 			}
