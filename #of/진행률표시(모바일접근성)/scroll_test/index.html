@@ -49,14 +49,12 @@
 							<li><a href="javascript:void(0);">menu1</a></li>
 							<li><a href="javascript:void(0);">menu2</a></li>
 							<li><a href="javascript:void(0);">menu3</a></li>
-							<li><a href="javascript:void(0);">menu4</a></li>
-							<li><a href="javascript:void(0);">menu5</a></li>
 						</ul>
 					</nav>
 				</div>
 
 				<div class="ebstep02">
-					<progress class="ebprogress" value="0" max="100"></progress> <!-- value = "현재 단계" / max = "전체 단계" -->
+					<progress class="ebprogress" role="progressbar" value="0" max="100" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0% 진행중" aria-live="polite"></progress> <!-- value = "현재 단계" / max = "전체 단계" -->
 				</div>
 			</div>
 		</header>
@@ -106,6 +104,7 @@
 					let _inValue = parseInt(_value);
 					let _max = el.getAttribute('max');
 
+					el.setAttribute('aria-valuenow', _inValue);
 					el.setAttribute('aria-valuetext', `${_inValue}% 진행중`);
 				});
 			}
@@ -115,22 +114,20 @@
 			const $header = document.querySelector('header');
 			const $target = $header.querySelector('.ebstep02');
 			if($target) {
-				let scrY = window.scrollY;
+				let scrY = Math.round(window.scrollY);
 				// let innerHeight = window.innerHeight; // 스크롤바 영역크기도 포함하는 값을 구함 가로스크롤바가 생기는 경우 스크롤이 끝나기 전에 프로그레스바가 100%가 됨
 				let innerHeight = document.querySelector('body').clientHeight; // 스크롤바 영역 제외
 				let scrollHeight = document.querySelector('body').scrollHeight;
 				let scrollPercent = (scrY / (scrollHeight - innerHeight)) * 100;
-				// let scrollValue = parseInt(scrollPercent);
 				let scrollValue = Math.round(scrollPercent * 10000)/10000; // 소수점 4자리까지 받기
 				// let scrollValue = Math.round(scrollPercent * 100)/100; // 소수점 2자리까지 받기
+				// let scrollValue = parseInt(scrollPercent);
 
 				// 진행률 값 넣기
 				addValue(scrollValue)
 				ebstepFn2() // 대체 텍스트 업데이트
 
 				console.log('active Fn');
-			} else {
-				console.log('inactive Fn');
 			}
 		}
 
@@ -143,7 +140,6 @@
 
 		window.addEventListener('load', () => {
 			osCheck();
-			ebstepFn2();
 		});
 	</script>
 </body>
