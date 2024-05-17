@@ -52,7 +52,7 @@
 
 	<script>
 		const $gridContainer = document.querySelector('.grid');
-		const msnry = new Masonry( $gridContainer, {
+		const masonry = new Masonry( $gridContainer, {
 			// options
 			itemSelector: '.grid-item',
 			columnWidth: '.grid-sizer',
@@ -64,14 +64,19 @@
 
 		/* filter 기능 */
 		const filterGrid = triggerBtn => {
-			const $gridItem = $gridContainer.querySelectorAll("[data-category]");
-			if ( !triggerBtn.dataset.target ) return;
-			$gridItem.forEach( items => {
-				const isVisible = triggerBtn.dataset.target === "all" || items.dataset.category === triggerBtn.dataset.target;
-				items.classList.toggle('is-hidden', !isVisible);
-			})
-			msnry.layout();
+			const gridItems = $gridContainer.querySelectorAll("[data-category]");
+			const targetCategory = triggerBtn.dataset.target;
+
+			if (targetCategory) {
+				gridItems.forEach(item => {
+					const shouldShow = targetCategory === "all" || item.dataset.category === targetCategory;
+					item.classList.toggle('is-hidden', !shouldShow);
+				});
+				masonry.layout();
+			}
 		};
+
+
 
 		// const filterGrid = triggerBtn => {
 		// 	const $gridItem = $gridContainer.querySelectorAll("[data-category]");
