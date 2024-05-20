@@ -1,5 +1,5 @@
-// import Masonry from 'masonry-layout' // npm에서 받은 플러그인 모듈 연결
-import './ui_plugin.js'
+import Masonry from 'masonry-layout' // npm에서 받은 플러그인 모듈 연결
+// import '../js/ui_plugin.js' // 빌드시 스크립트 오류발생
 
 // 밖으로 내보낼 스크립트 함수에 담아놓기
 export const masonryGrid = () => {
