@@ -1,6 +1,6 @@
-import Masonry from 'masonry-layout'
-import '../css/ui_style.css'
+import Masonry from 'masonry-layout' // npm에서 받은 플러그인 모듈 연결
 
+// 밖으로 내보낼 스크립트 함수에 담아놓기
 export const masonryGrid = () => {
     const $gridContainer = document.querySelector('.grid');
     const masonry = new Masonry( $gridContainer, {
