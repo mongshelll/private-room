@@ -1,47 +1,23 @@
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
+  import Chapter01 from "./chapter/chapter01.svelte"
+  import Chapter02 from "./chapter/chapter02.svelte"
+  import Chapter03 from "./chapter/chapter03.svelte"
+  import Chapter04 from "./chapter/chapter04.svelte"
+  import Chapter05 from "./chapter/chapter05.svelte"
+  import Chapter06 from "./chapter/chapter06.svelte"
+  import Chapter07 from "./chapter/chapter07.svelte"
+  import Chapter08 from "./chapter/chapter08.svelte"
 </script>
 
-<main>
-  <div>
-    <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
-  <h1>Vite + Svelte</h1>
 
-  <div class="card">
-    <Counter />
-  </div>
 
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
 
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
-</main>
 
-<style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  }
-</style>
+<Chapter08 />
+<!-- <Chapter07 /> -->
+<!-- <Chapter06 /> -->
+<!-- <Chapter05 /> -->
+<!-- <Chapter04 /> -->
+<!-- <Chapter03 /> -->
+<!-- <Chapter02 /> -->
+<!-- <Chapter01 /> -->
