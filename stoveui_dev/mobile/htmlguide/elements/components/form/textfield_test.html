@@ -15,6 +15,20 @@
 	<!-- JS -->
 	<script type="text/javascript" src="../../asset.js"></script>
 	<script type="text/javascript" src="../../../z_stoveui/stoveui.js"></script>
+
+
+	<style>
+		.se-textarea.has-error textarea {
+			border-color: #EC4852;
+			color: #EC4852;
+			background-color: rgba(236, 72, 83, 0.3);
+		}
+		.se-textarea.has-success textarea {
+			border-color: #487cec;
+			color: #487cec;
+			background-color: rgba(72, 124, 236, 0.3);
+		}
+	</style>
 </head>
 
 
@@ -65,12 +79,17 @@
 <div>
 	<label for="ta_temp001">textarea test(50자 이내)</label>
 	<div class="se-textarea">
-		<textarea id="ta_temp001" aria-describedby="calcuateMessage" placeholder="입력해주세요" title="textarea test" maxlength="50"></textarea>
+		<textarea id="ta_temp001" aria-describedby="calcuateMessage" placeholder="입력해주세요" title="textarea test" _maxlength="51"></textarea>
 	</div>
+	<div class="legend">
+        <span class="min">0</span>/<span class="max">50</span>자 (vanilla)
+    </div>
 	<div class="counter">
-		<span aria-hidden="true"><em class="current_count">0</em>/50</span>
+		<div aria-hidden="true">
+			<span class="current_min">0</span>/<span>50</span>자 (jQuery)
+		</div>
 		<div class="_hidden" id="calcuateMessage" aria-atomic="true" aria-live="off">
-			<span>총 50자 중 <span class="current_count">0</span>자 입력</span>
+			<span>총 50자 중 <span class="current_min">0</span>자 입력</span>
 		</div>
 	</div>
 </div>
@@ -79,10 +98,12 @@
 
 
 <script>
+
+// jQuery
 let $textarea = $('#ta_temp001');
-let $conter = $('.counter');
+let $conter = $('.legend');
 let _hidden = $('._hidden');
-let $current_count = $('.current_count');
+let $current_min = $('.current_min');
 
 
 $($textarea).on('input', ()=> {
@@ -90,20 +111,50 @@ $($textarea).on('input', ()=> {
 	if($textarea.val().length % 10 == 0) {
 		console.log('ten!!');
 	}
-	if($textarea.val().length >= 50) {
+	if($textarea.val().length == 50) {
+		$('.se-textarea').addClass('has-success');
+	} else if ($textarea.val().length >= 50) {
+		$('.se-textarea').removeClass('has-success');
 		$('.se-textarea').addClass('has-error');
-		return;
 	} else {
+		$('.se-textarea').removeClass('has-success');
 		$('.se-textarea').removeClass('has-error');
-		$current_count.text($textarea.val().length);
 	}
+	$current_min.text($textarea.val().length);
 
 	console.log($textarea.val().length);
-	console.log($textarea.val());
 })
 
 
 
+
+
+// vanilla js
+const _target = document.querySelector('#ta_temp001');
+const _current_min = document.querySelector('.min');
+const _textarea = _target.closest('.se-textarea');
+
+_target.addEventListener('input',function() {
+	const _this = this;
+
+	if(_this.value.length % 10 == 0) {
+		console.log('ten!!');
+	}
+
+	if(_this.value.length == 50) {
+		_textarea.classList.remove('has-error');
+		_textarea.classList.add('has-success');
+	} else if (_this.value.length >= 50) {
+		_textarea.classList.remove('has-success');
+		_textarea.classList.add('has-error');
+	} else {
+		_textarea.classList.remove('has-success');
+		_textarea.classList.remove('has-error');
+	}
+	_current_min.textContent = _this.value.length;
+
+	console.log(_this.value.length);
+})
 
 </script>
 
