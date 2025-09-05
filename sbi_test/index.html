@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            padding: 20px;
+            border-radius: 21px;
+            border: 1px solid #000;
+        }
+        .hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            clip-path: polygon(0 0, 0 0, 0 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+        <div role="text" style="margin-bottom: 12px;">
+            이서준
+            <span class="hidden-arrow">&rarr;<span class="hidden">에서</span></span>
+            이하율
+        </div>
+        <a href="#" role="text">
+            이서준
+            <span class="hidden-arrow">&rarr;<span class="hidden">에서</span></span>
+            이하율
+        </a>
+    </div>
+</body>
+</html>
