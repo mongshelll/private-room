@@ -26,16 +26,17 @@
         .content .title {
             font-size: 18px;
             font-weight: bold;
-            margin-bottom: 8px;
             text-align: center;
             color: #fff;
         }
         .content .desc {
             font-size: 14px;
             color: #555;
-            margin-bottom: 16px;
             text-align: center;
             color: #fff;
+        }
+        .content .title + .desc {
+            margin-top: 8px;
         }
         .cont-footer .btn-area .btn {
             overflow: hidden;
@@ -46,6 +47,9 @@
             border: none;
             border-radius: 40px;
             background-color: #fff;
+        }
+        .box .content + .cont-footer {
+            margin-top: 16px;
         }
         .btn .gradient-text {
             font-size: 14px;
