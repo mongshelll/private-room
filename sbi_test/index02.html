@@ -6,6 +6,9 @@
     <title>Document</title>
     <style>
         * {box-sizing: border-box; margin: 0; padding: 0;}
+        :root {
+            font-size: 10px;
+        }
         button, [role="button"] {
             cursor: pointer;
             border: none;
@@ -39,17 +42,18 @@
             position: relative;
             padding: 8px 16px;
             width: 100%;
+            min-height: 4.8rem;
             border: none;
-            border-radius: 6px;
+            border-radius: 40px;
             background-color: #fff;
         }
         .btn .gradient-text {
             font-size: 14px;
             font-weight: 500;
             background: linear-gradient(90deg, #37F 13.22%, #8228FF 61.16%, #2937FF 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
         }
     </style>
 </head>
