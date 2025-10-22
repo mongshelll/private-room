@@ -1,66 +1,77 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        * {box-sizing: border-box; margin: 0; padding: 0;}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         :root {
             font-size: 10px;
         }
-        button, [role="button"] {
+
+        button,
+        [role="button"] {
             cursor: pointer;
             border: none;
             background: none;
         }
+
         .wrap {
             padding: 20px;
         }
+
         .box {
             border: 1px solid #000;
             border-radius: 12px;
             padding: 16px;
             background-color: #356CF9;
         }
+
         .content .title {
             font-size: 18px;
             font-weight: bold;
             text-align: center;
             color: #fff;
         }
+
         .content .desc {
             font-size: 14px;
             color: #555;
             text-align: center;
             color: #fff;
         }
-        .content .title + .desc {
+
+        .content .title+.desc {
             margin-top: 8px;
         }
+
         .cont-footer .btn-area .btn {
             overflow: hidden;
             position: relative;
-            padding: 8px 16px;
+            display: flex;
+            align-self: center;
+            justify-content: center;
+            padding: 13px 20px;
             width: 100%;
             min-height: 4.8rem;
             border: none;
             border-radius: 40px;
             background-color: #fff;
         }
-        .box .content + .cont-footer {
+
+        .box .content+.cont-footer {
             margin-top: 16px;
-        }
-        .btn .gradient-text {
-            font-size: 14px;
-            font-weight: 500;
-            background: linear-gradient(90deg, #37F 13.22%, #8228FF 61.16%, #2937FF 100%);
-            -webkit-text-fill-color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
         }
     </style>
 </head>
+
 <body>
     <div class="wrap">
         <div class="box">
@@ -78,4 +89,5 @@
         </div>
     </div>
 </body>
+
 </html>
