@@ -6,13 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         :root {
             font-size: 10px;
         }
 
-        button, [role="button"] {
+        button,
+        [role="button"] {
             cursor: pointer;
             border: none;
             background: none;
@@ -22,6 +27,9 @@
             padding: 20px;
         }
 
+        .box ~ * {
+            margin-top: 40px;
+        }
         .box {
             border: 1px solid #000;
             border-radius: 12px;
@@ -73,6 +81,61 @@
             -webkit-background-clip: text;
             background-clip: text;
         }
+
+        /* 보더 그라디언트, 회전 */
+        .border {
+            position: relative;
+            border-radius: 24px;
+            padding: 2px;
+            /* 테두리 두께 */
+            overflow: hidden;
+            /* ::before가 밖으로 벗어나지 않도록 */
+        }
+
+        .border::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            /* 부모와 같은 크기 */
+            border-radius: inherit;
+            background: linear-gradient(109deg,
+                    rgba(18, 142, 255, 0.7) 1.87%,
+                    rgba(224, 186, 255, 0.7) 32.53%,
+                    rgba(185, 177, 255, 0.7) 51.41%,
+                    rgba(224, 186, 255, 0.7) 77.35%,
+                    rgba(58, 149, 252, 0.7) 100%);
+            background-size: 300% 300%;
+            /* 충분히 크게 만들어 자연스럽게 이동 */
+            animation: gradientMove 5s linear infinite;
+            z-index: 0;
+            /* 내부 콘텐츠 아래 */
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .inner {
+            position: relative;
+            z-index: 1;
+            /* ::before 위에 표시 */
+            background: #fff;
+            /* 내부 배경 */
+            border-radius: 22px;
+            /* padding만큼 작게 */
+            padding: 16px;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -89,6 +152,12 @@
                         <span class="gradient-text">텍스트 테스트 버튼</span>
                     </button>
                 </div>
+            </div>
+        </div>
+
+        <div class="border">
+            <div class="inner">
+                내부 콘텐츠
             </div>
         </div>
     </div>
