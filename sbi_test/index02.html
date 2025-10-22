@@ -6,18 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
             font-size: 10px;
         }
 
-        button,
-        [role="button"] {
+        button, [role="button"] {
             cursor: pointer;
             border: none;
             background: none;
@@ -68,6 +63,15 @@
 
         .box .content+.cont-footer {
             margin-top: 16px;
+        }
+
+        .btn .gradient-text {
+            font-size: 14px;
+            font-weight: 500;
+            background: linear-gradient(90deg, #37F 13.22%, #8228FF 61.16%, #2937FF 100%);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
         }
     </style>
 </head>
