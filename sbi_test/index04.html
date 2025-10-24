@@ -2,156 +2,105 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <style>
-        * { margin: 0; padding: 0; }
-        ul, ol, li { list-style: none; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>롤링 테스트</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<style>
+    * { margin: 0; padding: 0; }
+    ul, ol, li { list-style: none; }
 
-        /* 롤링 텍스트 */
-        .rolling-bar {
-            overflow: hidden;
-            position: relative;
-            display: flex;
-            margin: 40px 0;
-            width: 100%;
-            height: 100px;
-            color: #fff;
-            background: #000;
-        }
-        .rolling-bar .roller {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            align-items: center;
-            flex-wrap: nowrap;
-            height: 100%;
-        }
-        .rolling-bar .roller li {
-            margin-left: 20px;
-            white-space: nowrap;
-            animation: 3s linear infinite forwards movingVertical;
-        }
-        .rolling-bar .roller li:nth-child(odd) {
-            animation: 3s linear infinite forwards movingVertical2;
-        }
-        .rolling-bar .roller li>span {
-            font-size: 14px;
-        }
-        .logo-box {
-            width: 60px;
-            height: 60px;
-            background-color: #fff;
-            border-radius: 24px;
-        }
-        /* 원본 애니메이션 */
-        .roller.original {
-            animation: 40s linear 0s infinite forwards rollingleft01;
-        }
-        /* 복제본 애니메이션 (기본) */
-        .roller.clone {
-            animation: 40s linear 0s infinite none rollingleft02;
-        }
-        /* 홀수일 때 반대 방향 */
-        .roller.clone.reverse li {
-            animation-name: movingVertical2;
-        }
-        .roller.clone.reverse li:nth-child(odd) {
-            animation-name: movingVertical;
-        }
-        /* 원본 */
-        @keyframes rollingleft01 {
-            0% {
-                transform: translateX(0);
-            }
-            50% {
-                transform: translateX(-100%);
-            }
-            50.01% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(0);
-            }
-        }
-        /* 클론 */
-        @keyframes rollingleft02 {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-200%);
-            }
-        }
-        @keyframes movingVertical {
-            0% {
-                transform: translateY(-10px);
-            }
-            50% {
-                transform: translateY(10px);
-            }
-            100% {
-                transform: translateY(-10px);
-            }
-        }
-        @keyframes movingVertical2 {
-            0% {
-                transform: translateY(10px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-            100% {
-                transform: translateY(10px);
-            }
-        }
-    </style>
+    /* 롤링 텍스트 */
+    .rolling-bar {
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        margin: 40px 0;
+        width: 100%;
+        height: 100px;
+        background: #000;
+    }
+    .rolling-bar .roller {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        height: 100%;
+    }
+    .rolling-bar .roller li {
+        margin-left: 20px;
+        animation: 3s linear infinite forwards movingVertical;
+    }
+    .rolling-bar .roller li:nth-child(odd) {
+        animation-name: movingVertical2;
+    }
+    .logo-box {
+        width: 60px;
+        height: 60px;
+        background-color: #fff;
+        border-radius: 24px;
+    }
+    /* 원본 애니메이션 */
+    .roller.original { animation: 40s linear 0s infinite forwards rollingleft01; }
+    /* 복제본 애니메이션 (기본) */
+    .roller.clone { animation: 40s linear 0s infinite forwards rollingleft02; }
+    /* 홀수일 때 반대 방향 */
+    .roller.clone.reverse li { animation-name: movingVertical2; }
+    .roller.clone.reverse li:nth-child(odd) { animation-name: movingVertical; }
+
+    /* horizontal 롤링 */
+    @keyframes rollingleft01 {
+        0% { transform: translateX(0); }
+        50% { transform: translateX(-100%); }
+        50.01% { transform: translateX(100%); }
+        100% { transform: translateX(0); }
+    }
+
+    @keyframes rollingleft02 {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-200%); }
+    }
+
+    /* vertical 흔들림 */
+    @keyframes movingVertical { 0%,100% { transform: translateY(-10px); } 50% { transform: translateY(10px); } }
+    @keyframes movingVertical2 { 0%,100% { transform: translateY(10px); } 50% { transform: translateY(-10px); } }
+</style>
 </head>
 <body>
-    <div class="rolling-bar">
-        <ul class="roller">
-            <li>
-                <div class="logo-box"></div>
-            </li>
-            <li>
-                <div class="logo-box"></div>
-            </li>
-            <li>
-                <div class="logo-box"></div>
-            </li>
-            <li>
-                <div class="logo-box"></div>
-            </li>
-            <!-- 홀수 -->
-            <!-- <li>
-                <div class="logo-box"></div>
-            </li> -->
-            <!-- //홀수 -->
-        </ul>
-    </div>
+<div class="rolling-bar">
+    <ul class="roller">
+        <li><div class="logo-box"></div></li>
+        <li><div class="logo-box"></div></li>
+        <li><div class="logo-box"></div></li>
+        <li><div class="logo-box"></div></li>
+        <li><div class="logo-box"></div></li>
+    </ul>
+</div>
 
-    <script>
-        $(function () {
-            // 롤링바 생성
-            const $roller = $('.roller');
-            const $clone = $roller.clone().appendTo($('.rolling-bar'));
-            const cloneWidth = $roller.width();
+<script>
+$(function () {
+    // 롤링바 생성
+    const $roller = $('.roller');
+    const $clone = $roller.clone().appendTo($('.rolling-bar'));
+    const cloneWidth = $roller.outerWidth(true);
 
-            $roller.addClass('original');
-            $clone.addClass('clone');
-            $roller.css('left', 0);
-            $clone.css('left', cloneWidth);
+    $roller.addClass('original');
+    $clone.addClass('clone');
+    $roller.css('left', 0);
+    $clone.css('left', cloneWidth);
 
-            // li 개수 홀짝 판단
-            const itemCount = $roller.find('li').length;
-            if (itemCount % 2 === 1) {
-                $clone.addClass('reverse');
-            }
-        });
-    </script>
+    // li 홀짝 체크
+    const itemCount = $roller.find('li').length;
+    if (itemCount % 2 === 1) $clone.addClass('reverse');
+
+    // animation-duration 비례 적용
+    const duration = Math.max(20, itemCount * 8); // 최소 20s, li수 * 8s
+    $roller.css('animation-duration', duration + 's');
+    $clone.css('animation-duration', duration + 's');
+});
+</script>
 </body>
 </html>
