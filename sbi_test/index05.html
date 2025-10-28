@@ -14,18 +14,9 @@
     .roller li { margin-left: 20px; }
     .logo-box { width: 60px; height: 60px; background-color: #fff; border-radius: 24px; }
 
-    /* horizontal 롤링 */
-    @keyframes rollingleft01 {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-300%); } /* 3개 클론 기준으로 300% 이동 */
-    }
-
-    /* vertical 흔들림 */
-    @keyframes movingVertical { 0%,100% { transform: translateY(-10px); } 50% { transform: translateY(10px); } }
-    @keyframes movingVertical2 { 0%,100% { transform: translateY(10px); } 50% { transform: translateY(-10px); } }
-
     /* 각 roller 애니메이션 적용 */
     .roller { animation: rollingleft01 40s linear infinite; }
+    .roller[class*=clone] { animation: rollingleft02 40s linear infinite; }
     .roller li { animation: 3s linear infinite movingVertical; }
     .roller li:nth-child(odd) { animation-name: movingVertical2; }
 
@@ -33,6 +24,22 @@
     .reverse li { animation-name: movingVertical2; }
     .reverse li:nth-child(odd) { animation-name: movingVertical; }
 
+    /* horizontal 롤링 */
+    @keyframes rollingleft01 {
+        0% { transform: translateX(0); }
+        50% { transform: translateX(-200%); }
+        50.01% { transform: translateX(0%); }
+        100% { transform: translateX(-200%); }
+    }
+
+    @keyframes rollingleft02 {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-200%); }
+    }
+
+    /* vertical 흔들림 */
+    @keyframes movingVertical { 0%,100% { transform: translateY(-10px); } 50% { transform: translateY(10px); } }
+    @keyframes movingVertical2 { 0%,100% { transform: translateY(10px); } 50% { transform: translateY(-10px); } }
 </style>
 </head>
 <body>
@@ -80,7 +87,10 @@ $(function () {
 
     // li 개수 기반 속도 계산
     const duration = Math.max(20, itemCount * 8); // 최소 20s, li수 * 8s
-    $('.roller').css('animation-duration', duration + 's');
+    $roller.css('animation-duration', duration * 2 + 's');
+    $clone1.css('animation-duration', duration + 's');
+    $clone2.css('animation-duration', duration + 's');
+    $clone3.css('animation-duration', duration + 's');
 });
 </script>
 
