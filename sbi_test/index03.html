@@ -42,6 +42,20 @@
             color: #fff;
         }
         .btn {width: 100%; height: 100%; padding: 40px 0; font-size: 18px; color: #fff;}
+
+        .scrollx {
+            display: flex;
+            overflow-x: auto;
+            gap: 12px;
+        }
+        .item {
+            flex: 0 0 auto;
+            padding: 12px 20px;
+            background-color: #356CF9;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 16px;
+        }
     </style>
 </head>
 
@@ -63,6 +77,17 @@
             </div>
         </div>
     </div> -->
+
+    <div class="wrap">
+        <div class="scrollx">
+            <button type="button" class="item">메뉴1</button>
+            <button type="button" class="item">메뉴2</button>
+            <button type="button" class="item">메뉴3</button>
+            <button type="button" class="item">메뉴4</button>
+            <button type="button" class="item">메뉴5</button>
+        </div>
+        <div class="text0"></div>
+    </div>
 
 
 
@@ -116,14 +141,28 @@
             spaceBetween: 30
         });
 
-        addEventListener('focusin', (e) => {
-            const isBtn = e.target.classList.contains('btn');
-            const idx = parseInt(e.target.closest('.swiper-slide').dataset.swiperSlideIndex, 10);
-            const text = document.querySelector('.text');
-            if (isBtn) {
-                text.textContent = (idx + 1) + '번 슬라이드 입니다.';
-            }
-        });
+        (function () {
+            const isBtn = document.querySelectorAll('.btn')
+            isBtn.forEach((btn) => {
+                btn.addEventListener('focus', (e) => {
+                    const idx = parseInt(e.target.closest('.swiper-slide').dataset.swiperSlideIndex, 10);
+                    const text = document.querySelector('.text');
+                    text.textContent = (idx + 1) + '번 슬라이드 입니다.';
+                });
+            });
+
+
+
+            const isMEnu = document.querySelectorAll('.item')
+            isMEnu.forEach((menu) => {
+                menu.addEventListener('focus', (e) => {
+                    const idx = Array.from(isMEnu).indexOf(e.target);
+                    const text = document.querySelector('.text0');
+                    console.log(idx);
+                    text.textContent = (idx + 1) + '번 메뉴 입니다.';
+                });
+            });
+        })()
 
     </script>
 </body>
