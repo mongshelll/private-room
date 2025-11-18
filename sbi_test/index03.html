@@ -64,7 +64,7 @@
             </div>
         </div>
 
-        <div class="text">현재 슬라이드</div>
+        <div class="text"></div>
     </div>
 
     <script>
@@ -84,7 +84,7 @@
             const idx = parseInt(e.target.closest('.swiper-slide').dataset.swiperSlideIndex, 10);
             const text = document.querySelector('.text');
             if (isBtn) {
-                text.textContent = '현재 슬라이드 ' + (idx + 1) + '번 입니다.';
+                text.textContent = (idx + 1) + '번 슬라이드 입니다.';
             }
         });
 
