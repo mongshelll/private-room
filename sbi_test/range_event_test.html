@@ -29,6 +29,67 @@
         return Number(_value).toLocaleString();
     }
 
+    const range = (() => {
+        // output 업데이트 전용 함수
+        const updateOutput = (el) => {
+            const wrap = el.closest('.range-wrap');
+            const output = wrap.querySelector('output');
+            if (output) output.value = commaFn(el.value);
+        };
+        
+        return {
+            // 초기화: 이벤트는 여기서 한 번만
+            init: () => {
+                const ranges = document.querySelectorAll('input[type="range"]');
+
+                ranges.forEach(el => {
+                    // 초기 output 세팅
+                    updateOutput(el);
+
+                    // 드래그 중
+                    el.addEventListener('input', () => {
+                        updateOutput(el);
+                    });
+
+                    // 드래그 종료 or programmatic change
+                    el.addEventListener('change', () => {
+                        console.log('내부 change 이벤트');
+                    });
+                });
+            }, 
+            // 값 변경 함수
+            rangeChange: (el, value) => {
+                if (!el) return;
+
+                el.value = value;
+                el.dispatchEvent(new Event('input', { bubbles: true }));
+                el.dispatchEvent(new Event('change', { bubbles: true }));
+                console.log('값 변경 함수 실행');
+            }
+        };
+    })();
+
+    targetInput01.addEventListener('change', () => {
+        console.log('함수 외부 change');
+    })
+
+    // 로드 후 기본 실행 함수모음
+    function ready() {
+        range.init();
+    }
+
+    // 로드 후 실행
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', ready);
+    } else {
+        ready();
+    }
+
+
+
+
+
+
     // const range = (() => {
     //     const targetRange = document.querySelectorAll('input[type=range]')
     //     const dispatchEventChange = new Event('change');
@@ -60,63 +121,6 @@
     //         }
     //     }
     // })()
-
-    const range = (() => {
-        
-        // output 업데이트 전용 함수
-        const updateOutput = (el) => {
-            const wrap = el.closest('.range-wrap');
-            const output = wrap.querySelector('output');
-            if (output) output.value = commaFn(el.value);
-        };
-        
-        return {
-            // 초기화: 이벤트는 여기서 한 번만
-            init: () => {
-                const ranges = document.querySelectorAll('input[type="range"]');
-
-                ranges.forEach(el => {
-                    // 초기 output 세팅
-                    updateOutput(el);
-
-                    // 드래그 중
-                    el.addEventListener('input', () => {
-                        updateOutput(el);
-                    });
-
-                    // 드래그 종료 or programmatic change
-                    el.addEventListener('change', () => {
-                        console.log('내부 change 이벤트');
-                    });
-                });
-            }, 
-            // 버튼으로 값 변경
-            rangeChange: (el, value) => {
-                if (!el) return;
-
-                el.value = value;
-                el.dispatchEvent(new Event('input', { bubbles: true }));
-                el.dispatchEvent(new Event('change', { bubbles: true }));
-            }
-        };
-    })();
-
-
-    targetInput01.addEventListener('change', () => {
-        console.log('함수 외부 change');
-    })
-
-    // 로드 후 기본 실행 함수모음
-    function ready() {
-        range.init();
-    }
-
-    // 로드 후 실행
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', ready);
-    } else {
-        ready();
-    }
 </script>
 </body>
 </html>
