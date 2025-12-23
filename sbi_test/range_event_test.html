@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://test-app.sbisb.co.kr/_pub/html/TEST/test.html -->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type=range] {appearance: none; background: red;}
+        input[type=range]::-webkit-slider-runnable-track {width: 100%; height: 8px; cursor: pointer; background: linear-gradient(to right, #fff, #000) no-repeat; background-size: contain; border-radius: 12px;}
+        input[type=range]::-webkit-slider-thumb {appearance: none; width: 16px; height: 16px; background: #303030; border-radius: 50%; cursor: pointer; margin-top: -4px;}
+    </style>
+</head>
+<body>
+<div class="range-wrap">
+    <div>
+        <button type="button" class="edit-value-btn" onclick="range.rangeChange(targetInput01, 1500);">
+            <span>range 값 변경 버튼</span>
+            <output></output>
+        </button><br>
+    </div>
+    <div>
+        <input type="range" id="targetInput01" class="ragne-test" value="3000" min="1" max="3000" step="1">
+    </div>
+</div>
+
+<script>
+    const commaFn = (_value) => {
+        return Number(_value).toLocaleString();
+    }
+
+    // const range = (() => {
+    //     const targetRange = document.querySelectorAll('input[type=range]')
+    //     const dispatchEventChange = new Event('change');
+
+    //     return {
+    //         init: () => {
+    //             targetRange.forEach(el => {
+    //                 const rangeWrap = el.closest('.range-wrap');
+    //                 rangeWrap.querySelector('output') ? rangeWrap.querySelector('output').value = commaFn(el.value) : null;
+
+    //                 el.addEventListener('input', () => {
+    //                     rangeWrap.querySelector('output').value = commaFn(el.value);
+    //                 })
+    //             })
+    //         },
+    //         rangeChange: (_el, _changeVlaue) => {
+    //             const rangeWrap = _el.closest('.range-wrap')
+    //             console.log(1);
+
+    //             _el.value = _changeVlaue;
+    //             console.log(2);
+    //             _el.addEventListener('change', () => {
+    //                 rangeWrap.querySelector('output').value = commaFn(_el.value);
+    //                 // rangeWrap.querySelector('output').value = Number(_el.value).toLocaleString();
+    //                 console.log('함수 내부 change');
+    //             })
+    //             _el.dispatchEvent(dispatchEventChange)
+    //             console.log(4);
+    //         }
+    //     }
+    // })()
+
+    const range = (() => {
+        
+        // output 업데이트 전용 함수
+        const updateOutput = (el) => {
+            const wrap = el.closest('.range-wrap');
+            const output = wrap.querySelector('output');
+            if (output) output.value = commaFn(el.value);
+        };
+        
+        return {
+            // 초기화: 이벤트는 여기서 한 번만
+            init: () => {
+                const ranges = document.querySelectorAll('input[type="range"]');
+
+                ranges.forEach(el => {
+                    // 초기 output 세팅
+                    updateOutput(el);
+
+                    // 드래그 중
+                    el.addEventListener('input', () => {
+                        updateOutput(el);
+                    });
+
+                    // 드래그 종료 or programmatic change
+                    el.addEventListener('change', () => {
+                        console.log('내부 change 이벤트');
+                    });
+                });
+            }, 
+            // 버튼으로 값 변경
+            rangeChange: (el, value) => {
+                if (!el) return;
+
+                el.value = value;
+                el.dispatchEvent(new Event('input', { bubbles: true }));
+                el.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+        };
+    })();
+
+
+    targetInput01.addEventListener('change', () => {
+        console.log('함수 외부 change');
+    })
+
+    // 로드 후 기본 실행 함수모음
+    function ready() {
+        range.init();
+    }
+
+    // 로드 후 실행
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', ready);
+    } else {
+        ready();
+    }
+</script>
+</body>
+</html>
