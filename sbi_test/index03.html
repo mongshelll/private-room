@@ -98,6 +98,7 @@
 
     <div class="wrap">
         <div class="inner">
+            <button type="button" class="item">button</button>
             <div class="swiper mySwiper2">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" style="background-color: red;">
@@ -117,6 +118,7 @@
                     </div>
                 </div>
             </div>
+            <button type="button" class="item">button</button>
         </div>
 
         <div class="text"></div>
@@ -141,9 +143,10 @@
                 enabled: true,
             },
             direction: 'horizontal',
-            loop: false,
+            loop: true,
             slidesPerView: 3,
-            spaceBetween: 30
+            spaceBetween: 30,
+            centeredSlides: true
         });
 
         (function () {
