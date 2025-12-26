@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        .sr-only {position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); border: 0; white-space: nowrap;}
         input[type=range] {appearance: none; background: red;}
         input[type=range]::-webkit-slider-runnable-track {width: 100%; height: 8px; cursor: pointer; background: linear-gradient(to right, #fff, #000) no-repeat; background-size: contain; border-radius: 12px;}
         input[type=range]::-webkit-slider-thumb {appearance: none; width: 16px; height: 16px; background: #303030; border-radius: 50%; cursor: pointer; margin-top: -4px;}
@@ -15,129 +16,135 @@
 <div class="range-wrap">
     <div>
         <button type="button" class="edit-value-btn" aria-live="polite" aria-label="range 값 변경 버튼, 현재 값 3000" onclick="range.rangeChange(targetInput01, 1500);">
-        <span>range 값 변경 버튼</span>
-        <output aria-hidden="true"></output>
+            <span>range 값 변경 버튼</span>
+            <output aria-hidden="true"></output>
         </button>
     </div>
     <div>
-        <label id="rangeLabel01" for="targetInput01">금액 선택</label>
-        <input type="range" id="targetInput01" class="range-test" value="3000" min="1" max="3000" step="1" aria-labelledby="rangeLabel01" aria-valuemin="1" aria-valuemax="3000">
+        <label id="rangeLabel01" for="targetInput01" class="sr-only">금액 선택</label>
+        <input type="range" id="targetInput01" class="range-test" value="3000" min="1" max="3000" step="1">
     </div>
 </div>
 
 <script>
-    const commaFn = (value) => Number(value).toLocaleString();
+const commaFn = (value) => Number(value).toLocaleString();
 
-    const range = (() => {
-        const updateUI = (el) => {
-            const wrap = el.closest('.range-wrap');
-            if (!wrap) return;
+const range = (() => {
+    const updateUI = (el) => {
+        const wrap = el.closest('.range-wrap');
+        if (!wrap) return;
+        const inputRange = el;
+        const inputRangeLabelId = el.previousElementSibling ? el.previousElementSibling.id : null;
+        const rangeMin = inputRange.getAttribute('min') || '0';
+        const rangeMax = inputRange.getAttribute('max') || '100';
+        const button = wrap.querySelector('.edit-value-btn');
+        const output = wrap.querySelector('output');
 
-            const button = wrap.querySelector('.edit-value-btn');
-            const output = wrap.querySelector('output');
+        const value = el.value;
+        const formatted = commaFn(value);
 
-            const value = el.value;
-            const formatted = commaFn(value);
+        /* ===============================
+        * 시각적 출력
+        * =============================== */
+        if (output) output.value = formatted;
 
-            /* ===============================
-            * 시각적 출력
-            * =============================== */
-            if (output) output.value = formatted;
+        /* ===============================
+        * range 접근성
+        * =============================== */
+        if (inputRangeLabelId) inputRange.setAttribute('aria-labelledby', inputRangeLabelId);
+        inputRange.setAttribute('aria-valuemin', `${commaFn(rangeMin)}`);
+        inputRange.setAttribute('aria-valuemax', `${commaFn(rangeMax)}`);
+        inputRange.setAttribute('aria-valuetext', `${formatted}`);
 
-            /* ===============================
-            * range 접근성
-            * =============================== */
-            el.setAttribute('aria-valuetext', `${formatted}`);
+        /* ===============================
+        * 버튼 접근성 (현재 값 안내)
+        * =============================== */
+        if (button) button.setAttribute('aria-label', `range 값 변경 버튼, 현재 값 ${formatted}`);
+    };
 
-            /* ===============================
-            * 버튼 접근성 (현재 값 안내)
-            * =============================== */
-            if (button) button.setAttribute('aria-label', `range 값 변경 버튼, 현재 값 ${formatted}`);
-        };
+    const bind = (el) => {
+        el.addEventListener('input', () => {
+            updateUI(el);
+        });
 
-        const bind = (el) => {
-            el.addEventListener('input', () => {
+        // iOS VoiceOver / 심사 포인트
+        el.addEventListener('change', () => {
+            updateUI(el);
+            console.log('내부 change 이벤트');
+        });
+    };
+
+    return {
+        init() {
+            document.querySelectorAll('input[type="range"]').forEach(el => {
                 updateUI(el);
+                bind(el);
             });
+        },
 
-            // iOS VoiceOver / 심사 포인트
-            el.addEventListener('change', () => {
-                updateUI(el);
-                console.log('내부 change 이벤트');
-            });
-        };
+        rangeChange(el, value) {
+            if (!el) return;
 
-        return {
-            init() {
-                document.querySelectorAll('input[type="range"]').forEach(el => {
-                    updateUI(el);
-                    bind(el);
-                });
-            },
-
-            rangeChange(el, value) {
-                if (!el) return;
-
-                el.value = value;
-                el.dispatchEvent(new Event('input', { bubbles: true }));
-                el.dispatchEvent(new Event('change', { bubbles: true }));
-            }
-        };
-    })();
+            el.value = value;
+            el.dispatchEvent(new Event('input', { bubbles: true }));
+            el.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+    };
+})();
 
 
-    targetInput01.addEventListener('change', () => {
-        console.log('함수 외부 change');
-    })
+targetInput01.addEventListener('change', () => {
+    console.log('함수 외부 change');
+})
 
-    // 로드 후 기본 실행 함수모음
-    function ready() {
-        range.init();
-    }
+// 로드 후 기본 실행 함수모음
+function ready() {
+    range.init();
+}
 
-    // 로드 후 실행
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', ready);
-    } else {
-        ready();
-    }
+// 로드 후 실행
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ready);
+} else {
+    ready();
+}
 
 
 
 
 
 
-    // const range = (() => {
-    //     const targetRange = document.querySelectorAll('input[type=range]')
-    //     const dispatchEventChange = new Event('change');
+// const range = (() => {
+//     const targetRange = document.querySelectorAll('input[type=range]')
+//     const dispatchEventChange = new Event('change');
 
-    //     return {
-    //         init: () => {
-    //             targetRange.forEach(el => {
-    //                 const rangeWrap = el.closest('.range-wrap');
-    //                 rangeWrap.querySelector('output') ? rangeWrap.querySelector('output').value = commaFn(el.value) : null;
+//     return {
+//         init: () => {
+//             targetRange.forEach(el => {
+//                 const rangeWrap = el.closest('.range-wrap');
+//                 rangeWrap.querySelector('output') ? rangeWrap.querySelector('output').value = commaFn(el.value) : null;
 
-    //                 el.addEventListener('input', () => {
-    //                     rangeWrap.querySelector('output').value = commaFn(el.value);
-    //                 })
-    //             })
-    //         },
-    //         rangeChange: (_el, _changeVlaue) => {
-    //             const rangeWrap = _el.closest('.range-wrap')
-    //             console.log(1);
+//                 el.addEventListener('input', () => {
+//                     rangeWrap.querySelector('output').value = commaFn(el.value);
+//                 })
+//             })
+//         },
+//         rangeChange: (_el, _changeVlaue) => {
+//             const rangeWrap = _el.closest('.range-wrap')
+//             console.log(1);
 
-    //             _el.value = _changeVlaue;
-    //             console.log(2);
-    //             _el.addEventListener('change', () => {
-    //                 rangeWrap.querySelector('output').value = commaFn(_el.value);
-    //                 // rangeWrap.querySelector('output').value = Number(_el.value).toLocaleString();
-    //                 console.log('함수 내부 change');
-    //             })
-    //             _el.dispatchEvent(dispatchEventChange)
-    //             console.log(4);
-    //         }
-    //     }
-    // })()
+//             _el.value = _changeVlaue;
+//             console.log(2);
+//             _el.addEventListener('change', () => {
+//                 rangeWrap.querySelector('output').value = commaFn(_el.value);
+//                 // rangeWrap.querySelector('output').value = Number(_el.value).toLocaleString();
+//                 console.log('함수 내부 change');
+//             })
+//             _el.dispatchEvent(dispatchEventChange)
+//             console.log(4);
+//         }
+//     }
+// })()
 </script>
 </body>
 </html>
