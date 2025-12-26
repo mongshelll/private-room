@@ -14,9 +14,9 @@
 <body>
 <div class="range-wrap">
     <div>
-        <button type="button" class="edit-value-btn" onclick="range.rangeChange(targetInput01, 1500);">
+        <button type="button" class="edit-value-btn" onclick="range.setValue(targetInput01, 1500);">
             <span>range 값 변경 버튼</span>
-            <output></output>
+            <output></output><span class="num-unit"></span>
         </button>
     </div>
     <div>
@@ -25,49 +25,97 @@
 </div>
 
 <script>
-    const commaFn = (_value) => {
-        return Number(_value).toLocaleString();
-    }
-
     const range = (() => {
-        // output 업데이트 전용 함수
-        const updateOutput = (el) => {
-            const wrap = el.closest('.range-wrap');
-            const output = wrap.querySelector('output');
-            if (output) output.value = commaFn(el.value);
+
+        /* ===============================
+        * utils
+        * =============================== */
+        const comma = (value) =>
+            Number(value).toLocaleString();
+
+        const getUnit = (wrap) => {
+            const unitEl = wrap.querySelector('.num-unit');
+            return unitEl ? unitEl.textContent.trim() : '';
         };
 
+        /* ===============================
+        * UI update
+        * =============================== */
+        const updateUI = (el) => {
+            const wrap = el.closest('.range-wrap');
+            if (!wrap) return;
+
+            const output = wrap.querySelector('.rangevalue, output');
+            const button = el.closest('button');
+
+            const unit = getUnit(wrap);
+            const value = el.value;
+            const formatted = comma(value);
+
+            // output 업데이트
+            if (output) {
+                if ('value' in output) {
+                    output.value = formatted;
+                } else {
+                    output.textContent = formatted;
+                }
+                output.setAttribute('title', formatted);
+            }
+
+            // aria-valuetext (접근성)
+            el.setAttribute(
+                'aria-valuetext',
+                unit.includes('원') ? `${formatted}${unit}` : `${value}${unit}`
+            );
+
+            // button aria-label
+            if (button) {
+                button.setAttribute(
+                    'aria-label',
+                    unit.includes('원') ? `${formatted}${unit}` : `${value}${unit}`
+                );
+            }
+
+            // range fill
+            const min = Number(el.min || 0);
+            const max = Number(el.max || 100);
+            el.style.backgroundSize = ((value - min) * 100) / (max - min) + '% 100%';
+        };
+
+        /* ===============================
+        * event binding
+        * =============================== */
+        const bind = (el) => {
+            el.addEventListener('input', () => {
+                updateUI(el);
+            });
+
+            // iOS VoiceOver 대응
+            el.addEventListener('change', () => {
+                updateUI(el);
+                console.log('함수 내부 change');
+            });
+        };
+
+        /* ===============================
+        * public API
+        * =============================== */
         return {
-            // 초기화: 이벤트는 여기서 한 번만
-            init: () => {
-                const ranges = document.querySelectorAll('input[type="range"]');
-
-                ranges.forEach(el => {
-                    // 초기 output 세팅
-                    updateOutput(el);
-
-                    // 드래그 중
-                    el.addEventListener('input', () => {
-                        updateOutput(el);
-                    });
-
-                    // 드래그 종료 or programmatic change
-                    el.addEventListener('change', () => {
-                        console.log('내부 change 이벤트');
-                    });
+            init() {
+                document.querySelectorAll('input[type="range"]').forEach(el => {
+                    updateUI(el);
+                    bind(el);
                 });
             },
-            // 값 변경 함수
-            rangeChange: (el, value) => {
+            setValue(el, value) {
                 if (!el) return;
-
                 el.value = value;
                 el.dispatchEvent(new Event('input', { bubbles: true }));
                 el.dispatchEvent(new Event('change', { bubbles: true }));
-                console.log('값 변경 함수 실행');
             }
         };
     })();
+
 
     targetInput01.addEventListener('change', () => {
         console.log('함수 외부 change');
