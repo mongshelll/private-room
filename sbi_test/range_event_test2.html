@@ -15,13 +15,13 @@
 <body>
 <div class="range-wrap">
     <div>
-        <button type="button" class="edit-value-btn" aria-live="polite" aria-label="range 값 변경 버튼, 현재 값 3000" onclick="range.rangeChange(targetInput01, 1500);">
+        <button type="button" class="edit-value-btn" aria-label="range 값 변경 버튼, 현재 값 3000" onclick="range.rangeChange(targetInput01, 1500);">
             <span>range 값 변경 버튼</span>
             <output aria-hidden="true"></output>
         </button>
     </div>
     <div>
-        <label id="rangeLabel01" for="targetInput01" class="sr-only">금액 선택</label>
+        <label for="targetInput01" class="sr-only">금액 선택</label>
         <input type="range" id="targetInput01" class="range-test" value="3000" min="1" max="3000" step="1">
     </div>
 </div>
@@ -33,10 +33,6 @@ const range = (() => {
     const updateUI = (el) => {
         const wrap = el.closest('.range-wrap');
         if (!wrap) return;
-        const inputRange = el;
-        const inputRangeLabelId = el.previousElementSibling ? el.previousElementSibling.id : null;
-        const rangeMin = inputRange.getAttribute('min') || '0';
-        const rangeMax = inputRange.getAttribute('max') || '100';
         const button = wrap.querySelector('.edit-value-btn');
         const output = wrap.querySelector('output');
 
@@ -51,10 +47,7 @@ const range = (() => {
         /* ===============================
         * range 접근성
         * =============================== */
-        if (inputRangeLabelId) inputRange.setAttribute('aria-labelledby', inputRangeLabelId);
-        inputRange.setAttribute('aria-valuemin', `${commaFn(rangeMin)}`);
-        inputRange.setAttribute('aria-valuemax', `${commaFn(rangeMax)}`);
-        inputRange.setAttribute('aria-valuetext', `${formatted}`);
+        el.setAttribute('aria-valuetext', `${formatted}`);
 
         /* ===============================
         * 버튼 접근성 (현재 값 안내)
