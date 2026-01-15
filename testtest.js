@@ -3034,8 +3034,10 @@ if (!window.UICommon) {
                         }
                         // e: sscn 250912: 커스텀 progressbar step 생성
                     }
-                    if($swiper.find('.swiper-slide').length > 1) $this.find('.swiper-pagination-wrap, .swiper-button').show();
-                    else $this.find('.swiper-pagination-wrap, .swiper-button').hide();
+                    // sscn 260108: 슬라이드 1개인경우 페이지네이션 숨김처리
+                    if($swiper.find('.swiper-slide').length > 1) $this.find('.swiper-pagination-wrap, .swiper-pagination, .swiper-button').show();
+                    else $this.find('.swiper-pagination-wrap, .swiper-pagination, .swiper-button').hide();
+                    // sscn 260108: 슬라이드 1개인경우 페이지네이션 숨김처리
                 });
 
                 // wa-241120 | pagination - title: 선택됨
@@ -3187,7 +3189,7 @@ if (!window.UICommon) {
                 let options = Object.assign({
                     el : null,
                     format: 'YYYY.MM.DD',
-                    beginYear: 2000,
+                    beginYear: 1900, // sscn 260113: 개발 수정요청
                     endYear: 2100,
                     baseEl: '.pg-wrap',
                     cancel: function() {
@@ -4003,7 +4005,7 @@ if (!window.UICommon) {
                     const _left = _target[0].offsetLeft - 24
 
                     if(uiMobile.iOS()) {
-                        allMenu.navigator.smoothScrollX($container, _left);
+                        allMenu.navigator.smoothScrollX($container, _left); // ios 스크롤 중복 버벅임 대응
                     } else {
                         $container.scrollTo({
                             left: _left,
@@ -4205,10 +4207,17 @@ if (!window.UICommon) {
                         $('.scroll-panel .acc-item-wrap').removeClass('on');
                     }
                 };
+                uiScrollTabTotal.panelInit(); // sscn 260113: 마지막 아이템 높이 초기화
 
                 // 탭 클릭 또는 터치 이벤트
                 $('.scroll-wrap.total button').off('click').on('click', function(event) {
                     event.preventDefault(); // 기본 동작을 방지
+
+                    // sscn 260113: 마지막 아이템 높이 초기화
+                    setTimeout(()=> {
+                        uiScrollTabTotal.panelInit()
+                        $(window).trigger('scroll')
+                    }) 
 
                     // 활성화된 탭의 콘텐츠 영역 설정
                     const tabNumber = $(this).index() + 1;
@@ -4232,7 +4241,7 @@ if (!window.UICommon) {
                     content.find('.acc-item-wrap').attr('tabindex', '-1').focus();
 
                     // '.tab-wrap.round .tab-list'에 'on' 클래스 업데이트
-                    const firstSectionOffset = content.find('.scroll-panel .acc-item-wrap').eq(0).offset().top;
+                    const firstSectionOffset = content.find('.scroll-panel .acc-item-wrap').length ? content.find('.scroll-panel .acc-item-wrap').eq(0).offset().top : undefined; // sscn 260113: nodata인 경우 고려
                     updateSlideListOnClass(targetScrollTop, firstSectionOffset);
                 });
 
@@ -4289,10 +4298,15 @@ if (!window.UICommon) {
                     activeContent.find('.tab-wrap.round .scroll-wrap button').removeClass('active').removeAttr('title');//.attr('aria-pressed', 'false');
                     activeContent.find('.acc-item-wrap').removeClass('on');
 
+                    // s: sscn 260113: nodata인 경우 고려
                     // 라운드 버튼 'on' 클래스 업데이트
-                    const firstSectionOffset = activeContent.find('.scroll-panel .acc-item-wrap').eq(0).offset().top;
-                    updateSlideListOnClass(scrollTop, firstSectionOffset);
-                    updateMenuAreaOnClass(scrollTop, secTitPositions);
+                    if(activeContent.find('.scroll-panel .acc-item-wrap').length) {
+                        const firstSectionOffset = activeContent.find('.scroll-panel .acc-item-wrap').eq(0).offset().top;
+                        updateSlideListOnClass(scrollTop, firstSectionOffset);
+                        updateMenuAreaOnClass(scrollTop, secTitPositions);
+                        console.log(scrollTop);
+                    }
+                    // e: sscn 260113: nodata인 경우 고려
 
                     // 스크롤 위치에 따라 활성화된 버튼 설정
                     if (scrollTop < assetWrap) {
@@ -4301,7 +4315,7 @@ if (!window.UICommon) {
 
                         // s: sscn 250919: 전계좌조회 라운드버튼 스크롤이동
                         // 전체 버튼에 적용
-                        if($('.tab-wrap').closest('.pg-wrap.total.sscn').length) {
+                        if($('.tab-wrap').closest('.pg-wrap.total.sscn').length && !activeContent.find('.result.nodata')) {
                             let activeBtn = activeContent.find('.tab-wrap.round .scroll-wrap').find('button.active');
                             UICommon.tabMenu.tabScroll(activeBtn);
                         }
@@ -4338,6 +4352,52 @@ if (!window.UICommon) {
                 });
 
             },
+            // s: sscn 260113: 전계좌 패널 사이즈 수정 반영
+            panelInit : function() {
+                const activeContent = $('.tab-wrap .tab-panel.active'); // 활성화 패널
+                const lastItems = activeContent.find('.acc-item-wrap:last'); // 활성화 패널 마지막 아이템
+                const buffer = 6
+                const headHeight = $('.pg-header').outerHeight(); // 헤더 높이
+                const tabHeight = $('.tab-list.start-fit').outerHeight(); // 사이다뱅크, 다른금융 탭 높이
+                const scrollPanel = activeContent.find('.scroll-panel'); // 활성화 패널 리스트 wrap
+                const slideListHeight = activeContent.find('.tab-wrap.round .tab-list').is(':hidden') ? 0 : activeContent.find('.tab-wrap.round .tab-list').outerHeight(); // 라운드 탭 높이
+                const fixedTitleH = activeContent.find('.item-prod.items').length ? activeContent.find('.item-prod.items').outerHeight() : 0; // 아이템 타이틀 높이
+                const fixedAreaH = headHeight + tabHeight + slideListHeight + fixedTitleH; // 스크롤 fixed 영역 높이
+
+                const bannerWrap = activeContent.find('.prod-bnr-set');
+                // 개발에서 각각 배너를 display: none;으로 처리
+                // 배너영역 높이 값 체크 함수 추가
+                const getBannerHeight = (el) => {
+                    if (!el || !el.length) return 0;
+                    const outerH = el.outerHeight(true);
+                    const marginTop = parseInt(el.css('margin-top'), 10) || 0;
+                    return outerH === marginTop ? 0 : outerH // 모든 배너가 display: none;인 경우 0 반환
+                };
+                const bannerH = getBannerHeight(bannerWrap); // 배너영역 높이
+                const contFootBtnH = activeContent.find('.btns.cont-foot.center').length ? activeContent.find('.btns.cont-foot.center').outerHeight(true) : 0; // 해지계좌조회 버튼영역 높이
+                const contFootBtnH2 = activeContent.find('.tab-wrap.round .btns.cont-foot').length ? activeContent.find('.tab-wrap.round .btns.cont-foot').outerHeight(true) : 0; // 순서변경, 다른금융추가 버튼영역 높이
+                const lastItemsHeight = (lastItems.length ? lastItems[0].clientHeight : 0) + bannerH + contFootBtnH + contFootBtnH2; // 마지막 아이템 높이 + 배너, 버튼영역 높이
+
+                const screenHeight = window.innerHeight; // 화면 높이
+                const lastItemsPaddingB = (screenHeight - (fixedAreaH + lastItemsHeight) + buffer) / 10; // 추가되는 padding-bttom 값
+                const noDataCase = activeContent.find('.result.nodata').length ? ((activeContent.find('.asset-wrap').outerHeight() + activeContent.find('.result.nodata').outerHeight(true) + 24) / 10) : 0;
+                const extraMargin = 4.2;
+                const noDataPaddingBottom = Number((lastItemsPaddingB - noDataCase - extraMargin).toFixed(1));
+
+                if(screenHeight > fixedAreaH + lastItemsHeight && !activeContent.find('.result.nodata').length) {
+                    scrollPanel.css('padding-bottom', `${lastItemsPaddingB}rem`);
+                    console.log('add padding-bottom');
+                } else {
+                    scrollPanel.removeAttr('style');
+                    console.log('common');
+                }
+
+                if (activeContent.find('.result.nodata').length && noDataPaddingBottom > 0) {
+                    scrollPanel.css('padding-bottom', `${noDataPaddingBottom}rem`);
+                    console.log(noDataPaddingBottom, 'nodata');
+                }
+            }
+            // s: sscn 260113: 전계좌 패널 사이즈 수정 반영
         }
         let util = {
             debounce: function (func, timeout = 100) {
