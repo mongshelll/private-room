@@ -3871,7 +3871,8 @@ if (!window.UICommon) {
                 let setOffset = function() {
                     documentWidth = $(window).width();
                     offsetTop = allMenu.$sticky.map((i, el)=>{
-                        $(el).next('div').css('--fixed-margin-top', parseInt($(el).outerHeight()))
+                        // $(el).next('div').css('--fixed-margin-top', parseInt($(el).outerHeight()))
+                        $(el).next('div').css('--fixed-margin-top', parseInt(el.offsetHeight)) // sscn 260120: 개발소스에서 outerHeight()값이 다르게 계산되어 수정
                         return el.offsetTop - (parseInt($(el).css('top')) ? parseInt($(el).css('top')) : 0);
                     });
                 }
@@ -4304,7 +4305,6 @@ if (!window.UICommon) {
                         const firstSectionOffset = activeContent.find('.scroll-panel .acc-item-wrap').eq(0).offset().top;
                         updateSlideListOnClass(scrollTop, firstSectionOffset);
                         updateMenuAreaOnClass(scrollTop, secTitPositions);
-                        console.log(scrollTop);
                     }
                     // e: sscn 260113: nodata인 경우 고려
 
@@ -4352,7 +4352,7 @@ if (!window.UICommon) {
                 });
 
             },
-            // s: sscn 260113: 전계좌 패널 사이즈 수정 반영
+            // s: sscn 260114: 전계좌 패널 사이즈 수정 반영
             panelInit : function() {
                 const activeContent = $('.tab-wrap .tab-panel.active'); // 활성화 패널
                 const lastItems = activeContent.find('.acc-item-wrap:last'); // 활성화 패널 마지막 아이템
@@ -4386,18 +4386,13 @@ if (!window.UICommon) {
 
                 if(screenHeight > fixedAreaH + lastItemsHeight && !activeContent.find('.result.nodata').length) {
                     scrollPanel.css('padding-bottom', `${lastItemsPaddingB}rem`);
-                    console.log('add padding-bottom');
                 } else {
                     scrollPanel.removeAttr('style');
-                    console.log('common');
                 }
 
-                if (activeContent.find('.result.nodata').length && noDataPaddingBottom > 0) {
-                    scrollPanel.css('padding-bottom', `${noDataPaddingBottom}rem`);
-                    console.log(noDataPaddingBottom, 'nodata');
-                }
+                if (activeContent.find('.result.nodata').length && noDataPaddingBottom > 0) scrollPanel.css('padding-bottom', `${noDataPaddingBottom}rem`);
             }
-            // s: sscn 260113: 전계좌 패널 사이즈 수정 반영
+            // s: sscn 260114: 전계좌 패널 사이즈 수정 반영
         }
         let util = {
             debounce: function (func, timeout = 100) {
